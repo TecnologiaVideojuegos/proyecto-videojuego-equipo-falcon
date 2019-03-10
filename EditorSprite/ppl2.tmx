@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="2" height="2" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="lpcfemalelight.tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="2" height="2">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACnNlYmBwA+J4IE4AYgDXqRO0EAAAAA==
+  </data>
+ </layer>
+</map>
