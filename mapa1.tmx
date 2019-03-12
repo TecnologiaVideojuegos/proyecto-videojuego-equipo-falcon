@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="3">
  <tileset firstgid="1" name="interior6" tilewidth="32" tileheight="32" tilecount="400" columns="20">
   <image source="../../../Downloads/tileset01.png" width="640" height="640"/>
  </tileset>
@@ -13,19 +13,19 @@
    H4sIAAAAAAAACtWYS04CQRCGCyaZRK+AqPdQwFvIQsId3KrAEdyr6EYu4fMejo+j+HeYDu2kqqd6HtouvpAADd/U/KmunhURbXfWHJMf850VbShbY3/XXaNh0SU6S4muwDW4AUtwC+5AP0fjLHlorplbd9mRse5TuD2AR/AEnsELeHXctc5S/dzP3XVjj//plozr/gYy8A4+wCf4UriXOWuvgcub1r0vkHncq+bUl6OQ37TuPcfTsAf2PXWv463xD3E/AIdgAIZgBI5K3Ot4u/513U2vOQGTnGKOmq45V/txRfeyHtlGzaXah7pre2STNedq73MfJESz7oZpouuRob2wqr/vP0yd505GuHxwtOFb5D5HkxEpHzG7z/OMSPng9qaY3Hu50276cx/KCq8x5t3uRdw+xBFDn5kU+swo8c8z/6G/mwztCDn6rX21jXkmK7jHNM+Y/Jt55hxcgFm6fm8h1D22OTJknolpfjc1rnrma/PcpK27b57h8t7UebXOfbR1L+uRf/GcQFt3e+YzcD1S68Dd9zafz7j7rHTm+wYtq9HCXBIAAA==
   </data>
  </layer>
- <layer id="5" name="Terreno Bloqueante1" width="47" height="25" visible="0">
+ <layer id="5" name="Terreno Bloqueante1" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu1XS07DMBCdtnwqQKEXgA2sWbMBIShtVVoVDgCNAAFLjlAOULFkgVA5AkfhAtyBC4B4ph51Ejlp3Hp2fdKTHSeZeZ5M7DFREmdgx/b7YAx2K0TPFXJiiPGeuNe37Z4Y+1kh+gUPVokOwQH4ZDlItb7Yt5qlXrKaoxzdUn9k52DefVlOzmkLmrbBS/AKfAdHjnaUo/1iyT1u4rxr++semvPmwNc9h43jKtEJWAdPwQbYBFtVP38GMY1jT5SfH0UxnKK/LrTyPBqW5x6+azTJ8RC6pX5X7hvcQuM9+ABegzfgneUjnv0oE32Xp/swucI5nvYxL4y9NmXnThY+obvmeP61lLwOmStpSM2h42JgcmVDyTYJu7GCbWNTI+YMjv2ssXmz77nWyFnWQl8M5/DxpaxtgQUW0EfkuefNgq6Sj6OS/57tA947NPY+rn0199V2IPtZ9YxG7OV+HYc1/Y+O6GvVkVo1Ryz6IWPPes35L0RMXPVMy7abND6HhNAv46xZ5/EauUOT/zZ97iwKec5tkq5uBmvl/1Z+gyJzkJpNjvCYtm6GObNyXspvsEb5eZSlUWPNTa+Rf+aQCH1cEgAA
+   H4sIAAAAAAAACu2Xy07CQBSGDyBK1CAvoBtdu3ajMYpAEII+gNKoUZe+geBdk8YlMcaA98vKR/EFfAdfQOM/MhNOmwHa0klM9E++TDu0M/8cTudC5NQiKMjrMrBAMUZ0HiOtbNSX2G9lWU6yus9+oi8wPUA0AyqgKqm4Sr+akp65X5Kek8z3Rdz5nrq35XNiDOLdWtw5plF4GgMrYBU0QF1T1jt4X+7T14s4T8jrIY1nr+JjUPclTRtzCaJ5kAYLIAOyIJfw15+QRc3YE3XOD6+yu/hPM69qHBnJko++U9TK8TB8c/+63BfagMctsA3WwDrYlOzg2dco0Ue0ex8iV1SOu/voVaK9PLXPnXZ6g++U5vnLiPM+zFxxi3sOOy5CIleGDbVNrF3LQNuiTRMxV1KxDxqbK/mebo4MMhf6ld1DH+8e3nOvO//6O9rF/F4BVbAH9sEBOARH4BicgFNwFmANNqk6/DTANbgBt+AO3IMH8AiewDN4+WXe/Srpc80LoqKhPmYj/tdsP1Jrh4m1T+19Ta6r+ZDab7efMRF7vl5b4Tb9owK7NrWPNLXnsNh1mLFXfsX5L4yY6PYzOVmOUPMcEoZ/HmeT+zw1R45T67t1nzu9ip9zs2TWt5Lyqr5b/h94GQP3XIu36kz7VhJnVpWX/D8YpM551M6jiTnXPUd+A06Je/xcEgAA
   </data>
  </layer>
  <layer id="6" name="Terreno Bloqueante 2" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACtWYS04DMQyGg6qRZlfu0K7ZliX7VuII7U0o78IWCYkVz5bHLXhchMdB+KpOhMnCASZOh1/6FtFETmJ7JvZ0nHNd6MG603Va6OM+DGBUjduwGrFZRz2xxiAy96zQx0PYWPkad9zCL1bqV2vM1x0ltv2TWMb0WDr3BM/wUn5/NqzWsJDPoTq588p+3+AdPsr4/FTabC1iaZ07lkqRO8uSz53/qPk7tdays39SxOc0ya5UeM80xa72jfQK75lUqmt3Wd/IXGpCvm/h1zFsww7swh7swwEcwgSO4FjEoAn5fs5+LuASruAabmAKM7iFO7iHB7F3y3y3rictZVUT5PCHZU1gEVNp07ImsIiptGlZE8iYpopBrtpRxvSvMQjPnKt2lP2e5q/wnpHj8MypekitnvmNv7T/BP7Mqd97rZ7x/vI9q+Yv7T+BP3PO/k7mSJ389GfO2d99AkMqUTxcEgAA
+   H4sIAAAAAAAACtVYSw6CQAwdQkjY6R1w7RaX7iHxCHAetyZGr+At/FzEz0EsgYl1Ah112hl8yVuMknbaPmZaMqXUDJgDF4rGNqHXBbAE1t16ApxabLogRz5KR1sVcBm91plq8+KKXdT/e9H5aPzWDH4wPqmlDcdUqRPwDLyk7/9VnQ8JaA25aOcK+70B78BHan+eC6u4rSWXdkKAQzuhoLXzj2jeqXksZ3+T2J8JZXfojNQw7xkuuNqlzkhp7B33HuqM9IUx670Pa1SDsep9CAe0d1ddDqGxK91PSkKqJ/CRD8meQKKm2KZkTyBRU2xTsifANeWqga/eEdf01xqYMXPqhOpn8LxH5cu8Z/DajJlrhqT6mW/yRX0n0DFzv/dUP6PzpWdWKl/m/YXXOmaf8x3WiIs+dcw+57snsdiRA1wSAAA=
   </data>
  </layer>
- <layer id="7" name="Terreno difuso" width="47" height="25" visible="0" opacity="0.3">
+ <layer id="7" name="Terreno difuso" width="47" height="25" opacity="0.5">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAX0BmfYB9oF5IM3Q9jto4A6gGk0DYyCUTAsAA8HAwMvx0C7gjygA3S37hB1+ygYBSMZeA7hfJs5hN0+CkbBKBj8IAFYxiQO8XIGAKrUe5pcEgAA
+   H4sIAAAAAAAACu3UwRUAEAwE0dykGArRBUe9KkURtMBBxJtfwVx2RXBbD9YF54bjdgDAH6KKJLWuALArO95tc9wO4H1lfUx1/jMTPMmkEVwSAAA=
   </data>
  </layer>
 </map>

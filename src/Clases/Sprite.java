@@ -24,17 +24,17 @@ public class Sprite {
     Animation actual, up, down, left, right, stanceright, stanceleft, stanceup, stancedown;
     int[] duration = {200, 200};
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
-    //Rectangle hitbox;
-    Line h1,h2,h3,h4;
+    Rectangle h1,h2,h3,h4;
     
     public Sprite() {
         try {
             
-            //hitbox = new Rectangle(coordenadaX+16,coordenadaY+32,32,32);
-            h1 = new Line(coordenadaX+16, coordenadaY+32, coordenadaX+48, coordenadaY+32);
-            h2 = new Line(coordenadaX+16, coordenadaY+32, coordenadaX+16, coordenadaY+64);
-            h3 = new Line(coordenadaX+48, coordenadaY+32, coordenadaX+48, coordenadaY+64);
-            h4 = new Line(coordenadaX+16, coordenadaY+64, coordenadaX+48, coordenadaY+64);
+            
+            
+            h1 = new Rectangle(coordenadaX+17, coordenadaY+32, 30, 1);
+            h2 = new Rectangle(coordenadaX+16, coordenadaY+33, 1, 30);
+            h3 = new Rectangle(coordenadaX+48, coordenadaY+33, 1, 30);
+            h4 = new Rectangle(coordenadaX+17, coordenadaY+64, 30, 1);
             
             Image[] movementUp = {new Image("imagenesSprite\\up1.png"), new Image("imagenesSprite\\up2.png")};
             Image[] movementDown = {new Image("imagenesSprite\\down1.png"), new Image("imagenesSprite\\down2.png")};
@@ -101,11 +101,10 @@ public class Sprite {
 
     public void setCoordenadaX(float coordenadaX) {
         this.coordenadaX = coordenadaX;
-        //hitbox.setBounds(coordenadaX+16,coordenadaY+32,32,32);
-        h1.set(coordenadaX+16, coordenadaY+32, coordenadaX+48, coordenadaY+32);
-        h2.set(coordenadaX+16, coordenadaY+32, coordenadaX+16, coordenadaY+64);
-        h3.set(coordenadaX+48, coordenadaY+32, coordenadaX+48, coordenadaY+64);
-        h4.set(coordenadaX+16, coordenadaY+64, coordenadaX+48, coordenadaY+64);
+        h1.setBounds(coordenadaX+17, coordenadaY+32, 30, 1);
+        h2.setBounds(coordenadaX+16, coordenadaY+33, 1, 30);
+        h3.setBounds(coordenadaX+48, coordenadaY+33, 1,30);
+        h4.setBounds(coordenadaX+17, coordenadaY+64, 30, 1);
     }
 
     public float getCoordenadaY() {
@@ -113,31 +112,28 @@ public class Sprite {
     }
 
     public void setCoordenadaY(float coordenadaY) {
+       
         this.coordenadaY = coordenadaY;
-        //hitbox.setBounds(coordenadaX+16,coordenadaY+32,32,32);
-        h1.set(coordenadaX+16, coordenadaY+32, coordenadaX+48, coordenadaY+32);
-        h2.set(coordenadaX+16, coordenadaY+32, coordenadaX+16, coordenadaY+64);
-        h3.set(coordenadaX+48, coordenadaY+32, coordenadaX+48, coordenadaY+64);
-        h4.set(coordenadaX+16, coordenadaY+64, coordenadaX+48, coordenadaY+64);
+        h1.setBounds(coordenadaX+17, coordenadaY+32, 30, 1);
+        h2.setBounds(coordenadaX+16, coordenadaY+33, 1, 30);
+        h3.setBounds(coordenadaX+48, coordenadaY+33, 1, 30);
+        h4.setBounds(coordenadaX+17, coordenadaY+64, 30, 1);
+        
     }
-
-    /*public Rectangle getHitbox() {
-        return hitbox;
-    } */   
-
-    public Line getH1() {
+    
+    public Rectangle getH1() {
         return h1;
     }
 
-    public Line getH2() {
+    public Rectangle getH2() {
         return h2;
     }
 
-    public Line getH3() {
+    public Rectangle getH3() {
         return h3;
     }
 
-    public Line getH4() {
+    public Rectangle getH4() {
         return h4;
     }
     
