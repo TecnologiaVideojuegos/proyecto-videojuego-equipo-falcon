@@ -11,7 +11,7 @@
  <tileset firstgid="3169" source="!$clock.tsx"/>
  <layer id="1" name="Capa de Patrones 1" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu2XTU7DMBBGRzSqlMkN+NnQCyDKQVokuA+9AaGLbkkrlS0pUtnCDUBsWMIZOABjOSMNxnETWttUsHiy5Yydl0+TqB0hwOgPcNgFeEnaMwGAYQZwmrnr1Pm+3Ht09kfSHuV+Rt7nmbuu59n9KKnnimrGqEeeK2/Fa0fj2h/CfScF6AiSVK9PqWaGeuS5zb1ufwj3XbrXnmA//Z772JhL97r9Md2nNd7b4L4QvTIz5tL9mOr7xEEE9376FfN7oZzvUD8Lr7H7RVcjMwjlzi4DAa+xVxNiuLfxW+XOvXOyhe6hv++bcr+k83LUI89D9bsL6djmt4Nv9we08ygyNJkTk4qbKuNbohTZh8j9Ce08E9cWpLf05+tFQPc3tPNeZWliejN8vQzo7uoZdimrPJXP0uJ9j7+vZ9ghF/4muQHvKSLnLj1MxybEflcLR+ariP2ulmvg0139F/4pTc/w5f7P5vgE1tqhYFwSAAA=
+   H4sIAAAAAAAACu2XTU7DMBBGRzSqiLPtip8NvUBFOQggwX04AqELtqSV2m0DEmzhBiA2LOEMHICxnJGGwXETWttUdPFky7Gdl0/jpO1tA/T+AQddgNekPdcAcJIBnGbueXp/X+593PszaY92P0Pv88w9r+/ZfZDUc6UARsq01NfemreOwbU+hPtWCtBhJKkZH6PrRJmW+jb3uvUh3HfwXruMvfRn7iPR5+5162O6j2u818H9ltXKRPS5+yHOHyL7EdyH6Xfk+0I73ynzLDRG7hddA88glDu5HDNojLyaEMO9jd8id6qdozV0D/1+X5X7JZ6FXJmW+qHq3QV3bPPbwbf7o7LzxDKUTPX3tWJWZTxHSpZ9iNyflZ0X5MYC9+b+dL0I6P6u7HxUWUqkN0HXy4Durpohl7LKU/vcW7wf/mDNkEPO/CW5gNYUkXPnHtKxCbHPauHIfBGxz2q5BD7d9X/h39J0D1/uG1bHF8iMsNtcEgAA
   </data>
  </layer>
  <layer id="2" name="Capa de patrones 2" width="47" height="25">
