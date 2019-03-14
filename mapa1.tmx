@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="3">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="3">
  <tileset firstgid="1" name="interior6" tilewidth="32" tileheight="32" tilecount="400" columns="20">
   <image source="../../../Downloads/tileset01.png" width="640" height="640"/>
  </tileset>
@@ -17,6 +17,11 @@
  <layer id="5" name="Terreno Bloqueante1" width="47" height="25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu2XSU4CQRSGHyBC1CAX0I2uXbvRGAcgCFEPoHTUqEtvIDhrQlwSYww4DwvlJMoFvIMX0PiX1AtF20AXdCUm+idfurrpqvrr8boGonrNgpQsZ4AF0gGikwA5Ko/nc8pvGXkdUZ59dBN9grEQ0TjIgpwka7vqalR6Vv2S9BxRfJ8G6+vxfV6+J8Yg6haC9WMagKdBsAiWQAkUHa7FJt4XupyfizgPy3Kvg2e3UsfA91x+gq9nUAaTYaIpMA1mQAzEQSKs15+QRdXYEzXPD50x2P2/wPMrqISqntkrjyMmmdfoO0q1HPfCt+rfKfeFVuFxHWyAZbAC1iSbeLfsJ3r3t+5D5ArnuL2PTiXaS9LP77mVKvAddXj/zFd/72Wu2KV69jouQiJX+gy1TUq7loG2RZsmYs7i2Lcbm3NZz2mObGcu1FW+gz7eXNSzrzv/+jvawvyeBTmwDXbALtgD++AAHIIjcNzGGmxSRfgpgQtwCa7ANbgBt+AO3IMH8PjLvOsqornmtaO0oT4mfPprto547TCx9vHe1+S6mvSo/Ub7GROxV9dry9umv5VSyqb2kab2HJZS9jL27Fec/7yIidN+JiGv/VQ9h3jhX42zyX0ez5FDVPtu7edOt1LPuXEy65vFXvm7Vf8DN2NQPReCtWemfbPEmZXzUv0Peqh5HjXyaGLOtc+RX0PXaXBcEgAA
+  </data>
+ </layer>
+ <layer id="10" name="Capa de patrones 5" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
   </data>
  </layer>
  <layer id="6" name="Terreno Bloqueante 2" width="47" height="25">
