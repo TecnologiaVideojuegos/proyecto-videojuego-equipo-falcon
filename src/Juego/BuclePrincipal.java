@@ -6,7 +6,10 @@
 package Juego;
 
 import Clases.Mapa1;
+import Clases.Mapa2;
+import Clases.MapaT;
 import Clases.Sprite;
+import java.util.ArrayList;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -22,27 +25,31 @@ import org.newdawn.slick.tiled.TiledMap;
  */
 public class BuclePrincipal extends BasicGame {
 
-    Object mapas[]= new Object[4];
+    ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     int a = 0, b = 0, c = 0, d = 0;
-    Mapa1 mapa1;
+    Mapa1 mapa1 = new Mapa1();
+    Mapa2 mapa2 = new Mapa2();
+    MapaT mapa_actual = new MapaT();
     Sprite personaje;
 
     public BuclePrincipal() {
         super("");
-        mapa1 = new Mapa1();
-        mapas[0] = mapa1;
+        mapa_actual = mapa1;
+        mapas = new ArrayList<>();
+        mapas.add(mapa1);
+        mapas.add(mapa2);
     }
 
     @Override
     public void init(GameContainer gc) throws SlickException {
-        mapa = new TiledMap(mapa1.getMapa());
+        mapa = new TiledMap(mapa_actual.getMapa());
         personaje = new Sprite();
     }
 
     @Override
     public void update(GameContainer gc, int i) throws SlickException {
-        Polygon salidas[] = mapa1.getSalidas();
+        Polygon salidas[] = mapa_actual.getSalidas();
         float nuevo_mapa = 0;
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_ENTER)) {
@@ -54,22 +61,22 @@ public class BuclePrincipal extends BasicGame {
             personaje.getDir().update(i);
             
             
-            if (personaje.getH1().intersects(mapa1.getBordes()[0]) || personaje.getH1().intersects(mapa1.getBordes()[1])) {
+            if (personaje.getH1().intersects(mapa_actual.getBordes()[0]) || personaje.getH1().intersects(mapa_actual.getBordes()[1])) {
                 a = 1;
             } else {
                 a = 0;
             }
             if (a == 0 || b == 1) {
-
-                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f);
+                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.16f);
                 for(int n=0;n<2;n++)
                 {
                     if(personaje.getH1().intersects(salidas[n]))
                     {
-                        nuevo_mapa = mapa1.getMapas(n);
-                        mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa2.tmx");
+                        nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual = mapas.get((int)nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa());
                         personaje.setCoordenadaX(830);
-                        personaje.setCoordenadaY(690);
+                        personaje.setCoordenadaY(640);
                     }
                 }
                 b = 0;
@@ -78,21 +85,22 @@ public class BuclePrincipal extends BasicGame {
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
             personaje.setDir("down");
             personaje.getDir().update(i);
-            if (personaje.getH4().intersects(mapa1.getBordes()[0]) || personaje.getH4().intersects(mapa1.getBordes()[1])) {
+            if (personaje.getH4().intersects(mapa_actual.getBordes()[0]) || personaje.getH4().intersects(mapa_actual.getBordes()[1])) {
                 b = 1;
             } else {
                 b = 0;
             }
             if (b == 0 || a == 1) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f);
+                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.16f);
                 for(int n=0;n<2;n++)
                 {
                     if(personaje.getH4().intersects(salidas[n]))
                     {
-                        mapa1.getMapas(n);
-                        mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa2.tmx");
+                        nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual = mapas.get((int)nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa());
                         personaje.setCoordenadaX(830);
-                        personaje.setCoordenadaY(690);
+                        personaje.setCoordenadaY(640);
                     }
                 }
                 a = 0;
@@ -101,21 +109,22 @@ public class BuclePrincipal extends BasicGame {
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
             personaje.setDir("left");
             personaje.getDir().update(i);
-            if (personaje.getH2().intersects(mapa1.getBordes()[0]) || personaje.getH2().intersects(mapa1.getBordes()[1])) {
+            if (personaje.getH2().intersects(mapa_actual.getBordes()[0]) || personaje.getH2().intersects(mapa_actual.getBordes()[1])) {
                 c = 1;
             } else {
                 c = 0;
             }
             if (c == 0 || d == 1) {
-                personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.14f);
+                personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f);
                 for(int n=0;n<2;n++)
                 {
                     if(personaje.getH2().intersects(salidas[n]))
                     {
-                        mapa1.getMapas(n);
-                        mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa2.tmx");
+                        nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual = mapas.get((int)nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa());
                         personaje.setCoordenadaX(830);
-                        personaje.setCoordenadaY(690);
+                        personaje.setCoordenadaY(640);
                     }
                 }
                 d = 0;
@@ -124,21 +133,22 @@ public class BuclePrincipal extends BasicGame {
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
             personaje.setDir("right");
             personaje.getDir().update(i);
-            if (personaje.getH3().intersects(mapa1.getBordes()[0]) || personaje.getH3().intersects(mapa1.getBordes()[1])) {
+            if (personaje.getH3().intersects(mapa_actual.getBordes()[0]) || personaje.getH3().intersects(mapa_actual.getBordes()[1])) {
                 d = 1;
             } else {
                 d = 0;
             }
             if (d == 0 || c == 1) {
-                personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.14f);
+                personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f);
                 for(int n=0;n<2;n++)
                 {
                     if(personaje.getH3().intersects(salidas[n]))
                     {
-                        mapa1.getMapas(n);
-                        mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa2.tmx");
+                        nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual = mapas.get((int)nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa());
                         personaje.setCoordenadaX(830);
-                        personaje.setCoordenadaY(690);
+                        personaje.setCoordenadaY(640);
                     }
                 }
                 c = 0;
@@ -164,8 +174,10 @@ public class BuclePrincipal extends BasicGame {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
         
-        g.draw(mapa1.getSalidas()[0]);
-        g.draw(mapa1.getSalidas()[1]);
+        g.draw(mapa_actual.getSalidas()[0]);
+        g.draw(mapa_actual.getSalidas()[1]);
+        g.draw(mapa_actual.getBordes()[0]);
+        g.draw(mapa_actual.getBordes()[1]);
 
     }
 
