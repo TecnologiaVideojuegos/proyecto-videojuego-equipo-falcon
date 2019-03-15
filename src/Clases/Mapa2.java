@@ -23,7 +23,7 @@ public class Mapa2 extends MapaT{
     private float   puntos4[] = new float[]{842,94,892,94,892,92,842,92};
     private Polygon salidas[] = new Polygon[4];
     
-    private float   mapas[] = new float[]{0,1,2,3};
+    private float   mapas[] = new float[]{0,2,2,3};
     private float   coord[] = new float[]{0,0,0,0,0,0,0,0,0,0};
     
     public Mapa2() {

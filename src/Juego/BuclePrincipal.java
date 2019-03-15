@@ -7,6 +7,7 @@ package Juego;
 
 import Clases.Mapa1;
 import Clases.Mapa2;
+import Clases.Mapa3;
 import Clases.MapaT;
 import Clases.Sprite;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class BuclePrincipal extends BasicGame {
     int a = 0, b = 0, c = 0, d = 0;
     Mapa1 mapa1 = new Mapa1();
     Mapa2 mapa2 = new Mapa2();
+    Mapa3 mapa3 = new Mapa3();
     MapaT mapa_actual = new MapaT();
     Sprite personaje;
 
@@ -39,6 +41,7 @@ public class BuclePrincipal extends BasicGame {
         mapas = new ArrayList<>();
         mapas.add(mapa1);
         mapas.add(mapa2);
+        mapas.add(mapa3);
     }
 
     @Override
@@ -166,7 +169,6 @@ public class BuclePrincipal extends BasicGame {
     public void render(GameContainer gc, Graphics grphcs) throws SlickException {
 
         Graphics g = new Graphics();
-
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
