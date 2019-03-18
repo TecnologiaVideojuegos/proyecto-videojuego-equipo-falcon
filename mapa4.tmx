@@ -20,7 +20,7 @@
  </layer>
  <layer id="3" name="Terreno Bloqueante1" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGNxAhAkVIwMddggdzszAEEEERgbk6KGm2/Wgbi8H2lFBBEYGxOpx4WBgcOWgrduJwehuJ4RBbk8BujuVWLczku52KxYGBmsgtgHiEiDfDkjbA7EtIwTrALEiC6reRBYIFmNlYJgN5AuxQtRdYoGwHaBsWoFeoNv52CFuB9kPcrstC8LtCqwQrMgKcTsfOwKD3A1yK8iNIPeXQN0Pc/slaDhQC8xmpaJho4BmwIaHPnpwgbnQ/BhIIK/7Au08wcnA4M2DKgYCOTjcA5NH1wMyB5ceUsBdduLV3uAk7DZi5NHNGQngLwnhPAoGJxjocoZYMBjLGVLAaDlDGzDanhkFpABC7ZlRgB0Q2z8cjADmNkL988EIpjPjx9OgGAQ2sDEwfGDDNAO9jAQAciuX9lwSAAA=
+   H4sIAAAAAAAACmNgGNxAhAkVIwMddggdzszAEEEERgbk6KGm2/Wgbi8H2lFBBEYGxOpx4WBgcOWgrduJwehuJ4RBbk8BujuVWLczku52KxYGBmsgtgHiEiDfDkjbA7EtIwTrALEiC6reRBYIFmNlYJgN5AuxQtRdYoGwHaBsWoFeoNv52CFuB9kPcrstC8LtCqwQrMgKcTsfOwKD3A1yK8iNIPeXQN0Pc/slaDhQC8xmpaJho4BmwIaHPnpwgbnQ/BhIIK/7Au08wcnA4M2DKgYCOTjcA5NH1wMyB5ceUsBdduLV3uAk7DZi5NHNGQngLwnhPAoGJxjocoZYMBjLGVLAaDlDGzDanhkFpABC7ZlRgB0Q2z8cjADmNkL988EISHH7BjYGhg9smGagl5EAZ4cuM1wSAAA=
   </data>
  </layer>
  <layer id="4" name="Terreno Bloqueante 2" width="47" height="25">
