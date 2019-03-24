@@ -9,23 +9,26 @@ import Clases.Mapa1;
 import Clases.Mapa2;
 import Clases.Mapa3;
 import Clases.Mapa4;
+import Clases.Mapa5;
+import Clases.Mapa6;
+import Clases.Mapa7;
 import Clases.MapaT;
 import Clases.Sprite;
 import java.util.ArrayList;
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.*;
 
 /**
  *
  * @author lucas
  */
-public class BuclePrincipal extends BasicGame {
+public class BuclePrincipal extends BasicGameState {
 
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
@@ -34,27 +37,32 @@ public class BuclePrincipal extends BasicGame {
     Mapa2 mapa2 = new Mapa2();
     Mapa3 mapa3 = new Mapa3();
     Mapa4 mapa4 = new Mapa4();
+    Mapa5 mapa5 = new Mapa5();
+    Mapa6 mapa6 = new Mapa6();
+    Mapa7 mapa7 = new Mapa7();
     MapaT mapa_actual = new MapaT();
     Sprite personaje;
 
-    public BuclePrincipal() {
-        super("");
+    public BuclePrincipal(String nombre) {
         mapa_actual = mapa1;
         mapas = new ArrayList<>();
         mapas.add(mapa1);
         mapas.add(mapa2);
         mapas.add(mapa3);
         mapas.add(mapa4);
+        mapas.add(mapa5);
+        mapas.add(mapa6);
+        mapas.add(mapa7);
     }
 
     @Override
-    public void init(GameContainer gc) throws SlickException {
+    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap(mapa_actual.getMapa());
         personaje = new Sprite();
     }
 
     @Override
-    public void update(GameContainer gc, int i) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         Polygon salidas[] = mapa_actual.getSalidas();
         float nuevo_mapa = 0;
         Input input = gc.getInput();
@@ -67,7 +75,7 @@ public class BuclePrincipal extends BasicGame {
             System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
         }
         //System.out.println();
-        if (input.isKeyDown(Input.KEY_UP)) {
+        if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
             for(int n=0;n<20;n++)
@@ -86,6 +94,7 @@ public class BuclePrincipal extends BasicGame {
                     if(personaje.getH1().intersects(salidas[n]))
                     {
                         nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
@@ -95,7 +104,7 @@ public class BuclePrincipal extends BasicGame {
                 b = 0;
             }
 
-        } else if (input.isKeyDown(Input.KEY_DOWN)) {
+        } else if (input.isKeyDown(Input.KEY_S)) {
             personaje.setDir("down");
             personaje.getDir().update(i);
             for(int n=0;n<20;n++)
@@ -114,6 +123,7 @@ public class BuclePrincipal extends BasicGame {
                     if(personaje.getH4().intersects(salidas[n]))
                     {
                         nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
@@ -123,7 +133,7 @@ public class BuclePrincipal extends BasicGame {
                 a = 0;
             }
 
-        } else if (input.isKeyDown(Input.KEY_LEFT)) {
+        } else if (input.isKeyDown(Input.KEY_A)) {
             personaje.setDir("left");
             personaje.getDir().update(i);
             for(int n=0;n<20;n++)
@@ -144,6 +154,7 @@ public class BuclePrincipal extends BasicGame {
                         
                         
                         nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
@@ -153,7 +164,7 @@ public class BuclePrincipal extends BasicGame {
                 d = 0;
             }
 
-        } else if (input.isKeyDown(Input.KEY_RIGHT)) {
+        } else if (input.isKeyDown(Input.KEY_D)) {
             personaje.setDir("right");
             personaje.getDir().update(i);
             for(int n=0;n<20;n++)
@@ -173,6 +184,7 @@ public class BuclePrincipal extends BasicGame {
                     if(personaje.getH3().intersects(salidas[n]))
                     {
                         nuevo_mapa = mapa_actual.getMapas(n);
+                        mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
@@ -191,7 +203,7 @@ public class BuclePrincipal extends BasicGame {
     }
 
     @Override
-    public void render(GameContainer gc, Graphics grphcs) throws SlickException {
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
 
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
@@ -211,14 +223,8 @@ public class BuclePrincipal extends BasicGame {
 
     }
 
-    public static void main(String[] string) {
-        try {
-            AppGameContainer app = new AppGameContainer(new BuclePrincipal());
-            app.setDisplayMode(1504, 800, false);
-
-            app.start();
-        } catch (SlickException e) {
-        }
+    @Override
+    public int getID() {
+        return 0; //To change body of generated methods, choose Tools | Templates.
     }
-
 }

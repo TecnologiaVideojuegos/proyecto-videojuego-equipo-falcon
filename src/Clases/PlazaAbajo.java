@@ -11,13 +11,13 @@ import org.newdawn.slick.geom.Polygon;
  *
  * @author lucas
  */
-public class Mapa3 extends MapaT{
+public class Mapa5 extends MapaT{
     
-    private String  mapa = "C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa3.tmx";
+    private String  mapa = "C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa5.tmx";
     
-    private float   puntos1 []  = new float[]{830,701,712,701,712,674,665,674,665,647,618,647,618,625,607,625,607,701,392,701,392,675,547,675,547,571,394,571,394,483,540,483,540,486,606,486,606,547,620,547,618,472,639,472,639,451,697,451,697,415,392,415,392,322,471,322,471,286,392,286,392,196,449,196,449,110,606,110,606,216,517,216,517,265,522,265,522,322,616,322,616,290,695,290,695,255,616,255,616,121,766,121,766,125,831,125,831,254,744,254,744,290,840,290,840,82,895,82,895,290,959,290,959,320,967,320,967,255,930,255,930,100,1021,100,1021,160,1088,160,1088,100,1119,100,1119,200,1088,200,1088,415,968,415,968,367,958,367,958,415,744,415,744,451,763,451,763,548,797,548,797,595,929,595,929,548,961,548,961,460,1118,460,1118,701,895,701,895,737,830,737};
-    private float   puntos2 []  = new float[]{1008,609,1008,536,1075,536,1075,609};
-    private float   puntos3 []  = new float[]{0,0,0,0,0,0,0,0};
+    private float   puntos1 []  = new float[]{1403,165,1407,254,1249,257,1247,350,1121,351,1121,449,1246,450,1247,544,1404,546,1408,639,1248,640,1247,767,966,767,966,126,460,126,460,163,506,163,506,347,350,347,350,414,322,414,322,598,350,598,350,612,383,612,383,644,412,644,412,611,480,611,480,642,512,642,512,736,255,736,255,800,63,800,64,736,0,736,0,162,406,163,406,127,0,127,0,0,95,0,95,32,352,32,352,64,384,64,384,0,479,0,479,64,512,64,512,32,703,32,703,0,1245,0,1245,165};
+    private float   puntos2 []  = new float[]{0,0,0,0,0,0,0,0};
+    private float   puntos3 []  = new float[]{0,0,0,0,0,0,0,00};
     private float   puntos4 []  = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos5 []  = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos6 []  = new float[]{0,0,0,0,0,0,0,0};
@@ -38,17 +38,17 @@ public class Mapa3 extends MapaT{
     
     private Polygon bordes [] = new Polygon[20];
     
-    private float   puntos21[] = new float[]{832,704,891,704,891,707,832,707};
-    private float   puntos22[] = new float[]{842,94,892,94,892,92,842,92};
+    private float   puntos21[] = new float[]{426,612,471,612,471,613,426,613};
+    private float   puntos22[] = new float[]{390,0,474,0,474,2,390,2};
     private float   puntos23[] = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0};
     
     private Polygon salidas[] = new Polygon[4];
     
-    private float   mapas[] = new float[]{0,3,2,3};
-    private float   coord[] = new float[]{0,0,0,0,0,0,0,0,0,0};
+    private float   mapas[] = new float[]{6,0,2,3};
+    private float   coord[] = new float[]{0,0,400,700,0,0,0,0,0,0};
     
-    public Mapa3() {
+    public Mapa5() {
         super();
         bordes[0]  = new Polygon(puntos1);
         bordes[1]  = new Polygon(puntos2);
@@ -77,6 +77,12 @@ public class Mapa3 extends MapaT{
         salidas[3] = new Polygon(puntos24);
     }
     
+      public void setCoordX(int x,int y)
+    {
+        coord[2*x]=y;
+    }
+    
+    
     public Polygon[] getBordes() {
         return bordes;
     }
@@ -96,5 +102,6 @@ public class Mapa3 extends MapaT{
     public float[] getCoord() {
         return coord;
     }
+
     
 }

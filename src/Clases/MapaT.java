@@ -78,6 +78,11 @@ public class MapaT {
         
     }
     
+    public void setCoordX(int x,int y)
+    {
+        coord[2*x]=y;
+    }
+    
     public Polygon[] getBordes() {
         return bordes;
     }

@@ -15,7 +15,7 @@ public class Mapa4 extends MapaT{
     
     private String  mapa = "C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa4.tmx";
     
-    private float   puntos1 []  = new float[]{384,735,64,736,63,767,31,769,31,799,0,799,0,201,842,201,840,287,1182,287,1183,158,1244,159,1245,165,1403,165,1407,254,1249,257,1247,350,1121,351,1121,449,1246,450,1247,544,1404,546,1408,639,1248,640,1247,767,551,767,550,737,480,737,480,798,385,798,382,737};
+    private float   puntos1 []  = new float[]{384,735,64,736,63,767,31,769,31,799,0,799,0,201,842,201,840,287,1182,287,1183,158,1244,159,1245,165,1403,165,1407,254,1249,257,1247,350,1121,351,1121,449,1246,450,1247,544,1404,546,1408,639,1248,640,1247,767,551,767,550,737,480,737,480,798,384,798,384,737};
     private float   puntos2 []  = new float[]{95,397,192,397,192,266,95,266};
     private float   puntos3 []  = new float[]{95,591,191,591,191,460,95,460};
     private float   puntos4 []  = new float[]{255,266,255,400,352,400,352,266};
@@ -38,7 +38,7 @@ public class Mapa4 extends MapaT{
     
     private Polygon bordes [] = new Polygon[20];
     
-    private float   puntos21[] = new float[]{388,779,388,789,475,789,475,779};
+    private float   puntos21[] = new float[]{390,800,474,800,474,798,390,798};
     private float   puntos22[] = new float[]{842,94,892,94,892,92,842,92};
     private float   puntos23[] = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0};
@@ -76,6 +76,12 @@ public class Mapa4 extends MapaT{
         salidas[2] = new Polygon(puntos23);
         salidas[3] = new Polygon(puntos24);
     }
+    
+      public void setCoordX(int x,int y)
+    {
+        coord[2*x]=y;
+    }
+    
     
     public Polygon[] getBordes() {
         return bordes;

@@ -41,12 +41,12 @@ public class Mapa1 extends MapaT{
     private float   puntos21[] = new float[]{390,0,474,0,474,2,390,2};
     private float   puntos22[] = new float[]{390,800,474,800,474,798,390,798};
     private float   puntos23[] = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0};
+    private float   puntos24[] = new float[]{776,798,1241,798,1241,800,776,800};
     
     private Polygon salidas[] = new Polygon[4];
     
-    private float   mapas[] = new float[]{3,1,2,3};
-    private float   coord[] = new float[]{417,741,0,0,0,0,0,0,0,0};
+    private float   mapas[] = new float[]{3,4,2,4};
+    private float   coord[] = new float[]{0,720,0,0,0,0,0,0};
     
     
     public Mapa1() {
@@ -76,6 +76,11 @@ public class Mapa1 extends MapaT{
         salidas[1] = new Polygon(puntos22);
         salidas[2] = new Polygon(puntos23);
         salidas[3] = new Polygon(puntos24);
+    }
+    
+    public void setCoordX(int x,int y)
+    {
+        coord[2*x]=y;
     }
     
     public Polygon[] getBordes() {
