@@ -11,7 +11,7 @@ import org.newdawn.slick.geom.Polygon;
  *
  * @author lucas
  */
-public class Mapa7 extends MapaT{
+public class Colegio extends MapaT{
     
     private String  mapa = "C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa7.tmx";
     
@@ -48,7 +48,7 @@ public class Mapa7 extends MapaT{
     private float   mapas[] = new float[]{0,1,2,3};
     private float   coord[] = new float[]{0,0,0,0,0,0,0,0,0,0};
     
-    public Mapa7() {
+    public Colegio() {
         super();
         bordes[0]  = new Polygon(puntos1);
         bordes[1]  = new Polygon(puntos2);

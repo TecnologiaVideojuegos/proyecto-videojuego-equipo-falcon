@@ -5,13 +5,13 @@
  */
 package Juego;
 
-import Clases.Mapa1;
-import Clases.Mapa2;
-import Clases.Mapa3;
-import Clases.Mapa4;
-import Clases.Mapa5;
-import Clases.Mapa6;
-import Clases.Mapa7;
+import Clases.PlazaCentral;
+import Clases.CasaProta;
+import Clases.Buhardilla;
+import Clases.PlazaArriba;
+import Clases.PlazaAbajo;
+import Clases.Boss1;
+import Clases.Colegio;
 import Clases.MapaT;
 import Clases.Sprite;
 import java.util.ArrayList;
@@ -33,13 +33,13 @@ public class BuclePrincipal extends BasicGameState {
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     int a = 0, b = 0, c = 0, d = 0;
-    Mapa1 mapa1 = new Mapa1();
-    Mapa2 mapa2 = new Mapa2();
-    Mapa3 mapa3 = new Mapa3();
-    Mapa4 mapa4 = new Mapa4();
-    Mapa5 mapa5 = new Mapa5();
-    Mapa6 mapa6 = new Mapa6();
-    Mapa7 mapa7 = new Mapa7();
+    PlazaCentral mapa1 = new PlazaCentral();
+    CasaProta mapa2 = new CasaProta();
+    Buhardilla mapa3 = new Buhardilla();
+    PlazaArriba mapa4 = new PlazaArriba();
+    PlazaAbajo mapa5 = new PlazaAbajo();
+    Boss1 mapa6 = new Boss1();
+    Colegio mapa7 = new Colegio();
     MapaT mapa_actual = new MapaT();
     Sprite personaje;
 
@@ -88,7 +88,7 @@ public class BuclePrincipal extends BasicGameState {
                 } 
             }
             if (a == 0 || b == 1) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.16f);
+                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f);
                 for(int n=0;n<4;n++)
                 {
                     if(personaje.getH1().intersects(salidas[n]))
@@ -117,7 +117,7 @@ public class BuclePrincipal extends BasicGameState {
                 } 
             }
             if (b == 0 || a == 1) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.16f);
+                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f);
                 for(int n=0;n<4;n++)
                 {
                     if(personaje.getH4().intersects(salidas[n]))
