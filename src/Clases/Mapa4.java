@@ -39,14 +39,14 @@ public class PlazaArriba extends MapaT{
     private Polygon bordes [] = new Polygon[20];
     
     private float   puntos21[] = new float[]{390,800,474,800,474,798,390,798};
-    private float   puntos22[] = new float[]{842,94,892,94,892,92,842,92};
+    private float   puntos22[] = new float[]{0,204,0,729,2,792,2,204};
     private float   puntos23[] = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0};
     
     private Polygon salidas[] = new Polygon[4];
-    
-    private float   mapas[] = new float[]{0,1,2,3};
-    private float   coord[] = new float[]{0,0,0,0,0,0,0,0,0,0};
+    //plaza central 
+    private float   mapas[] = new float[]{0,7,2,3};
+    private float   coord[] = new float[]{0,0,1438,0,0,0,0,0,0,0};
     
     public PlazaArriba() {
         super();
@@ -82,7 +82,11 @@ public class PlazaArriba extends MapaT{
         coord[2*x]=y;
     }
     
-    
+    public void setCoordY(int x,int y)
+    {
+        coord[(2*x)+1]=y;
+    }
+      
     public Polygon[] getBordes() {
         return bordes;
     }

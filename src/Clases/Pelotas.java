@@ -14,7 +14,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class Sprite {
+public class Pelotas {
     float coordenadaX = 300 ,coordenadaY= 300;
     Image[] movementUp;
     Image[] movementDown;
@@ -25,7 +25,7 @@ public class Sprite {
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
     Rectangle h1,h2,h3,h4;
     
-    public Sprite() {
+    public Pelotas() {
         try {
             
             

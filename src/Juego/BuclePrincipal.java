@@ -11,6 +11,7 @@ import Clases.Buhardilla;
 import Clases.PlazaArriba;
 import Clases.PlazaAbajo;
 import Clases.Boss1;
+import Clases.Carretera;
 import Clases.Colegio;
 import Clases.MapaT;
 import Clases.Sprite;
@@ -40,11 +41,12 @@ public class BuclePrincipal extends BasicGameState {
     PlazaAbajo mapa5 = new PlazaAbajo();
     Boss1 mapa6 = new Boss1();
     Colegio mapa7 = new Colegio();
+    Carretera mapa8 = new Carretera();
     MapaT mapa_actual = new MapaT();
     Sprite personaje;
 
-    public BuclePrincipal(String nombre) {
-        mapa_actual = mapa1;
+    public BuclePrincipal(int num) {
+        
         mapas = new ArrayList<>();
         mapas.add(mapa1);
         mapas.add(mapa2);
@@ -53,6 +55,9 @@ public class BuclePrincipal extends BasicGameState {
         mapas.add(mapa5);
         mapas.add(mapa6);
         mapas.add(mapa7);
+        mapas.add(mapa8);
+        
+        mapa_actual = mapas.get(num);
     }
 
     @Override
@@ -128,6 +133,11 @@ public class BuclePrincipal extends BasicGameState {
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
                         mapa = new TiledMap(mapa_actual.getMapa());
+                        if(nuevo_mapa==5)
+                        {
+                            System.out.println("3");
+                            sbg.enterState(1);
+                        }
                     }
                 }
                 a = 0;
@@ -154,7 +164,7 @@ public class BuclePrincipal extends BasicGameState {
                         
                         
                         nuevo_mapa = mapa_actual.getMapas(n);
-                        mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
+                        mapa_actual.setCoordY(n, (int) personaje.getCoordenadaY());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
@@ -184,11 +194,12 @@ public class BuclePrincipal extends BasicGameState {
                     if(personaje.getH3().intersects(salidas[n]))
                     {
                         nuevo_mapa = mapa_actual.getMapas(n);
-                        mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
+                        mapa_actual.setCoordY(n, (int) personaje.getCoordenadaY());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
                         mapa = new TiledMap(mapa_actual.getMapa());
+                        
                     }
                 }
                 c = 0;

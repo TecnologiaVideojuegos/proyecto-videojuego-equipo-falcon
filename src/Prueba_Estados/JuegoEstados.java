@@ -5,6 +5,7 @@
  */
 package Prueba_Estados;
 
+import Juego.BOSS1;
 import Juego.BuclePrincipal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +35,9 @@ public class JuegoEstados extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        this.addState(new BuclePrincipal("a"));//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.addState(new BuclePrincipal(0));
+        this.addState(new BOSS1());
+                            
     }
 
     /**

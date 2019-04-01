@@ -83,6 +83,11 @@ public class MapaT {
         coord[2*x]=y;
     }
     
+    public void setCoordY(int x,int y)
+    {
+        coord[(2*x)+1]=y;
+    }
+    
     public Polygon[] getBordes() {
         return bordes;
     }

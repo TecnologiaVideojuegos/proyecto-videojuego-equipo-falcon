@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
+ <tileset firstgid="1" name="interior6" tilewidth="32" tileheight="32" tilecount="400" columns="20">
+  <image source="../../../Downloads/tileset01.png" width="640" height="640"/>
+ </tileset>
+ <tileset firstgid="401" source="interior4.tsx"/>
+ <tileset firstgid="1425" source="Window1.tsx"/>
+ <tileset firstgid="1441" source="Outside_B.tsx"/>
+ <tileset firstgid="1697" source="Window.tsx"/>
+ <tileset firstgid="1713" source="interior3.tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAClvGwMCwjMq4lpmBoQ4J1zNT3w4uRuqbSQ+3g9w9lN0eTgN3j7p91O2jbh91+6jbB97tQ7VugmE7ZuLwNFZUjE9tHZ3cjm4PLozudmL1jbode3qPYyYOo7udWH0gHD+Eyhla41G3j7p91O1DA4+6feDcTqu2GL3cDwDHk6EkXBIAAA==
+  </data>
+ </layer>
+ <layer id="2" name="Capa de patrones 2" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgoC64zcjAMIsVEw8FMOp2wsCXmfpm0svteqNuRwGjbicMRt2OCkbdThj0DlG3v4CaJ8lEHGZkR8W/GLHj33SsV7HZgw1fZUTFxOobdfvwcTssvQ9Ft4MAqC3mxgZhuwBpVzbcfGyAkB5izCAXgMr3MKi5IUA6lA03HxsgpIcYMyhx+1AFo24fGDDq9oEBtGiLjQLiAACNyC/eXBIAAA==
+  </data>
+ </layer>
+ <layer id="5" name="Capa de patrones 3" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3TQQrCQAwF0I5gTqCCe+0JqifQnqB6Zo9Q8CbtxsBkcJMwkKYg8h/I9y9CZtE0DQAA/KMD5dxx7snuGs9MhNc2Zyt7TpxnsrvGMxNhlLdfZU/HeSG7azwzkXrZc+O8k901nplIT9kzcD7I7hrPTITyvS9Ru9W1bncMeHvtVkt/p+W7NMfN91e6lpop5duckt47+T+v9HYAAIBf8wHG4hCnXBIAAA==
+  </data>
+ </layer>
+ <layer id="6" name="Capa de patrones 4" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3LsQkAIAwAwcQt3H/LVNZCCFgKd90XHwEAcNtr7k7l+wMAwP8OT6zj+FwSAAA=
+  </data>
+ </layer>
+ <layer id="7" name="Capa de patrones 5" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgoD24zUgHS2gERt0+MGDU7QMDRt0+MGDU7fQBamyo/KHkdrMh7Ha3Iex2dEArt4tBw0gESIuy4eZjA4T0wPi0cjssX6kAaVU23HxsgJAeYsygBIDylSQTA4MJkDZlw81HB78YUdUQ4o+CUTAKRsEoGAUjAQAAPcHK4lwSAAA=
+  </data>
+ </layer>
+</map>

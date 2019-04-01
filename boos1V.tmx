@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="1">
+ <tileset firstgid="1" source="Outside_B.tsx"/>
+ <tileset firstgid="257" source="interior6.tsx"/>
+ <tileset firstgid="657" source="oubliette_dungeon_big.tsx"/>
+ <tileset firstgid="1237" source="interior7.tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACs2WTU7DQAyFJ+oAJ2DFHeAIICFYsqWFOyR3oGv+SpSs+afJadggjoLEBkeNlYfxNEkpxZU+tZkZdZ49z558rDm3653bU9gnXgfOvf0D78QnaRsSx0D1vBnNiH13EkA+LwPcZyNqqPSOat2noP3MdyMUy3gObfMSmY/1WjvrHoq8Z77B4oe9MgJYe+EbDshjh0bgMzgahPOOvqjq8sQI7MvKN8xWNItF88w8vxcKZWCc58qOtYQ1JWtW1hfGgvtZ1B7qFUn9/3mNRb8nEAOOjSE/pVG/Y7+V54Jnli/AVCDn23o65hX9KTVpa7FWy55I3VNlTVvsHAPqiOG7VLzO66z2d86x1kO03mLJ71iPmaBQxkP97q/QPIfvQOyrLv0ZzyAU6zIJ6WbNmte5v2T+e81b8jvnVbvDOJcYjyW/c4+S548ewHg4/9vEDsS0iF+0ftj3/YD3LsRvRvbVGLRr3u9ah1o8Wg5D8N7afaTtZ8nvHAN7Ia0J5caS31ljDrpTkWu8qzSP9jnn3yLzmYtnWXvXFOOEuCFS4pK4Gvwcv1jxXKX7vGXNI/FEPBMvxD3xoIzfrXiuyutty5ovAatKzFwSAAA=
+  </data>
+ </layer>
+ <layer id="2" name="Capa de patrones 2" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3OYQaAQAAF4V2doYt2lQ7RGbpdoiXFypLxmI/5P6XkWip90DfXd43v/2mvie9Pye93vjN8Z/jOON93emJQ+nsq3xm+M3xn+K6v1ok+GLdd7weH9N2wXBIAAA==
+  </data>
+ </layer>
+ <layer id="3" name="Capa de patrones 3" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtVWUQrCMAwV9jnYHbyPeBK/PcZwzhN0VHcdv/Q4pthAKUnTIcLrg8DIluQtvCZdut0mvOn7fYU9N+bN8eq+tXrBZrIHmSMbf6zzDwwK72A3Mk+2xP9AhMZ9jNx9/A9USNynqBkfn9FwIE7HCs0gcj8Rp7OhmcD9Csg9oBd4DYlmHPBZ1YB+VlnvEni+o+tdQgvzXQNrZgXVTAl8VlfQvpf0nnJvTe9jwh11vmtg7h70HllCOiMvgNxr9I66m6z5zn1vTTPod4IS5mQ3taZ35u4anu+uQc1MSd9zv7Sr2K/tMS3OymnV0+J97H3uuwu52C+9K8VZOa16WnzwfQDJ8UmdXBIAAA==
+  </data>
+ </layer>
+ <layer id="4" name="Capa de patrones 4" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3SwQkAIAwEwQPTSBrQ/rvzYQGSfPRgB/JfuEhAX47/DriZIa14XdHj3I7DeUPndnhy/jnndgAAqjZMTQ49XBIAAA==
+  </data>
+ </layer>
+ <layer id="6" name="Capa de patrones 5" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2VYQqAIAxGBe+vdzDBjlkDo7HyTwXyaA9E5sQe9FkhODNY42yDZzSoN50jL9TciDfVnQr5rpLdBWrW/Z46f6KB/6vkbyTdnZgXgeoteGbmQHa33mmvczznHK893f+CZM6z9WifpfT3IPPSh+7VvlZN7w1FPe+uHu0TNmp/i8pcEgAA
+  </data>
+ </layer>
+</map>
