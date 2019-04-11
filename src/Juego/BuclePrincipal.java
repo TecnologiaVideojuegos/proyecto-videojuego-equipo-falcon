@@ -5,14 +5,14 @@
  */
 package Juego;
 
-import Clases.PlazaCentral;
-import Clases.CasaProta;
-import Clases.Buhardilla;
-import Clases.PlazaArriba;
-import Clases.PlazaAbajo;
-import Clases.Boss1;
-import Clases.Carretera;
-import Clases.Colegio;
+import Clases.Mapa1;
+import Clases.Mapa2;
+import Clases.Mapa3;
+import Clases.Mapa4;
+import Clases.Mapa5;
+import Clases.Mapa6;
+import Clases.Mapa8;
+import Clases.Mapa7;
 import Clases.MapaT;
 import Clases.Sprite;
 import java.util.ArrayList;
@@ -34,14 +34,14 @@ public class BuclePrincipal extends BasicGameState {
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     int a = 0, b = 0, c = 0, d = 0;
-    PlazaCentral mapa1 = new PlazaCentral();
-    CasaProta mapa2 = new CasaProta();
-    Buhardilla mapa3 = new Buhardilla();
-    PlazaArriba mapa4 = new PlazaArriba();
-    PlazaAbajo mapa5 = new PlazaAbajo();
-    Boss1 mapa6 = new Boss1();
-    Colegio mapa7 = new Colegio();
-    Carretera mapa8 = new Carretera();
+    Mapa1 mapa1 = new Mapa1();
+    Mapa2 mapa2 = new Mapa2();
+    Mapa3 mapa3 = new Mapa3();
+    Mapa4 mapa4 = new Mapa4();
+    Mapa5 mapa5 = new Mapa5();
+    Mapa6 mapa6 = new Mapa6();
+    Mapa7 mapa7 = new Mapa7();
+    Mapa8 mapa8 = new Mapa8();
     MapaT mapa_actual = new MapaT();
     Sprite personaje;
 
@@ -83,7 +83,7 @@ public class BuclePrincipal extends BasicGameState {
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
-            for(int n=0;n<20;n++)
+            for(int n=0;n<9;n++)
             {
                 if (personaje.getH1().intersects(mapa_actual.getBordes()[n])) {
                     a = 1;
@@ -112,7 +112,7 @@ public class BuclePrincipal extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_S)) {
             personaje.setDir("down");
             personaje.getDir().update(i);
-            for(int n=0;n<20;n++)
+            for(int n=0;n<9;n++)
             {
                 if (personaje.getH4().intersects(mapa_actual.getBordes()[n])) {
                     b = 1;
@@ -146,7 +146,7 @@ public class BuclePrincipal extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_A)) {
             personaje.setDir("left");
             personaje.getDir().update(i);
-            for(int n=0;n<20;n++)
+            for(int n=0;n<9;n++)
             {
                 if (personaje.getH2().intersects(mapa_actual.getBordes()[n])) {
                     c = 1;
@@ -177,7 +177,7 @@ public class BuclePrincipal extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_D)) {
             personaje.setDir("right");
             personaje.getDir().update(i);
-            for(int n=0;n<20;n++)
+            for(int n=0;n<9;n++)
             {
                 if (personaje.getH3().intersects(mapa_actual.getBordes()[n])) {
                     d = 1;
@@ -226,7 +226,7 @@ public class BuclePrincipal extends BasicGameState {
         
         g.draw(mapa_actual.getSalidas()[0]);
         g.draw(mapa_actual.getSalidas()[1]);
-        for(int i=0;i<20;i++)
+        for(int i=0;i<9;i++)
         {
           g.draw(mapa_actual.getBordes()[i]);  
         }

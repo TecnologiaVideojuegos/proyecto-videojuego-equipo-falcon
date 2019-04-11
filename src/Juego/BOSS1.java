@@ -25,9 +25,10 @@ public class BOSS1 extends BasicGameState{
     
     
     private String  mapa1 = "C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\boos1D.tmx";
-    private float   puntos1 []  = new float[]{63,0,256,0,256,33,985,33,985,65,1027,65,1027,36,1180,36,1180,68,1218,68,1218,141,1242,164,1242,200,1282,200,1282,186,1402,186,1433,223,1469,223,1469,778,1091,778,1091,741,1184,738,1184,671,1153,671,1153,700,1058,700,1058,733,1020,733,1020,785,35,785,35,32,65,32};
+    private float   puntos1 []  = new float[]{1120,147,1120,716,127,716,127,683,223,683,223,589,128,589,128,556,830,556,830,462};
     private Polygon bordes;
-    int first=5;
+    int first=10;
+    int mapaMov=0;
     int a = 0, b = 0, c = 0, d = 0;
     TiledMap mapa;
     Sprite personaje;
@@ -45,6 +46,8 @@ public class BOSS1 extends BasicGameState{
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap(mapa1);
         personaje = new Sprite();
+        personaje.setCoordenadaX(703);
+        personaje.setCoordenadaY(651);
     }
 
     @Override
@@ -58,6 +61,12 @@ public class BOSS1 extends BasicGameState{
         mapa.render(0, 0, 4);
         
         
+        mapaMov++;
+        g.draw(personaje.getH1());
+        g.draw(personaje.getH2());
+        g.draw(personaje.getH3());
+        g.draw(personaje.getH4());
+        
         for(int i=0;i<20;i++)
         {
           g.draw(bordes);  
@@ -70,18 +79,28 @@ public class BOSS1 extends BasicGameState{
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if(first>0)
+        System.out.println(i);
+        Input input = gc.getInput();
+        if(!input.isKeyDown(Input.KEY_0)&&first>0)
         {
-            if(first%2==0)
+            if(first%2==0){
                 mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa6.tmx");
-            else
-                mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\boos1D.tmx");
+            }
+                else{
+                mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\boos1D.tmx");}
+                first--;
             
-            for(int x=0;i<10000;i++){}
-            first--;
+            
         }else
         {
-        Input input = gc.getInput();
+            
+        //prueba fuego    
+        /*if(first%100==0){
+                mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\boos1V.tmx");
+            }
+        else if(first%30==0){
+                mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\boos1D.tmx");}
+                first--;    */
         if (input.isKeyDown(Input.KEY_ENTER)) {
             gc.exit();
         }
@@ -109,7 +128,7 @@ public class BOSS1 extends BasicGameState{
             }
 
         } else if (input.isKeyDown(Input.KEY_S)) {
-            personaje.setDir("down");
+            personaje.setDir("up");
             personaje.getDir().update(i);
             for(int n=0;n<20;n++)
             {

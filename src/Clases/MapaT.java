@@ -24,17 +24,6 @@ public class MapaT {
     private float   puntos7 []  = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos8 []  = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos9 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos10[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos11[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos12[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos13[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos14[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos15[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos16[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos17[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos18[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos19[]  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos20[]  = new float[]{0,0,0,0,0,0,0,0};
     
     private Polygon bordes [] = new Polygon[20];
     
@@ -59,17 +48,6 @@ public class MapaT {
         bordes[6]  = new Polygon(puntos7);
         bordes[7]  = new Polygon(puntos8);
         bordes[8]  = new Polygon(puntos9);
-        bordes[9]  = new Polygon(puntos10);
-        bordes[10] = new Polygon(puntos11);
-        bordes[11] = new Polygon(puntos12);
-        bordes[12] = new Polygon(puntos13);
-        bordes[13] = new Polygon(puntos14);
-        bordes[14] = new Polygon(puntos15);
-        bordes[15] = new Polygon(puntos16);
-        bordes[16] = new Polygon(puntos17);
-        bordes[17] = new Polygon(puntos18);
-        bordes[18] = new Polygon(puntos19);
-        bordes[19] = new Polygon(puntos20);
         
         salidas[0] = new Polygon(puntos21);
         salidas[1] = new Polygon(puntos22);
