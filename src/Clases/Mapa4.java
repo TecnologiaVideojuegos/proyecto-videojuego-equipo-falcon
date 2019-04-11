@@ -14,7 +14,7 @@ import org.newdawn.slick.geom.Polygon;
  */
 public class Mapa4 extends MapaT{
     
-    private String  mapa = "C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa4.tmx";
+    private String  mapa = "mapa4.tmx";
     
     private float   puntos1 []  = new float[]{384,735,64,736,63,767,31,769,31,799,0,799,0,201,842,201,840,287,1182,287,1183,158,1244,159,1245,165,1403,165,1407,254,1249,257,1247,350,1121,351,1121,449,1246,450,1247,544,1404,546,1408,639,1248,640,1247,767,551,767,550,737,480,737,480,798,384,798,384,737};
     private float   puntos2 []  = new float[]{95,397,192,397,192,266,95,266};

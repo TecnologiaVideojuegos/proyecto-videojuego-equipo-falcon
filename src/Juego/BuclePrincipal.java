@@ -224,6 +224,11 @@ public class BuclePrincipal extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
         
+        /*g.draw(personaje.getH1());
+        g.draw(personaje.getH2());
+        g.draw(personaje.getH3());
+        g.draw(personaje.getH4());*/
+        
         g.draw(mapa_actual.getSalidas()[0]);
         g.draw(mapa_actual.getSalidas()[1]);
         for(int i=0;i<9;i++)
