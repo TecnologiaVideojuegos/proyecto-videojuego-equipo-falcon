@@ -13,7 +13,7 @@ import org.newdawn.slick.geom.Polygon;
  */
 public class MapaT {
         
-    private String  mapa = "mapa2.tmx";
+    private String  mapa = "\\mapa2.tmx";
     
     private float   puntos1 []  = new float[]{0,0,0,0,0,0,0,0}; 
     private float   puntos2 []  = new float[]{0,0,0,0,0,0,0,0};
