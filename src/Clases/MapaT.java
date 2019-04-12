@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
 
 /**
@@ -15,17 +16,9 @@ public class MapaT {
         
     private String  mapa = "\\mapa2.tmx";
     
-    private float   puntos1 []  = new float[]{0,0,0,0,0,0,0,0}; 
-    private float   puntos2 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos3 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos4 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos5 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos6 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos7 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos8 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos9 []  = new float[]{0,0,0,0,0,0,0,0};
-    
-    private Polygon bordes [] = new Polygon[20];
+    private Polygon bordes = new Polygon();
+    private ArrayList<Polygon> colisiones;
+    private ArrayList<float[]> puntos;
     
     private float   puntos21[] = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos22[] = new float[]{0,0,0,0,0,0,0,0};
@@ -37,23 +30,7 @@ public class MapaT {
     private float   mapas[] = new float[]{0,1,2,3};
     private float   coord[] = new float[]{0,0,0,0,0,0,0,0,0,0};
     
-    public MapaT() {
-        
-        bordes[0]  = new Polygon(puntos1);
-        bordes[1]  = new Polygon(puntos2);
-        bordes[2]  = new Polygon(puntos3);
-        bordes[3]  = new Polygon(puntos4);
-        bordes[4]  = new Polygon(puntos5);
-        bordes[5]  = new Polygon(puntos6);
-        bordes[6]  = new Polygon(puntos7);
-        bordes[7]  = new Polygon(puntos8);
-        bordes[8]  = new Polygon(puntos9);
-        
-        salidas[0] = new Polygon(puntos21);
-        salidas[1] = new Polygon(puntos22);
-        salidas[2] = new Polygon(puntos23);
-        salidas[3] = new Polygon(puntos24);
-        
+    public MapaT() {        
     }
     
     public void setCoordX(int x,int y)
@@ -66,8 +43,8 @@ public class MapaT {
         coord[(2*x)+1]=y;
     }
     
-    public Polygon[] getBordes() {
-        return bordes;
+    public ArrayList<Polygon> getBordes() {
+        return colisiones;
     }
 
     public Polygon[] getSalidas() {

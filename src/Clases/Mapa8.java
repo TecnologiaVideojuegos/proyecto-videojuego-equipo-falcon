@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
 
 /**
@@ -23,11 +24,10 @@ public class Mapa8 extends MapaT{
     private float   puntos4 []  = new float[]{606,257,523,257,523,243,471,243,471,257,350,257,350,232,388,232,388,100,606,100};
     private float   puntos5 []  = new float[]{1278,703,1196,703,1196,689,1143,689,1143,703,927,703,927,546,1060,546,1278,546};
     private float   puntos6 []  = new float[]{895,387,895,512,1119,512,1119,387};
-    private float   puntos7 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos8 []  = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos9 []  = new float[]{0,0,0,0,0,0,0,0};
     
-    private Polygon bordes [] = new Polygon[20];
+    private Polygon bordes = new Polygon();
+    private ArrayList<Polygon> colisiones;
+    private ArrayList<float[]> puntos;
     
     private float   puntos21[] = new float[]{1238,372,1287,372,1287,373,1238,373};
     private float   puntos22[] = new float[]{0,204,0,729,2,792,2,204};
@@ -41,15 +41,22 @@ public class Mapa8 extends MapaT{
 
     public Mapa8() {
         super();
-        bordes[0]  = new Polygon(puntos1);
-        bordes[1]  = new Polygon(puntos2);
-        bordes[2]  = new Polygon(puntos3);
-        bordes[3]  = new Polygon(puntos4);
-        bordes[4]  = new Polygon(puntos5);
-        bordes[5]  = new Polygon(puntos6);
-        bordes[6]  = new Polygon(puntos7);
-        bordes[7]  = new Polygon(puntos8);
-        bordes[8]  = new Polygon(puntos9);
+        puntos     = new ArrayList<>();
+        colisiones = new ArrayList<>();
+        
+        puntos.add(puntos1);
+        puntos.add(puntos2);
+        puntos.add(puntos3);
+        puntos.add(puntos4);
+        puntos.add(puntos5);
+        puntos.add(puntos6);
+        
+        for(int i=0;i<puntos.size();i++)
+        {
+            bordes = new Polygon(puntos.get(i));
+            colisiones.add(bordes);
+        }
+        
         
         salidas[0] = new Polygon(puntos21);
         salidas[1] = new Polygon(puntos22);
@@ -69,8 +76,8 @@ public class Mapa8 extends MapaT{
             coord[(2*x)+1]=y;
     }
       
-    public Polygon[] getBordes() {
-        return bordes;
+    public ArrayList<Polygon> getBordes() {
+        return colisiones;
     }
 
     public Polygon[] getSalidas() {

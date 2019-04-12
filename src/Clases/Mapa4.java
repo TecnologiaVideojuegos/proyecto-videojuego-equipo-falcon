@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
 
 /**
@@ -26,7 +27,9 @@ public class Mapa4 extends MapaT{
     private float   puntos8 []  = new float[]{671,266,671,397,767,397,767,266};
     private float   puntos9 []  = new float[]{671,460,671,590,768,590,768,460};
     
-    private Polygon bordes [] = new Polygon[9];
+    private Polygon bordes = new Polygon();
+    private ArrayList<Polygon> colisiones;
+    private ArrayList<float[]> puntos;
     
     private float   puntos21[] = new float[]{390,800,474,800,474,798,390,798};
     private float   puntos22[] = new float[]{0,204,0,729,2,792,2,204};
@@ -40,15 +43,25 @@ public class Mapa4 extends MapaT{
     
     public Mapa4() {
         super();
-        bordes[0]  = new Polygon(puntos1);
-        bordes[1]  = new Polygon(puntos2);
-        bordes[2]  = new Polygon(puntos3);
-        bordes[3]  = new Polygon(puntos4);
-        bordes[4]  = new Polygon(puntos5);
-        bordes[5]  = new Polygon(puntos6);
-        bordes[6]  = new Polygon(puntos7);
-        bordes[7]  = new Polygon(puntos8);
-        bordes[8]  = new Polygon(puntos9);
+        puntos     = new ArrayList<>();
+        colisiones = new ArrayList<>();
+        
+        puntos.add(puntos1);
+        puntos.add(puntos2);
+        puntos.add(puntos3);
+        puntos.add(puntos4);
+        puntos.add(puntos5);
+        puntos.add(puntos6);
+        puntos.add(puntos7);
+        puntos.add(puntos8);
+        puntos.add(puntos9);
+        
+        for(int i=0;i<puntos.size();i++)
+        {
+            bordes = new Polygon(puntos.get(i));
+            colisiones.add(bordes);
+        }
+        
         
         salidas[0] = new Polygon(puntos21);
         salidas[1] = new Polygon(puntos22);
@@ -66,8 +79,8 @@ public class Mapa4 extends MapaT{
         coord[(2*x)+1]=y;
     }
       
-    public Polygon[] getBordes() {
-        return bordes;
+    public ArrayList<Polygon> getBordes() {
+        return colisiones;
     }
 
     public Polygon[] getSalidas() {

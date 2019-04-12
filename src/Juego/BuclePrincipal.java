@@ -83,9 +83,9 @@ public class BuclePrincipal extends BasicGameState {
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
-            for(int n=0;n<9;n++)
+            for(int n=0;n<mapa_actual.getBordes().size();n++)
             {
-                if (personaje.getH1().intersects(mapa_actual.getBordes()[n])) {
+                if (personaje.getH1().intersects(mapa_actual.getBordes().get(n))) {
                     a = 1;
                     break;
                 } else {
@@ -112,9 +112,9 @@ public class BuclePrincipal extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_S)) {
             personaje.setDir("down");
             personaje.getDir().update(i);
-            for(int n=0;n<9;n++)
+            for(int n=0;n<mapa_actual.getBordes().size();n++)
             {
-                if (personaje.getH4().intersects(mapa_actual.getBordes()[n])) {
+                if (personaje.getH4().intersects(mapa_actual.getBordes().get(n))) {
                     b = 1;
                     break;
                 } else {
@@ -146,9 +146,9 @@ public class BuclePrincipal extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_A)) {
             personaje.setDir("left");
             personaje.getDir().update(i);
-            for(int n=0;n<9;n++)
+            for(int n=0;n<mapa_actual.getBordes().size();n++)
             {
-                if (personaje.getH2().intersects(mapa_actual.getBordes()[n])) {
+                if (personaje.getH2().intersects(mapa_actual.getBordes().get(n))) {
                     c = 1;
                     break;
                 } else {
@@ -177,9 +177,9 @@ public class BuclePrincipal extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_D)) {
             personaje.setDir("right");
             personaje.getDir().update(i);
-            for(int n=0;n<9;n++)
+            for(int n=0;n<mapa_actual.getBordes().size();n++)
             {
-                if (personaje.getH3().intersects(mapa_actual.getBordes()[n])) {
+                if (personaje.getH3().intersects(mapa_actual.getBordes().get(n))) {
                     d = 1;
                     break;
                 } else {
@@ -224,17 +224,17 @@ public class BuclePrincipal extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
         
-        g.draw(personaje.getH1());
+        /*g.draw(personaje.getH1());
         g.draw(personaje.getH2());
         g.draw(personaje.getH3());
         g.draw(personaje.getH4());
         
         g.draw(mapa_actual.getSalidas()[0]);
         g.draw(mapa_actual.getSalidas()[1]);
-        for(int i=0;i<9;i++)
+        for(int i=0;i<mapa_actual.getBordes().size();i++)
         {
-          g.draw(mapa_actual.getBordes()[i]);  
-        }
+          g.draw(mapa_actual.getBordes().get(i));  
+        }*/
         
 
     }
