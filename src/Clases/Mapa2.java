@@ -35,8 +35,8 @@ public class Mapa2 extends MapaT{
     
     private Polygon salidas[] = new Polygon[4];
     
-    private float   mapas[] = new float[]{0,2,2,3};
-    private float   coord[] = new float[]{400,0,0,0,0,0,0,0,0,0};
+    private float   mapas[] = new float[]{7,2,0,0};
+    private float   coord[] = new float[]{1230,349,710,192,0,0,0,0,0,0};
     
     public Mapa2() {
         super();
@@ -58,12 +58,14 @@ public class Mapa2 extends MapaT{
     
       public void setCoordX(int x,int y)
     {
-        coord[2*x]=y;
+        if(2*x!=0 && 2*x!=2)
+            coord[2*x]=y;
     }
     
     public void setCoordY(int x,int y)
     {
-        coord[(2*x)+1]=y;
+        if((2*x)+1!=1 && (2*x)+1!=3)
+            coord[(2*x)+1]=y;
     }
       
     public Polygon[] getBordes() {

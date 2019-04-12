@@ -36,7 +36,7 @@ public class Mapa5 extends MapaT{
     private Polygon salidas[] = new Polygon[4];
     //colegio - plaza central - boss1 - plaza centrak
     private float   mapas[] = new float[]{6,0,5,0};
-    private float   coord[] = new float[]{0,0,400,700,0,0,0,720};
+    private float   coord[] = new float[]{482,703,400,700,0,0,0,720};
     
     public Mapa5() {
         super();
@@ -58,12 +58,14 @@ public class Mapa5 extends MapaT{
     
       public void setCoordX(int x,int y)
     {
-        coord[2*x]=y;
+        if(2*x!=0)
+            coord[2*x]=y;
     }
     
     public void setCoordY(int x,int y)
     {
-        coord[(2*x)+1]=y;
+        if((2*x)+1!=1)
+            coord[(2*x)+1]=y;
     }
     
     public Polygon[] getBordes() {

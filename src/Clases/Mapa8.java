@@ -31,26 +31,16 @@ public class Mapa8 extends MapaT{
     
     private float   puntos21[] = new float[]{1238,372,1287,372,1287,373,1238,373};
     private float   puntos22[] = new float[]{0,204,0,729,2,792,2,204};
-    private float   puntos23[] = new float[]{0,0,0,0,0,0,0,0};
+    private float   puntos23[] = new float[]{1503,353,1503,445,1502,445,1502,353};
     private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0};
     
     private Polygon salidas[] = new Polygon[4];
     //plaza central 
-    private float   mapas[] = new float[]{1,1,2,3};
+    private float   mapas[] = new float[]{1,1,0,3};
     private float   coord[] = new float[]{825,640,64,0,0,0,0,0,0,0};
 
     public Mapa8() {
         super();
-        /*for(int i=0;i<puntos2.length;i++)
-        {
-            if(i%2==0)
-            {
-                puntos5[i]=puntos2[i]-94;
-            }
-            else
-                puntos5[i]=puntos2[i]+(321);
-            System.out.println((int)puntos5[i]+",");
-        }*/
         bordes[0]  = new Polygon(puntos1);
         bordes[1]  = new Polygon(puntos2);
         bordes[2]  = new Polygon(puntos3);
@@ -75,7 +65,7 @@ public class Mapa8 extends MapaT{
     
     public void setCoordY(int x,int y)
     {
-        if((2*x)+1!=0)
+        if((2*x)+1!=1)
             coord[(2*x)+1]=y;
     }
       

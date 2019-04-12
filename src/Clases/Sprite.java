@@ -33,7 +33,7 @@ public class Sprite {
             h1 = new Rectangle(coordenadaX+17, coordenadaY+32, 30, 1);
             h2 = new Rectangle(coordenadaX+16, coordenadaY+33, 1, 30);
             h3 = new Rectangle(coordenadaX+48, coordenadaY+33, 1, 30);
-            h4 = new Rectangle(coordenadaX+17, coordenadaY+64, 30, 1);
+            h4 = new Rectangle(coordenadaX+17, coordenadaY+63, 30, 1);
             
             Image[] movementUp = {new Image("imagenesSprite\\up1.png"), new Image("imagenesSprite\\up2.png")};
             Image[] movementDown = {new Image("imagenesSprite3\\down1.png"), new Image("imagenesSprite3\\down2.png")};

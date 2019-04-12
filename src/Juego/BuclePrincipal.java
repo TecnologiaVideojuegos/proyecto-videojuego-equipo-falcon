@@ -133,11 +133,11 @@ public class BuclePrincipal extends BasicGameState {
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
                         mapa = new TiledMap(mapa_actual.getMapa());
-                        if(nuevo_mapa==5)
+                        /*if(nuevo_mapa==5)
                         {
                             System.out.println("3");
                             sbg.enterState(1);
-                        }
+                        }*/
                     }
                 }
                 a = 0;
@@ -224,10 +224,10 @@ public class BuclePrincipal extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
         
-        /*g.draw(personaje.getH1());
+        g.draw(personaje.getH1());
         g.draw(personaje.getH2());
         g.draw(personaje.getH3());
-        g.draw(personaje.getH4());*/
+        g.draw(personaje.getH4());
         
         g.draw(mapa_actual.getSalidas()[0]);
         g.draw(mapa_actual.getSalidas()[1]);
