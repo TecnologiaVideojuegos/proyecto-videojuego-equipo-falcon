@@ -133,11 +133,11 @@ public class BuclePrincipal extends BasicGameState {
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
                         mapa = new TiledMap(mapa_actual.getMapa());
-                        /*if(nuevo_mapa==5)
+                        if(nuevo_mapa==5)
                         {
                             System.out.println("3");
                             sbg.enterState(1);
-                        }*/
+                        }
                     }
                 }
                 a = 0;
