@@ -16,7 +16,7 @@ import org.newdawn.slick.geom.Polygon;
  */
 public class Mapa9 extends MapaT{
     
-    private String  mapa = "\\mapa9.tmx";
+    private String  mapa = "\\Mapas\\mapa9.tmx";
     
     private float   puntos1 []  = new float[]{1504,36,1504,800,865,800,865,94,1056,94,1056,36};
     private float   puntos2 []  = new float[]{640,800,257,800,257,763,30,763,30,451,98,451,98,480,126,480,126,448,192,448,192,480,222,480,222,448,

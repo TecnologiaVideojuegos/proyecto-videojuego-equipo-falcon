@@ -14,7 +14,7 @@ import org.newdawn.slick.geom.Polygon;
  */
 public class MapaT {
         
-    private String  mapa = "\\mapa2.tmx";
+    private String  mapa = "\\Mapas\\mapa2.tmx";
     
     private Polygon bordes = new Polygon();
     private ArrayList<Polygon> colisiones;

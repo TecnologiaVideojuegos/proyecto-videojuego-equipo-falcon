@@ -65,7 +65,7 @@ public class BuclePrincipal extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mapa = new TiledMap(mapa_actual.getMapa());
+        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
         personaje = new Sprite();
     }
 
@@ -107,7 +107,7 @@ public class BuclePrincipal extends BasicGameState {
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa());
+                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
                     }
                 }
                 b = 0;
@@ -136,7 +136,7 @@ public class BuclePrincipal extends BasicGameState {
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa());
+                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
                         if(nuevo_mapa==5)
                         {
                             System.out.println("3");
@@ -172,7 +172,7 @@ public class BuclePrincipal extends BasicGameState {
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa());
+                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
                     }
                 }
                 d = 0;
@@ -202,7 +202,7 @@ public class BuclePrincipal extends BasicGameState {
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
                         mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa());
+                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
                         
                     }
                 }

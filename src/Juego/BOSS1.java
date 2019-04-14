@@ -24,7 +24,7 @@ import org.newdawn.slick.tiled.TiledMap;
 public class BOSS1 extends BasicGameState{
     
     
-    private String  mapa1 = "C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\boos1D.tmx";
+    private String  mapa1 = "Mapas\\boos1D.tmx";
     private float   puntos1 []  = new float[]{1120,147,1120,716,127,716,127,683,223,683,223,589,128,589,128,556,830,556,830,462};
     private Polygon bordes;
     int first=10;
@@ -44,7 +44,7 @@ public class BOSS1 extends BasicGameState{
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mapa = new TiledMap(mapa1);
+        mapa = new TiledMap(mapa1,"\\Construccion Mapas\\");
         personaje = new Sprite();
         personaje.setCoordenadaX(703);
         personaje.setCoordenadaY(651);
@@ -84,10 +84,10 @@ public class BOSS1 extends BasicGameState{
         if(!input.isKeyDown(Input.KEY_0)&&first>0)
         {
             if(first%2==0){
-                mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\mapa6.tmx");
+                mapa = new TiledMap("Mapas\\mapa6.tmx");
             }
                 else{
-                mapa = new TiledMap("C:\\Users\\lucas\\Documents\\NetBeansProjects\\VideoGame\\boos1D.tmx");}
+                mapa = new TiledMap("Mapas\\boos1D.tmx");}
                 first--;
             
             
