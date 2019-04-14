@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Juego;
+package Estados;
 
-import Clases.Mapa1;
-import Clases.Mapa2;
-import Clases.Mapa3;
-import Clases.Mapa4;
-import Clases.Mapa5;
-import Clases.Mapa6;
-import Clases.Mapa8;
-import Clases.Mapa7;
-import Clases.Mapa9;
-import Clases.MapaT;
-import Clases.Sprite;
+import Mapas.Mapa1;
+import Mapas.Mapa2;
+import Mapas.Mapa3;
+import Mapas.Mapa4;
+import Mapas.Mapa5;
+import Mapas.Mapa6;
+import Mapas.Mapa8;
+import Mapas.Mapa7;
+import Mapas.Mapa9;
+import Mapas.MapaT;
+import Personajes.MainChar;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -30,7 +30,7 @@ import org.newdawn.slick.tiled.*;
  *
  * @author lucas
  */
-public class BuclePrincipal extends BasicGameState {
+public class Mundo extends BasicGameState {
 
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
@@ -45,9 +45,9 @@ public class BuclePrincipal extends BasicGameState {
     Mapa8 mapa8 = new Mapa8();
     Mapa9 mapa9 = new Mapa9();
     MapaT mapa_actual = new MapaT();
-    Sprite personaje;
+    MainChar personaje;
 
-    public BuclePrincipal(int num) {
+    public Mundo(int num) {
         
         mapas = new ArrayList<>();
         mapas.add(mapa1);
@@ -66,7 +66,7 @@ public class BuclePrincipal extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
-        personaje = new Sprite();
+        personaje = new MainChar();
     }
 
     @Override

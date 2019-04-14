@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Juego;
+package Estados;
 
-import Clases.Sprite;
+import Personajes.MainChar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
@@ -21,7 +21,7 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author lucas
  */
-public class BOSS1 extends BasicGameState{
+public class Boss1 extends BasicGameState{
     
     
     private String  mapa1 = "Mapas\\boos1D.tmx";
@@ -31,9 +31,9 @@ public class BOSS1 extends BasicGameState{
     int mapaMov=0;
     int a = 0, b = 0, c = 0, d = 0;
     TiledMap mapa;
-    Sprite personaje;
+    MainChar personaje;
     
-    public BOSS1() {
+    public Boss1() {
         bordes = new Polygon(puntos1);
     }
     
@@ -45,7 +45,7 @@ public class BOSS1 extends BasicGameState{
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap(mapa1,"\\Construccion Mapas\\");
-        personaje = new Sprite();
+        personaje = new MainChar();
         personaje.setCoordenadaX(703);
         personaje.setCoordenadaY(651);
     }
