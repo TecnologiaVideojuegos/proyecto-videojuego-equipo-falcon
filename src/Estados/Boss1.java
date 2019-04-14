@@ -87,7 +87,21 @@ public class Boss1 extends BasicGameState{
 
         Input input = gc.getInput();
         p1.getDir().update(i);
-        ball.getDir().update(i);
+        if(ball.getDir().getFrameCount()==3 && ball.getDir().getFrame()==2)
+        {
+            ball.setDir("gira");
+            ball.setDestino(personaje.getCoordenadaX()-16,personaje.getCoordenadaY()-16);
+        }
+        else if(p1.getDir().getFrame()==5)
+        {
+            ball.getDir().update(i);
+        }
+        if(ball.getDir().getFrameCount()==4 )
+        {
+            ball.move();
+            ball.getDir().update(i);
+        }
+        
         if(!input.isKeyDown(Input.KEY_0)&&first>0)
         {
             if(first%2==0){

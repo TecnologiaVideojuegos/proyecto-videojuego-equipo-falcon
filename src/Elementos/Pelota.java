@@ -16,15 +16,14 @@ import org.newdawn.slick.geom.Rectangle;
  * @author lucas
  */
 public class Pelota {
-    float coordenadaX = 300 ,coordenadaY= 300;
-    float destinoX, destinoY;
+    float coordenadaX = 1010 ,coordenadaY= 273;
     Image[] aparecer;
     Image[] giro;
     Animation actual, aparece, gira;
-    int[] duration2 = {200, 200,200};
+    int[] duration2 = {500, 500,500};
     int[] duration = {100, 100, 100,100};
     Rectangle h1,h2,h3,h4;
-    
+    private float velocidadX, velocidadY;
     public Pelota() {
         try {
             
@@ -47,7 +46,6 @@ public class Pelota {
     
     public void setDir(String string)
     {
-        
         switch (string) {
             case "aparece":
                 actual = aparece;
@@ -65,8 +63,9 @@ public class Pelota {
 
     public void setDestino(float destinoX, float destinoY)
     {
-        this.destinoX=destinoX;
-        this.destinoY=destinoY;
+        velocidadX=(coordenadaX-destinoX)/1000;
+        velocidadY=(coordenadaY-destinoX)/1000;
+        
     }
     public float getCoordenadaX() {
         return coordenadaX;
@@ -84,6 +83,11 @@ public class Pelota {
         return coordenadaY;
     }
 
+    public void move()
+    {
+        coordenadaX=coordenadaX-velocidadX;
+        coordenadaY=coordenadaY-velocidadY;
+    }
     public void setCoordenadaY(float coordenadaY) {
        
         this.coordenadaY = coordenadaY;
