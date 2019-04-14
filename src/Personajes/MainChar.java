@@ -28,8 +28,6 @@ public class MainChar {
     public MainChar() {
         try {
             
-            
-            
             h1 = new Rectangle(coordenadaX+17, coordenadaY+32, 30, 1);
             h2 = new Rectangle(coordenadaX+16, coordenadaY+33, 1, 30);
             h3 = new Rectangle(coordenadaX+48, coordenadaY+33, 1, 30);

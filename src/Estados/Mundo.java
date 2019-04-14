@@ -73,6 +73,11 @@ public class Mundo extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int x =2;
         ArrayList<Polygon> salidas = mapa_actual.getSalidas();
+        if(mapa_actual==mapa2)
+        {
+            mapa2.getPersonajes().get(0).move();
+            mapa2.getPersonajes().get(0).getDir().update(i);
+        }
         float nuevo_mapa = 0;
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_ENTER)) {
@@ -223,6 +228,10 @@ public class Mundo extends BasicGameState {
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
+        if(mapa_actual==mapa2)
+        {
+            mapa2.getPersonajes().get(0).getDir().draw(mapa2.getPersonajes().get(0).getCoordenadaX(),435);
+        }
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
