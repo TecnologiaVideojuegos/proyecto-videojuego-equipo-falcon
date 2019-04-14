@@ -30,16 +30,16 @@ public class Mapa4 extends MapaT{
     private Polygon bordes = new Polygon();
     private ArrayList<Polygon> colisiones;
     private ArrayList<float[]> puntos;
+     
+    private ArrayList<Polygon> salidas;
+    private ArrayList<float[]> extremos;
     
     private float   puntos21[] = new float[]{390,800,474,800,474,798,390,798};
     private float   puntos22[] = new float[]{0,204,0,729,2,792,2,204};
-    private float   puntos23[] = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0};
     
-    private Polygon salidas[] = new Polygon[4];
     //plaza central 
-    private float   mapas[] = new float[]{0,7,2,3};
-    private float   coord[] = new float[]{0,0,1438,0,0,0,0,0,0,0};
+    private float   mapas[] = new float[]{0,8};
+    private float   coord[] = new float[]{0,0,1438,0};
     
     public Mapa4() {
         super();
@@ -63,10 +63,17 @@ public class Mapa4 extends MapaT{
         }
         
         
-        salidas[0] = new Polygon(puntos21);
-        salidas[1] = new Polygon(puntos22);
-        salidas[2] = new Polygon(puntos23);
-        salidas[3] = new Polygon(puntos24);
+        extremos  = new ArrayList<>();
+        salidas   = new ArrayList<>();
+        
+        extremos.add(puntos21);
+        extremos.add(puntos22);
+        
+        for(int i=0;i<extremos.size();i++)
+        {
+            bordes = new Polygon(extremos.get(i));
+            salidas.add(bordes);
+        }
     }
     
       public void setCoordX(int x,int y)
@@ -83,7 +90,7 @@ public class Mapa4 extends MapaT{
         return colisiones;
     }
 
-    public Polygon[] getSalidas() {
+    public ArrayList<Polygon> getSalidas() {
         return salidas;
     }
 

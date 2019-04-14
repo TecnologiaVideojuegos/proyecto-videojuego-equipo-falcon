@@ -23,9 +23,9 @@ public class MapaT {
     private float   puntos21[] = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos22[] = new float[]{0,0,0,0,0,0,0,0};
     private float   puntos23[] = new float[]{0,0,0,0,0,0,0,0};
-    private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0};
-    
-    private Polygon salidas[] = new Polygon[4];
+    private float   puntos24[] = new float[]{0,0,0,0,0,0,0,0}; 
+    private ArrayList<Polygon> salidas;
+    private ArrayList<float[]> extremos;
     
     private float   mapas[] = new float[]{0,1,2,3};
     private float   coord[] = new float[]{0,0,0,0,0,0,0,0,0,0};
@@ -47,7 +47,7 @@ public class MapaT {
         return colisiones;
     }
 
-    public Polygon[] getSalidas() {
+    public ArrayList<Polygon> getSalidas() {
         return salidas;
     }
 

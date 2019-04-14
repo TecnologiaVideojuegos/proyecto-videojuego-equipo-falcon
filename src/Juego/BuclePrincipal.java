@@ -13,6 +13,7 @@ import Clases.Mapa5;
 import Clases.Mapa6;
 import Clases.Mapa8;
 import Clases.Mapa7;
+import Clases.Mapa9;
 import Clases.MapaT;
 import Clases.Sprite;
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class BuclePrincipal extends BasicGameState {
     Mapa6 mapa6 = new Mapa6();
     Mapa7 mapa7 = new Mapa7();
     Mapa8 mapa8 = new Mapa8();
+    Mapa9 mapa9 = new Mapa9();
     MapaT mapa_actual = new MapaT();
     Sprite personaje;
 
@@ -56,6 +58,7 @@ public class BuclePrincipal extends BasicGameState {
         mapas.add(mapa6);
         mapas.add(mapa7);
         mapas.add(mapa8);
+        mapas.add(mapa9);
         
         mapa_actual = mapas.get(num);
     }
@@ -68,7 +71,8 @@ public class BuclePrincipal extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        Polygon salidas[] = mapa_actual.getSalidas();
+        int x =2;
+        ArrayList<Polygon> salidas = mapa_actual.getSalidas();
         float nuevo_mapa = 0;
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_ENTER)) {
@@ -93,10 +97,10 @@ public class BuclePrincipal extends BasicGameState {
                 } 
             }
             if (a == 0 || b == 1) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f);
-                for(int n=0;n<4;n++)
+                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f*x);
+                for(int n=0;n<salidas.size();n++)
                 {
-                    if(personaje.getH1().intersects(salidas[n]))
+                    if(personaje.getH1().intersects(salidas.get(n)))
                     {
                         nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
@@ -122,10 +126,10 @@ public class BuclePrincipal extends BasicGameState {
                 } 
             }
             if (b == 0 || a == 1) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f);
-                for(int n=0;n<4;n++)
+                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f*x);
+                for(int n=0;n<salidas.size();n++)
                 {
-                    if(personaje.getH4().intersects(salidas[n]))
+                    if(personaje.getH4().intersects(salidas.get(n)))
                     {
                         nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
@@ -156,10 +160,10 @@ public class BuclePrincipal extends BasicGameState {
                 } 
             }
             if (c == 0 || d == 1) {
-                personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f);
-                for(int n=0;n<4;n++)
+                personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f*x);
+                for(int n=0;n<salidas.size();n++)
                 {
-                    if(personaje.getH2().intersects(salidas[n]))
+                    if(personaje.getH2().intersects(salidas.get(n)))
                     {
                         
                         
@@ -188,10 +192,10 @@ public class BuclePrincipal extends BasicGameState {
             }
             
             if (d == 0 || c == 1) {
-                personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f);
-                for(int n=0;n<4;n++)
+                personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f*x);
+                for(int n=0;n<salidas.size();n++)
                 {
-                    if(personaje.getH3().intersects(salidas[n]))
+                    if(personaje.getH3().intersects(salidas.get(n)))
                     {
                         nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordY(n, (int) personaje.getCoordenadaY());
@@ -227,14 +231,13 @@ public class BuclePrincipal extends BasicGameState {
         /*g.draw(personaje.getH1());
         g.draw(personaje.getH2());
         g.draw(personaje.getH3());
-        g.draw(personaje.getH4());
+        g.draw(personaje.getH4());*/
         
-        g.draw(mapa_actual.getSalidas()[0]);
-        g.draw(mapa_actual.getSalidas()[1]);
+        
         for(int i=0;i<mapa_actual.getBordes().size();i++)
         {
           g.draw(mapa_actual.getBordes().get(i));  
-        }*/
+        }
         
 
     }
