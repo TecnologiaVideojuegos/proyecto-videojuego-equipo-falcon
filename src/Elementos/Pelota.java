@@ -16,7 +16,8 @@ import org.newdawn.slick.geom.Rectangle;
  * @author lucas
  */
 public class Pelota {
-    float coordenadaX = 1010 ,coordenadaY= 273;
+    float coordenadaX = -100 ,coordenadaY= -100;
+    float coordenadaXi = 1010 ,coordenadaYi= 273;
     Image[] aparecer;
     Image[] giro;
     Animation actual, aparece, gira;
@@ -44,6 +45,11 @@ public class Pelota {
         }
     }
     
+    
+    public void init(){
+        coordenadaX=coordenadaXi;
+        coordenadaY=coordenadaYi;
+    }
     public void setDir(String string)
     {
         switch (string) {

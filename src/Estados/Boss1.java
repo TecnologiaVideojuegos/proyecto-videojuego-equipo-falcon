@@ -8,6 +8,7 @@ package Estados;
 import Elementos.Pelota;
 import Personajes.MainChar;
 import Personajes.ProfEd;
+import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -33,9 +34,15 @@ public class Boss1 extends BasicGameState{
     TiledMap mapa;
     MainChar personaje;
     ProfEd p1;
+    ArrayList<Pelota> pelotas = new ArrayList<>();
     Pelota ball;
     public Boss1() {
         bordes = new Polygon(puntos1);
+        for(int i=0;i<10;i++)
+        {
+            ball= new Pelota();
+            pelotas.add(ball);
+        }
     }
     
     @Override
