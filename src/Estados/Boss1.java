@@ -36,9 +36,10 @@ public class Boss1 extends BasicGameState{
     ProfEd p1;
     ArrayList<Pelota> pelotas = new ArrayList<>();
     Pelota ball;
+    int fase=0,z=0;
     public Boss1() {
         bordes = new Polygon(puntos1);
-        for(int i=0;i<10;i++)
+        for(int i=0;i<5;i++)
         {
             ball= new Pelota();
             pelotas.add(ball);
@@ -55,9 +56,13 @@ public class Boss1 extends BasicGameState{
         mapa = new TiledMap(mapa1,"\\Construccion Mapas\\");
         personaje = new MainChar();
         p1 = new ProfEd();
+        pelotas = new ArrayList<>();
         personaje.setCoordenadaX(703);
         personaje.setCoordenadaY(651);
-        ball = new Pelota();
+        for(int i=0;i<10;i++){
+            ball = new Pelota();
+            pelotas.add(ball);}
+        
     }
 
     @Override
@@ -67,7 +72,11 @@ public class Boss1 extends BasicGameState{
         mapa.render(0, 0, 1);
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         p1.getDir().draw(954,270);
-        ball.getDir().draw(ball.getCoordenadaX(), ball.getCoordenadaY());
+        for(int i=0;i<pelotas.size();i++)
+        {
+            pelotas.get(i).getDir().draw(pelotas.get(i).getCoordenadaX(), pelotas.get(i).getCoordenadaY());
+        }
+        
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
@@ -94,20 +103,68 @@ public class Boss1 extends BasicGameState{
 
         Input input = gc.getInput();
         p1.getDir().update(i);
-        if(ball.getDir().getFrameCount()==3 && ball.getDir().getFrame()==2)
+        
+        if(p1.getDir().getFrame()==5)
         {
-            ball.setDir("gira");
-            ball.setDestino(personaje.getCoordenadaX()-16,personaje.getCoordenadaY()-16);
+            pelotas.get(z).init();
+            pelotas.get(z).getDir().update(i);
+            
+        }
+        for(int x=0;x<pelotas.size();x++)
+        {
+            
+            if(pelotas.get(x).getDir().getFrame()==2 && pelotas.get(x).getDir().getFrameCount()==3 && p1.getDir().getFrame()==0)
+            {   
+                z++;
+                if(z>=pelotas.size())
+                     z=0;
+                
+                pelotas.get(x).setDestino(personaje.getCoordenadaX(), personaje.getCoordenadaY());
+                pelotas.get(x).setDir("gira");
+                pelotas.get(x).restart();
+            }
+        }
+        for(int x=0;x<pelotas.size();x++)
+        {
+            if(pelotas.get(x).getDir().getFrameCount()==4)
+            {
+                pelotas.get(x).move();
+                pelotas.get(x).getDir().update(i);
+            }
+        }
+        
+        /*if(pelotas.get(z).getDir().getFrameCount()==3 && pelotas.get(z).getDir().getFrame()==2)
+        {
+            pelotas.get(z).setDir("gira");
+            
         }
         else if(p1.getDir().getFrame()==5)
         {
-            ball.getDir().update(i);
-        }
-        if(ball.getDir().getFrameCount()==4 )
+            pelotas.get(z).init();
+            pelotas.get(z).getDir().update(i);
+            pelotas.get(z).setDestino(personaje.getCoordenadaX()-16,personaje.getCoordenadaY()-16);
+            fase++;
+            System.out.println(z);
+            if(fase==3)
+            {
+                fase=0;
+                z++;
+            }
+        }if(pelotas.get(z).getDir().getFrameCount()==3 && pelotas.get(z).getDir().getFrame()==2)
         {
-            ball.move();
-            ball.getDir().update(i);
+            pelotas.get(z).setDir("gira");
+            
         }
+        for(int q=0;q<pelotas.size();q++)
+        {
+            if(pelotas.get(q).getDir().getFrameCount()==4 )
+            {
+            
+             pelotas.get(q).move();
+             pelotas.get(q).getDir().update(i);
+            }  
+        }*/
+        
         
         if(!input.isKeyDown(Input.KEY_0)&&first>0)
         {

@@ -6,6 +6,8 @@
 package Elementos;
 
 import Personajes.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -21,7 +23,7 @@ public class Pelota {
     Image[] aparecer;
     Image[] giro;
     Animation actual, aparece, gira;
-    int[] duration2 = {500, 500,500};
+    int[] duration2 = {500, 500,110};
     int[] duration = {100, 100, 100,100};
     Rectangle h1,h2,h3,h4;
     private float velocidadX, velocidadY;
@@ -45,8 +47,19 @@ public class Pelota {
         }
     }
     
-    
+    public void restart()
+    {
+        try {
+            Image[] movementUp = {new Image("SpriteBoss1\\crec1.png"), new Image("SpriteBoss1\\crec2.png"), new Image("SpriteBoss1\\crec3.png")};
+            aparece = new Animation(movementUp, duration2, false);
+        } catch (SlickException ex) {
+            Logger.getLogger(Pelota.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void init(){
+        actual = aparece;
+        
+        
         coordenadaX=coordenadaXi;
         coordenadaY=coordenadaYi;
     }
@@ -69,8 +82,9 @@ public class Pelota {
 
     public void setDestino(float destinoX, float destinoY)
     {
-        velocidadX=(coordenadaX-destinoX)/1000;
-        velocidadY=(coordenadaY-destinoX)/1000;
+        
+        velocidadX=(coordenadaX-destinoX)/500;
+        velocidadY=(coordenadaY-destinoY)/500;
         
     }
     public float getCoordenadaX() {

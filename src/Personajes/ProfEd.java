@@ -19,7 +19,7 @@ public class ProfEd {
     Image[] throwBall; 
     Animation throwing;
     int[] duration = {200, 200};
-    int[] duration2 = {1500, 100, 100, 100, 100, 1200};
+    int[] duration2 = {1500, 100, 100, 100, 100, 1100};
     
     public ProfEd() {
         try {
