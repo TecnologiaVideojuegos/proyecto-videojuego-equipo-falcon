@@ -24,7 +24,7 @@ public class WanderTipo3
     Image[] movementRight;
     Animation actual, sleft, sright, sup, sdown;
     int[] duration = {200, 200};
-    Rectangle h1, h2, h3, h4;
+    Rectangle h1;
     String dir;
     int movement = 0;
 
@@ -32,10 +32,7 @@ public class WanderTipo3
         try {
 
             this.dir = dir;
-            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 1);
-            h2 = new Rectangle(coordenadaX + 16, coordenadaY + 33, 1, 30);
-            h3 = new Rectangle(coordenadaX + 48, coordenadaY + 33, 1, 30);
-            h4 = new Rectangle(coordenadaX + 17, coordenadaY + 63, 30, 1);
+            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 30);
 
             Image[] stanceDown = {new Image("ImagenesSprite\\down0.png"), new Image("ImagenesSprite\\down0.png")};
             Image[] stanceUp = {new Image("ImagenesSprite\\up0.png"), new Image("ImagenesSprite\\up0.png")};
@@ -88,19 +85,13 @@ public class WanderTipo3
 
     public void setCoordenadaX(float coordenadaX) {
         this.coordenadaX = coordenadaX;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 1);
-        h2.setBounds(coordenadaX + 16, coordenadaY + 33, 1, 30);
-        h3.setBounds(coordenadaX + 48, coordenadaY + 33, 1, 30);
-        h4.setBounds(coordenadaX + 17, coordenadaY + 64, 30, 1);
+        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
     }
 
     public void setCoordenadaY(float coordenadaY) {
 
         this.coordenadaY = coordenadaY;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 1);
-        h2.setBounds(coordenadaX + 16, coordenadaY + 33, 1, 30);
-        h3.setBounds(coordenadaX + 48, coordenadaY + 33, 1, 30);
-        h4.setBounds(coordenadaX + 17, coordenadaY + 64, 30, 1);
+        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
 
     }
 
@@ -116,17 +107,4 @@ public class WanderTipo3
     public Rectangle getH1() {
         return h1;
     }
-
-    public Rectangle getH2() {
-        return h2;
-    }
-
-    public Rectangle getH3() {
-        return h3;
-    }
-
-    public Rectangle getH4() {
-        return h4;
-    }
-
 }

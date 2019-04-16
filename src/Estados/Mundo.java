@@ -22,6 +22,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.*;
@@ -35,7 +36,6 @@ public class Mundo extends BasicGameState {
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     int a = 0, b = 0, c = 0, d = 0;
-    int a2 = 0, b2 = 0, c2 = 0, d2 = 0;
     Mapa1 mapa1 = new Mapa1();
     Mapa2 mapa2 = new Mapa2();
     Mapa3 mapa3 = new Mapa3();
@@ -47,9 +47,11 @@ public class Mundo extends BasicGameState {
     Mapa9 mapa9 = new Mapa9();
     MapaT mapa_actual = new MapaT();
     MainChar personaje;
+    ArrayList<Rectangle> colPers;
 
     public Mundo(int num) {
 
+        colPers = new ArrayList<>();
         mapas = new ArrayList<>();
         mapas.add(mapa1);
         mapas.add(mapa2);
@@ -72,11 +74,13 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int x = 2;
+        int x = 1;
         float nuevo_mapa = 0;
         Input input = gc.getInput();
         ArrayList<Polygon> salidas = mapa_actual.getSalidas();
-
+        for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+            colPers.add(mapa_actual.getPersonajes().get(j).getH1());
+        }
         if (input.isKeyDown(Input.KEY_ENTER)) {
             gc.exit();
         }
@@ -84,7 +88,6 @@ public class Mundo extends BasicGameState {
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
         }
-        //System.out.println();
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
@@ -97,7 +100,7 @@ public class Mundo extends BasicGameState {
                 }
             }
             for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-                if (mapa_actual.getPersonajes().get(0).getH4().intersects(personaje.getH1())) {
+                if (colPers.get(j).intersects(personaje.getH1())) {
                     a = 1;
                     break;
                 }
@@ -129,7 +132,7 @@ public class Mundo extends BasicGameState {
                 }
             }
             for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-                if (mapa_actual.getPersonajes().get(0).getH1().intersects(personaje.getH4())) {
+                if (colPers.get(j).intersects(personaje.getH4())) {
                     b = 1;
                     break;
                 }
@@ -166,7 +169,7 @@ public class Mundo extends BasicGameState {
                 }
             }
             for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-                if (mapa_actual.getPersonajes().get(j).getH3().intersects(personaje.getH2())) {
+                if (colPers.get(j).intersects(personaje.getH2())) {
                     c = 1;
                     break;
                 }
@@ -199,7 +202,7 @@ public class Mundo extends BasicGameState {
                 }
             }
             for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-                if (mapa_actual.getPersonajes().get(0).getH2().intersects(personaje.getH3())) {
+                if (colPers.get(j).intersects(personaje.getH3())) {
                     d = 1;
                     break;
                 }
@@ -225,18 +228,19 @@ public class Mundo extends BasicGameState {
             personaje.setDir("stance");
             personaje.getDir().update(i);
         }
+
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-            if (mapa_actual.getPersonajes().get(j).getH1().intersects(personaje.getH4())) {
-                mapa_actual.getPersonajes().get(j).setDir("up");
+            if (colPers.get(j).intersects(personaje.getH4())) {
+                mapa_actual.getPersonajes().get(j).setDir("sup");
                 personaje.setDir("stance");
-            } else if (mapa_actual.getPersonajes().get(j).getH2().intersects(personaje.getH3())) {
+            } else if (colPers.get(j).intersects(personaje.getH3())) {
                 mapa_actual.getPersonajes().get(j).setDir("sleft");
                 personaje.setDir("stance");
-            } else if (mapa_actual.getPersonajes().get(j).getH3().intersects(personaje.getH2())) {
+            } else if (colPers.get(j).intersects(personaje.getH2())) {
                 mapa_actual.getPersonajes().get(j).setDir("sright");
                 personaje.setDir("stance");
-            } else if (mapa_actual.getPersonajes().get(j).getH4().intersects(personaje.getH1())) {
-                mapa_actual.getPersonajes().get(j).setDir("down");
+            } else if (colPers.get(j).intersects(personaje.getH1())) {
+                mapa_actual.getPersonajes().get(j).setDir("sdown");
                 personaje.setDir("stance");
             } else {
                 mapa_actual.getPersonajes().get(j).move();
@@ -253,11 +257,8 @@ public class Mundo extends BasicGameState {
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-            mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(),mapa_actual.getPersonajes().get(j).getCoordenadaY());
+            mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(), mapa_actual.getPersonajes().get(j).getCoordenadaY());
             g.draw(mapa_actual.getPersonajes().get(j).getH1());
-            g.draw(mapa_actual.getPersonajes().get(j).getH2());
-            g.draw(mapa_actual.getPersonajes().get(j).getH3());
-            g.draw(mapa_actual.getPersonajes().get(j).getH4());
         }
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         mapa.render(0, 0, 2);

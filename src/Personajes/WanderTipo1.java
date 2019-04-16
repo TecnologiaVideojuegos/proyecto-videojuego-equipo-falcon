@@ -24,17 +24,14 @@ public class WanderTipo1 extends WanderTipoT {
     Animation actual, sup, sdown, left, right, sright, sleft;
     int[] duration = {200, 200};
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
-    Rectangle h1, h2, h3, h4;
+    Rectangle h1;
 
     int movement = 0;
 
     public WanderTipo1(String nombre) {
         try {
 
-            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 1);
-            h2 = new Rectangle(coordenadaX + 16, coordenadaY + 33, 1, 30);
-            h3 = new Rectangle(coordenadaX + 48, coordenadaY + 33, 1, 30);
-            h4 = new Rectangle(coordenadaX + 17, coordenadaY + 63, 30, 1);
+            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 30);
 
             Image[] movementLeft = {new Image("ImagenesSprite\\izq1.png"), new Image("ImagenesSprite\\izq2.png"), new Image("ImagenesSprite\\izq3.png"), new Image("ImagenesSprite\\izq4.png"), new Image("ImagenesSprite\\izq5.png"), new Image("ImagenesSprite\\izq6.png"), new Image("ImagenesSprite\\izq7.png"), new Image("ImagenesSprite\\izq8.png")};
             Image[] movementRight = {new Image("ImagenesSprite\\der1.png"), new Image("ImagenesSprite\\der2.png"), new Image("ImagenesSprite\\der3.png"), new Image("ImagenesSprite\\der4.png"), new Image("ImagenesSprite\\der5.png"), new Image("ImagenesSprite\\der6.png"), new Image("ImagenesSprite\\der7.png"), new Image("ImagenesSprite\\der8.png")};
@@ -111,44 +108,23 @@ public class WanderTipo1 extends WanderTipoT {
         } else {
             movement = 0;
         }
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 1);
-        h2.setBounds(coordenadaX + 16, coordenadaY + 33, 1, 30);
-        h3.setBounds(coordenadaX + 48, coordenadaY + 33, 1, 30);
-        h4.setBounds(coordenadaX + 17, coordenadaY + 64, 30, 1);
+        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
     }
 
     public void setCoordenadaX(float coordenadaX) {
         this.coordenadaX = coordenadaX;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 1);
-        h2.setBounds(coordenadaX + 16, coordenadaY + 33, 1, 30);
-        h3.setBounds(coordenadaX + 48, coordenadaY + 33, 1, 30);
-        h4.setBounds(coordenadaX + 17, coordenadaY + 64, 30, 1);
+        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
     }
 
     public void setCoordenadaY(float coordenadaY) {
 
         this.coordenadaY = coordenadaY;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 1);
-        h2.setBounds(coordenadaX + 16, coordenadaY + 33, 1, 30);
-        h3.setBounds(coordenadaX + 48, coordenadaY + 33, 1, 30);
-        h4.setBounds(coordenadaX + 17, coordenadaY + 64, 30, 1);
+        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
 
     }
 
     public Rectangle getH1() {
         return h1;
-    }
-
-    public Rectangle getH2() {
-        return h2;
-    }
-
-    public Rectangle getH3() {
-        return h3;
-    }
-
-    public Rectangle getH4() {
-        return h4;
     }
 
 }
