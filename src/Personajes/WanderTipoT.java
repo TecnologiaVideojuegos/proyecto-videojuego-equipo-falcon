@@ -14,7 +14,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class WanderTipo1 extends WanderTipoT {
+public class WanderTipoT  {
 
     float coordenadaX = 400, coordenadaY = 440;
     Image[] movementUp;
@@ -28,7 +28,7 @@ public class WanderTipo1 extends WanderTipoT {
 
     int movement = 0;
 
-    public WanderTipo1(String nombre) {
+    public WanderTipoT() {
         try {
 
             h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 1);

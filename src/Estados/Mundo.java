@@ -76,7 +76,6 @@ public class Mundo extends BasicGameState {
         float nuevo_mapa = 0;
         Input input = gc.getInput();
         ArrayList<Polygon> salidas = mapa_actual.getSalidas();
-        
 
         if (input.isKeyDown(Input.KEY_ENTER)) {
             gc.exit();
@@ -98,7 +97,7 @@ public class Mundo extends BasicGameState {
                 }
             }
             for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-                if (mapa_actual.getPersonajes().get(0).getH4().intersects(personaje.getH1()))  {
+                if (mapa_actual.getPersonajes().get(0).getH4().intersects(personaje.getH1())) {
                     a = 1;
                     break;
                 }
@@ -130,7 +129,7 @@ public class Mundo extends BasicGameState {
                 }
             }
             for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-                if (mapa_actual.getPersonajes().get(0).getH1().intersects(personaje.getH4()))  {
+                if (mapa_actual.getPersonajes().get(0).getH1().intersects(personaje.getH4())) {
                     b = 1;
                     break;
                 }
@@ -200,7 +199,7 @@ public class Mundo extends BasicGameState {
                 }
             }
             for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-                if (mapa_actual.getPersonajes().get(0).getH2().intersects(personaje.getH3()))  {
+                if (mapa_actual.getPersonajes().get(0).getH2().intersects(personaje.getH3())) {
                     d = 1;
                     break;
                 }
@@ -254,7 +253,7 @@ public class Mundo extends BasicGameState {
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-            mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(), 440);
+            mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(),mapa_actual.getPersonajes().get(j).getCoordenadaY());
             g.draw(mapa_actual.getPersonajes().get(j).getH1());
             g.draw(mapa_actual.getPersonajes().get(j).getH2());
             g.draw(mapa_actual.getPersonajes().get(j).getH3());
