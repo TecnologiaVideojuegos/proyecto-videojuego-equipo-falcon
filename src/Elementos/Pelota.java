@@ -18,34 +18,34 @@ import org.newdawn.slick.geom.Rectangle;
  * @author lucas
  */
 public class Pelota {
-    float coordenadaX = -100 ,coordenadaY= -100;
-    float coordenadaXi = 1010 ,coordenadaYi= 273;
+
+    float coordenadaX = -100, coordenadaY = -100;
+    float coordenadaXi = 1010, coordenadaYi = 273;
     Image[] aparecer;
     Image[] giro;
     Animation actual, aparece, gira;
-    int[] duration2 = {500, 500,110};
-    int[] duration = {100, 100, 100,100};
+    int[] duration2 = {500, 500, 110};
+    int[] duration = {100, 100, 100, 100};
     Circle h1;
     private float velocidadX, velocidadY;
+
     public Pelota() {
         try {
-            
-            h1 = new Circle(coordenadaX+5, coordenadaY+5, 26);
-            
+
+            h1 = new Circle(coordenadaX + 5, coordenadaY + 5, 26);
+
             Image[] movementUp = {new Image("SpriteBoss1\\crec1.png"), new Image("SpriteBoss1\\crec2.png"), new Image("SpriteBoss1\\crec3.png")};
             Image[] movementDown = {new Image("SpriteBoss1\\balones3.png"), new Image("SpriteBoss1\\balones4.png"), new Image("SpriteBoss1\\balones1.png"), new Image("SpriteBoss1\\balones2.png")};
-             
-           
+
             aparece = new Animation(movementUp, duration2, false);
             gira = new Animation(movementDown, duration, false);
-            
+
             actual = aparece;
         } catch (SlickException e) {
         }
     }
-    
-    public void restart()
-    {
+
+    public void restart() {
         try {
             Image[] movementUp = {new Image("SpriteBoss1\\crec1.png"), new Image("SpriteBoss1\\crec2.png"), new Image("SpriteBoss1\\crec3.png")};
             aparece = new Animation(movementUp, duration2, false);
@@ -53,59 +53,53 @@ public class Pelota {
             Logger.getLogger(Pelota.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void init(){
+
+    public void init() {
         actual = aparece;
-        
-        
-        coordenadaX=coordenadaXi;
-        coordenadaY=coordenadaYi;
+
+        coordenadaX = coordenadaXi;
+        coordenadaY = coordenadaYi;
     }
-    public void setDir(String string)
-    {
+
+    public void setDir(String string) {
         switch (string) {
             case "aparece":
                 actual = aparece;
                 break;
             case "gira":
                 actual = gira;
-                break;   
+                break;
         }
     }
-    
-    public Animation getDir()
-    {
+
+    public Animation getDir() {
         return actual;
     }
 
-    public void setDestinoN(float destinoX, float destinoY)
-    {
-        
-        velocidadX=(coordenadaX-destinoX)/350;
-        velocidadY=(coordenadaY-destinoY)/350;
-        
+    public void setDestinoN(float destinoX, float destinoY) {
+
+        velocidadX = (coordenadaX - destinoX) / 350;
+        velocidadY = (coordenadaY - destinoY) / 350;
+
     }
-    
+
     public float getCoordenadaX() {
         return coordenadaX;
     }
-
 
     public float getCoordenadaY() {
         return coordenadaY;
     }
 
-    public void move()
-    {
-        coordenadaX=coordenadaX-velocidadX;
-        coordenadaY=coordenadaY-velocidadY;
-        
-        h1.setLocation(coordenadaX+5, coordenadaY+5);
+    public void move() {
+        coordenadaX = coordenadaX - velocidadX;
+        coordenadaY = coordenadaY - velocidadY;
+
+        h1.setLocation(coordenadaX + 5, coordenadaY + 5);
     }
 
-    
     public Circle getH1() {
         return h1;
     }
 
-    
 }

@@ -21,7 +21,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Juego extends StateBasedGame {
 
     private AppGameContainer contenedor;
-    
+
     public Juego(String name) {
         super(name);
         try {
@@ -35,17 +35,17 @@ public class Juego extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        this.addState(new Boss1());this.addState(new Mundo(0));   
-        
-                      
+        this.addState(new Mundo(0));
+        this.addState(new Boss1());
+
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         // TODO code application logic here
         new Juego("a");
     }
-    
+
 }

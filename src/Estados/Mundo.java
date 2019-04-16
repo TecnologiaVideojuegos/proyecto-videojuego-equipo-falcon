@@ -35,6 +35,7 @@ public class Mundo extends BasicGameState {
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     int a = 0, b = 0, c = 0, d = 0;
+    int a2 = 0, b2 = 0, c2 = 0, d2 = 0;
     Mapa1 mapa1 = new Mapa1();
     Mapa2 mapa2 = new Mapa2();
     Mapa3 mapa3 = new Mapa3();
@@ -48,7 +49,7 @@ public class Mundo extends BasicGameState {
     MainChar personaje;
 
     public Mundo(int num) {
-        
+
         mapas = new ArrayList<>();
         mapas.add(mapa1);
         mapas.add(mapa2);
@@ -59,60 +60,59 @@ public class Mundo extends BasicGameState {
         mapas.add(mapa7);
         mapas.add(mapa8);
         mapas.add(mapa9);
-        
+
         mapa_actual = mapas.get(num);
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
+        mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
         personaje = new MainChar();
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int x =2;
-        ArrayList<Polygon> salidas = mapa_actual.getSalidas();
-        if(mapa_actual==mapa2)
-        {
-            mapa2.getPersonajes().get(0).move();
-            mapa2.getPersonajes().get(0).getDir().update(i);
-        }
+        int x = 2;
         float nuevo_mapa = 0;
         Input input = gc.getInput();
+        ArrayList<Polygon> salidas = mapa_actual.getSalidas();
+        
+
         if (input.isKeyDown(Input.KEY_ENTER)) {
             gc.exit();
         }
-        
-        if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON))
-        {
+
+        if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
         }
         //System.out.println();
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
-            for(int n=0;n<mapa_actual.getBordes().size();n++)
-            {
+            for (int n = 0; n < mapa_actual.getBordes().size(); n++) {
                 if (personaje.getH1().intersects(mapa_actual.getBordes().get(n))) {
                     a = 1;
                     break;
                 } else {
                     a = 0;
-                } 
+                }
+            }
+            for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+                if (mapa_actual.getPersonajes().get(0).getH4().intersects(personaje.getH1()))  {
+                    a = 1;
+                    break;
+                }
             }
             if (a == 0 || b == 1) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f*x);
-                for(int n=0;n<salidas.size();n++)
-                {
-                    if(personaje.getH1().intersects(salidas.get(n)))
-                    {
+                personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * x);
+                for (int n = 0; n < salidas.size(); n++) {
+                    if (personaje.getH1().intersects(salidas.get(n))) {
                         nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
-                        personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
-                        personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
-                        mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
+                        personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
+                        personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
+                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
                     }
                 }
                 b = 0;
@@ -121,29 +121,31 @@ public class Mundo extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_S)) {
             personaje.setDir("down");
             personaje.getDir().update(i);
-            for(int n=0;n<mapa_actual.getBordes().size();n++)
-            {
+            for (int n = 0; n < mapa_actual.getBordes().size(); n++) {
                 if (personaje.getH4().intersects(mapa_actual.getBordes().get(n))) {
                     b = 1;
                     break;
                 } else {
                     b = 0;
-                } 
+                }
+            }
+            for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+                if (mapa_actual.getPersonajes().get(0).getH1().intersects(personaje.getH4()))  {
+                    b = 1;
+                    break;
+                }
             }
             if (b == 0 || a == 1) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f*x);
-                for(int n=0;n<salidas.size();n++)
-                {
-                    if(personaje.getH4().intersects(salidas.get(n)))
-                    {
+                personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f * x);
+                for (int n = 0; n < salidas.size(); n++) {
+                    if (personaje.getH4().intersects(salidas.get(n))) {
                         nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
-                        personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
-                        personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
-                        mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
-                        if(nuevo_mapa==5)
-                        {
+                        personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
+                        personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
+                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
+                        if (nuevo_mapa == 5) {
                             System.out.println("3");
                             sbg.enterState(1);
                         }
@@ -155,29 +157,32 @@ public class Mundo extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_A)) {
             personaje.setDir("left");
             personaje.getDir().update(i);
-            for(int n=0;n<mapa_actual.getBordes().size();n++)
-            {
+            for (int n = 0; n < mapa_actual.getBordes().size(); n++) {
+
                 if (personaje.getH2().intersects(mapa_actual.getBordes().get(n))) {
                     c = 1;
                     break;
                 } else {
                     c = 0;
-                } 
+                }
+            }
+            for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+                if (mapa_actual.getPersonajes().get(j).getH3().intersects(personaje.getH2())) {
+                    c = 1;
+                    break;
+                }
             }
             if (c == 0 || d == 1) {
-                personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f*x);
-                for(int n=0;n<salidas.size();n++)
-                {
-                    if(personaje.getH2().intersects(salidas.get(n)))
-                    {
-                        
-                        
+                personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * x);
+                for (int n = 0; n < salidas.size(); n++) {
+                    if (personaje.getH2().intersects(salidas.get(n))) {
+
                         nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordY(n, (int) personaje.getCoordenadaY());
-                        personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
-                        personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
-                        mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
+                        personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
+                        personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
+                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
                     }
                 }
                 d = 0;
@@ -186,29 +191,31 @@ public class Mundo extends BasicGameState {
         } else if (input.isKeyDown(Input.KEY_D)) {
             personaje.setDir("right");
             personaje.getDir().update(i);
-            for(int n=0;n<mapa_actual.getBordes().size();n++)
-            {
+            for (int n = 0; n < mapa_actual.getBordes().size(); n++) {
                 if (personaje.getH3().intersects(mapa_actual.getBordes().get(n))) {
                     d = 1;
                     break;
                 } else {
                     d = 0;
-                } 
+                }
             }
-            
+            for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+                if (mapa_actual.getPersonajes().get(0).getH2().intersects(personaje.getH3()))  {
+                    d = 1;
+                    break;
+                }
+            }
             if (d == 0 || c == 1) {
-                personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f*x);
-                for(int n=0;n<salidas.size();n++)
-                {
-                    if(personaje.getH3().intersects(salidas.get(n)))
-                    {
+                personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * x);
+                for (int n = 0; n < salidas.size(); n++) {
+                    if (personaje.getH3().intersects(salidas.get(n))) {
                         nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordY(n, (int) personaje.getCoordenadaY());
-                        personaje.setCoordenadaX(mapa_actual.getCoord()[n*2]);
-                        personaje.setCoordenadaY(mapa_actual.getCoord()[n*2+1]);
-                        mapa_actual = mapas.get((int)nuevo_mapa);
-                        mapa = new TiledMap(mapa_actual.getMapa(),"\\Construccion Mapas\\");
-                        
+                        personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
+                        personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
+                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
+
                     }
                 }
                 c = 0;
@@ -219,6 +226,24 @@ public class Mundo extends BasicGameState {
             personaje.setDir("stance");
             personaje.getDir().update(i);
         }
+        for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+            if (mapa_actual.getPersonajes().get(j).getH1().intersects(personaje.getH4())) {
+                mapa_actual.getPersonajes().get(j).setDir("up");
+                personaje.setDir("stance");
+            } else if (mapa_actual.getPersonajes().get(j).getH2().intersects(personaje.getH3())) {
+                mapa_actual.getPersonajes().get(j).setDir("sleft");
+                personaje.setDir("stance");
+            } else if (mapa_actual.getPersonajes().get(j).getH3().intersects(personaje.getH2())) {
+                mapa_actual.getPersonajes().get(j).setDir("sright");
+                personaje.setDir("stance");
+            } else if (mapa_actual.getPersonajes().get(j).getH4().intersects(personaje.getH1())) {
+                mapa_actual.getPersonajes().get(j).setDir("down");
+                personaje.setDir("stance");
+            } else {
+                mapa_actual.getPersonajes().get(j).move();
+                mapa_actual.getPersonajes().get(j).getDir().update(i);
+            }
+        }
 
     }
 
@@ -228,26 +253,26 @@ public class Mundo extends BasicGameState {
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
-        if(mapa_actual==mapa2)
-        {
-            mapa2.getPersonajes().get(0).getDir().draw(mapa2.getPersonajes().get(0).getCoordenadaX(),435);
+        for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+            mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(), 440);
+            g.draw(mapa_actual.getPersonajes().get(j).getH1());
+            g.draw(mapa_actual.getPersonajes().get(j).getH2());
+            g.draw(mapa_actual.getPersonajes().get(j).getH3());
+            g.draw(mapa_actual.getPersonajes().get(j).getH4());
         }
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
-        
-        /*g.draw(personaje.getH1());
+
+        g.draw(personaje.getH1());
         g.draw(personaje.getH2());
         g.draw(personaje.getH3());
-        g.draw(personaje.getH4());*/
-        
-        
-        for(int i=0;i<mapa_actual.getBordes().size();i++)
-        {
-          g.draw(mapa_actual.getBordes().get(i));  
+        g.draw(personaje.getH4());
+
+        for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
+            g.draw(mapa_actual.getBordes().get(i));
         }
-        
 
     }
 

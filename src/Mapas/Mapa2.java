@@ -28,9 +28,12 @@ public class Mapa2 extends MapaT{
     private WanderTipo1 madre = new WanderTipo1("madre");
     private ArrayList<WanderTipo1> personajes = new ArrayList<>(); 
     
-    private ArrayList<Polygon> salidas;
+    private ArrayList<Polygon> salidas1;
     private ArrayList<float[]> extremos;
     
+    private ArrayList<Polygon> salidas2;
+    
+    private int modo=1;
     private float   puntos21[] = new float[]{832,704,891,704,891,707,832,707};
     private float   puntos22[] = new float[]{842,94,892,94,892,92,842,92};
     
@@ -55,7 +58,9 @@ public class Mapa2 extends MapaT{
         
         
         extremos  = new ArrayList<>();
-        salidas   = new ArrayList<>();
+        salidas1   = new ArrayList<>();
+        
+        salidas2 = new ArrayList<>();
         
         extremos.add(puntos21);
         extremos.add(puntos22);
@@ -63,7 +68,7 @@ public class Mapa2 extends MapaT{
         for(int i=0;i<extremos.size();i++)
         {
             bordes = new Polygon(extremos.get(i));
-            salidas.add(bordes);
+            salidas1.add(bordes);
         }
     }
     
@@ -83,10 +88,6 @@ public class Mapa2 extends MapaT{
         return colisiones;
     }
 
-    public ArrayList<Polygon> getSalidas() {
-        return salidas;
-    }
-    
     public ArrayList<WanderTipo1> getPersonajes() {
         return personajes;
     }
@@ -95,6 +96,19 @@ public class Mapa2 extends MapaT{
         return mapa;
     }
 
+    public void cMode()
+    {
+        modo=2;
+    }
+    
+    public ArrayList<Polygon> getSalidas() {
+        if(modo==1)
+            return salidas2;
+        else
+            return salidas1;
+    }
+
+    
     public float getMapas(int salida) {
         return mapas[salida];
     }
