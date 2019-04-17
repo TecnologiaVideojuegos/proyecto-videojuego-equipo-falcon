@@ -5,6 +5,7 @@
  */
 package Personajes;
 
+import Elementos.Bocadillo;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -16,7 +17,7 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class WanderTipo2 extends WanderTipoT {
 
-    float coordenadaX = 400, coordenadaY = 440;
+    float coordenadaX = 500, coordenadaY = 450;
     Image[] movementUp;
     Image[] movementDown;
     Image[] movementLeft;
@@ -24,12 +25,12 @@ public class WanderTipo2 extends WanderTipoT {
     Animation actual, up, down, sleft, sright, sup, sdown;
     int[] duration = {200, 200};
     Rectangle h1;
-
+    Bocadillo habla = new Bocadillo();
 
     public WanderTipo2(String nombre) {
         try {
 
-            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 30);
+            h1 = new Rectangle(coordenadaX + 17, coordenadaY+ 10, 30, 50);
 
             Image[] movementUp = {new Image("ImagenesSprite\\up1.png"), new Image("ImagenesSprite\\up2.png")};
             Image[] movementDown = {new Image("ImagenesSprite\\down1.png"), new Image("ImagenesSprite\\down2.png")};
@@ -90,13 +91,13 @@ public class WanderTipo2 extends WanderTipoT {
 
     public void setCoordenadaX(float coordenadaX) {
         this.coordenadaX = coordenadaX;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
+        h1.setBounds(coordenadaX + 17, coordenadaY+ 10, 30, 50);
     }
 
     public void setCoordenadaY(float coordenadaY) {
 
         this.coordenadaY = coordenadaY;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
+        h1.setBounds(coordenadaX + 17, coordenadaY+ 10, 30, 50);
 
     }
 
@@ -112,15 +113,25 @@ public class WanderTipo2 extends WanderTipoT {
             movement++;
             coordenadaY = coordenadaY - (float) (0.5);
             setDir("up");
-        } else if (movement >= 1400 && movement < 1900) {
+        } else if (movement >= 1400 && movement < 1800) {
             movement++;
             setDir("sup");
         } else {
             movement = 0;
         }
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
+        h1.setBounds(coordenadaX + 17, coordenadaY+ 10, 30, 50);
     }
-
+    
+    public void talk(){
+        habla.dentro((int)coordenadaX+20, (int)coordenadaY-20);
+    }
+    public Bocadillo getTalk(){
+        return habla;
+    }
+    public void noTalk(){
+        habla.fuera();
+    }
+    
     public Rectangle getH1() {
         return h1;
     }

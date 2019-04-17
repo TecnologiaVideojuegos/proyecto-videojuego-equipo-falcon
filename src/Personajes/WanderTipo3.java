@@ -5,6 +5,7 @@
  */
 package Personajes;
 
+import Elementos.Bocadillo;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -17,7 +18,7 @@ import org.newdawn.slick.geom.Rectangle;
 public class WanderTipo3
         extends WanderTipoT {
 
-    float coordenadaX = 400, coordenadaY = 440;
+    float coordenadaX = 500, coordenadaY = 450;
     Image[] movementUp;
     Image[] movementDown;
     Image[] movementLeft;
@@ -27,12 +28,13 @@ public class WanderTipo3
     Rectangle h1;
     String dir;
     int movement = 0;
+    Bocadillo habla = new Bocadillo();
 
     public WanderTipo3(String dir) {
         try {
 
             this.dir = dir;
-            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 30);
+            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             Image[] stanceDown = {new Image("ImagenesSprite\\down0.png"), new Image("ImagenesSprite\\down0.png")};
             Image[] stanceUp = {new Image("ImagenesSprite\\up0.png"), new Image("ImagenesSprite\\up0.png")};
@@ -85,13 +87,13 @@ public class WanderTipo3
 
     public void setCoordenadaX(float coordenadaX) {
         this.coordenadaX = coordenadaX;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
+        h1.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
 
     public void setCoordenadaY(float coordenadaY) {
 
         this.coordenadaY = coordenadaY;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 32, 30, 30);
+        h1.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
     }
 
@@ -107,4 +109,17 @@ public class WanderTipo3
     public Rectangle getH1() {
         return h1;
     }
+
+    public void talk() {
+        habla.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+    }
+
+    public Bocadillo getTalk(){
+        return habla;
+    }
+
+    public void noTalk() {
+        habla.fuera();
+    }
+
 }

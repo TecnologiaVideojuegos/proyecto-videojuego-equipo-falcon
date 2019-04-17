@@ -8,6 +8,7 @@ package Mapas;
 import Personajes.WanderTipo2;
 import Personajes.WanderTipo3;
 import Personajes.WanderTipo4;
+import Personajes.WanderTipo5;
 import Personajes.WanderTipoT;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
@@ -33,6 +34,7 @@ public class Mapa1 extends MapaT {
     WanderTipo3 viejo2 = new WanderTipo3("left");
     WanderTipo3 viejo3 = new WanderTipo3("right");
     WanderTipo4 viejo4 = new WanderTipo4("right");
+    WanderTipo5 viejo5 = new WanderTipo5("right");
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
 
     private ArrayList<Polygon> salidas1;
@@ -60,10 +62,13 @@ public class Mapa1 extends MapaT {
         viejo3.setCoordenadaY(150);
         viejo4.setCoordenadaX(580);
         viejo4.setCoordenadaY(350);
+        viejo5.setCoordenadaX(200);
+        viejo5.setCoordenadaY(300);
         personajes.add(viejo);
         personajes.add(viejo2);
         personajes.add(viejo3);
         personajes.add(viejo4);
+        personajes.add(viejo5);
         puntos = new ArrayList<>();
         colisiones = new ArrayList<>();
 

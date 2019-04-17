@@ -15,7 +15,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class WanderTipo4 extends WanderTipoT {
+public class WanderTipo5 extends WanderTipoT {
 
     float coordenadaX = 500, coordenadaY = 450;
     Image[] movementUp;
@@ -28,7 +28,7 @@ public class WanderTipo4 extends WanderTipoT {
     Rectangle h1;
     Bocadillo habla = new Bocadillo();
 
-    public WanderTipo4(String nombre) {
+    public WanderTipo5(String nombre) {
         try {
 
             h1 = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
@@ -114,21 +114,21 @@ public class WanderTipo4 extends WanderTipoT {
 
     public void move() {
         if (movement < 800) {
-            coordenadaY = coordenadaY + (float) (0.2);
-            movement++;
-            setDir("down");
-        } else if (movement >= 800 && movement < 1000) {
-            coordenadaX = coordenadaX - (float) (0.2);
-            movement++;
-            setDir("left");
-        } else if (movement >= 1000 && movement < 1800) {
-            movement++;
-            coordenadaY = coordenadaY - (float) (0.2);
-            setDir("up");
-        } else if (movement >= 1800 && movement < 2000) {
             coordenadaX = coordenadaX + (float) (0.2);
             movement++;
             setDir("right");
+        } else if (movement >= 800 && movement < 1000) {
+            coordenadaY = coordenadaY - (float) (0.2);
+            movement++;
+            setDir("up");
+        } else if (movement >= 1000 && movement < 1800) {
+            movement++;
+            coordenadaX = coordenadaX - (float) (0.2);
+            setDir("left");
+        } else if (movement >= 1800 && movement < 2000) {
+            coordenadaY = coordenadaY + (float) (0.2);
+            movement++;
+            setDir("down");
         } else {
             movement = 0;
         }
@@ -140,7 +140,7 @@ public class WanderTipo4 extends WanderTipoT {
     }
 
     public void talk() {
-        habla.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+        habla.dentro((int) coordenadaX+20, (int) coordenadaY- 20);
     }
 
     public Bocadillo getTalk(){

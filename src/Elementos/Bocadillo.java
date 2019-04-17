@@ -34,11 +34,17 @@ public class Bocadillo {
         coordenadaY = cordY;
     }
 
-    public void fuera(int cordX, int cordY) {
-        coordenadaX = cordX;
-        coordenadaY = cordY;
+    public void fuera() {
+        coordenadaX = -100;
+        coordenadaY = -100;
     }
 
+    public float getCoordenadaX(){
+        return coordenadaX;
+    }
+    public float getCoordenadaY(){
+        return coordenadaY;
+    }
     public Image getImagen() {
         return foto;
     }
