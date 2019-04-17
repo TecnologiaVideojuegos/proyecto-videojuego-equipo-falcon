@@ -25,35 +25,41 @@ public class WanderTipo2 extends WanderTipoT {
     Animation actual, up, down, sleft, sright, sup, sdown;
     int[] duration = {200, 200};
     Rectangle h1;
-    Bocadillo habla = new Bocadillo();
-
-    public WanderTipo2(String nombre) {
+    Bocadillo bocadillo = new Bocadillo();
+    int desplazamiento = 0;
+    
+    public WanderTipo2(float x, float y) {
         try {
+            //Colocacion personaje
+            this.coordenadaX = x;
+            this.coordenadaY = y;
 
-            h1 = new Rectangle(coordenadaX + 17, coordenadaY+ 10, 30, 50);
+            //Creacion hitbox
+            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
+            //Animaciones movimiento
             Image[] movementUp = {new Image("ImagenesSprite\\up1.png"), new Image("ImagenesSprite\\up2.png")};
             Image[] movementDown = {new Image("ImagenesSprite\\down1.png"), new Image("ImagenesSprite\\down2.png")};
+            up = new Animation(movementUp, duration, false);
+            down = new Animation(movementDown, duration, false);
 
+            //Animaciones parado
             Image[] stanceDown = {new Image("ImagenesSprite\\down0.png"), new Image("ImagenesSprite\\down0.png")};
             Image[] stanceUp = {new Image("ImagenesSprite\\up0.png"), new Image("ImagenesSprite\\up0.png")};
             Image[] stanceLeft = {new Image("ImagenesSprite\\izq0.png"), new Image("ImagenesSprite\\izq0.png")};
             Image[] stanceRight = {new Image("ImagenesSprite\\der0.png"), new Image("ImagenesSprite\\der0.png")};
-
-            up = new Animation(movementUp, duration, false);
-            down = new Animation(movementDown, duration, false);
             sup = new Animation(stanceUp, duration, false);
             sdown = new Animation(stanceDown, duration, false);
             sleft = new Animation(stanceLeft, duration, false);
             sright = new Animation(stanceRight, duration, false);
 
+            //Animacion inicial
             actual = up;
         } catch (SlickException e) {
         }
     }
 
     public void setDir(String string) {
-
         switch (string) {
             case "up":
                 actual = up;
@@ -73,7 +79,6 @@ public class WanderTipo2 extends WanderTipoT {
             case "sleft":
                 actual = sleft;
                 break;
-
         }
     }
 
@@ -81,59 +86,48 @@ public class WanderTipo2 extends WanderTipoT {
         return actual;
     }
 
-    public float getCoordenadaY() {
-        return this.coordenadaY;
-    }
-
     public float getCoordenadaX() {
         return this.coordenadaX;
     }
 
-    public void setCoordenadaX(float coordenadaX) {
-        this.coordenadaX = coordenadaX;
-        h1.setBounds(coordenadaX + 17, coordenadaY+ 10, 30, 50);
-    }
-
-    public void setCoordenadaY(float coordenadaY) {
-
-        this.coordenadaY = coordenadaY;
-        h1.setBounds(coordenadaX + 17, coordenadaY+ 10, 30, 50);
-
+    public float getCoordenadaY() {
+        return this.coordenadaY;
     }
 
     public void move() {
-        if (movement < 500) {
+        if (desplazamiento < 500) {
             coordenadaY = coordenadaY + (float) (0.5);
-            movement++;
+            desplazamiento ++;
             setDir("down");
-        } else if (movement >= 500 && movement < 900) {
-            movement++;
+        } else if (desplazamiento >= 500 && desplazamiento < 900) {
+            desplazamiento ++;
             setDir("sdown");
-        } else if (movement >= 900 && movement < 1400) {
-            movement++;
+        } else if (desplazamiento >= 900 && desplazamiento < 1400) {
+            desplazamiento ++;
             coordenadaY = coordenadaY - (float) (0.5);
             setDir("up");
-        } else if (movement >= 1400 && movement < 1800) {
-            movement++;
+        } else if (desplazamiento >= 1400 && desplazamiento < 1800) {
+            desplazamiento ++;
             setDir("sup");
         } else {
-            movement = 0;
+            desplazamiento = 0;
         }
-        h1.setBounds(coordenadaX + 17, coordenadaY+ 10, 30, 50);
-    }
-    
-    public void talk(){
-        habla.dentro((int)coordenadaX+20, (int)coordenadaY-20);
-    }
-    public Bocadillo getTalk(){
-        return habla;
-    }
-    public void noTalk(){
-        habla.fuera();
-    }
-    
-    public Rectangle getH1() {
-        return h1;
+        h1.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
 
+    public Rectangle getHitbox() {
+        return h1;
+    }
+    
+    public void talk() {
+        bocadillo.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
+    }
+
+    public Bocadillo getTalk() {
+        return bocadillo;
+    }
+
+    public void noTalk() {
+        bocadillo.fuera();
+    }
 }

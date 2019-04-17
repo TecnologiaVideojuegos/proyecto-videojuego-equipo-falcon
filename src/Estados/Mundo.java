@@ -49,14 +49,9 @@ public class Mundo extends BasicGameState {
     Mapa9 mapa9 = new Mapa9();
     MapaT mapa_actual = new MapaT();
     MainChar personaje;
-    ArrayList<Rectangle> colPers;
-    ArrayList<Polygon> salidas;
-    ArrayList<Polygon> bordes;
-    ArrayList<WanderTipoT> personajes;
 
     public Mundo(int num) {
 
-        colPers = new ArrayList<>();
         mapas = new ArrayList<>();
         mapas.add(mapa1);
         mapas.add(mapa2);
@@ -68,7 +63,7 @@ public class Mundo extends BasicGameState {
         mapas.add(mapa8);
         mapas.add(mapa9);
 
-        mapa_actual = mapas.get(num);
+        mapa_actual = mapas.get(0);
     }
 
     @Override
@@ -79,14 +74,15 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int x = 1;
+        int x = 2;
         float nuevo_mapa = 0;
         Input input = gc.getInput();
-        salidas = mapa_actual.getSalidas();
-        bordes = mapa_actual.getBordes();
-        personajes = mapa_actual.getPersonajes();
+        ArrayList<Polygon> salidas = mapa_actual.getSalidas();
+        ArrayList<Polygon> bordes = mapa_actual.getBordes();
+        ArrayList<WanderTipoT> personajes = mapa_actual.getPersonajes();
+        ArrayList<Rectangle> colPers = new ArrayList<>();
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-            colPers.add(personajes.get(j).getH1());
+            colPers.add(personajes.get(j).getHitbox());
         }
 
         if (input.isKeyDown(Input.KEY_ENTER)) {
@@ -110,6 +106,7 @@ public class Mundo extends BasicGameState {
             for (int j = 0; j < personajes.size(); j++) {
                 if (colPers.get(j).intersects(personaje.getH1())) {
                     a = 1;
+                    System.out.println("touch");
                     break;
                 }
             }
@@ -156,7 +153,6 @@ public class Mundo extends BasicGameState {
                         mapa_actual = mapas.get((int) nuevo_mapa);
                         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
                         if (nuevo_mapa == 5) {
-                            System.out.println("3");
                             sbg.enterState(1);
                         }
                     }
@@ -243,7 +239,6 @@ public class Mundo extends BasicGameState {
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     personajes.get(j).talk();
-                    System.out.println("e");
                 }
             } else if (colPers.get(j).intersects(personaje.getH3())) {
                 personajes.get(j).setDir("sleft");
@@ -264,7 +259,6 @@ public class Mundo extends BasicGameState {
                     personajes.get(j).talk();
                 }
             } else {
-                System.out.println(" ");
                 personajes.get(j).noTalk();
                 personajes.get(j).move();
                 personajes.get(j).getDir().update(i);
@@ -281,13 +275,10 @@ public class Mundo extends BasicGameState {
         mapa.render(0, 0, 1);
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(), mapa_actual.getPersonajes().get(j).getCoordenadaY());
-            g.draw(mapa_actual.getPersonajes().get(j).getH1());
+            g.draw(mapa_actual.getPersonajes().get(j).getHitbox());
         }
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
-        for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-            mapa_actual.getPersonajes().get(j).getTalk().getImagen().draw(mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaY());
 
-        }
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
@@ -300,7 +291,10 @@ public class Mundo extends BasicGameState {
         for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
             g.draw(mapa_actual.getBordes().get(i));
         }
+        for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+            mapa_actual.getPersonajes().get(j).getTalk().getImagen().draw(mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaY());
 
+        }
     }
 
     @Override

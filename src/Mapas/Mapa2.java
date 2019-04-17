@@ -26,7 +26,7 @@ public class Mapa2 extends MapaT{
     private ArrayList<Polygon> colisiones;
     private ArrayList<float[]> puntos;
     
-    private WanderTipo1 madre = new WanderTipo1("madre");
+    private WanderTipo1 madre = new WanderTipo1(400,450);
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
     
     private ArrayList<Polygon> salidas1;
@@ -34,7 +34,7 @@ public class Mapa2 extends MapaT{
     
     private ArrayList<Polygon> salidas2;
     
-    private int modo=1;
+    private int modo=0;
     private float   puntos21[] = new float[]{832,704,891,704,891,707,832,707};
     private float   puntos22[] = new float[]{842,94,892,94,892,92,842,92};
     

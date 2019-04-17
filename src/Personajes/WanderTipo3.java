@@ -15,36 +15,40 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class WanderTipo3
-        extends WanderTipoT {
+public class WanderTipo3 extends WanderTipoT {
 
     float coordenadaX = 500, coordenadaY = 450;
-    Image[] movementUp;
-    Image[] movementDown;
-    Image[] movementLeft;
-    Image[] movementRight;
+    Image[] stanceUp;
+    Image[] stanceDown;
+    Image[] stanceLeft;
+    Image[] stanceRight;
     Animation actual, sleft, sright, sup, sdown;
     int[] duration = {200, 200};
-    Rectangle h1;
+    Rectangle hitbox;
     String dir;
-    int movement = 0;
-    Bocadillo habla = new Bocadillo();
+    int desplazamiento = 0;
+    Bocadillo bocadillo = new Bocadillo();
 
-    public WanderTipo3(String dir) {
+    public WanderTipo3(String dir, float x, float y) {
         try {
-
+            //Colocacion personaje
+            this.coordenadaX = x;
+            this.coordenadaY = y;
             this.dir = dir;
-            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
+            //Creacion hitbox
+            hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
+
+            //Animaciones parado
             Image[] stanceDown = {new Image("ImagenesSprite\\down0.png"), new Image("ImagenesSprite\\down0.png")};
             Image[] stanceUp = {new Image("ImagenesSprite\\up0.png"), new Image("ImagenesSprite\\up0.png")};
             Image[] stanceLeft = {new Image("ImagenesSprite\\izq0.png"), new Image("ImagenesSprite\\izq0.png")};
             Image[] stanceRight = {new Image("ImagenesSprite\\der0.png"), new Image("ImagenesSprite\\der0.png")};
-
             sup = new Animation(stanceUp, duration, false);
             sdown = new Animation(stanceDown, duration, false);
             sleft = new Animation(stanceLeft, duration, false);
             sright = new Animation(stanceRight, duration, false);
+
             if (dir.equals("left")) {
                 actual = sleft;
             } else {
@@ -55,7 +59,6 @@ public class WanderTipo3
     }
 
     public void setDir(String string) {
-
         switch (string) {
             case "sup":
                 actual = sup;
@@ -69,7 +72,6 @@ public class WanderTipo3
             case "sleft":
                 actual = sleft;
                 break;
-
         }
     }
 
@@ -85,20 +87,7 @@ public class WanderTipo3
         return this.coordenadaX;
     }
 
-    public void setCoordenadaX(float coordenadaX) {
-        this.coordenadaX = coordenadaX;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
-    }
-
-    public void setCoordenadaY(float coordenadaY) {
-
-        this.coordenadaY = coordenadaY;
-        h1.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
-
-    }
-
     public void move() {
-
         if ((dir).equals("left")) {
             setDir("sleft");
         } else if ((dir).equals("right")) {
@@ -106,20 +95,20 @@ public class WanderTipo3
         }
     }
 
-    public Rectangle getH1() {
-        return h1;
+    public Rectangle getHitbox() {
+        return hitbox;
     }
 
     public void talk() {
-        habla.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+        bocadillo.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
     }
 
-    public Bocadillo getTalk(){
-        return habla;
+    public Bocadillo getTalk() {
+        return bocadillo;
     }
 
     public void noTalk() {
-        habla.fuera();
+        bocadillo.fuera();
     }
 
 }

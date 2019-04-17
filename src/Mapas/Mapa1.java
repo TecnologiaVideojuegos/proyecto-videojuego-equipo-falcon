@@ -30,11 +30,11 @@ public class Mapa1 extends MapaT {
     private ArrayList<Polygon> colisiones;
     private ArrayList<float[]> puntos;
     
-    WanderTipo2 viejo = new WanderTipo2("viejo");
-    WanderTipo3 viejo2 = new WanderTipo3("left");
-    WanderTipo3 viejo3 = new WanderTipo3("right");
-    WanderTipo4 viejo4 = new WanderTipo4("right");
-    WanderTipo5 viejo5 = new WanderTipo5("right");
+    WanderTipo2 viejo = new WanderTipo2(1160,480);
+    WanderTipo3 viejo2 = new WanderTipo3("left",920,150);
+    WanderTipo3 viejo3 = new WanderTipo3("right",880,150);
+    WanderTipo4 viejo4 = new WanderTipo4(580,350);
+    WanderTipo5 viejo5 = new WanderTipo5(200,300);
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
 
     private ArrayList<Polygon> salidas1;
@@ -54,16 +54,7 @@ public class Mapa1 extends MapaT {
 
     public Mapa1() {
         super();
-        viejo.setCoordenadaX(1160);
-        viejo.setCoordenadaY(480);
-        viejo2.setCoordenadaX(920);
-        viejo2.setCoordenadaY(150);
-        viejo3.setCoordenadaX(880);
-        viejo3.setCoordenadaY(150);
-        viejo4.setCoordenadaX(580);
-        viejo4.setCoordenadaY(350);
-        viejo5.setCoordenadaX(200);
-        viejo5.setCoordenadaY(300);
+        
         personajes.add(viejo);
         personajes.add(viejo2);
         personajes.add(viejo3);
