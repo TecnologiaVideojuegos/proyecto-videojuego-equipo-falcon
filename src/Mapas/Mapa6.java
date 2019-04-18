@@ -17,43 +17,43 @@ import org.newdawn.slick.geom.Polygon;
 public class Mapa6 extends MapaT {
 
     private String mapa = "\\Mapas\\mapa6.tmx";
-
-    private float puntos1[] = new float[]{63, 0, 256, 0, 256, 33, 985, 33, 985, 65, 1027, 65, 1027, 36, 1180, 36, 1180, 68, 1218, 68, 1218, 141, 1242, 164, 1242, 200, 1282, 200, 1282, 186, 1402, 186, 1433, 223, 1469, 223, 1469, 778, 1091, 778, 1091, 741, 1184, 738, 1184, 671, 1153, 671, 1153, 700, 1058, 700, 1058, 733, 1020, 733, 1020, 785, 35, 785, 35, 32, 65, 32};
-
+    
     private Polygon bordes = new Polygon();
+    
+    private float borde1[] = new float[]{63, 0, 256, 0, 256, 33, 985, 33, 985, 65, 1027, 65, 1027, 36, 1180, 36, 1180, 68, 1218, 68, 1218, 141, 1242, 164, 1242, 200, 1282, 200, 1282, 186, 1402, 186, 1433, 223, 1469, 223, 1469, 778, 1091, 778, 1091, 741, 1184, 738, 1184, 671, 1153, 671, 1153, 700, 1058, 700, 1058, 733, 1020, 733, 1020, 785, 35, 785, 35, 32, 65, 32};
+    private ArrayList<float[]> colisiones_bordes;
     private ArrayList<Polygon> colisiones;
-    private ArrayList<float[]> puntos;
 
-    private float puntos21[] = new float[]{66, 2, 252, 2, 252, 0, 66, 0};
+    private float salida1[] = new float[]{66, 2, 252, 2, 252, 0, 66, 0};
+    private ArrayList<float[]> puntos_salidas;
+    private ArrayList<Polygon> colisiones_salidas;
 
-    private ArrayList<Polygon> salidas;
-    private ArrayList<float[]> extremos;
-    private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
-
-    private float mapas[] = new float[]{4};
     //plaza abajo
+    private float mapas[] = new float[]{4};
     private float coord[] = new float[]{0, 720};
-
+    
+    private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
+    
     public Mapa6() {
         super();
-        puntos = new ArrayList<>();
-        colisiones = new ArrayList<>();
+        colisiones_bordes = new ArrayList<>();
+        colisiones        = new ArrayList<>();
 
-        puntos.add(puntos1);
+        colisiones_bordes.add(borde1);
 
-        for (int i = 0; i < puntos.size(); i++) {
-            bordes = new Polygon(puntos.get(i));
+        for (int i = 0; i < colisiones_bordes.size(); i++) {
+            bordes = new Polygon(colisiones_bordes.get(i));
             colisiones.add(bordes);
         }
 
-        extremos = new ArrayList<>();
-        salidas = new ArrayList<>();
+        puntos_salidas     = new ArrayList<>();
+        colisiones_salidas = new ArrayList<>();
 
-        extremos.add(puntos21);
+        puntos_salidas.add(salida1);
 
-        for (int i = 0; i < extremos.size(); i++) {
-            bordes = new Polygon(extremos.get(i));
-            salidas.add(bordes);
+        for (int i = 0; i < puntos_salidas.size(); i++) {
+            bordes = new Polygon(puntos_salidas.get(i));
+            colisiones_salidas.add(bordes);
         }
     }
 
@@ -65,12 +65,16 @@ public class Mapa6 extends MapaT {
         coord[(2 * x) + 1] = y;
     }
 
+    public float[] getCoord() {
+        return coord;
+    }
+    
     public ArrayList<Polygon> getBordes() {
         return colisiones;
     }
 
     public ArrayList<Polygon> getSalidas() {
-        return salidas;
+        return colisiones_salidas;
     }
 
     public ArrayList<WanderTipoT> getPersonajes() {
@@ -84,9 +88,4 @@ public class Mapa6 extends MapaT {
     public float getMapas(int salida) {
         return mapas[salida];
     }
-
-    public float[] getCoord() {
-        return coord;
-    }
-
 }

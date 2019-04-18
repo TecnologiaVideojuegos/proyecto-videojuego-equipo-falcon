@@ -19,15 +19,15 @@ public class MapaT {
 
     private Polygon bordes = new Polygon();
     private ArrayList<Polygon> colisiones;
-    private ArrayList<float[]> puntos;
+    private ArrayList<float[]> colisiones_bordes;
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
 
     private float puntos21[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
     private float puntos22[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
     private float puntos23[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
     private float puntos24[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
-    private ArrayList<Polygon> salidas;
-    private ArrayList<float[]> extremos;
+    private ArrayList<Polygon> colisiones_salidas;
+    private ArrayList<float[]> puntos_salidas;
 
     private float mapas[] = new float[]{0, 1, 2, 3};
     private float coord[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -48,7 +48,7 @@ public class MapaT {
     }
 
     public ArrayList<Polygon> getSalidas() {
-        return salidas;
+        return colisiones_salidas;
     }
 
     
