@@ -32,8 +32,8 @@ public class Boss2 extends BasicGameState {
     int a = 0, b = 0, c = 0, d = 0;
     TiledMap mapa;
     Nave personaje;
-    ArrayList<Corazones> corazon;
-    ArrayList<Arresto> balas;
+    ArrayList<Corazones> corazonOut, corazonIn, poum;
+    ArrayList<Arresto> balasOut, balasIn;
     Corazones heart;
     Arresto bala;
     int fase = 0, num = 0;
@@ -54,15 +54,18 @@ public class Boss2 extends BasicGameState {
         personaje = new Nave();
         personaje.setCoordenadaX(150);
         personaje.setCoordenadaY(400);
-        corazon = new ArrayList<>();
-        balas = new ArrayList<>();
-        for (int i = 0; i < 200; i++) {
+        corazonOut = new ArrayList<>();
+        balasOut = new ArrayList<>();
+        corazonIn = new ArrayList<>();
+        balasIn = new ArrayList<>();
+        poum = new ArrayList<>();
+        for (int i = 0; i < 60; i++) {
             heart = new Corazones();
-            corazon.add(heart);
+            corazonOut.add(heart);
         }
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 15; i++) {
             bala = new Arresto();
-            balas.add(bala);
+            balasOut.add(bala);
         }
 
     }
@@ -73,15 +76,17 @@ public class Boss2 extends BasicGameState {
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
-        for (int i = 0; i < corazon.size(); i++) {
-            corazon.get(i).getDir().draw(corazon.get(i).getCoordenadaX(), corazon.get(i).getCoordenadaY());
-            g.draw(corazon.get(i).getH1());
+        for (int i = 0; i < corazonIn.size(); i++) {
+            corazonIn.get(i).getDir().draw(corazonIn.get(i).getCoordenadaX(), corazonIn.get(i).getCoordenadaY());
+            g.draw(corazonIn.get(i).getH1());
         }
-        for (int i = 0; i < balas.size(); i++) {
-            if (balas.get(i).getEstado() == 1) {
-                balas.get(i).getImage().draw(balas.get(i).getCoordenadaX(), balas.get(i).getCoordenadaY());
-
-            }
+        for (int i = 0; i < poum.size(); i++) {
+            poum.get(i).getDir().draw(poum.get(i).getCoordenadaX(), poum.get(i).getCoordenadaY());
+            g.draw(poum.get(i).getH1());
+        }
+        for (int i = 0; i < balasIn.size(); i++) {
+            balasIn.get(i).getImage().draw(balasIn.get(i).getCoordenadaX(), balasIn.get(i).getCoordenadaY());
+            g.draw(balasIn.get(i).getH1());
         }
 
         mapa.render(0, 0, 2);
@@ -102,40 +107,60 @@ public class Boss2 extends BasicGameState {
 
         Input input = gc.getInput();
         fase++;
-        if (fase % 50 == 0 && fase / 50 < corazon.size()) {
-            corazon.get((fase / 50) - 1).init();
+        if (fase % 100 == 0) {
+            corazonIn.add(corazonOut.get(0));
+            corazonOut.remove(0);
+            corazonIn.get(corazonIn.size() - 1).init();
+            System.out.println(fase / 50);
         }
-        if (input.isKeyDown(Input.KEY_SPACE) && fase % 50 == 0) {
-            balas.get(num).init(personaje.getCoordenadaX() + 30, personaje.getCoordenadaY() + 15);
-            num++;
-            if (num >= balas.size()) {
-                num = 0;
+        if (input.isKeyDown(Input.KEY_SPACE) && fase %50 == 0) {
+            balasIn.add(balasOut.get(0));
+            balasOut.remove(0);
+            balasIn.get(balasIn.size() - 1).init(personaje.getCoordenadaX() + 30, personaje.getCoordenadaY() + 15);
+        }
+        for (int x = 0; x < balasIn.size(); x++) {
+            balasIn.get(x).move();
+            if (balasIn.get(x).getCoordenadaX() >= 1504) {
+                balasOut.add(balasIn.get(x));
+                balasIn.remove(x);
+                balasOut.get(balasOut.size() - 1).reset();
             }
         }
-        for (int x = 0; x < balas.size(); x++) {
-            if (balas.get(x).getEstado() == 1) {
-                balas.get(x).move();
-            }
+        for (int x = 0; x < corazonIn.size(); x++) {
+            corazonIn.get(x).move();
         }
-        for (int x = 0; x < corazon.size(); x++) {
-            if (corazon.get(x).getEstado() == 1) {
-                corazon.get(x).move();
+        for (int x = 0; x < corazonIn.size(); x++) {
+            Corazones c1 = corazonIn.get(x);
+            float x1 = c1.getCoordenadaX();
+            if(x1<=200)
+            {
+                poum.add(c1);
+                c1.explota();
+                corazonIn.remove(c1);
             }
+            for (int y = 0; y < balasIn.size(); y++) {
 
-            if (corazon.get(x).getCoordenadaX() <= 200) {
-
-                if (corazon.get(x).getDir().getFrameCount() == 2) {
-                    corazon.get(x).explota();
+                if (c1.getH1().intersects(balasIn.get(y).getH1())) {
+                    c1.explota();
+                    poum.add(c1);
+                    corazonIn.remove(c1);
+                    balasOut.add(balasIn.get(y));
+                    balasIn.remove(y);
+                    balasOut.get(balasOut.size() - 1).reset();
+                    
                 }
-                corazon.get(x).getDir().update(i);
-                if (corazon.get(x).getDir().getFrame() == 3) {
-                    corazon.get(x).salir();
-                }
             }
-
         }
-        if (fase / 50 >= corazon.size()) {
-            fase = 0;
+        for(int x=0;x<poum.size();x++)
+        {   
+            Corazones h1=poum.get(x);
+            h1.getDir().update(i);
+            if(h1.getDir().getFrame()==3)
+            {
+                h1.salir();
+                corazonOut.add(h1);
+                poum.remove(h1);
+            }
         }
         if (first > 0) {
             if (first % 2 == 0) {

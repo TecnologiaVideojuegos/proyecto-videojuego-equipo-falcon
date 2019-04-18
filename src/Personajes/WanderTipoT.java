@@ -34,13 +34,13 @@ public class WanderTipoT {
 
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
-            Image[] movementLeft = {new Image("ImagenesSprite\\izq1.png"), new Image("ImagenesSprite\\izq2.png"), new Image("ImagenesSprite\\izq3.png"), new Image("ImagenesSprite\\izq4.png"), new Image("ImagenesSprite\\izq5.png"), new Image("ImagenesSprite\\izq6.png"), new Image("ImagenesSprite\\izq7.png"), new Image("ImagenesSprite\\izq8.png")};
-            Image[] movementRight = {new Image("ImagenesSprite\\der1.png"), new Image("ImagenesSprite\\der2.png"), new Image("ImagenesSprite\\der3.png"), new Image("ImagenesSprite\\der4.png"), new Image("ImagenesSprite\\der5.png"), new Image("ImagenesSprite\\der6.png"), new Image("ImagenesSprite\\der7.png"), new Image("ImagenesSprite\\der8.png")};
+            Image[] movementLeft = {new Image("ImagenesSprite\\Niña\\izq1.png"), new Image("ImagenesSprite\\Niña\\izq2.png"), new Image("ImagenesSprite\\Niña\\izq3.png"), new Image("ImagenesSprite\\Niña\\izq4.png"), new Image("ImagenesSprite\\Niña\\izq5.png"), new Image("ImagenesSprite\\Niña\\izq6.png"), new Image("ImagenesSprite\\Niña\\izq7.png"), new Image("ImagenesSprite\\Niña\\izq8.png")};
+            Image[] movementRight = {new Image("ImagenesSprite\\Niña\\der1.png"), new Image("ImagenesSprite\\Niña\\der2.png"), new Image("ImagenesSprite\\Niña\\der3.png"), new Image("ImagenesSprite\\Niña\\der4.png"), new Image("ImagenesSprite\\Niña\\der5.png"), new Image("ImagenesSprite\\Niña\\der6.png"), new Image("ImagenesSprite\\Niña\\der7.png"), new Image("ImagenesSprite\\Niña\\der8.png")};
 
-            Image[] stanceDown = {new Image("ImagenesSprite\\down0.png"), new Image("ImagenesSprite\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\up0.png"), new Image("ImagenesSprite\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\izq0.png"), new Image("ImagenesSprite\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\der0.png"), new Image("ImagenesSprite\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\Niña\\down0.png"), new Image("ImagenesSprite\\Niña\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\Niña\\up0.png"), new Image("ImagenesSprite\\Niña\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\Niña\\izq0.png"), new Image("ImagenesSprite\\Niña\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\Niña\\der0.png"), new Image("ImagenesSprite\\Niña\\der0.png")};
 
             left = new Animation(movementLeft, duration2, false);
             right = new Animation(movementRight, duration2, false);

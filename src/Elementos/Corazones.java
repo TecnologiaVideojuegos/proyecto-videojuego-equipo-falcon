@@ -23,9 +23,9 @@ public class Corazones {
     float coordenadaXi = 1010, coordenadaYi = 273;
     Animation actual, avanza, explota;
     int[] duration2 = {500, 500};
-    int[] duration = {100, 100, 100, 100};
+    int[] duration = {20, 20, 20, 20};
     Circle h1;
-    private float estado=0, velocidadY;
+    private float estado=0;
 
     public Corazones() {
         try {
@@ -89,7 +89,8 @@ public class Corazones {
 
     public void move() {
         coordenadaX = coordenadaX - (float)0.5;
-
+        h1.setCenterX(coordenadaX);
+        h1.setCenterY(coordenadaY);
         
     }
 

@@ -45,6 +45,11 @@ public class Arresto {
             coordenadaY=y;
             estado=1;
     }
+    public void reset()
+    {
+        coordenadaX=-100;
+        coordenadaY=-100;
+    }
     
     public int getEstado()
     {
