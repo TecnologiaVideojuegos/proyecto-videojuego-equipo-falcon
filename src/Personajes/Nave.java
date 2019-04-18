@@ -16,11 +16,9 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class Nave {
 
-    float coordenadaX = 300, coordenadaY = 300;
-    Image[] movement;
-    Animation move;
-
-    int[] duration2 = {100, 100, 100, 100};
+    float coordenadaX, coordenadaY;
+    Animation mover;
+    int[] duration = {100, 100, 100, 100};
     Rectangle h1, h2, h3, h4;
 
     public Nave() {
@@ -31,8 +29,8 @@ public class Nave {
             h3 = new Rectangle(coordenadaX + 48, coordenadaY + 33, 1, 30);
             h4 = new Rectangle(coordenadaX + 17, coordenadaY + 63, 30, 1);
 
-            Image[] movement = {new Image("SpriteBoss2\\nave0.png"), new Image("SpriteBoss2\\nave1.png"), new Image("SpriteBoss2\\nave2.png"), new Image("SpriteBoss2\\nave1.png")};
-            move = new Animation(movement, duration2, false);
+            Image[] movimiento = {new Image("SpriteBoss2\\nave0.png"), new Image("SpriteBoss2\\nave1.png"), new Image("SpriteBoss2\\nave2.png"), new Image("SpriteBoss2\\nave1.png")};
+            mover = new Animation(movimiento, duration, false);
 
         } catch (SlickException e) {
         }
@@ -41,7 +39,7 @@ public class Nave {
 
 
     public Animation getDir() {
-        return move;
+        return mover;
     }
 
     public float getCoordenadaX() {
