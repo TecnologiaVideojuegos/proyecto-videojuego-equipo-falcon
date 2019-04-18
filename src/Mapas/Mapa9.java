@@ -95,4 +95,5 @@ public class Mapa9 extends MapaT {
     public float getMapas(int salida) {
         return mapas[salida];
     }
+    
 }

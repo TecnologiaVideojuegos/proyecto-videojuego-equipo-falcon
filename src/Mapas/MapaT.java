@@ -18,20 +18,15 @@ public class MapaT {
     private String mapa = "\\Mapas\\mapa2.tmx";
 
     private Polygon bordes = new Polygon();
+    
     private ArrayList<Polygon> colisiones;
-    private ArrayList<float[]> colisiones_bordes;
-    private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
-
-    private float puntos21[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
-    private float puntos22[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
-    private float puntos23[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
-    private float puntos24[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
     private ArrayList<Polygon> colisiones_salidas;
-    private ArrayList<float[]> puntos_salidas;
 
     private float mapas[] = new float[]{0, 1, 2, 3};
     private float coord[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
+    private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
+    
     public MapaT() {
     }
 
@@ -43,6 +38,11 @@ public class MapaT {
         coord[(2 * x) + 1] = y;
     }
 
+    
+    public float[] getCoord() {
+        return coord;
+    }
+    
     public ArrayList<Polygon> getBordes() {
         return colisiones;
     }
@@ -51,7 +51,6 @@ public class MapaT {
         return colisiones_salidas;
     }
 
-    
     public ArrayList<WanderTipoT> getPersonajes() {
         return personajes;
     }
@@ -61,9 +60,5 @@ public class MapaT {
 
     public float getMapas(int salida) {
         return mapas[salida];
-    }
-
-    public float[] getCoord() {
-        return coord;
     }
 }
