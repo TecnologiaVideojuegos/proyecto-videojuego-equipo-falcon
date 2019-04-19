@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Estados;
+package EstadoBoss1;
 
-import Elementos.Pelota;
+import EstadoBoss1.Pelota;
 import Personajes.MainChar;
 import Personajes.ProfEd;
 import static java.lang.Math.random;

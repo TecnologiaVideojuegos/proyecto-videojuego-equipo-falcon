@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Elementos;
+package EstadoBoss2;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,7 +27,7 @@ public class Arresto {
     public Arresto() {
         try {
             arrestoImg = new Image("\\SpriteBoss2\\arresto.png");
-            h1 = new Circle(coordenadaX + 5, coordenadaY + 5, 26);
+            h1 = new Circle(coordenadaX + 32, coordenadaY + 32, 10);
         } catch (SlickException ex) {
             Logger.getLogger(Arresto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,10 +66,8 @@ public class Arresto {
 
     public void move() {
         coordenadaX = coordenadaX + (float)1.8;
-        h1.setCenterX(coordenadaX+5);
-        h1.setCenterY(coordenadaY+5);
-
-        
+        h1.setCenterX(coordenadaX+32);
+        h1.setCenterY(coordenadaY+32);
     }
 
     public Circle getH1() {

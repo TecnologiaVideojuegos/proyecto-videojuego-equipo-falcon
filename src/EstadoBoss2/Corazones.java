@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Elementos;
+package EstadoBoss2;
 
 import static java.lang.Math.random;
 import java.util.logging.Level;
@@ -30,7 +30,7 @@ public class Corazones {
     public Corazones() {
         try {
 
-            h1 = new Circle(coordenadaX + 5, coordenadaY + 5, 26);
+            h1 = new Circle(coordenadaX + 32, coordenadaY + 32, 26);
 
             Image[] movement = {new Image("SpriteBoss2\\move1.png"), new Image("SpriteBoss2\\move1.png")};
             Image[] poum = {new Image("SpriteBoss2\\move1.png"), new Image("SpriteBoss2\\move2.png"), new Image("SpriteBoss2\\move3.png"), new Image("SpriteBoss2\\move4.png")};
@@ -89,8 +89,8 @@ public class Corazones {
 
     public void move() {
         coordenadaX = coordenadaX - (float)0.5;
-        h1.setCenterX(coordenadaX);
-        h1.setCenterY(coordenadaY);
+        h1.setCenterX(coordenadaX+32);
+        h1.setCenterY(coordenadaY+32);
         
     }
 

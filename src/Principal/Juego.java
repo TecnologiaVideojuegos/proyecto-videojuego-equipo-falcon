@@ -5,8 +5,8 @@
  */
 package Principal;
 
-import Estados.Boss1;
-import Estados.Boss2;
+import EstadoBoss1.Boss1;
+import EstadoBoss2.Boss2;
 import Estados.Mundo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
