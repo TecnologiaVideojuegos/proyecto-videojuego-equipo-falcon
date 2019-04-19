@@ -36,10 +36,10 @@ public class Juego extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-       this.addState(new Boss2());
-          this.addState(new Mundo(0));
+       
+        this.addState(new Mundo(0));
         this.addState(new Boss1());
-
+        this.addState(new Boss2());
     }
 
     /**

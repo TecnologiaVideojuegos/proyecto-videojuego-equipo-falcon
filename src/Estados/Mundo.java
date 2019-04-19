@@ -295,6 +295,7 @@ public class Mundo extends BasicGameState {
             g.draw(mapa_actual.getBordes().get(i));
         }
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
+            
             mapa_actual.getPersonajes().get(j).getTalk().getImagen().draw(mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaY());
 
         }

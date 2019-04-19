@@ -62,7 +62,7 @@ public class Corazones {
     {
         coordenadaX = 1504;
         h1.setLocation(coordenadaX + 5, coordenadaY + 5);
-        coordenadaY = (int)(random()*600)+100;
+        coordenadaY = (int)(random()*680)+50;
     }
     
     public void explota()

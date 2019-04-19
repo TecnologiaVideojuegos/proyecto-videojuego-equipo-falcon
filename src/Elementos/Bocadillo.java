@@ -19,7 +19,7 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class Bocadillo {
 
-    float coordenadaX = -100, coordenadaY = -100;
+    float coordenadaX = -1000, coordenadaY = -1000;
     Image foto;
 
     public Bocadillo() {
@@ -35,8 +35,8 @@ public class Bocadillo {
     }
 
     public void fuera() {
-        coordenadaX = -100;
-        coordenadaY = -100;
+        coordenadaX = -1000;
+        coordenadaY = -1000;
     }
 
     public float getCoordenadaX(){
