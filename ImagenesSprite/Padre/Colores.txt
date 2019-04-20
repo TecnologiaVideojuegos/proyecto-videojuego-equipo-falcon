@@ -1,0 +1,15 @@
+Camisa dentro  0x3F6CD4
+Camisa fuera  0x1F4399
+Pantalon   0x002B8F
+Zapatos  0x232017
+Piel  0x5291FF
+Piel(Detalles)  0x4A7ED9
+Pelo:
+  Mayor parte  0x123EA6
+  Contorno  0x0F3691i
+  Detalles  0x3859A6
+  Barba  0x004CFF
+  Cejas  0x123EA6
+
+Ojo  0x2A69FA
+Pupila  0x281820

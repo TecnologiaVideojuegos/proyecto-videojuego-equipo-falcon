@@ -5,6 +5,7 @@
  */
 package Mapas;
 
+import Personajes.Madre;
 import Personajes.WanderTipo1;
 import Personajes.WanderTipoT;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class Mapa2 extends MapaT{
     private float   coord[] = new float[]{1230,349,710,192};
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
-    private WanderTipo1 madre = new WanderTipo1(400,450);
+    private Madre madre = new Madre(400,450);
     
     public Mapa2() {
         super();

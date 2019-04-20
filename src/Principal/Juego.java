@@ -5,8 +5,8 @@
  */
 package Principal;
 
-import Estados.Boss1;
-import Estados.Boss2;
+import EstadoBoss1.Boss1;
+import EstadoBoss2.Boss2;
 import Estados.Mundo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,10 +36,10 @@ public class Juego extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-       this.addState(new Boss2());
-          this.addState(new Mundo(0));
+       
+        this.addState(new Mundo(0));
         this.addState(new Boss1());
-
+        this.addState(new Boss2());
     }
 
     /**
