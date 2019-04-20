@@ -8,6 +8,7 @@
  <tileset firstgid="1441" source="../Construccion Mapas/Outside_B.tsx"/>
  <tileset firstgid="1697" source="../Construccion Mapas/Window.tsx"/>
  <tileset firstgid="1713" source="../Construccion Mapas/interior3.tsx"/>
+ <tileset firstgid="1801" source="../Construccion Mapas/interior7.tsx"/>
  <layer id="1" name="Capa de Patrones 1" width="47" height="25">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACtWXy03DQBBA17a45EgJ/ArgwO9AAcAlQcGcQKEDlDOhhyDRQSiBQhCiEEQBzCoeebwez4y9gTiHp7Wt/Tx7xmPvIHFumDr3CLwQpsA18Obq+P4j4LDoQ/sNYL6nzLkZ4TlbXufm6oqfz0O9v5OqP+eNzIk7+lvdh+Teu3rjnB9JnaZnTuM07eCOc3Bxs7rnrpzTP++QJncpvzR3LW6WuITu2+mSeVIec+5aflncR0LctPeJc2+DlF8WdylulrjEuGNOvaf1/NLctbhp71OsO+bUV1rPL8u7KsXNUq9j3LUaoLlLdcFSr9fpjrH6ZOKmxSV0X7hqvV+Qe5LuLfxG4HHsd1Wr13Rd5Mbx55I7NybWHWPxo9Tr88zG61YVqe9McN+Bdpdhr0Puhus0Ebpbx4XuR9DuAwfAMTk+2RD3U+CscMfjNu6Yn3eZjdDdOs5zT9wvoL1kuGrpnjvbu+rrDoc0hjtfZR3WaqS2ZlONbDqnTJKStnufv/o2WfCxuAXGBaG3tPfpg/uYtP6ade/TB/ecPHd/zbr3Wbc7+nseivW1f5w+ucew6e6rrrv/7f8LE2gtk1wSAAA=

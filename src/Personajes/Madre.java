@@ -5,6 +5,7 @@
  */
 package Personajes;
 
+import Elementos.Alerta;
 import Elementos.Bocadillo;
 import Mapas.Mapa2;
 import org.newdawn.slick.Animation;
@@ -27,9 +28,10 @@ public class Madre extends WanderTipoT {
     int[] duration = {200, 200};
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
     Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo();
+    Bocadillo bocadillo = new Bocadillo("bocadilloMadre");
     Mapa2 mapa;
     int desplazamiento = 0;
+    Alerta alerta = new Alerta();
 
     public Madre(float x, float y, Mapa2 mapa) {
         try {
@@ -125,8 +127,8 @@ public class Madre extends WanderTipoT {
     }
 
     public void talk() {
-        mapa.cMode();
-        bocadillo.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
+        mapa.cMode1();
+        bocadillo.dentro();
     }
 
     public Bocadillo getTalk() {
@@ -138,4 +140,16 @@ public class Madre extends WanderTipoT {
         bocadillo.fuera();
     }
 
+    public Alerta getAlerta(){
+        return alerta;
+    }
+    
+    public void alerta() {
+        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+    }
+    
+    public void noAlerta() {
+        alerta.fuera();
+    }
+    
 }

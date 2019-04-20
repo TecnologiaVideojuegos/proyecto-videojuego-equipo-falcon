@@ -5,8 +5,8 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
 import Mapas.Mapa1;
+import Mapas.Mapa10;
 import Mapas.Mapa2;
 import Mapas.Mapa3;
 import Mapas.Mapa4;
@@ -21,6 +21,7 @@ import Personajes.WanderTipoT;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
@@ -38,15 +39,16 @@ public class Mundo extends BasicGameState {
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
-    Mapa1 mapa1 = new Mapa1();
-    Mapa2 mapa2 = new Mapa2();
-    Mapa3 mapa3 = new Mapa3(mapa2);
-    Mapa4 mapa4 = new Mapa4();
-    Mapa5 mapa5 = new Mapa5();
-    Mapa6 mapa6 = new Mapa6();
-    Mapa7 mapa7 = new Mapa7();
-    Mapa8 mapa8 = new Mapa8();
-    Mapa9 mapa9 = new Mapa9();
+    Mapa1 mapa1  = new Mapa1();
+    Mapa2 mapa2  = new Mapa2();
+    Mapa3 mapa3  = new Mapa3(mapa2);
+    Mapa4 mapa4  = new Mapa4();
+    Mapa5 mapa5  = new Mapa5();
+    Mapa6 mapa6  = new Mapa6();
+    Mapa7 mapa7  = new Mapa7();
+    Mapa8 mapa8  = new Mapa8();
+    Mapa9 mapa9  = new Mapa9();
+    Mapa10 mapa10= new Mapa10();
     MapaT mapa_actual = new MapaT();
     MainChar personaje;
 
@@ -62,6 +64,7 @@ public class Mundo extends BasicGameState {
         mapas.add(mapa7);
         mapas.add(mapa8);
         mapas.add(mapa9);
+        mapas.add(mapa10);
 
         mapa_actual = mapas.get(num);
     }
@@ -84,7 +87,7 @@ public class Mundo extends BasicGameState {
         ArrayList<Polygon> colisiones_bordes  = mapa_actual.getBordes();
         ArrayList<WanderTipoT> NPCs = mapa_actual.getPersonajes();
         ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
-        
+            
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             colisionNPCs.add(NPCs.get(j).getHitbox());
         }
@@ -239,29 +242,34 @@ public class Mundo extends BasicGameState {
         for (int j = 0; j < NPCs.size(); j++) {
             if (colisionNPCs.get(j).intersects(personaje.getH4())) {
                 NPCs.get(j).setDir("sup");
+                NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH3())) {
                 NPCs.get(j).setDir("sleft");
+                NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH2())) {
                 NPCs.get(j).setDir("sright");
+                NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH1())) {
                 NPCs.get(j).setDir("sdown");
+                NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }
             } else {
+                NPCs.get(j).noAlerta();
                 NPCs.get(j).noTalk();
                 NPCs.get(j).move();
                 NPCs.get(j).getDir().update(i);
@@ -272,13 +280,13 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
-
+        Input input = gc.getInput();
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(), mapa_actual.getPersonajes().get(j).getCoordenadaY());
-            g.draw(mapa_actual.getPersonajes().get(j).getHitbox());
+            /*g.draw(mapa_actual.getPersonajes().get(j).getHitbox());*/
         }
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 
@@ -286,18 +294,23 @@ public class Mundo extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        g.draw(personaje.getH1());
+        /*g.draw(personaje.getH1());
         g.draw(personaje.getH2());
         g.draw(personaje.getH3());
         g.draw(personaje.getH4());
 
         for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
             g.draw(mapa_actual.getBordes().get(i));
-        }
+        }*/
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             
             mapa_actual.getPersonajes().get(j).getTalk().getImagen().draw(mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaY());
+            mapa_actual.getPersonajes().get(j).getAlerta().getImagen().draw(mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaX(),mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaY());
 
+        }
+         if(input.isKeyDown(Input.KEY_T))
+        {
+            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
     }
 

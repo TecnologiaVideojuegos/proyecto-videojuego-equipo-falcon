@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/WanderTipo4.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/WanderTipo1.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa10.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/WanderTipoT.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa2.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa5.java</file>
@@ -14,6 +15,7 @@
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa1.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/MapaT.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Elementos/Bocadillo.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/Atari.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/MainChar.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Principal/Juego.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa7.java</file>
@@ -30,6 +32,7 @@
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/WanderTipo5.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/WanderTipo2.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Arresto.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Elementos/Alerta.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/WanderTipo3.java</file>
         </group>
     </open-files>

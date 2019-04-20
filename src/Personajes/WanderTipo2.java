@@ -5,6 +5,7 @@
  */
 package Personajes;
 
+import Elementos.Alerta;
 import Elementos.Bocadillo;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
@@ -25,8 +26,9 @@ public class WanderTipo2 extends WanderTipoT {
     Animation actual, up, down, sleft, sright, sup, sdown;
     int[] duration = {200, 200};
     Rectangle h1;
-    Bocadillo bocadillo = new Bocadillo();
+    Bocadillo bocadillo = new Bocadillo("bocadilloMarinero");
     int desplazamiento = 0;
+    Alerta alerta = new Alerta();
     
     public WanderTipo2(float x, float y) {
         try {
@@ -120,7 +122,7 @@ public class WanderTipo2 extends WanderTipoT {
     }
     
     public void talk() {
-        bocadillo.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
+        bocadillo.dentro();
     }
 
     public Bocadillo getTalk() {
@@ -129,5 +131,17 @@ public class WanderTipo2 extends WanderTipoT {
 
     public void noTalk() {
         bocadillo.fuera();
+    }
+    
+    public Alerta getAlerta(){
+        return alerta;
+    }
+    
+    public void alerta() {
+        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+    }
+    
+    public void noAlerta() {
+        alerta.fuera();
     }
 }

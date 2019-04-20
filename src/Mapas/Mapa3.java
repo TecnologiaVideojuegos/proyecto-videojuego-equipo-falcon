@@ -26,7 +26,6 @@ public class Mapa3 extends MapaT {
     private float borde3[] = new float[]{605, 322, 578, 322, 578, 290, 605, 290};
     private float borde4[] = new float[]{870, 353, 891, 353, 891, 320, 870, 320};
     private float borde5[] = new float[]{740, 544, 802, 544, 802, 510, 740, 510};
-    //private float borde6[] = new float[]{606, 450, 642, 450, 642, 415, 606, 415};
     private ArrayList<float[]> puntos_bordes;
     private ArrayList<Polygon> colisiones_bordes;
 
@@ -54,7 +53,6 @@ public class Mapa3 extends MapaT {
         puntos_bordes.add(borde3);
         puntos_bordes.add(borde4);
         puntos_bordes.add(borde5);
-        //puntos_bordes.add(borde6);
 
         for (int i = 0; i < puntos_bordes.size(); i++) {
             bordes = new Polygon(puntos_bordes.get(i));

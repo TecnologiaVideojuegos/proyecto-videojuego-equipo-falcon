@@ -35,9 +35,6 @@ public class Mapa1 extends MapaT {
     private final float salida4[] = new float[]{776, 798, 1241, 798, 1241, 800, 776, 800};
     private final ArrayList<float[]> puntos_salidas;
     private final ArrayList<Polygon> colisiones_salidas;
-    private final ArrayList<Polygon> salidas_modo2;
-
-    private int modo = 0;
 
     //plaza arriba - plaza abajo - plaza izquierda - plaza abajo
     private final float mapas[] = new float[]{3, 4, 7, 4};
@@ -72,7 +69,6 @@ public class Mapa1 extends MapaT {
 
         puntos_salidas     = new ArrayList<>();
         colisiones_salidas = new ArrayList<>();
-        salidas_modo2      = new ArrayList<>();
 
         puntos_salidas.add(salida1);
         puntos_salidas.add(salida2);
@@ -102,19 +98,12 @@ public class Mapa1 extends MapaT {
     }
 
     public ArrayList<Polygon> getSalidas() {
-        if (modo == 1) {
-            return salidas_modo2;
-        } else {
-            return colisiones_salidas;
-        }
+        
+        return colisiones_salidas;
     }
     
     public ArrayList<WanderTipoT> getPersonajes() {
         return personajes;
-    }
-
-    public void cMode() {
-        modo = 2;
     }
 
     public String getMapa() {

@@ -5,6 +5,7 @@
  */
 package Personajes;
 
+import Elementos.Alerta;
 import Elementos.Bocadillo;
 import Mapas.Mapa2;
 import org.newdawn.slick.Animation;
@@ -23,9 +24,10 @@ public class Atari extends WanderTipoT {
     Animation actual,luce, noluce;
     int[] duration = {100, 100};
     Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo();
+    Bocadillo bocadillo = new Bocadillo("bocadilloMadre");
     Mapa2 mapa;
     int desplazamiento = 0;
+    Alerta alerta = new Alerta();
 
     public Atari(float x, float y, Mapa2 mapa) {
         try {
@@ -39,7 +41,7 @@ public class Atari extends WanderTipoT {
             hitbox = new Rectangle(coordenadaX, coordenadaY, 32, 64);
             
             //Animaciones movimiento
-            Image[] light = {new Image("Elementos aparte\\atari0.png"),new Image("Elementos aparte\\atari1.png")};
+            Image[] light = {new Image("Elementos aparte\\atari1.png"),new Image("Elementos aparte\\atari0.png")};
             luce = new Animation(light, duration, false);
             
             //Animaciones parado
@@ -47,14 +49,14 @@ public class Atari extends WanderTipoT {
             noluce = new Animation(dark, duration, false);
 
             //Animacion inicial
-            actual = noluce;
+            actual = luce;
         } catch (SlickException e) {
         }
     }
 
     @Override
     public void setDir(String string) {
-        System.out.println("e");
+       actual=luce;
         
     }
 
@@ -81,9 +83,8 @@ public class Atari extends WanderTipoT {
 
     @Override
     public void talk() {
-        actual=luce;
-        mapa.cMode();
-        bocadillo.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
+        mapa.cMode2();
+        bocadillo.dentro();
     }
 
     public Bocadillo getTalk() {
@@ -91,10 +92,20 @@ public class Atari extends WanderTipoT {
         return bocadillo;
     }
 
-    @Override
     public void noTalk() {
-        actual=noluce;
         bocadillo.fuera();
+    }
+    
+    public Alerta getAlerta(){
+        return alerta;
+    }
+    
+    public void alerta() {
+        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+    }
+    
+    public void noAlerta() {
+        alerta.fuera();
     }
 
 }

@@ -17,21 +17,21 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class Bocadillo {
+public class Alerta {
 
     float coordenadaX = -1000, coordenadaY = -1000;
     Image foto;
 
-    public Bocadillo(String nombre) {
+    public Alerta() {
         try {
-            foto = new Image("\\Elementos Aparte\\"+nombre+".png");
+            foto = new Image("\\Elementos Aparte\\alerta.png");
         } catch (SlickException ex) {
         }
     }
 
-    public void dentro() {
-        coordenadaX = 80;
-        coordenadaY = 675;
+    public void dentro(int cordX, int cordY) {
+        coordenadaX = cordX;
+        coordenadaY = cordY;
     }
 
     public void fuera() {

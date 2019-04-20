@@ -29,12 +29,13 @@ public class Mapa5 extends MapaT {
     private float salida2[] = new float[]{390, 0, 474, 0, 474, 2, 390, 2};
     private float salida3[] = new float[]{66, 798, 252, 798, 252, 800, 66, 800};
     private float salida4[] = new float[]{776, 2, 1241, 2, 1241, 0, 776, 0};
+    private float salida5[] = new float[]{1,161,1,736,0,736,0,161};
     private ArrayList<float[]> puntos_salidas;
     private ArrayList<Polygon> colisiones_salidas;
     
     //colegio - plaza central - boss1 - plaza central
-    private float mapas[] = new float[]{6, 0, 5, 0};
-    private float coord[] = new float[]{482, 703, 0, 720, 0, 0, 0, 720};
+    private float mapas[] = new float[]{6, 0, 5, 0, 9};
+    private float coord[] = new float[]{482, 703, 0, 720, 0, 0, 0, 720,1438,0};
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>();
     
@@ -59,6 +60,7 @@ public class Mapa5 extends MapaT {
         puntos_salidas.add(salida2);
         puntos_salidas.add(salida3);
         puntos_salidas.add(salida4);
+        puntos_salidas.add(salida5);
 
         for (int i = 0; i < puntos_salidas.size(); i++) {
             bordes = new Polygon(puntos_salidas.get(i));

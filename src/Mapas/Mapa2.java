@@ -111,7 +111,6 @@ public class Mapa2 extends MapaT{
 
     @Override
     public ArrayList<Polygon> getSalidas() {
-        System.out.println(modo);
         if(modo==1)
             return salidas_modo2;
         if(modo==2)
@@ -124,14 +123,20 @@ public class Mapa2 extends MapaT{
         return personajes;
     }
     
-    public void cMode()
+    public void cMode1()
     {
-        
         if(modo==1)
         {
             modo=2;
-        }
-        
+        } 
+    }
+    
+    public void cMode2()
+    {
+        if(modo==2)
+        {
+            modo=3;
+        } 
     }
     
     public String getMapa() {
