@@ -40,7 +40,7 @@ public class Mundo extends BasicGameState {
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
     Mapa1 mapa1 = new Mapa1();
     Mapa2 mapa2 = new Mapa2();
-    Mapa3 mapa3 = new Mapa3();
+    Mapa3 mapa3 = new Mapa3(mapa2);
     Mapa4 mapa4 = new Mapa4();
     Mapa5 mapa5 = new Mapa5();
     Mapa6 mapa6 = new Mapa6();
@@ -63,15 +63,15 @@ public class Mundo extends BasicGameState {
         mapas.add(mapa8);
         mapas.add(mapa9);
 
-        mapa_actual = mapas.get(0);
+        mapa_actual = mapas.get(num);
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
         personaje = new MainChar();
-        personaje.setCoordenadaX(400);
-        personaje.setCoordenadaY(400);
+        personaje.setCoordenadaX(461);
+        personaje.setCoordenadaY(125);
     }
 
     @Override

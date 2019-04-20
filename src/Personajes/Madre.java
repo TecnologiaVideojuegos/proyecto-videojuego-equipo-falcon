@@ -6,6 +6,7 @@
 package Personajes;
 
 import Elementos.Bocadillo;
+import Mapas.Mapa2;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -27,11 +28,13 @@ public class Madre extends WanderTipoT {
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
     Rectangle hitbox;
     Bocadillo bocadillo = new Bocadillo();
+    Mapa2 mapa;
     int desplazamiento = 0;
 
-    public Madre(float x, float y) {
+    public Madre(float x, float y, Mapa2 mapa) {
         try {
-
+            this.mapa = mapa;
+            
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -122,10 +125,12 @@ public class Madre extends WanderTipoT {
     }
 
     public void talk() {
+        mapa.cMode();
         bocadillo.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
     }
 
     public Bocadillo getTalk() {
+        
         return bocadillo;
     }
 

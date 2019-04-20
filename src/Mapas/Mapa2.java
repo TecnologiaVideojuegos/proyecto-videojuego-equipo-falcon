@@ -32,15 +32,18 @@ public class Mapa2 extends MapaT{
     private final float   salida2[] = new float[]{842,94,892,94,892,92,842,92};
     private final ArrayList<float[]> puntos_salidas;
     private final ArrayList<Polygon> colisiones_salidas;
-    private final ArrayList<Polygon> salidas_modo2;
     
-    private int modo=0;
+    //HISTORIA
+    private final ArrayList<Polygon> salidas_modo2;
+    private final ArrayList<Polygon> salidas_modo3;
+    
+    private int modo=1;
     
     private float   mapas[] = new float[]{ 7, 2};
     private float   coord[] = new float[]{1230,349,710,192};
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
-    private Madre madre = new Madre(400,450);
+    private Madre madre = new Madre(400,450,this);
     
     public Mapa2() {
         super();
@@ -61,7 +64,9 @@ public class Mapa2 extends MapaT{
         
         puntos_salidas     = new ArrayList<>();
         colisiones_salidas = new ArrayList<>();
+        
         salidas_modo2      = new ArrayList<>();
+        salidas_modo3      = new ArrayList<>();
         
         puntos_salidas.add(salida1);
         puntos_salidas.add(salida2);
@@ -70,6 +75,10 @@ public class Mapa2 extends MapaT{
         {
             bordes = new Polygon(puntos_salidas.get(i));
             colisiones_salidas.add(bordes);
+            if(i==1)
+            {
+                salidas_modo3.add(bordes);
+            }
         }
     }
     
@@ -86,16 +95,27 @@ public class Mapa2 extends MapaT{
     }
     
     public float[] getCoord() {
-        return coord;
+        if(modo==2){
+            float[] salida = new float[2];
+            salida[0]=coord[2];
+            salida[1]=coord[3];
+            return salida;
+        }
+        else
+            return coord;
     }
       
     public ArrayList<Polygon> getBordes() {
         return colisiones_bordes;
     }
 
+    @Override
     public ArrayList<Polygon> getSalidas() {
+        System.out.println(modo);
         if(modo==1)
             return salidas_modo2;
+        if(modo==2)
+            return salidas_modo3;
         else
             return colisiones_salidas;
     }
@@ -106,7 +126,12 @@ public class Mapa2 extends MapaT{
     
     public void cMode()
     {
-        modo=2;
+        
+        if(modo==1)
+        {
+            modo=2;
+        }
+        
     }
     
     public String getMapa() {
@@ -114,6 +139,9 @@ public class Mapa2 extends MapaT{
     }
 
     public float getMapas(int salida) {
-        return mapas[salida];
+        if(modo==2)
+            return mapas[1];
+        else
+            return mapas[salida];
     }
 }
