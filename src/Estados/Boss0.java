@@ -26,9 +26,9 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Boss0 extends BasicGameState {
 
     private String mapa1 = "Mapas\\boss0.tmx";
-    private float puntos1[] = new float[]{510,223,510,545,960,545,960,223};
+    private float puntos1[] = new float[]{510, 223, 510, 545, 960, 545, 960, 223};
     private Polygon borde;
-    private float puntos2[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
+    private float puntos2[] = new float[]{895, 524, 949, 524, 949, 469, 923, 449, 895, 469};
     private Polygon salida;
     int first = 20;
     private boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
@@ -43,7 +43,6 @@ public class Boss0 extends BasicGameState {
         salida = new Polygon(puntos2);
 
     }
-    
 
     @Override
     public int getID() {
@@ -55,8 +54,8 @@ public class Boss0 extends BasicGameState {
 
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje = new MainChar();
-        personaje.setCoordenadaX(668);
-        personaje.setCoordenadaY(384);
+        personaje.setCoordenadaX(628);
+        personaje.setCoordenadaY(374);
         personaje.setDir("left");
 
     }
@@ -81,7 +80,7 @@ public class Boss0 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int velocidad=2;
+        int velocidad = 2;
         Input input = gc.getInput();
         if (first > 0) {
             if (first % 2 == 0) {
@@ -115,7 +114,7 @@ public class Boss0 extends BasicGameState {
                     personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * velocidad);
 
                     if (personaje.getH1().intersects(salida)) {
-
+                        sbg.enterState(0);
                     }
 
                     choqueAbajo = false;
@@ -136,7 +135,7 @@ public class Boss0 extends BasicGameState {
                     personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f * velocidad);
 
                     if (personaje.getH4().intersects(salida)) {
-
+                        sbg.enterState(0);
                     }
 
                     choqueArriba = false;
@@ -157,7 +156,7 @@ public class Boss0 extends BasicGameState {
                     personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
 
                     if (personaje.getH2().intersects(salida)) {
-
+                        sbg.enterState(0);
                     }
 
                     choqueDerecha = false;
@@ -178,7 +177,7 @@ public class Boss0 extends BasicGameState {
                     personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
 
                     if (personaje.getH3().intersects(salida)) {
-
+                        sbg.enterState(0);
                     }
 
                     choqueIzquierda = false;

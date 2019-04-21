@@ -114,7 +114,9 @@ public class Mundo extends BasicGameState {
                 if (colisionNPCs.get(j).intersects(personaje.getH1())) {
                     if(NPCs.get(j).isSGB())
                     {
-                        sbg.enterState(NPCs.get(j).getSGB());
+                        int state= NPCs.get(j).getSGB();
+                        NPCs.get(j).notSGB();
+                        sbg.enterState(state);
                     }
                     choqueArriba = true;
                     break;
@@ -150,7 +152,9 @@ public class Mundo extends BasicGameState {
                 if (colisionNPCs.get(j).intersects(personaje.getH4())) {
                     if(NPCs.get(j).isSGB())
                     {
-                        sbg.enterState(NPCs.get(j).getSGB());
+                        int state= NPCs.get(j).getSGB();
+                        NPCs.get(j).notSGB();
+                        sbg.enterState(state);
                     }
                     choqueAbajo = true;
                     break;
@@ -166,9 +170,6 @@ public class Mundo extends BasicGameState {
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
                         mapa_actual = mapas.get((int) nuevo_mapa);
                         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
-                        if (nuevo_mapa == 5) {
-                            sbg.enterState(1);
-                        }
                     }
                 }
                 choqueArriba = false;
@@ -190,7 +191,9 @@ public class Mundo extends BasicGameState {
                 if (colisionNPCs.get(j).intersects(personaje.getH2())) {
                     if(NPCs.get(j).isSGB())
                     {
-                        sbg.enterState(NPCs.get(j).getSGB());
+                        int state= NPCs.get(j).getSGB();
+                        NPCs.get(j).notSGB();
+                        sbg.enterState(state);
                     }
                     choqueIzquierda = true;
                     break;
@@ -227,7 +230,9 @@ public class Mundo extends BasicGameState {
                 if (colisionNPCs.get(j).intersects(personaje.getH3())) {
                     if(NPCs.get(j).isSGB())
                     {
-                        sbg.enterState(NPCs.get(j).getSGB());
+                        int state= NPCs.get(j).getSGB();
+                        NPCs.get(j).notSGB();
+                        sbg.enterState(state);
                     }
                     choqueDerecha = true;
                     break;
@@ -302,7 +307,7 @@ public class Mundo extends BasicGameState {
         mapa.render(0, 0, 1);
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(), mapa_actual.getPersonajes().get(j).getCoordenadaY());
-            /*g.draw(mapa_actual.getPersonajes().get(j).getHitbox());*/
+            g.draw(mapa_actual.getPersonajes().get(j).getHitbox());
         }
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 

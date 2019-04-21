@@ -94,23 +94,7 @@ public class WanderTipoT {
     }
 
     public void move() {
-        if (desplazamiento < 200) {
-            coordenadaX = coordenadaX + (float) (0.5);
-            desplazamiento ++;
-            setDir("right");
-        } else if (desplazamiento >= 200 && desplazamiento < 1200) {
-            desplazamiento ++;
-            setDir("up");
-        } else if (desplazamiento >= 1200 && desplazamiento < 1500) {
-            desplazamiento ++;
-            coordenadaX = coordenadaX - (float) (0.5);
-            setDir("left");
-        } else if (desplazamiento >= 1500 && desplazamiento < 2500) {
-            desplazamiento ++;
-            setDir("up");
-        } else {
-            desplazamiento = 0;
-        }
+        
         hitbox.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
 
@@ -151,5 +135,10 @@ public class WanderTipoT {
     public int getSGB()
     {
         return sgb;
+    }
+    
+    public void notSGB()
+    {
+        sgb=-1;
     }
 }

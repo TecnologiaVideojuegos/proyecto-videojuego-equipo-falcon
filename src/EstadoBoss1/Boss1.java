@@ -5,10 +5,8 @@
  */
 package EstadoBoss1;
 
-import EstadoBoss1.Pelota;
 import Personajes.MainChar;
 import Personajes.ProfEd;
-import static java.lang.Math.random;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -26,8 +24,10 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Boss1 extends BasicGameState {
 
     private String mapa1 = "Mapas\\boss1.tmx";
-    private float puntos1[] = new float[]{1120, 716, 127, 716, 127, 683, 223, 683, 223, 589, 127, 589, 127, 556, 830, 556, 830, 462, 127, 462, 127, 429, 575, 429, 575, 333, 127, 333, 127, 300, 255, 300, 255, 204, 127, 204, 127, 171, 1120, 171, 1120, 204, 300, 204, 300, 300, 864, 300, 864, 333, 618, 333, 618, 429, 1120, 429, 1120, 462, 875, 462, 875, 556, 1120, 556, 1120, 589, 267, 589, 267, 683, 1120, 683};
+    private float puntos1[] = new float[]{1120, 716, 127, 716, 127, 683, 218, 683, 218, 589, 127, 589, 127, 556, 825, 556, 825, 462, 127, 462, 127, 429, 570, 429, 570, 333, 127, 333, 127, 300, 250, 300, 250, 204, 127, 204, 127, 171, 1120, 171, 1120, 204, 300, 204, 300, 300, 864, 300, 864, 333, 618, 333, 618, 429, 1120, 429, 1120, 462, 875, 462, 875, 556, 1120, 556, 1120, 589, 267, 589, 267, 683, 1120, 683};
     private Polygon bordes;
+    private float puntos2[] = new float[]{544,203,544,172,599,172,599,203};
+    private Polygon salidas;
     private int contador_parpadeo = 10;
     private boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
     private TiledMap mapa;
@@ -39,6 +39,7 @@ public class Boss1 extends BasicGameState {
 
     public Boss1() {
         bordes = new Polygon(puntos1);
+        salidas = new Polygon(puntos2);
     }
 
     @Override
@@ -48,10 +49,10 @@ public class Boss1 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mapa      = new TiledMap(mapa1, "\\Construccion Mapas\\");
+        mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje = new MainChar();
-        boss1     = new ProfEd();
-        pelotas   = new ArrayList<>();
+        boss1 = new ProfEd();
+        pelotas = new ArrayList<>();
 
         personaje.setCoordenadaX(703);
         personaje.setCoordenadaY(651);
@@ -95,7 +96,9 @@ public class Boss1 extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
 
         Input input = gc.getInput();
-
+        if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+            System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
+        }
         if (contador_parpadeo > 0) {
             if (contador_parpadeo % 2 == 0) {
                 mapa = new TiledMap("Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
@@ -202,6 +205,9 @@ public class Boss1 extends BasicGameState {
                 }
                 if (!choqueDerecha || choqueIzquierda) {
                     personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f);
+                    if (personaje.getH3().intersects(salidas)) {
+                        sbg.enterState(0);
+                    }
                     choqueIzquierda = false;
                 }
             } else {

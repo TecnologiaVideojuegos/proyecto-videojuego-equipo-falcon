@@ -5,6 +5,7 @@
  */
 package Mapas;
 
+import Personajes.ProfEd;
 import Personajes.WanderTipoT;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
@@ -27,6 +28,8 @@ public class Mapa6 extends MapaT {
     private float salida1[] = new float[]{66, 2, 252, 2, 252, 0, 66, 0};
     private ArrayList<float[]> puntos_salidas;
     private ArrayList<Polygon> colisiones_salidas;
+    
+    ProfEd profesor = new ProfEd();
 
     //plaza abajo
     private float mapas[] = new float[]{4};
@@ -56,6 +59,8 @@ public class Mapa6 extends MapaT {
             bordes = new Polygon(puntos_salidas.get(i));
             colisiones_salidas.add(bordes);
         }
+        profesor.noLanza();
+        personajes.add(profesor);
     }
 
     public void setCoordX(int x, int y) {
