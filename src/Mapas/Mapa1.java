@@ -46,6 +46,8 @@ public class Mapa1 extends MapaT {
     WanderTipo3 viejo3 = new WanderTipo3("right", 880, 150);
     WanderTipo4 viejo4 = new WanderTipo4(580, 350);
     WanderTipo5 viejo5 = new WanderTipo5(200, 300);
+    
+    
 
     public Mapa1() {
         super();

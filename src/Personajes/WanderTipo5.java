@@ -33,6 +33,7 @@ public class WanderTipo5 extends WanderTipoT {
 
     public WanderTipo5(float x, float y) {
         try {
+            sgb=-1;
             this.coordenadaX=x;
             this.coordenadaY=y;
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);

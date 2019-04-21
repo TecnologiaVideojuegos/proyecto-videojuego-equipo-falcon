@@ -38,6 +38,8 @@ public class Mapa3 extends MapaT {
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
     private Atari atari;
+    
+    int modo=0;
 
     public Mapa3(Mapa2 mapa2) {
         super();
@@ -104,5 +106,13 @@ public class Mapa3 extends MapaT {
 
     public float getMapas(int salida) {
         return mapas[salida];
+    }
+    
+    public void chModo() {
+        modo=1;
+    }
+    
+    public int getModo() {
+        return modo;
     }
 }

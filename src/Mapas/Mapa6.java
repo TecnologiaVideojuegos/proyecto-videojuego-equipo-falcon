@@ -34,6 +34,7 @@ public class Mapa6 extends MapaT {
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
     
+    
     public Mapa6() {
         super();
         colisiones_bordes = new ArrayList<>();

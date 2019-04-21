@@ -33,6 +33,7 @@ public class WanderTipo4 extends WanderTipoT {
 
     public WanderTipo4(float x, float y) {
         try {
+            sgb=-1;
             //Colocacion personaje
             this.coordenadaX=x;
             this.coordenadaY=y;

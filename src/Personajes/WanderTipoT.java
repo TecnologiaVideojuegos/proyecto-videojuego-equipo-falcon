@@ -30,6 +30,7 @@ public class WanderTipoT {
     Bocadillo bocadillo = new Bocadillo("bocadilloAnciano");
     int desplazamiento = 0;
     Alerta alerta = new Alerta();
+    int sgb;
     public WanderTipoT() {
         try {
 
@@ -140,5 +141,15 @@ public class WanderTipoT {
     
     public void noAlerta() {
         alerta.fuera();
+    }
+    
+    public boolean isSGB()
+    {
+        return sgb!=-1;
+    }
+    
+    public int getSGB()
+    {
+        return sgb;
     }
 }

@@ -45,6 +45,7 @@ public class Mapa2 extends MapaT{
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
     private Madre madre = new Madre(400,450,this);
     
+    
     public Mapa2() {
         super();
         

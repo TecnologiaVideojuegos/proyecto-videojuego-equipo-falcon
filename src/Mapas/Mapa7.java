@@ -39,6 +39,7 @@ public class Mapa7 extends MapaT {
     private float coord[] = new float[]{418, 605};   
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
+    
 
     public Mapa7() {
         super();

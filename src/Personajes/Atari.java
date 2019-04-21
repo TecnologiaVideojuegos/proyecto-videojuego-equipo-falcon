@@ -28,11 +28,12 @@ public class Atari extends WanderTipoT {
     Mapa2 mapa;
     int desplazamiento = 0;
     Alerta alerta = new Alerta();
+    int modo=0;
 
     public Atari(float x, float y, Mapa2 mapa) {
         try {
             this.mapa = mapa;
-            
+            sgb=3;
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;

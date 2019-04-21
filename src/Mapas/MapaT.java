@@ -54,6 +54,8 @@ public class MapaT {
     public ArrayList<WanderTipoT> getPersonajes() {
         return personajes;
     }
+    
+        
     public String getMapa() {
         return mapa;
     }

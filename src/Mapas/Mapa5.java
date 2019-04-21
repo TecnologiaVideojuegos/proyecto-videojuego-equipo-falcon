@@ -39,6 +39,7 @@ public class Mapa5 extends MapaT {
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>();
     
+    
     public Mapa5() {
         super();
         

@@ -50,6 +50,7 @@ public class Mapa10 extends MapaT {
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>();
     
+    
     public Mapa10() {
         super();
         

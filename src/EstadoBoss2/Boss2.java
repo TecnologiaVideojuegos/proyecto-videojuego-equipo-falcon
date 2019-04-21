@@ -40,15 +40,16 @@ public class Boss2 extends BasicGameState {
     Arresto bala;
     int fase = 0, num = 0;
     Image[] mundoImg;
-    int contadorMundo=0;
-    
+    int contadorMundo = 0;
+
     public Boss2() {
         try {
             bordes = new Polygon(puntos1);
             Image[] imagenesMundo = {new Image("SpriteBoss2\\Mundo1.png"), new Image("SpriteBoss2\\Mundo2.png"), new Image("SpriteBoss2\\Mundo3.png"), new Image("SpriteBoss2\\Mundo4.png")};
-            this.mundoImg=imagenesMundo;
-        } catch (SlickException ex) {}
-        
+            this.mundoImg = imagenesMundo;
+        } catch (SlickException ex) {
+        }
+
     }
 
     @Override
@@ -58,7 +59,7 @@ public class Boss2 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        
+
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje = new Nave();
         personaje.setCoordenadaX(150);
@@ -84,10 +85,11 @@ public class Boss2 extends BasicGameState {
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
-        
-        if(contadorMundo<4)
+
+        if (contadorMundo < 4) {
             g.drawImage(mundoImg[contadorMundo], 0, 0);
-        
+        }
+
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         for (int i = 0; i < corazonIn.size(); i++) {
             corazonIn.get(i).getDir().draw(corazonIn.get(i).getCoordenadaX(), corazonIn.get(i).getCoordenadaY());
@@ -107,89 +109,85 @@ public class Boss2 extends BasicGameState {
         mapa.render(0, 0, 4);
 
         /*g.draw(personaje.getH1());
-        g.draw(personaje.getH2());
-        g.draw(personaje.getH3());
-        g.draw(personaje.getH4());
+         g.draw(personaje.getH2());
+         g.draw(personaje.getH3());
+         g.draw(personaje.getH4());
 
-        g.draw(bordes);*/
-
+         g.draw(bordes);*/
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
 
         Input input = gc.getInput();
-        fase++;
-        if (fase % 100 == 0) {
-            corazonIn.add(corazonOut.get(0));
-            corazonOut.remove(0);
-            corazonIn.get(corazonIn.size() - 1).init();
-            System.out.println(fase / 50);
-        }
-        if (input.isKeyDown(Input.KEY_SPACE) && fase %50 == 0) {
-            balasIn.add(balasOut.get(0));
-            balasOut.remove(0);
-            balasIn.get(balasIn.size() - 1).init(personaje.getCoordenadaX() + 30, personaje.getCoordenadaY() + 15);
-        }
-        for (int x = 0; x < balasIn.size(); x++) {
-            balasIn.get(x).move();
-            if (balasIn.get(x).getCoordenadaX() >= 1504) {
-                balasOut.add(balasIn.get(x));
-                balasIn.remove(x);
-                balasOut.get(balasOut.size() - 1).reset();
-            }
-        }
-        for (int x = 0; x < corazonIn.size(); x++) {
-            corazonIn.get(x).move();
-        }
-        for (int x = 0; x < corazonIn.size(); x++) {
-            Corazones c1 = corazonIn.get(x);
-            float x1 = c1.getCoordenadaX();
-            if(x1<=70)
-            {
-                if(contadorMundo==3)
-                {
-                    sbg.enterState(0);
-                }
-                contadorMundo++;
-                poum.add(c1);
-                c1.explota();
-                corazonIn.remove(c1);
-                
-            }
-            for (int y = 0; y < balasIn.size(); y++) {
-
-                if (c1.getH1().intersects(balasIn.get(y).getH1())) {
-                    c1.explota();
-                    poum.add(c1);
-                    corazonIn.remove(c1);
-                    balasOut.add(balasIn.get(y));
-                    balasIn.remove(y);
-                    balasOut.get(balasOut.size() - 1).reset();
-                    
-                }
-            }
-        }
-        for(int x=0;x<poum.size();x++)
-        {   
-            Corazones h1=poum.get(x);
-            h1.getDir().update(i);
-            if(h1.getDir().getFrame()==3)
-            {
-                h1.salir();
-                corazonOut.add(h1);
-                poum.remove(h1);
-            }
-        }
         if (first > 0) {
             if (first % 2 == 0) {
-                mapa = new TiledMap("Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
+                mapa = new TiledMap("Mapas\\mapa7.tmx", "\\Construccion Mapas\\");
             } else {
                 mapa = new TiledMap("Mapas\\boos3.tmx", "\\Construccion Mapas\\");
             }
             first--;
 
         } else {
+            fase++;
+            if (fase % 100 == 0) {
+                corazonIn.add(corazonOut.get(0));
+                corazonOut.remove(0);
+                corazonIn.get(corazonIn.size() - 1).init();
+                System.out.println(fase / 50);
+            }
+            if (input.isKeyDown(Input.KEY_SPACE) && fase % 50 == 0) {
+                balasIn.add(balasOut.get(0));
+                balasOut.remove(0);
+                balasIn.get(balasIn.size() - 1).init(personaje.getCoordenadaX() + 30, personaje.getCoordenadaY() + 15);
+            }
+            for (int x = 0; x < balasIn.size(); x++) {
+                balasIn.get(x).move();
+                if (balasIn.get(x).getCoordenadaX() >= 1504) {
+                    balasOut.add(balasIn.get(x));
+                    balasIn.remove(x);
+                    balasOut.get(balasOut.size() - 1).reset();
+                }
+            }
+            for (int x = 0; x < corazonIn.size(); x++) {
+                corazonIn.get(x).move();
+            }
+            for (int x = 0; x < corazonIn.size(); x++) {
+                Corazones c1 = corazonIn.get(x);
+                float x1 = c1.getCoordenadaX();
+                if (x1 <= 70) {
+                    if (contadorMundo == 3) {
+                        sbg.enterState(0);
+                    }
+                    contadorMundo++;
+                    poum.add(c1);
+                    c1.explota();
+                    corazonIn.remove(c1);
+
+                }
+                for (int y = 0; y < balasIn.size(); y++) {
+
+                    if (c1.getH1().intersects(balasIn.get(y).getH1())) {
+                        c1.explota();
+                        poum.add(c1);
+                        corazonIn.remove(c1);
+                        balasOut.add(balasIn.get(y));
+                        balasIn.remove(y);
+                        balasOut.get(balasOut.size() - 1).reset();
+
+                    }
+                }
+            }
+            for (int x = 0; x < poum.size(); x++) {
+                Corazones h1 = poum.get(x);
+                h1.getDir().update(i);
+                if (h1.getDir().getFrame() == 3) {
+                    h1.salir();
+                    corazonOut.add(h1);
+                    poum.remove(h1);
+                }
+            }
+
             if (input.isKeyDown(Input.KEY_ENTER)) {
                 gc.exit();
             }

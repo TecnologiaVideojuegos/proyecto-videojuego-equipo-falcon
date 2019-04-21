@@ -112,6 +112,10 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH1())) {
+                    if(NPCs.get(j).isSGB())
+                    {
+                        sbg.enterState(NPCs.get(j).getSGB());
+                    }
                     choqueArriba = true;
                     break;
                 }
@@ -144,6 +148,10 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH4())) {
+                    if(NPCs.get(j).isSGB())
+                    {
+                        sbg.enterState(NPCs.get(j).getSGB());
+                    }
                     choqueAbajo = true;
                     break;
                 }
@@ -180,6 +188,10 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH2())) {
+                    if(NPCs.get(j).isSGB())
+                    {
+                        sbg.enterState(NPCs.get(j).getSGB());
+                    }
                     choqueIzquierda = true;
                     break;
                 }
@@ -213,6 +225,10 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH3())) {
+                    if(NPCs.get(j).isSGB())
+                    {
+                        sbg.enterState(NPCs.get(j).getSGB());
+                    }
                     choqueDerecha = true;
                     break;
                 }
@@ -308,7 +324,7 @@ public class Mundo extends BasicGameState {
             mapa_actual.getPersonajes().get(j).getAlerta().getImagen().draw(mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaX(),mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaY());
 
         }
-         if(input.isKeyDown(Input.KEY_T))
+        if(input.isKeyDown(Input.KEY_T))
         {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }

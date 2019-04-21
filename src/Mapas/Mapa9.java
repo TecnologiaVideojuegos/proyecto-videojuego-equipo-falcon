@@ -38,6 +38,7 @@ public class Mapa9 extends MapaT {
     
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
     
+    
     public Mapa9() {
         super();
         colisiones_bordes = new ArrayList<>();

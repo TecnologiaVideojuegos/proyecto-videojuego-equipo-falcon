@@ -36,7 +36,7 @@ public class Madre extends WanderTipoT {
     public Madre(float x, float y, Mapa2 mapa) {
         try {
             this.mapa = mapa;
-            
+            sgb=-1;
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
