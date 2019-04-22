@@ -6,6 +6,7 @@
 package Estados;
 
 import Elementos.Bocadillo;
+import Elementos.Ondas;
 import Personajes.MainChar;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -22,10 +23,11 @@ import org.newdawn.slick.tiled.TiledMap;
  */
 public class Cinematica0 extends BasicGameState {
 
+    int act;
     private String mapa1 = "Mapas\\MOVIE.tmx";
     private float bordes1[] = new float[]{512, 410, 512, 700, 510, 700, 510, 410};
     Polygon borde;
-    private float bordes2[] = new float[]{896, 410, 896, 700, 898, 700, 898, 410};
+    private float bordes2[] = new float[]{896, 110, 896, 700, 898, 700, 898, 110};
     Polygon salida;
     int first = 20;
     TiledMap mapa;
@@ -38,6 +40,7 @@ public class Cinematica0 extends BasicGameState {
     Bocadillo bocadilloN2 = new Bocadillo("Historia06");
     Bocadillo bocadilloN3 = new Bocadillo("Historia07");
     Bocadillo bocadilloN4 = new Bocadillo("Historia08");
+    //Ondas dona = new Ondas("");
     Boolean choqueIzquierda = false, choqueDerecha = false;
     MainChar personaje = new MainChar();
 
@@ -70,7 +73,12 @@ public class Cinematica0 extends BasicGameState {
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
-        if (fase > 1000) {
+
+        if (fase > 1000 && fase <= 8000) {
+            /*dona.dentro();
+             dona.getImagen().update(act);
+             dona.getImagen().draw(dona.getCoordenadaX(), dona.getCoordenadaY());
+             */
             if (fase <= 2000) {
                 bocadilloB1.dentroXY(100, 0);
                 bocadilloB1.getImagen().draw(bocadilloB1.getCoordenadaX(), bocadilloB1.getCoordenadaY());
@@ -82,7 +90,7 @@ public class Cinematica0 extends BasicGameState {
                 bocadilloB2.fuera();
                 bocadilloB3.dentroXY(100, 0);
                 bocadilloB3.getImagen().draw(bocadilloB3.getCoordenadaX(), bocadilloB3.getCoordenadaY());
-            } else if (fase <= 8000) {
+            } else {
                 bocadilloB3.fuera();
                 bocadilloB4.dentroXY(100, 0);
                 bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
@@ -91,23 +99,21 @@ public class Cinematica0 extends BasicGameState {
 
         if (fase >= 1500) {
             if (fase <= 3000) {
-                bocadilloN1.dentroXY(100, 650);
+                bocadilloN1.dentro();
                 bocadilloN1.getImagen().draw(bocadilloN1.getCoordenadaX(), bocadilloN1.getCoordenadaY());
             } else if (fase <= 5000) {
                 bocadilloN1.fuera();
-                bocadilloN2.dentroXY(100, 650);
+                bocadilloN2.dentro();
                 bocadilloN2.getImagen().draw(bocadilloN2.getCoordenadaX(), bocadilloN2.getCoordenadaY());
             } else if (fase <= 7000) {
                 bocadilloN2.fuera();
-                bocadilloN3.dentroXY(100, 650);
+                bocadilloN3.dentro();
                 bocadilloN3.getImagen().draw(bocadilloN3.getCoordenadaX(), bocadilloN3.getCoordenadaY());
             } else if (fase <= 9000) {
                 bocadilloN3.fuera();
-                bocadilloN4.dentroXY(100, 650);
+                bocadilloN4.dentro();
                 bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
-            }
-            else
-            {
+            } else {
                 mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");
             }
 
@@ -122,6 +128,7 @@ public class Cinematica0 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        act = i;
         int velocidad = 2;
         Input input = gc.getInput();
         if (first > 0) {

@@ -6,7 +6,6 @@
 package Estados;
 
 import Mapas.Mapa2;
-import Personajes.Atari;
 import Personajes.Madre;
 import Personajes.MainChar;
 import Personajes.WanderTipoT;
@@ -26,56 +25,54 @@ import org.newdawn.slick.tiled.*;
  *
  * @author lucas
  */
-public class Precinematica1 extends BasicGameState {
+public class CasaInicial extends BasicGameState {
 
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
     MainChar personaje;
     
-    private float borde1[] = new float[]{705, 192, 838, 192, 838, 220, 865, 220, 865, 255, 935, 255, 935, 277, 963, 277, 963, 321, 991, 321, 991, 377, 961, 377, 961, 446, 931, 446, 931, 471, 957, 471, 957, 480, 989, 480, 989, 512, 902, 512, 902, 564, 867, 564, 867, 572, 512, 572, 512, 289, 540, 289, 540, 250, 700, 250, 700, 388, 737, 388, 737, 413, 767, 413, 767, 388, 799, 388, 799, 366, 771, 366, 771, 257, 768, 257, 768, 381, 705, 381};
-    private float borde2[] = new float[]{862, 482, 898, 482, 898, 449, 862, 449};
-    private float borde3[] = new float[]{605, 322, 578, 322, 578, 290, 605, 290};
-    private float borde4[] = new float[]{870, 353, 891, 353, 891, 320, 870, 320};
-    private float borde5[] = new float[]{740, 544, 802, 544, 802, 510, 740, 510};
-    private ArrayList<Polygon> colisiones_bordes;
-
-    private float salida1[] = new float[]{707, 355, 763, 355, 763, 354, 707, 354};
+    private final float   borde1 []  = new float[]{830,701,712,701,712,674,665,674,665,647,618,647,618,625,607,625,607,701,392,701,392,675,547,675,547,571,394,571,394,483,540,483,540,486,606,486,606,547,620,547,618,472,639,472,639,451,697,451,697,415,392,415,392,322,471,322,471,286,392,286,392,196,449,196,449,110,606,110,606,216,517,216,517,265,522,265,522,322,616,322,616,290,695,290,695,255,616,255,616,121,766,121,766,125,831,125,831,254,744,254,744,290,840,290,840,82,895,82,895,290,959,290,959,320,967,320,967,255,930,255,930,100,1021,100,1021,160,1088,160,1088,100,1119,100,1119,200,1088,200,1088,415,968,415,968,367,958,367,958,415,744,415,744,451,763,451,763,548,797,548,797,595,929,595,929,548,961,548,961,460,1118,460,1118,701,895,701,895,737,830,737};
+    private final float   borde2 []  = new float[]{1008,609,1008,536,1075,536,1075,609};
+    private final ArrayList<Polygon> colisiones_bordes;
+    
+    private final float   salida1[] = new float[]{842,94,892,94,892,92,842,92};
     private ArrayList<Polygon> colisiones_salidas;
-
-    private ArrayList<WanderTipoT> NPCs = new ArrayList<>();
-    private Atari atari;
-
-    public Precinematica1() {
-        colisiones_bordes = new ArrayList<>();
+    private ArrayList<Polygon> colisiones_salidas2;
+    private ArrayList<WanderTipoT> NPCs = new ArrayList<>(); 
+    private Madre madre;
+    
+    
+    public CasaInicial() {
+        colisiones_bordes=new ArrayList<>();
         colisiones_bordes.add(new Polygon(borde1));
         colisiones_bordes.add(new Polygon(borde2));
-        colisiones_bordes.add(new Polygon(borde3));
-        colisiones_bordes.add(new Polygon(borde4));
-        colisiones_bordes.add(new Polygon(borde5));
         
-        colisiones_salidas = new ArrayList<>();
-        colisiones_salidas.add(new Polygon(salida1));
+        colisiones_salidas=new ArrayList<>();
+        colisiones_salidas2=new ArrayList<>();
+        colisiones_salidas2.add(new Polygon(salida1));
         
-        atari = new Atari(608,384, new Mapa2());
-
+        madre = new Madre(400,450);
+        
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mapa = new TiledMap("\\Mapas\\mapa3.tmx", "\\Construccion Mapas\\");
+        mapa = new TiledMap("\\Mapas\\mapa2.tmx", "\\Construccion Mapas\\");
         personaje = new MainChar();
-        personaje.setCoordenadaX(710);
-        personaje.setCoordenadaY(192);
-        
-        NPCs.add(atari);
+        personaje.setCoordenadaX(461);
+        personaje.setCoordenadaY(125);
+        madre.setTalk();
+        NPCs.add(madre);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-
+      
+        
+        
         int velocidad = 2;
         Input input = gc.getInput();
-        ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
+        ArrayList<Rectangle> colisionNPCs = new ArrayList<>();    
         for (int j = 0; j < NPCs.size(); j++) {
             colisionNPCs.add(NPCs.get(j).getHitbox());
         }
@@ -93,20 +90,15 @@ public class Precinematica1 extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH1())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
                     choqueArriba = true;
                     break;
                 }
             }
-            if (!choqueArriba || choqueAbajo) {
+            if (!choqueArriba  || choqueAbajo ) {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH1().intersects(colisiones_salidas.get(n))) {
-                        sbg.enterState(7);
+                        sbg.enterState(9);
                     }
                 }
                 choqueAbajo = false;
@@ -125,22 +117,13 @@ public class Precinematica1 extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH4())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
                     choqueAbajo = true;
                     break;
                 }
             }
-            if (!choqueAbajo || choqueArriba) {
+            if (!choqueAbajo  || choqueArriba ) {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f * velocidad);
-                for (int n = 0; n < colisiones_salidas.size(); n++) {
-                    if (personaje.getH4().intersects(colisiones_salidas.get(n))) {
-                        sbg.enterState(8);
-                    }
-                }
+                
                 choqueArriba = false;
             }
 
@@ -158,18 +141,13 @@ public class Precinematica1 extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH2())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
                     choqueIzquierda = true;
                     break;
                 }
             }
-            if (!choqueIzquierda || choqueDerecha) {
+            if (!choqueIzquierda  || choqueDerecha ) {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
-
+                
                 choqueDerecha = false;
             }
 
@@ -186,18 +164,13 @@ public class Precinematica1 extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH3())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
                     choqueDerecha = true;
                     break;
                 }
             }
-            if (!choqueDerecha || choqueIzquierda) {
+            if (!choqueDerecha   || choqueIzquierda ) {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-
+                
                 choqueIzquierda = false;
 
             }
@@ -213,6 +186,7 @@ public class Precinematica1 extends BasicGameState {
                 NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
+                    colisiones_salidas=colisiones_salidas2;
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH3())) {
@@ -220,6 +194,7 @@ public class Precinematica1 extends BasicGameState {
                 NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
+                    colisiones_salidas=colisiones_salidas2;
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH2())) {
@@ -227,6 +202,7 @@ public class Precinematica1 extends BasicGameState {
                 NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
+                    colisiones_salidas=colisiones_salidas2;
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH1())) {
@@ -234,6 +210,7 @@ public class Precinematica1 extends BasicGameState {
                 NPCs.get(j).alerta();
                 personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
+                    colisiones_salidas=colisiones_salidas2;
                     NPCs.get(j).talk();
                 }
             } else {
@@ -263,27 +240,27 @@ public class Precinematica1 extends BasicGameState {
         mapa.render(0, 0, 4);
 
         /*g.draw(personaje.getH1());
-         g.draw(personaje.getH2());
-         g.draw(personaje.getH3());
-         g.draw(personaje.getH4());
-*/
-         for (int i = 0; i < colisiones_bordes.size(); i++) {
-         g.draw(colisiones_bordes.get(i));
-         }
-         
-        for (int j = 0; j < NPCs.size(); j++) {
+        g.draw(personaje.getH2());
+        g.draw(personaje.getH3());
+        g.draw(personaje.getH4());
 
+        for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
+            g.draw(mapa_actual.getBordes().get(i));
+        }*/
+        for (int j = 0; j < NPCs.size(); j++) {
+            
             NPCs.get(j).getTalk().getImagen().draw(NPCs.get(j).getTalk().getCoordenadaX(), NPCs.get(j).getTalk().getCoordenadaY());
-            NPCs.get(j).getAlerta().getImagen().draw(NPCs.get(j).getAlerta().getCoordenadaX(), NPCs.get(j).getAlerta().getCoordenadaY());
+            NPCs.get(j).getAlerta().getImagen().draw(NPCs.get(j).getAlerta().getCoordenadaX(),NPCs.get(j).getAlerta().getCoordenadaY());
 
         }
-        if (input.isKeyDown(Input.KEY_T)) {
+        if(input.isKeyDown(Input.KEY_T))
+        {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
     }
 
     @Override
     public int getID() {
-        return 9; //To change body of generated methods, choose Tools | Templates.
+        return 8; //To change body of generated methods, choose Tools | Templates.
     }
 }

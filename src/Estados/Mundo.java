@@ -154,6 +154,10 @@ public class Mundo extends BasicGameState {
                     {
                         int state= NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
+                        if(state==10)
+                        {
+                            NPCs.get(j).hide();
+                        }
                         sbg.enterState(state);
                     }
                     choqueAbajo = true;

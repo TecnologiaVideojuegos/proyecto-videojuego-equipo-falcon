@@ -141,4 +141,9 @@ public class WanderTipoT {
     {
         sgb=-1;
     }
+    
+    public void hide()
+    {
+        hitbox.setBounds(0, 0, 0, 0);
+    }
 }

@@ -7,11 +7,12 @@ package Principal;
 
 import EstadoBoss1.Boss1;
 import EstadoBoss2.Boss2;
-import Estados.Boss0;
 import Estados.Cinematica0;
 import Estados.Mundo;
-import Estados.Precinematica0;
-import Estados.Precinematica1;
+import Estados.BuhardillaInicial;
+import Estados.CasaInicial;
+import Estados.Cinematica1;
+import Estados.PlayaInicial;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.AppGameContainer;
@@ -40,11 +41,13 @@ public class Juego extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        this.addState(new Precinematica0());
-        this.addState(new Precinematica1());
+        
+        this.addState(new CasaInicial());
+        this.addState(new BuhardillaInicial());
+        this.addState(new PlayaInicial());
         this.addState(new Cinematica0());
+        this.addState(new Cinematica1());
         this.addState(new Mundo(1));
-        this.addState(new Boss0());
         this.addState(new Boss1());
         this.addState(new Boss2());
     }

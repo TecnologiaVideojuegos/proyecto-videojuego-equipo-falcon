@@ -45,6 +45,7 @@ public class Mapa3 extends MapaT {
         super();
         
         atari=new Atari(608,384,mapa2);
+        atari.notSGB();
         personajes.add(atari);
         
         puntos_bordes     = new ArrayList<>();

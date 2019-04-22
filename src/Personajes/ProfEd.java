@@ -24,7 +24,7 @@ public class ProfEd extends WanderTipoT{
     int coordenadaY;
     public ProfEd() {
         try {
-            sgb=1;
+            sgb=20;
             coordenadaX=900;
             coordenadaY=20;
             
@@ -40,6 +40,15 @@ public class ProfEd extends WanderTipoT{
             Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\1.png")};
             lanzar = new Animation(lanzaPelotas, new int[]{duration[0],duration[1]}, false);
         } catch (SlickException ex) {
+        }
+    }
+    
+    public void lanza(){
+        try {
+            Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\2.png"), new Image("SpriteBoss1\\3.png"), new Image("SpriteBoss1\\4.png"), new Image("SpriteBoss1\\5.png"), new Image("SpriteBoss1\\6.png")};
+            lanzar = new Animation(lanzaPelotas, duration, false);
+        } catch (SlickException ex) {
+            Logger.getLogger(ProfEd.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public Animation getDir() {

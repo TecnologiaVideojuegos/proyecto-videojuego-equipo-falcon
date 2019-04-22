@@ -9,7 +9,7 @@
  <tileset firstgid="3865" source="../Construccion Mapas/oubliette_dungeon_big (1).tsx"/>
  <layer id="1" name="Capa de Patrones 1" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACtWXTU7DMBCFva4rpVmyhD2cAonTcAkOQEjpBVLkJCtu0APAPdgBEmz4WTFWbcUZYsd2x1GzeFLGTqyvr88TR3DGNqCXbK+vBWPfoB/Q7+L46gZUKjXAfce7OrVel4y9gd5Bl1m4JLvkFaBW+U7N2BraGeMCVCv/5Fwse6NUJGZvHezX2bgw+y2h7085Y8+5m70dYI/NTGH4Xh3I/gHcn7nfvdj3s6wvn72qfW+Q71c8XJo99LmbVV++7JXi3o70mQvoB+dLun2A14vxfa18FyOZoWbHimE3+8yUvlOwV8pznJmYvPtKrn+S2RXq+5agz/j8P4+r7npoj4ZmZsj3VOzUmdG+yx55eiD/lOzad8lfGuwp807V33Xeh84EKXqLbc0Y30vD9zVB3qdmN/M+J3b9Xn3g/TPwHPKu+ww+i6XOPYXvBe/O77b+fqzsOu9ihuy279U55P3fOZLvv0cKo5b7+V79NtfcxjHuql1r4hrfp88ztbquefe+EpYxs7Y9F1vjOTxmXkv9AQhoZdtcEgAA
+   H4sIAAAAAAAACtWXTU7DMBCFva4ruVmyhD2cAonTcAkOQEjpBVLkJCtu0APAPdgBEmz4WTFWbWUyxE7i2lG9eFLGTq0vr88TR3LGNqAXsdfXgrFv0A/od3F8dQ0qtGrgvuNtHVuvS8beQO+gSzFdil3xSlCjfQ/N2CDt0LgEVdo/NefLXmvlkdkbB/u1GBZlvw3o+1PG2HPmZm962H0zkyPfywPZP4D7Mxt3L/X9THQ1Zq8a32vi+xWfTzerrsayl5p7O9BnLqAfnC/D7QO6no/va+27HMhMaHYqH3bcZ+b0PQR7qT2nmYmZb7X+ibBrqu/bAH1mzP/zuGqv+/bo1Mz0+R6LPXRmjO+qR54eyD8nu/Fd8ReIPYX+bvLedyaI0Vtsa/r4XiDf1wHyPjc7zntK7Oa9+sC7Z+AU8m76DD2Lxc59CN9z3p7fbf39WNlN3mWC7Lbv1RTy/u8cyfffIzmq1X6+18/mmts4xl21a01a0/vMeabS1xVv31fSMoZr2+98azpHx/C10h9ufK/1XBIAAA==
   </data>
  </layer>
  <layer id="2" name="Capa de patrones 2" width="47" height="25">

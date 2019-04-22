@@ -91,6 +91,11 @@ public class Pelota {
         return coordenadaY;
     }
 
+    public void setCoordenadas(float x, float y) {
+        coordenadaX=x;
+        coordenadaY=y;
+    }
+        
     public void move() {
         coordenadaX = coordenadaX - velocidadX;
         coordenadaY = coordenadaY - velocidadY;
