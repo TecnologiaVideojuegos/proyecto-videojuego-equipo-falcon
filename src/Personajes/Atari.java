@@ -24,7 +24,7 @@ public class Atari extends WanderTipoT {
     Animation actual,luce, noluce;
     int[] duration = {100, 100};
     Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo("bocadilloMadre");
+    Bocadillo bocadillo = new Bocadillo("bocadilloAtari");
     Mapa2 mapa;
     int desplazamiento = 0;
     Alerta alerta = new Alerta();
@@ -33,7 +33,7 @@ public class Atari extends WanderTipoT {
     public Atari(float x, float y, Mapa2 mapa) {
         try {
             this.mapa = mapa;
-            sgb=3;
+            sgb=5;
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -84,7 +84,6 @@ public class Atari extends WanderTipoT {
 
     @Override
     public void talk() {
-        mapa.cMode2();
         bocadillo.dentro();
     }
 

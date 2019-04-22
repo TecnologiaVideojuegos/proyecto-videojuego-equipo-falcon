@@ -78,8 +78,8 @@ public class Pelota {
 
     public void setDestinoN(float destinoX, float destinoY) {
 
-        velocidadX = (coordenadaX - destinoX) / 350;
-        velocidadY = (coordenadaY - destinoY) / 350;
+        velocidadX = (coordenadaX - destinoX) / 320;
+        velocidadY = (coordenadaY - destinoY) / 320;
 
     }
 

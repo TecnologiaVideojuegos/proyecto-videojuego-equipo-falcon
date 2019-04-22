@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="1">
- <tileset firstgid="1" source="../Construccion Mapas/city_inside.tsx"/>
- <tileset firstgid="385" source="../Construccion Mapas/oubliette_dungeon_big.tsx"/>
+ <tileset firstgid="1" source="../Construccion Mapas/oubliette_dungeon_big.tsx"/>
+ <tileset firstgid="581" source="../Construccion Mapas/city_inside.tsx"/>
  <tileset firstgid="965" source="../Construccion Mapas/interior.tsx"/>
  <layer id="1" name="Capa de Patrones 1" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACrvBzMBwYxSP4lE8bPAUBgiG8U2ZGBjMKMSidHY7DM8E2l0OxF5kYpDeLUwD5/ZuIC5iJg93D2K3eyLhUbePuh2b2z0J4KHi9iJm3OE9FNw+lMoZYt0OM2/U7dRxO7F4MLmd3DbBQLr9INDeQ0B8jAJ8YoDcTi086vaBcz89/DKU3T6KqYcBm9GraFwSAAA=
+   H4sIAAAAAAAACrvBzMBwYxSP4lE8fDATFEP5WxkYGLZRiKcy0tntUCwJtPc70P5TZGKQXpMBdDs3EH8iE4P0Dla3n0TCo24fdTs2t58kgIeK2z/hcO9QcftQKmeIdXssEMcNUbcXAnHRIHM7sbgViNsGidvJbRMMpNsdgfY6AbEbBdhjgNxONTzq9oFzPz38MpTdPoqphgFtDtmyXBIAAA==
   </data>
  </layer>
  <layer id="2" name="Capa de patrones 2" width="47" height="25">

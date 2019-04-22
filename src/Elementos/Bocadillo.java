@@ -34,6 +34,11 @@ public class Bocadillo {
         coordenadaY = 675;
     }
 
+    public void dentroXY(float x, float y) {
+        coordenadaX = x;
+        coordenadaY = y;
+    }
+    
     public void fuera() {
         coordenadaX = -1000;
         coordenadaY = -1000;

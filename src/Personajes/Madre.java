@@ -19,7 +19,7 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class Madre extends WanderTipoT {
 
-    float coordenadaX , coordenadaY;
+    float coordenadaX, coordenadaY;
     Image[] movementUp;
     Image[] movementDown;
     Image[] movementLeft;
@@ -28,28 +28,28 @@ public class Madre extends WanderTipoT {
     int[] duration = {200, 200};
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
     Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo("bocadilloMadre");
-    Mapa2 mapa;
+    Bocadillo bocadillo = new Bocadillo("bocadilloMadre2");
+    
     int desplazamiento = 0;
     Alerta alerta = new Alerta();
 
-    public Madre(float x, float y, Mapa2 mapa) {
+    public Madre(float x, float y) {
         try {
-            this.mapa = mapa;
-            sgb=-1;
+            
+            sgb = -1;
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
-            
+
             //Creacion hitbox
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
-            
+
             //Animaciones movimiento
             Image[] movementLeft = {new Image("ImagenesSprite\\Madre\\izq1.png"), new Image("ImagenesSprite\\Madre\\izq2.png"), new Image("ImagenesSprite\\Madre\\izq3.png"), new Image("ImagenesSprite\\Madre\\izq4.png"), new Image("ImagenesSprite\\Madre\\izq5.png"), new Image("ImagenesSprite\\Madre\\izq6.png"), new Image("ImagenesSprite\\Madre\\izq7.png"), new Image("ImagenesSprite\\Madre\\izq8.png")};
             Image[] movementRight = {new Image("ImagenesSprite\\Madre\\der1.png"), new Image("ImagenesSprite\\Madre\\der2.png"), new Image("ImagenesSprite\\Madre\\der3.png"), new Image("ImagenesSprite\\Madre\\der4.png"), new Image("ImagenesSprite\\Madre\\der5.png"), new Image("ImagenesSprite\\Madre\\der6.png"), new Image("ImagenesSprite\\Madre\\der7.png"), new Image("ImagenesSprite\\Madre\\der8.png")};
             left = new Animation(movementLeft, duration2, false);
             right = new Animation(movementRight, duration2, false);
-            
+
             //Animaciones parado
             Image[] stanceDown = {new Image("ImagenesSprite\\Madre\\down0.png"), new Image("ImagenesSprite\\Madre\\down0.png")};
             Image[] stanceUp = {new Image("ImagenesSprite\\Madre\\up0.png"), new Image("ImagenesSprite\\Madre\\up0.png")};
@@ -104,17 +104,17 @@ public class Madre extends WanderTipoT {
     public void move() {
         if (desplazamiento < 200) {
             coordenadaX = coordenadaX + (float) (0.5);
-            desplazamiento ++;
+            desplazamiento++;
             setDir("right");
         } else if (desplazamiento >= 200 && desplazamiento < 1200) {
-            desplazamiento ++;
+            desplazamiento++;
             setDir("sup");
         } else if (desplazamiento >= 1200 && desplazamiento < 1400) {
-            desplazamiento ++;
+            desplazamiento++;
             coordenadaX = coordenadaX - (float) (0.5);
             setDir("left");
         } else if (desplazamiento >= 1400 && desplazamiento < 2400) {
-            desplazamiento ++;
+            desplazamiento++;
             setDir("sup");
         } else {
             desplazamiento = 0;
@@ -127,29 +127,35 @@ public class Madre extends WanderTipoT {
     }
 
     public void talk() {
-        mapa.cMode1();
+
         bocadillo.dentro();
     }
 
     public Bocadillo getTalk() {
-        
+
         return bocadillo;
+
+    }
+    public void setTalk() {
+
+        bocadillo= new Bocadillo("bocadilloMadre");
+
     }
 
     public void noTalk() {
         bocadillo.fuera();
     }
 
-    public Alerta getAlerta(){
+    public Alerta getAlerta() {
         return alerta;
     }
-    
+
     public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+        alerta.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
     }
-    
+
     public void noAlerta() {
         alerta.fuera();
     }
-    
+
 }
