@@ -25,8 +25,8 @@ public class Cinematica1 extends BasicGameState {
     private String mapa1 = "Mapas\\MOVIE.tmx";
     private float bordes1[] = new float[]{512, 410, 512, 700, 510, 700, 510, 410};
     Polygon borde;
-        private float bordes2[] = new float[]{896, 110, 896, 700, 898, 700, 898, 110};
-        Polygon salida;
+    private float bordes2[] = new float[]{896, 110, 896, 700, 898, 700, 898, 110};
+    Polygon salida;
     int first = 20;
     TiledMap mapa;
     int fase = 0;
@@ -105,9 +105,7 @@ public class Cinematica1 extends BasicGameState {
                 bocadilloN3.fuera();
                 bocadilloN4.dentro();
                 bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
-            }
-            else
-            {
+            } else {
                 mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");
             }
 

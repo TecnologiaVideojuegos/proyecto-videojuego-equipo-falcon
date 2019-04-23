@@ -21,18 +21,13 @@ public class Arresto {
     float coordenadaXi = 1010, coordenadaYi = 273;
     Image arrestoImg; 
     Circle h1;
-    private float velocidadX, velocidadY;
     int estado=0;
 
     public Arresto() {
         try {
             arrestoImg = new Image("\\SpriteBoss2\\arresto.png");
             h1 = new Circle(coordenadaX + 32, coordenadaY + 32, 10);
-        } catch (SlickException ex) {
-            Logger.getLogger(Arresto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        
+        } catch (SlickException ex) {}
     }
 
     public Image getImage()
@@ -40,11 +35,11 @@ public class Arresto {
         return arrestoImg;
     }
     public void init(float x, float y) {
-        
             coordenadaX=x;
             coordenadaY=y;
             estado=1;
     }
+    
     public void reset()
     {
         coordenadaX=-100;
@@ -73,5 +68,4 @@ public class Arresto {
     public Circle getH1() {
         return h1;
     }
-
 }

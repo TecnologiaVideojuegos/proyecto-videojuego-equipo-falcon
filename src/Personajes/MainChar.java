@@ -17,7 +17,7 @@ import org.newdawn.slick.geom.Rectangle;
 public class MainChar {
 
     float coordenadaX, coordenadaY;
-    Animation actual, up, down, left, right, stanceright, stanceleft, stanceup, stancedown;
+    Animation actual, up, down, left, right, stanceright, stanceleft, stanceup, stancedown, getUp;
     int[] duration = {200, 200};
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
     Rectangle h1, h2, h3, h4;
@@ -49,6 +49,8 @@ public class MainChar {
             stanceup = new Animation(stanceUp, duration, false);
             stancedown = new Animation(stanceDown, duration, false);
 
+            Image[] standUp = {new Image("ImagenesSprite\\Niña\\fall0.png"), new Image("ImagenesSprite\\Niña\\fall1.png"), new Image("ImagenesSprite\\Niña\\fall2.png")};
+            getUp= new Animation(standUp,new int[]{100,100,100},false);
             actual = right;
         } catch (SlickException e) {
         }
@@ -87,7 +89,12 @@ public class MainChar {
     public Animation getDir() {
         return actual;
     }
-
+    
+    public void getUp()
+    {
+        actual=getUp;
+    }
+    
     public float getCoordenadaX() {
         return coordenadaX;
     }

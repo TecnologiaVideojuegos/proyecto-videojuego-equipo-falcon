@@ -41,22 +41,22 @@ public class Mapa1 extends MapaT {
     private final float coordenadas_aparicion[] = new float[]{0, 720, 0, 0, 1438, 0, 0, 0};
 
     private final ArrayList<WanderTipoT> personajes = new ArrayList<>();
-    WanderTipo2 viejo1 = new WanderTipo2(1160, 480);
-    WanderTipo3 viejo2 = new WanderTipo3("left", 920, 150);
-    WanderTipo3 viejo3 = new WanderTipo3("right", 880, 150);
-    WanderTipo4 viejo4 = new WanderTipo4(580, 350);
-    WanderTipo5 viejo5 = new WanderTipo5(200, 300);
+    WanderTipo2 marinero1 = new WanderTipo2(1160, 480);
+    WanderTipo3 marinero2 = new WanderTipo3("left", 920, 150);
+    WanderTipo3 marinero3 = new WanderTipo3("right", 880, 150);
+    WanderTipo4 bully4 = new WanderTipo4(580, 350);
+    WanderTipo5 bully5 = new WanderTipo5(200, 300);
     
     
 
     public Mapa1() {
         super();
 
-        personajes.add(viejo1);
-        personajes.add(viejo2);
-        personajes.add(viejo3);
-        personajes.add(viejo4);
-        personajes.add(viejo5);
+        personajes.add(marinero1);
+        personajes.add(marinero2);
+        personajes.add(marinero3);
+        personajes.add(bully4);
+        personajes.add(bully5);
         
         puntos_bordes     = new ArrayList<>();
         colisiones_bordes = new ArrayList<>();

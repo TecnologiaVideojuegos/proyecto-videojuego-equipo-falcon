@@ -75,6 +75,7 @@ public class Mundo extends BasicGameState {
         personaje = new MainChar();
         personaje.setCoordenadaX(461);
         personaje.setCoordenadaY(125);
+        
     }
 
     @Override
@@ -156,7 +157,9 @@ public class Mundo extends BasicGameState {
                         NPCs.get(j).notSGB();
                         if(state==10)
                         {
-                            NPCs.get(j).hide();
+                            mapa_actual.chMod();
+                            NPCs.remove(NPCs.get(j));
+                            colisionNPCs.remove(colisionNPCs.get(j));
                         }
                         sbg.enterState(state);
                     }

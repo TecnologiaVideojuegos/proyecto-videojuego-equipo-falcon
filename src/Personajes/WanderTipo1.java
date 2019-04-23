@@ -18,22 +18,9 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class WanderTipo1 extends WanderTipoT {
 
-    float coordenadaX , coordenadaY;
-    Image[] movementUp;
-    Image[] movementDown;
-    Image[] movementLeft;
-    Image[] movementRight;
-    Animation actual, sup, sdown, left, right, sright, sleft;
-    int[] duration = {200, 200};
-    int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
-    Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo("bocadilloMadre");
-    int desplazamiento = 0;
-    Alerta alerta = new Alerta();
-
     public WanderTipo1(float x, float y) {
         try {
-            sgb=-1;
+            
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -59,10 +46,18 @@ public class WanderTipo1 extends WanderTipoT {
 
             //Animacion inicial
             actual = right;
+            
+            //Bocadillo
+            bocadillo = new Bocadillo("bocadilloMadre");
+            
+            //No enterSBG
+            sgb=-1;
         } catch (SlickException e) {
         }
     }
 
+
+    @Override
     public void setDir(String string) {
         switch (string) {
             case "sup":
@@ -86,18 +81,7 @@ public class WanderTipo1 extends WanderTipoT {
         }
     }
 
-    public Animation getDir() {
-        return actual;
-    }
-
-    public float getCoordenadaX() {
-        return coordenadaX;
-    }
-
-    public float getCoordenadaY() {
-        return coordenadaY;
-    }
-
+    @Override
     public void move() {
         if (desplazamiento < 200) {
             coordenadaX = coordenadaX + (float) (0.5);
@@ -118,33 +102,4 @@ public class WanderTipo1 extends WanderTipoT {
         }
         hitbox.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
-
-    public Rectangle getHitbox() {
-        return hitbox;
-    }
-
-    public void talk() {
-        bocadillo.dentro();
-    }
-
-    public Bocadillo getTalk() {
-        return bocadillo;
-    }
-
-    public void noTalk() {
-        bocadillo.fuera();
-    }
-
-    public Alerta getAlerta(){
-        return alerta;
-    }
-    
-    public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
-    }
-    
-    public void noAlerta() {
-        alerta.fuera();
-    }
-    
 }

@@ -18,27 +18,17 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class WanderTipo2 extends WanderTipoT {
 
-    float coordenadaX = 500, coordenadaY = 450;
-    Image[] movementUp;
-    Image[] movementDown;
-    Image[] movementLeft;
-    Image[] movementRight;
-    Animation actual, up, down, sleft, sright, sup, sdown;
-    int[] duration = {200, 200};
-    Rectangle h1;
-    Bocadillo bocadillo = new Bocadillo("bocadilloMarinero");
-    int desplazamiento = 0;
-    Alerta alerta = new Alerta();
+    Animation up, down;
     
     public WanderTipo2(float x, float y) {
         try {
-            sgb=-1;
+            
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
 
             //Creacion hitbox
-            h1 = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
+            hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones movimiento
             Image[] movementUp = {new Image("ImagenesSprite\\Marinero\\up1.png"), new Image("ImagenesSprite\\Marinero\\up2.png")};
@@ -58,10 +48,17 @@ public class WanderTipo2 extends WanderTipoT {
 
             //Animacion inicial
             actual = up;
+            
+            //Bocadillo
+            bocadillo = new Bocadillo("bocadilloMarinero");
+            
+            //No SBG
+            sgb=-1;
         } catch (SlickException e) {
         }
     }
 
+    @Override
     public void setDir(String string) {
         switch (string) {
             case "up":
@@ -85,18 +82,7 @@ public class WanderTipo2 extends WanderTipoT {
         }
     }
 
-    public Animation getDir() {
-        return actual;
-    }
-
-    public float getCoordenadaX() {
-        return this.coordenadaX;
-    }
-
-    public float getCoordenadaY() {
-        return this.coordenadaY;
-    }
-
+    @Override
     public void move() {
         if (desplazamiento < 500) {
             coordenadaY = coordenadaY + (float) (0.5);
@@ -115,34 +101,6 @@ public class WanderTipo2 extends WanderTipoT {
         } else {
             desplazamiento = 0;
         }
-        h1.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
-    }
-
-    public Rectangle getHitbox() {
-        return h1;
-    }
-    
-    public void talk() {
-        bocadillo.dentro();
-    }
-
-    public Bocadillo getTalk() {
-        return bocadillo;
-    }
-
-    public void noTalk() {
-        bocadillo.fuera();
-    }
-    
-    public Alerta getAlerta(){
-        return alerta;
-    }
-    
-    public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
-    }
-    
-    public void noAlerta() {
-        alerta.fuera();
+        hitbox.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
 }

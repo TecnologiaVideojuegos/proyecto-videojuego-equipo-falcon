@@ -5,13 +5,8 @@
  */
 package Elementos;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Circle;
-import org.newdawn.slick.geom.Rectangle;
 
 /**
  *

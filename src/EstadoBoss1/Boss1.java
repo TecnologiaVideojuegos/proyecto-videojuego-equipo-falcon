@@ -206,7 +206,7 @@ public class Boss1 extends BasicGameState {
                 if (!choqueDerecha || choqueIzquierda) {
                     personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f);
                     if (personaje.getH3().intersects(salidas)) {
-                        sbg.enterState(0);
+                        sbg.enterState(12);
                     }
                     choqueIzquierda = false;
                 }

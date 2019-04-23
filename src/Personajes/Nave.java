@@ -36,8 +36,6 @@ public class Nave {
         }
     }
 
-
-
     public Animation getDir() {
         return mover;
     }

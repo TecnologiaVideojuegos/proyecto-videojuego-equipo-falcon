@@ -12,6 +12,7 @@ import Estados.Mundo;
 import Estados.BuhardillaInicial;
 import Estados.CasaInicial;
 import Estados.Cinematica1;
+import Estados.PlayaFinal;
 import Estados.PlayaInicial;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,6 +46,7 @@ public class Juego extends StateBasedGame {
         this.addState(new CasaInicial());
         this.addState(new BuhardillaInicial());
         this.addState(new PlayaInicial());
+        this.addState(new PlayaFinal());
         this.addState(new Cinematica0());
         this.addState(new Cinematica1());
         this.addState(new Mundo(1));

@@ -19,10 +19,6 @@ import org.newdawn.slick.geom.Rectangle;
 public class WanderTipoT {
 
     float coordenadaX = 500, coordenadaY = 450;
-    Image[] movementUp;
-    Image[] movementDown;
-    Image[] movementLeft;
-    Image[] movementRight;
     Animation actual, sup, sdown, left, right, sright, sleft;
     int[] duration = {200, 200};
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
@@ -52,6 +48,9 @@ public class WanderTipoT {
             sright = new Animation(stanceRight, duration, false);
 
             actual = right;
+            
+            //No SBG
+            sgb=-1;
         } catch (SlickException e) {
         }
     }

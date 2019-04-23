@@ -137,4 +137,8 @@ public class Mapa5 extends MapaT {
             return mapas[salida];
         }
     }
+     public void chMod()
+    {
+        modo=1;
+    }
 }

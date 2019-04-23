@@ -19,8 +19,6 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class EscalerasPlaya extends WanderTipoT {
 
-    float coordenadaX , coordenadaY;
-    Rectangle hitbox;
 
     public EscalerasPlaya() {
         
@@ -32,65 +30,17 @@ public class EscalerasPlaya extends WanderTipoT {
             //Creacion hitbox
             hitbox = new Rectangle(66, 797, 186, 1);   
     }
-    
-  
-
-    
-
-    public float getCoordenadaX() {
-        return this.coordenadaX;
-    }
-
-    public float getCoordenadaY() {
-        return this.coordenadaY;
-    }
-
     @Override
     public void move() {
         hitbox.setBounds(66, 797, 186, 1);  
     }
-
-
-    public Rectangle getHitbox() {
-        return hitbox;
-    }
-
+    
+    @Override
     public void talk() {
-       
     }
 
-    
-    public void noTalk() {
-        bocadillo.fuera();
-    }
-    
-   
-    
-    public void alerta() {
-        }
-    
-    public void noAlerta() {
-        alerta.fuera();
-    }
-    
-    public boolean isSGB()
-    {
-        return sgb!=-1;
-    }
-    
-    public int getSGB()
-    {
-        return sgb;
-    }
-    
-    public void notSGB()
-    {
-        sgb=-1;
-    }
-    
-    public void hide()
-    {
-        hitbox.setBounds(0, 0, 0, 0);
-    }
+    @Override
+   public void alerta() {
+   }
 
 }

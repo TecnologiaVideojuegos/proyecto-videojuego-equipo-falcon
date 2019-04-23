@@ -44,7 +44,7 @@ public class Mapa3 extends MapaT {
     public Mapa3(Mapa2 mapa2) {
         super();
         
-        atari=new Atari(608,384,mapa2);
+        atari=new Atari(608,384);
         atari.notSGB();
         personajes.add(atari);
         

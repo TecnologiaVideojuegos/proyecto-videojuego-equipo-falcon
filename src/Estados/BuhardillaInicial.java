@@ -59,7 +59,7 @@ public class BuhardillaInicial extends BasicGameState {
         colisiones_salidas = new ArrayList<>();
         colisiones_salidas.add(new Polygon(salida1));
         
-        atari = new Atari(608,384, new Mapa2());
+        atari = new Atari(608,384);
 
     }
 

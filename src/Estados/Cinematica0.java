@@ -6,7 +6,6 @@
 package Estados;
 
 import Elementos.Bocadillo;
-import Elementos.Ondas;
 import Personajes.MainChar;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;

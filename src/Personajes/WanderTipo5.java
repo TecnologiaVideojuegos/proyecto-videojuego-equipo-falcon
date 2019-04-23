@@ -18,18 +18,7 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class WanderTipo5 extends WanderTipoT {
 
-    float coordenadaX = 500, coordenadaY = 450;
-    Image[] movementUp;
-    Image[] movementDown;
-    Image[] movementLeft;
-    Image[] movementRight;
-    Animation actual, up, down, left, right, sleft, sright, sup, sdown;
-    int[] duration = {200, 200};
-    int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
-    Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo("bocadilloMaton");
-    int desplazamiento=0;
-    Alerta alerta = new Alerta();
+    Animation  up, down;
 
     public WanderTipo5(float x, float y) {
         try {
@@ -58,6 +47,12 @@ public class WanderTipo5 extends WanderTipoT {
             sright = new Animation(stanceRight, duration, false);
 
             actual = up;
+            
+            //Bocadillo
+            bocadillo = new Bocadillo("bocadilloMaton");
+            
+            //No SBG
+            sgb=-1;
         } catch (SlickException e) {
         }
     }

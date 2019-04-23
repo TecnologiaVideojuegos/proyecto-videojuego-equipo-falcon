@@ -11,7 +11,6 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
-import org.newdawn.slick.geom.Rectangle;
 
 /**
  *
@@ -56,7 +55,6 @@ public class Pelota {
 
     public void init() {
         actual = aparece;
-
         coordenadaX = coordenadaXi;
         coordenadaY = coordenadaYi;
     }
@@ -77,10 +75,8 @@ public class Pelota {
     }
 
     public void setDestinoN(float destinoX, float destinoY) {
-
         velocidadX = (coordenadaX - destinoX) / 320;
         velocidadY = (coordenadaY - destinoY) / 320;
-
     }
 
     public float getCoordenadaX() {
@@ -99,7 +95,6 @@ public class Pelota {
     public void move() {
         coordenadaX = coordenadaX - velocidadX;
         coordenadaY = coordenadaY - velocidadY;
-
         h1.setLocation(coordenadaX + 5, coordenadaY + 5);
     }
 

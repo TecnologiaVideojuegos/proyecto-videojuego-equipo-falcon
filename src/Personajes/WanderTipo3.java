@@ -18,22 +18,11 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class WanderTipo3 extends WanderTipoT {
 
-    float coordenadaX = 500, coordenadaY = 450;
-    Image[] stanceUp;
-    Image[] stanceDown;
-    Image[] stanceLeft;
-    Image[] stanceRight;
-    Animation actual, sleft, sright, sup, sdown;
-    int[] duration = {200, 200};
-    Rectangle hitbox;
     String dir;
-    int desplazamiento = 0;
-    Bocadillo bocadillo = new Bocadillo("bocadilloMarinero");
-    Alerta alerta = new Alerta();
 
     public WanderTipo3(String dir, float x, float y) {
         try {
-            sgb=-1;
+            
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -57,6 +46,12 @@ public class WanderTipo3 extends WanderTipoT {
             } else {
                 actual = sright;
             }
+            
+            //Bocadillo
+            bocadillo = new Bocadillo("bocadilloMarinero");
+            
+            //No SBG
+            sgb=-1;
         } catch (SlickException e) {
         }
     }
@@ -76,18 +71,6 @@ public class WanderTipo3 extends WanderTipoT {
                 actual = sleft;
                 break;
         }
-    }
-
-    public Animation getDir() {
-        return actual;
-    }
-
-    public float getCoordenadaY() {
-        return this.coordenadaY;
-    }
-
-    public float getCoordenadaX() {
-        return this.coordenadaX;
     }
 
     public void move() {

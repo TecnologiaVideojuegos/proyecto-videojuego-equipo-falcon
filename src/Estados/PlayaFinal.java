@@ -26,7 +26,7 @@ import org.newdawn.slick.tiled.*;
  *
  * @author lucas
  */
-public class PlayaInicial extends BasicGameState {
+public class PlayaFinal extends BasicGameState {
 
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
@@ -39,10 +39,10 @@ public class PlayaInicial extends BasicGameState {
     private ArrayList<Polygon> colisiones_salidas;
 
     private ArrayList<WanderTipoT> NPCs = new ArrayList<>();
+    ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
     private ProfEd profesor;
     Pelota ball = new Pelota();
 
-    boolean historia = false;
     int fase = 0, fase2 = 0;
     Bocadillo bocadillo10 = new Bocadillo("Historia10");
     Bocadillo bocadillo11 = new Bocadillo("Historia11");
@@ -51,7 +51,7 @@ public class PlayaInicial extends BasicGameState {
     Bocadillo bocadillo14 = new Bocadillo("Historia14");
     Bocadillo bocadillo15 = new Bocadillo("Historia15");
 
-    public PlayaInicial() {
+    public PlayaFinal() {
         colisiones_bordes = new ArrayList<>();
         colisiones_bordes.add(new Polygon(borde1));
 
@@ -60,8 +60,14 @@ public class PlayaInicial extends BasicGameState {
 
         profesor = new ProfEd();
         profesor.noLanza();
-        profesor.setSGB();
+        profesor.setCoord(1005, 615);
+        
         NPCs.add(profesor);
+        
+            for (int j = 0; j < NPCs.size(); j++) {
+                colisionNPCs.add(NPCs.get(j).getHitbox());
+            }
+        
 
     }
 
@@ -69,16 +75,15 @@ public class PlayaInicial extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap("\\Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
         personaje = new MainChar();
-        personaje.setCoordenadaX(710);
-        personaje.setCoordenadaY(192);
-
+        personaje.setCoordenadaX(1007);
+        personaje.setCoordenadaY(665);
+        personaje.getUp();
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if (historia) {
+        if (fase2<6900) {
             fase2++;
-            personaje.getDir().update(i);
         } else {
 
             fase++;
@@ -87,10 +92,7 @@ public class PlayaInicial extends BasicGameState {
             if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
                 System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
             }
-            ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
-            for (int j = 0; j < NPCs.size(); j++) {
-                colisionNPCs.add(NPCs.get(j).getHitbox());
-            }
+            
 
             if (input.isKeyDown(Input.KEY_W)) {
                 personaje.setDir("up");
@@ -109,7 +111,7 @@ public class PlayaInicial extends BasicGameState {
 
                             int state = NPCs.get(j).getSGB();
                             if (state == 20) {
-                                historia = true;
+                                
                                 NPCs.get(j).notSGB();
                             } else {
                                 NPCs.get(j).notSGB();
@@ -124,9 +126,7 @@ public class PlayaInicial extends BasicGameState {
                     personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * velocidad);
                     for (int n = 0; n < colisiones_salidas.size(); n++) {
                         if (personaje.getH1().intersects(colisiones_salidas.get(n))) {
-                            bocadillo15.dentro();
-                        } else {
-                            bocadillo15.fuera();
+                            sbg.enterState(0);
                         }
                     }
                     choqueAbajo = false;
@@ -148,7 +148,7 @@ public class PlayaInicial extends BasicGameState {
                         if (NPCs.get(j).isSGB()) {
                             int state = NPCs.get(j).getSGB();
                             if (state == 20) {
-                                historia = true;
+                                
                                 NPCs.get(j).notSGB();
                             } else {
                                 NPCs.get(j).notSGB();
@@ -182,7 +182,7 @@ public class PlayaInicial extends BasicGameState {
                         if (NPCs.get(j).isSGB()) {
                             int state = NPCs.get(j).getSGB();
                             if (state == 20) {
-                                historia = true;
+                                
                                 NPCs.get(j).notSGB();
                             } else {
                                 NPCs.get(j).notSGB();
@@ -215,7 +215,7 @@ public class PlayaInicial extends BasicGameState {
                         if (NPCs.get(j).isSGB()) {
                             int state = NPCs.get(j).getSGB();
                             if (state == 20) {
-                                historia = true;
+                                
                                 NPCs.get(j).notSGB();
                             } else {
                                 NPCs.get(j).notSGB();
@@ -284,10 +284,8 @@ public class PlayaInicial extends BasicGameState {
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
-        for (int j = 0; j < NPCs.size(); j++) {
-            NPCs.get(j).getDir().draw(NPCs.get(j).getCoordenadaX(), NPCs.get(j).getCoordenadaY());
-            g.draw(NPCs.get(j).getHitbox());
-        }
+        
+        profesor.getDir().draw(1000,600);
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 
         mapa.render(0, 0, 2);
@@ -302,7 +300,7 @@ public class PlayaInicial extends BasicGameState {
         for (int i = 0; i < colisiones_bordes.size(); i++) {
             g.draw(colisiones_bordes.get(i));
         }
-
+        System.out.println(profesor.getHitbox().toString());
         for (int j = 0; j < NPCs.size(); j++) {
 
             NPCs.get(j).getTalk().getImagen().draw(NPCs.get(j).getTalk().getCoordenadaX(), NPCs.get(j).getTalk().getCoordenadaY());
@@ -312,69 +310,44 @@ public class PlayaInicial extends BasicGameState {
         if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
-        if (fase > 500 && fase < 2000) {
-            bocadillo10.dentro();
-            bocadillo10.getImagen().draw(bocadillo10.getCoordenadaX(), bocadillo10.getCoordenadaY());
-        } else {
-            bocadillo10.fuera();
-        }
 
-        bocadillo15.getImagen().draw(bocadillo15.getCoordenadaX(), bocadillo15.getCoordenadaY());
 
         if (fase2 > 50 && fase2 < 1800) {
             bocadillo11.dentro();
             bocadillo11.getImagen().draw(bocadillo11.getCoordenadaX(), bocadillo11.getCoordenadaY());
-        } else if (fase2 > 1800 && fase2 < 3600) {
-            bocadillo11.fuera();
+        } else if (fase2 > 1800 && fase2 < 2100) {
+            if(personaje.getDir().getFrameCount()!=2)
+            {
+                personaje.getDir().update(fase2/500);
+                if(personaje.getDir().getFrame()==2)
+                {
+                    personaje.setDir("up");
+                    personaje.setDir("stance");
+                }
+            }
+        } else if (fase2 > 3600 && fase2 < 4800) {
+            
             bocadillo12.dentro();
             bocadillo12.getImagen().draw(bocadillo12.getCoordenadaX(), bocadillo12.getCoordenadaY());
-        } else if (fase2 > 3600 && fase2 < 4800) {
-            personaje.setDir("down");
-            if (personaje.getCoordenadaY() < 120) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() + 1);
-            } else if (personaje.getCoordenadaX() < 1015) {
-                personaje.setDir("right");
-                personaje.setCoordenadaX(personaje.getCoordenadaX() + 1);
-            } else if (personaje.getCoordenadaY() < 673) {
-                personaje.setCoordenadaY(personaje.getCoordenadaY() + 1);
-            } else {
-                personaje.setDir("up");
-                personaje.setDir("stance");
-            }
         } else if (fase2 > 4800 && fase2 < 5500) {
             bocadillo13.dentro();
             bocadillo13.getImagen().draw(bocadillo13.getCoordenadaX(), bocadillo13.getCoordenadaY());
 
-        } else if (fase2 > 5500 && fase2 < 6000) {
-            if (profesor.getDir().getFrameCount() == 2) {
-                profesor.lanza();
-            } else {
-                if (profesor.getDir().getFrame() != 5) {
-                    profesor.getDir().update(fase2 / 500);
-                } else {
-                    ball.setCoordenadas(950, 30);
-                    ball.setDestinoN(personaje.getCoordenadaX(), personaje.getCoordenadaY());
-                    ball.getDir().draw(ball.getCoordenadaX(), ball.getCoordenadaY());
+        } else if (fase2 > 5500 && fase2 < 6200) {
+            bocadillo14.dentro();
+            bocadillo14.getImagen().draw(bocadillo14.getCoordenadaX(), bocadillo14.getCoordenadaY());
 
-                }
-            }
-        } else if (fase2 > 6000 && fase2 < 6300) {
-            profesor.noLanza();
-            if (ball.getCoordenadaY() != personaje.getCoordenadaY()) {
-                ball.move();
-                ball.getDir().draw(ball.getCoordenadaX(), ball.getCoordenadaY());
-            } else {
-                bocadillo14.dentro();
-                bocadillo14.getImagen().draw(bocadillo14.getCoordenadaX(), bocadillo14.getCoordenadaY());
-
-            }
-        } else if (fase2 > 6300) {
-            sbg.enterState(12);
         }
+         else if (fase2 > 6200 && fase2 < 6900) {
+            bocadillo15.dentro();
+            bocadillo15.getImagen().draw(bocadillo15.getCoordenadaX(), bocadillo15.getCoordenadaY());
+
+        }
+        
     }
 
     @Override
     public int getID() {
-        return 10; //To change body of generated methods, choose Tools | Templates.
+        return 12; //To change body of generated methods, choose Tools | Templates.
     }
 }

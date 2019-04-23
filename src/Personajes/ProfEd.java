@@ -18,18 +18,16 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class ProfEd extends WanderTipoT{
 
-    Animation lanzar;
     int[] duration = {1500, 100, 100, 100, 100, 1100};
-    int coordenadaX;
-    int coordenadaY;
     public ProfEd() {
         try {
-            sgb=20;
+            
+            sgb=-1;
             coordenadaX=900;
             coordenadaY=20;
             
             Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\2.png"), new Image("SpriteBoss1\\3.png"), new Image("SpriteBoss1\\4.png"), new Image("SpriteBoss1\\5.png"), new Image("SpriteBoss1\\6.png")};
-            lanzar = new Animation(lanzaPelotas, duration, false);
+            actual = new Animation(lanzaPelotas, duration, false);
 
         } catch (SlickException e) {
         }
@@ -38,7 +36,7 @@ public class ProfEd extends WanderTipoT{
     public void noLanza(){
         try {
             Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\1.png")};
-            lanzar = new Animation(lanzaPelotas, new int[]{duration[0],duration[1]}, false);
+            actual = new Animation(lanzaPelotas, new int[]{duration[0],duration[1]}, false);
         } catch (SlickException ex) {
         }
     }
@@ -46,26 +44,30 @@ public class ProfEd extends WanderTipoT{
     public void lanza(){
         try {
             Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\2.png"), new Image("SpriteBoss1\\3.png"), new Image("SpriteBoss1\\4.png"), new Image("SpriteBoss1\\5.png"), new Image("SpriteBoss1\\6.png")};
-            lanzar = new Animation(lanzaPelotas, duration, false);
+            actual = new Animation(lanzaPelotas, duration, false);
         } catch (SlickException ex) {
             Logger.getLogger(ProfEd.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public Animation getDir() {
-        return lanzar;
+    
+    @Override
+    public void setDir(String string){
     }
     
-    public float getCoordenadaX() {
-        return this.coordenadaX;
+    public void setCoord(int x, int y) {
+        coordenadaX=x;
+        coordenadaY=y;
+        hitbox.setBounds(x, y, 85, 70);
     }
-
-    public float getCoordenadaY() {
-        return this.coordenadaY;
+    
+    public void setSGB()
+    {
+        sgb=20;
     }
-
-    public Rectangle getHitbox() {
-        hitbox.setBounds(905, 40, 85, 70);
-        return hitbox;
+    
+    @Override
+    public void move() {
+        hitbox.setBounds(coordenadaX, coordenadaY, 85, 70);
     }
     
 }

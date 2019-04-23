@@ -26,7 +26,7 @@ public class MapaT {
     private float coord[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
-    
+    int modo=0;
     public MapaT() {
     }
 
@@ -62,5 +62,10 @@ public class MapaT {
 
     public float getMapas(int salida) {
         return mapas[salida];
+    }
+    
+    public void chMod()
+    {
+        modo=1;
     }
 }
