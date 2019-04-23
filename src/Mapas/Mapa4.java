@@ -5,6 +5,9 @@
  */
 package Mapas;
 
+import Personajes.PersonajeCirculoL;
+import Personajes.PersonajeCirculoRapido;
+import Personajes.PersonajeEstatico;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
@@ -41,7 +44,15 @@ public class Mapa4 extends MapaT {
     private float mapas[] = new float[]{0, 8};
     private float coord[] = new float[]{0, 0, 1438, 0};
     
-    private ArrayList<PersonajeGeneral> personajes = new ArrayList<>(); 
+    private ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
+    
+    PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750,280,"bocadilloMarinero");
+    PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750,320,"bocadilloMarinero");
+    PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470,"bocadilloMarinero");
+    PersonajeEstatico adulto4 = new PersonajeEstatico("up", 210,576,"bocadilloMarinero");
+    PersonajeEstatico adulto5 = new PersonajeEstatico("right",50, 510,"bocadilloMarinero");
+    PersonajeEstatico adulto6 = new PersonajeEstatico("down", 1000, 500,"bocadilloMarinero");
+    PersonajeCirculoRapido niño1 = new PersonajeCirculoRapido(930, 335,"bocadilloMaton");
     
     
     public Mapa4() {
@@ -75,6 +86,14 @@ public class Mapa4 extends MapaT {
             bordes = new Polygon(puntos_salidas.get(i));
             colisiones_salidas.add(bordes);
         }
+        
+        personajes.add(adulto1);
+        personajes.add(adulto2);
+        personajes.add(adulto3);
+        personajes.add(adulto4);
+        personajes.add(adulto5);
+        personajes.add(adulto6);
+        personajes.add(niño1);
     }
 
     public void setCoordX(int x, int y) {
