@@ -7,9 +7,9 @@ package Estados;
 
 import Elementos.Bocadillo;
 import EstadoBoss1.Pelota;
-import Personajes.MainChar;
-import Personajes.ProfEd;
-import Personajes.WanderTipoT;
+import Personajes.PersonajePrincipal;
+import Personajes.PersonajeProfesor;
+import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -30,7 +30,7 @@ public class PlayaFinal extends BasicGameState {
 
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
-    MainChar personaje;
+    PersonajePrincipal personaje;
 
     private float borde1[] = new float[]{63, 0, 256, 0, 256, 33, 985, 33, 985, 65, 1027, 65, 1027, 36, 1180, 36, 1180, 68, 1218, 68, 1218, 141, 1242, 164, 1242, 200, 1282, 200, 1282, 186, 1402, 186, 1433, 223, 1469, 223, 1469, 778, 1091, 778, 1091, 741, 1184, 738, 1184, 671, 1153, 671, 1153, 700, 1058, 700, 1058, 733, 1020, 733, 1020, 785, 35, 785, 35, 32, 65, 32};
     private ArrayList<Polygon> colisiones_bordes;
@@ -38,18 +38,17 @@ public class PlayaFinal extends BasicGameState {
     private float salida1[] = new float[]{66, 2, 252, 2, 252, 0, 66, 0};
     private ArrayList<Polygon> colisiones_salidas;
 
-    private ArrayList<WanderTipoT> NPCs = new ArrayList<>();
+    private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
-    private ProfEd profesor;
+    private PersonajeProfesor profesor;
     Pelota ball = new Pelota();
 
     int fase = 0, fase2 = 0;
-    Bocadillo bocadillo10 = new Bocadillo("Historia10");
-    Bocadillo bocadillo11 = new Bocadillo("Historia11");
-    Bocadillo bocadillo12 = new Bocadillo("Historia12");
-    Bocadillo bocadillo13 = new Bocadillo("Historia13");
-    Bocadillo bocadillo14 = new Bocadillo("Historia14");
-    Bocadillo bocadillo15 = new Bocadillo("Historia15");
+    Bocadillo bocadillo10 = new Bocadillo("Historia30");
+    Bocadillo bocadillo11 = new Bocadillo("Historia31");
+    Bocadillo bocadillo12 = new Bocadillo("Historia32");
+    Bocadillo bocadillo13 = new Bocadillo("Historia33");
+    Bocadillo bocadillo14 = new Bocadillo("Historia34");
 
     public PlayaFinal() {
         colisiones_bordes = new ArrayList<>();
@@ -58,9 +57,9 @@ public class PlayaFinal extends BasicGameState {
         colisiones_salidas = new ArrayList<>();
         colisiones_salidas.add(new Polygon(salida1));
 
-        profesor = new ProfEd();
+        profesor = new PersonajeProfesor();
         profesor.noLanza();
-        profesor.setCoord(1005, 615);
+        profesor.setCoord(1005, 595);
         
         NPCs.add(profesor);
         
@@ -74,7 +73,7 @@ public class PlayaFinal extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap("\\Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
-        personaje = new MainChar();
+        personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(1007);
         personaje.setCoordenadaY(665);
         personaje.getUp();
@@ -82,7 +81,7 @@ public class PlayaFinal extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if (fase2<6900) {
+        if (fase2<5700+1500) {
             fase2++;
         } else {
 
@@ -161,7 +160,6 @@ public class PlayaFinal extends BasicGameState {
                 }
                 if (!choqueAbajo || choqueArriba) {
                     personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f * velocidad);
-                    bocadillo15.fuera();
                     choqueArriba = false;
                 }
 
@@ -311,11 +309,14 @@ public class PlayaFinal extends BasicGameState {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
 
-
-        if (fase2 > 50 && fase2 < 1800) {
+        else if (fase2 > 50 && fase2 < 1550) {
+            bocadillo10.dentro();
+            bocadillo10.getImagen().draw(bocadillo10.getCoordenadaX(), bocadillo10.getCoordenadaY());
+        } 
+        else if (fase2 > 50+1500 && fase2 < 1800+1500) {
             bocadillo11.dentro();
             bocadillo11.getImagen().draw(bocadillo11.getCoordenadaX(), bocadillo11.getCoordenadaY());
-        } else if (fase2 > 1800 && fase2 < 2100) {
+        } else if (fase2 > 1800+1500 && fase2 < 2100+1500) {
             if(personaje.getDir().getFrameCount()!=2)
             {
                 personaje.getDir().update(fase2/500);
@@ -325,22 +326,17 @@ public class PlayaFinal extends BasicGameState {
                     personaje.setDir("stance");
                 }
             }
-        } else if (fase2 > 3600 && fase2 < 4800) {
+        } else if (fase2 > 2100+1500 && fase2 < 3300+1500) {
             
             bocadillo12.dentro();
             bocadillo12.getImagen().draw(bocadillo12.getCoordenadaX(), bocadillo12.getCoordenadaY());
-        } else if (fase2 > 4800 && fase2 < 5500) {
+        } else if (fase2 > 3300+1500 && fase2 < 4500+1500) {
             bocadillo13.dentro();
             bocadillo13.getImagen().draw(bocadillo13.getCoordenadaX(), bocadillo13.getCoordenadaY());
 
-        } else if (fase2 > 5500 && fase2 < 6200) {
+        } else if (fase2 > 4500+1500 && fase2 < 5700+1500) {
             bocadillo14.dentro();
             bocadillo14.getImagen().draw(bocadillo14.getCoordenadaX(), bocadillo14.getCoordenadaY());
-
-        }
-         else if (fase2 > 6200 && fase2 < 6900) {
-            bocadillo15.dentro();
-            bocadillo15.getImagen().draw(bocadillo15.getCoordenadaX(), bocadillo15.getCoordenadaY());
 
         }
         

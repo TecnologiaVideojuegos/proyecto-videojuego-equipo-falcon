@@ -5,8 +5,8 @@
  */
 package Mapas;
 
-import Personajes.Atari;
-import Personajes.WanderTipoT;
+import Personajes.PersonajeAtari;
+import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
 
@@ -36,15 +36,15 @@ public class Mapa3 extends MapaT {
     private float mapas[] = new float[]{1};
     private float coord[] = new float[]{840, 90};
     
-    private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
-    private Atari atari;
+    private ArrayList<PersonajeGeneral> personajes = new ArrayList<>(); 
+    private PersonajeAtari atari;
     
     int modo=0;
 
     public Mapa3(Mapa2 mapa2) {
         super();
         
-        atari=new Atari(608,384);
+        atari=new PersonajeAtari(608,384);
         atari.notSGB();
         personajes.add(atari);
         
@@ -97,7 +97,7 @@ public class Mapa3 extends MapaT {
         return colisiones_salidas;
     }
     
-    public ArrayList<WanderTipoT> getPersonajes() {
+    public ArrayList<PersonajeGeneral> getPersonajes() {
         return personajes;
     }
     

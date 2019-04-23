@@ -17,7 +17,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class Atari extends WanderTipoT {
+public class PersonajeAtari extends PersonajeGeneral {
 
     Image[] light,dark;
     Animation luce, noluce;
@@ -25,7 +25,7 @@ public class Atari extends WanderTipoT {
     Bocadillo bocadillo = new Bocadillo("bocadilloAtari");
     int modo=0;
 
-    public Atari(float x, float y) {
+    public PersonajeAtari(float x, float y) {
         try {
             
             //Colocacion personaje

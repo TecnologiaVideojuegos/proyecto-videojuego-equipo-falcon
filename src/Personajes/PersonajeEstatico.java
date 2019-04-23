@@ -16,25 +16,20 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class WanderTipo2 extends WanderTipoT {
+public class PersonajeEstatico extends PersonajeGeneral {
 
-    Animation up, down;
-    
-    public WanderTipo2(float x, float y) {
+    String dir;
+
+    public PersonajeEstatico(String dir, float x, float y) {
         try {
             
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
+            this.dir = dir;
 
             //Creacion hitbox
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
-
-            //Animaciones movimiento
-            Image[] movementUp = {new Image("ImagenesSprite\\Marinero\\up1.png"), new Image("ImagenesSprite\\Marinero\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\Marinero\\down1.png"), new Image("ImagenesSprite\\Marinero\\down2.png")};
-            up = new Animation(movementUp, duration, false);
-            down = new Animation(movementDown, duration, false);
 
             //Animaciones parado
             Image[] stanceDown = {new Image("ImagenesSprite\\Marinero\\down0.png"), new Image("ImagenesSprite\\Marinero\\down0.png")};
@@ -46,8 +41,11 @@ public class WanderTipo2 extends WanderTipoT {
             sleft = new Animation(stanceLeft, duration, false);
             sright = new Animation(stanceRight, duration, false);
 
-            //Animacion inicial
-            actual = up;
+            if (dir.equals("left")) {
+                actual = sleft;
+            } else {
+                actual = sright;
+            }
             
             //Bocadillo
             bocadillo = new Bocadillo("bocadilloMarinero");
@@ -58,15 +56,8 @@ public class WanderTipo2 extends WanderTipoT {
         }
     }
 
-    @Override
     public void setDir(String string) {
         switch (string) {
-            case "up":
-                actual = up;
-                break;
-            case "down":
-                actual = down;
-                break;
             case "sup":
                 actual = sup;
                 break;
@@ -82,25 +73,40 @@ public class WanderTipo2 extends WanderTipoT {
         }
     }
 
-    @Override
     public void move() {
-        if (desplazamiento < 500) {
-            coordenadaY = coordenadaY + (float) (0.5);
-            desplazamiento ++;
-            setDir("down");
-        } else if (desplazamiento >= 500 && desplazamiento < 900) {
-            desplazamiento ++;
-            setDir("sdown");
-        } else if (desplazamiento >= 900 && desplazamiento < 1400) {
-            desplazamiento ++;
-            coordenadaY = coordenadaY - (float) (0.5);
-            setDir("up");
-        } else if (desplazamiento >= 1400 && desplazamiento < 1800) {
-            desplazamiento ++;
-            setDir("sup");
-        } else {
-            desplazamiento = 0;
+        if ((dir).equals("left")) {
+            setDir("sleft");
+        } else if ((dir).equals("right")) {
+            setDir("sright");
         }
-        hitbox.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
+
+    public Rectangle getHitbox() {
+        return hitbox;
+    }
+
+    public void talk() {
+        bocadillo.dentro();
+    }
+
+    public Bocadillo getTalk() {
+        return bocadillo;
+    }
+
+    public void noTalk() {
+        bocadillo.fuera();
+    }
+    
+    public Alerta getAlerta(){
+        return alerta;
+    }
+    
+    public void alerta() {
+        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+    }
+    
+    public void noAlerta() {
+        alerta.fuera();
+    }
+
 }

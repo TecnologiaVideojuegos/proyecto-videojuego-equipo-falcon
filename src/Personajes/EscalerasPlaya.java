@@ -17,7 +17,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class EscalerasPlaya extends WanderTipoT {
+public class EscalerasPlaya extends PersonajeGeneral {
 
 
     public EscalerasPlaya() {
@@ -40,7 +40,7 @@ public class EscalerasPlaya extends WanderTipoT {
     }
 
     @Override
-   public void alerta() {
-   }
+    public void alerta() {
+    }
 
 }

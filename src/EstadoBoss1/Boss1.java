@@ -5,8 +5,8 @@
  */
 package EstadoBoss1;
 
-import Personajes.MainChar;
-import Personajes.ProfEd;
+import Personajes.PersonajePrincipal;
+import Personajes.PersonajeProfesor;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -31,8 +31,8 @@ public class Boss1 extends BasicGameState {
     private int contador_parpadeo = 10;
     private boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
     private TiledMap mapa;
-    private MainChar personaje;
-    private ProfEd boss1;
+    private PersonajePrincipal personaje;
+    private PersonajeProfesor boss1;
     private ArrayList<Pelota> pelotas = new ArrayList<>();
     private Pelota ball;
     private int contadorPelotas = 0;
@@ -50,8 +50,8 @@ public class Boss1 extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
-        personaje = new MainChar();
-        boss1 = new ProfEd();
+        personaje = new PersonajePrincipal();
+        boss1 = new PersonajeProfesor();
         pelotas = new ArrayList<>();
 
         personaje.setCoordenadaX(703);

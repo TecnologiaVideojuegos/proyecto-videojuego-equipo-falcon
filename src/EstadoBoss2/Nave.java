@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Personajes;
+package EstadoBoss2;
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;

@@ -16,7 +16,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class WanderTipoT {
+public class PersonajeGeneral {
 
     float coordenadaX = 500, coordenadaY = 450;
     Animation actual, sup, sdown, left, right, sright, sleft;
@@ -27,7 +27,7 @@ public class WanderTipoT {
     int desplazamiento = 0;
     Alerta alerta = new Alerta();
     int sgb;
-    public WanderTipoT() {
+    public PersonajeGeneral() {
         try {
 
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);

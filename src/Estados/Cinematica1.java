@@ -6,7 +6,7 @@
 package Estados;
 
 import Elementos.Bocadillo;
-import Personajes.MainChar;
+import Personajes.PersonajePrincipal;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -39,7 +39,7 @@ public class Cinematica1 extends BasicGameState {
     Bocadillo bocadilloN3 = new Bocadillo("Historia07");
     Bocadillo bocadilloN4 = new Bocadillo("Historia08");
     Boolean choqueIzquierda = false, choqueDerecha = false;
-    MainChar personaje = new MainChar();
+    PersonajePrincipal personaje = new PersonajePrincipal();
 
     public Cinematica1() {
         borde = new Polygon(bordes1);

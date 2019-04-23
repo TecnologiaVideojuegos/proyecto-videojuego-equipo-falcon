@@ -14,7 +14,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class MainChar {
+public class PersonajePrincipal {
 
     float coordenadaX, coordenadaY;
     Animation actual, up, down, left, right, stanceright, stanceleft, stanceup, stancedown, getUp;
@@ -22,7 +22,7 @@ public class MainChar {
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
     Rectangle h1, h2, h3, h4;
 
-    public MainChar() {
+    public PersonajePrincipal() {
         try {
 
             h1 = new Rectangle(coordenadaX + 17, coordenadaY + 32, 30, 1);

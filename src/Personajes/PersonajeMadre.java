@@ -17,7 +17,7 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class Madre extends WanderTipoT {
+public class PersonajeMadre extends PersonajeGeneral {
 
     float coordenadaX, coordenadaY;
     Image[] movementUp;
@@ -33,7 +33,7 @@ public class Madre extends WanderTipoT {
     int desplazamiento = 0;
     Alerta alerta = new Alerta();
 
-    public Madre(float x, float y) {
+    public PersonajeMadre(float x, float y) {
         try {
             
             sgb = -1;

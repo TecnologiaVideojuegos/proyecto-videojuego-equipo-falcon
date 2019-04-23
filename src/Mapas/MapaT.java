@@ -5,7 +5,7 @@
  */
 package Mapas;
 
-import Personajes.WanderTipoT;
+import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
 
@@ -19,14 +19,15 @@ public class MapaT {
 
     private Polygon bordes = new Polygon();
     
-    private ArrayList<Polygon> colisiones;
+    private ArrayList<Polygon> colisiones_bordes;
     private ArrayList<Polygon> colisiones_salidas;
 
     private float mapas[] = new float[]{0, 1, 2, 3};
     private float coord[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-    private ArrayList<WanderTipoT> personajes = new ArrayList<>(); 
+    private ArrayList<PersonajeGeneral> personajes = new ArrayList<>(); 
     int modo=0;
+    
     public MapaT() {
     }
 
@@ -44,14 +45,14 @@ public class MapaT {
     }
     
     public ArrayList<Polygon> getBordes() {
-        return colisiones;
+        return colisiones_bordes;
     }
 
     public ArrayList<Polygon> getSalidas() {
         return colisiones_salidas;
     }
 
-    public ArrayList<WanderTipoT> getPersonajes() {
+    public ArrayList<PersonajeGeneral> getPersonajes() {
         return personajes;
     }
     

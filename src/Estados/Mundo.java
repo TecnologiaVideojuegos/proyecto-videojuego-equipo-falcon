@@ -16,8 +16,8 @@ import Mapas.Mapa8;
 import Mapas.Mapa7;
 import Mapas.Mapa9;
 import Mapas.MapaT;
-import Personajes.MainChar;
-import Personajes.WanderTipoT;
+import Personajes.PersonajePrincipal;
+import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -50,7 +50,7 @@ public class Mundo extends BasicGameState {
     Mapa9 mapa9  = new Mapa9();
     Mapa10 mapa10= new Mapa10();
     MapaT mapa_actual = new MapaT();
-    MainChar personaje;
+    PersonajePrincipal personaje;
 
     public Mundo(int num) {
 
@@ -72,7 +72,7 @@ public class Mundo extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
-        personaje = new MainChar();
+        personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(461);
         personaje.setCoordenadaY(125);
         
@@ -86,7 +86,7 @@ public class Mundo extends BasicGameState {
         
         ArrayList<Polygon> colisiones_salidas = mapa_actual.getSalidas();
         ArrayList<Polygon> colisiones_bordes  = mapa_actual.getBordes();
-        ArrayList<WanderTipoT> NPCs = mapa_actual.getPersonajes();
+        ArrayList<PersonajeGeneral> NPCs = mapa_actual.getPersonajes();
         ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
             
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {

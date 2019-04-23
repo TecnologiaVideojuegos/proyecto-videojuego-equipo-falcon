@@ -16,31 +16,35 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class WanderTipo5 extends WanderTipoT {
+public class PersonajeCirculoR extends PersonajeGeneral {
 
     Animation  up, down;
 
-    public WanderTipo5(float x, float y) {
+    public PersonajeCirculoR(float x, float y) {
         try {
-            sgb=-1;
+            
+            //Colocacion personaje
             this.coordenadaX=x;
             this.coordenadaY=y;
+            
+            //Creacion hitbox
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
+            //Animaciones movimiento
             Image[] movementUp = {new Image("ImagenesSprite\\Maton1\\up1.png"), new Image("ImagenesSprite\\Maton1\\up2.png")};
             Image[] movementDown = {new Image("ImagenesSprite\\Maton1\\down1.png"), new Image("ImagenesSprite\\Maton1\\down2.png")};
             Image[] movementLeft = {new Image("ImagenesSprite\\Maton1\\izq1.png"), new Image("ImagenesSprite\\Maton1\\izq2.png"), new Image("ImagenesSprite\\Maton1\\izq3.png"), new Image("ImagenesSprite\\Maton1\\izq4.png"), new Image("ImagenesSprite\\Maton1\\izq5.png"), new Image("ImagenesSprite\\Maton1\\izq6.png"), new Image("ImagenesSprite\\Maton1\\izq7.png"), new Image("ImagenesSprite\\Maton1\\izq8.png")};
             Image[] movementRight = {new Image("ImagenesSprite\\Maton1\\der1.png"), new Image("ImagenesSprite\\Maton1\\der2.png"), new Image("ImagenesSprite\\Maton1\\der3.png"), new Image("ImagenesSprite\\Maton1\\der4.png"), new Image("ImagenesSprite\\Maton1\\der5.png"), new Image("ImagenesSprite\\Maton1\\der6.png"), new Image("ImagenesSprite\\Maton1\\der7.png"), new Image("ImagenesSprite\\Maton1\\der8.png")};
-
-            Image[] stanceDown = {new Image("ImagenesSprite\\Maton1\\down0.png"), new Image("ImagenesSprite\\Maton1\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\Maton1\\up0.png"), new Image("ImagenesSprite\\Maton1\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\Maton1\\izq0.png"), new Image("ImagenesSprite\\Maton1\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\Maton1\\der0.png"), new Image("ImagenesSprite\\Maton1\\der0.png")};
-
             up = new Animation(movementUp, duration, false);
             down = new Animation(movementDown, duration, false);
             left = new Animation(movementLeft, duration2, false);
             right = new Animation(movementRight, duration2, false);
+            
+            //Animaciones parado
+            Image[] stanceDown = {new Image("ImagenesSprite\\Maton1\\down0.png"), new Image("ImagenesSprite\\Maton1\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\Maton1\\up0.png"), new Image("ImagenesSprite\\Maton1\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\Maton1\\izq0.png"), new Image("ImagenesSprite\\Maton1\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\Maton1\\der0.png"), new Image("ImagenesSprite\\Maton1\\der0.png")};
             sup = new Animation(stanceUp, duration, false);
             sdown = new Animation(stanceDown, duration, false);
             sleft = new Animation(stanceLeft, duration, false);
@@ -50,7 +54,6 @@ public class WanderTipo5 extends WanderTipoT {
             
             //Bocadillo
             bocadillo = new Bocadillo("bocadilloMaton");
-            
             //No SBG
             sgb=-1;
         } catch (SlickException e) {
@@ -58,7 +61,6 @@ public class WanderTipo5 extends WanderTipoT {
     }
 
     public void setDir(String string) {
-
         switch (string) {
             case "up":
                 actual = up;
@@ -84,7 +86,6 @@ public class WanderTipo5 extends WanderTipoT {
             case "sleft":
                 actual = sleft;
                 break;
-
         }
     }
 
@@ -102,21 +103,21 @@ public class WanderTipo5 extends WanderTipoT {
 
     public void move() {
         if (desplazamiento < 800) {
-            coordenadaX = coordenadaX + (float) (0.2);
-            desplazamiento ++;
-            setDir("right");
-        } else if (desplazamiento >= 800 && desplazamiento < 1000) {
-            coordenadaY = coordenadaY - (float) (0.2);
-            desplazamiento ++;
-            setDir("up");
-        } else if (desplazamiento >= 1000 && desplazamiento < 1800) {
-            desplazamiento ++;
-            coordenadaX = coordenadaX - (float) (0.2);
-            setDir("left");
-        } else if (desplazamiento >= 1800 && desplazamiento < 2000) {
             coordenadaY = coordenadaY + (float) (0.2);
             desplazamiento ++;
             setDir("down");
+        } else if (desplazamiento >= 800 && desplazamiento < 1000) {
+            coordenadaX = coordenadaX - (float) (0.2);
+            desplazamiento ++;
+            setDir("left");
+        } else if (desplazamiento >= 1000 && desplazamiento < 1800) {
+            desplazamiento ++;
+            coordenadaY = coordenadaY - (float) (0.2);
+            setDir("up");
+        } else if (desplazamiento >= 1800 && desplazamiento < 2000) {
+            coordenadaX = coordenadaX + (float) (0.2);
+            desplazamiento ++;
+            setDir("right");
         } else {
             desplazamiento = 0;
         }
@@ -131,14 +132,14 @@ public class WanderTipo5 extends WanderTipoT {
         bocadillo.dentro();
     }
 
-    public Bocadillo getTalk() {
+    public Bocadillo getTalk(){
         return bocadillo;
     }
 
     public void noTalk() {
         bocadillo.fuera();
     }
-
+    
     public Alerta getAlerta(){
         return alerta;
     }

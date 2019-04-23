@@ -16,9 +16,9 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class WanderTipo1 extends WanderTipoT {
+public class PersonajeRightLeft extends PersonajeGeneral {
 
-    public WanderTipo1(float x, float y) {
+    public PersonajeRightLeft(float x, float y) {
         try {
             
             //Colocacion personaje

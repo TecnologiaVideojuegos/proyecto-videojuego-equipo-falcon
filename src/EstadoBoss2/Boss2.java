@@ -5,7 +5,6 @@
  */
 package EstadoBoss2;
 
-import Personajes.Nave;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;

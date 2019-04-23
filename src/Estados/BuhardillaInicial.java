@@ -7,9 +7,9 @@ package Estados;
 
 import Elementos.Bocadillo;
 import Mapas.Mapa2;
-import Personajes.Atari;
-import Personajes.MainChar;
-import Personajes.WanderTipoT;
+import Personajes.PersonajeAtari;
+import Personajes.PersonajePrincipal;
+import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -30,7 +30,7 @@ public class BuhardillaInicial extends BasicGameState {
 
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
-    MainChar personaje;
+    PersonajePrincipal personaje;
     
     private float borde1[] = new float[]{705, 192, 838, 192, 838, 220, 865, 220, 865, 255, 935, 255, 935, 277, 963, 277, 963, 321, 991, 321, 991, 377, 961, 377, 961, 446, 931, 446, 931, 471, 957, 471, 957, 480, 989, 480, 989, 512, 902, 512, 902, 564, 867, 564, 867, 572, 512, 572, 512, 289, 540, 289, 540, 250, 700, 250, 700, 388, 737, 388, 737, 413, 767, 413, 767, 388, 799, 388, 799, 366, 771, 366, 771, 257, 768, 257, 768, 381, 705, 381};
     private float borde2[] = new float[]{862, 482, 898, 482, 898, 449, 862, 449};
@@ -42,8 +42,8 @@ public class BuhardillaInicial extends BasicGameState {
     private float salida1[] = new float[]{707, 355, 763, 355, 763, 354, 707, 354};
     private ArrayList<Polygon> colisiones_salidas;
 
-    private ArrayList<WanderTipoT> NPCs = new ArrayList<>();
-    private Atari atari;
+    private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
+    private PersonajeAtari atari;
 
     int fase=0;
     Bocadillo bocadillo = new Bocadillo("Historia00");
@@ -59,14 +59,14 @@ public class BuhardillaInicial extends BasicGameState {
         colisiones_salidas = new ArrayList<>();
         colisiones_salidas.add(new Polygon(salida1));
         
-        atari = new Atari(608,384);
+        atari = new PersonajeAtari(608,384);
 
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mapa = new TiledMap("\\Mapas\\mapa3.tmx", "\\Construccion Mapas\\");
-        personaje = new MainChar();
+        personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(710);
         personaje.setCoordenadaY(192);
         
