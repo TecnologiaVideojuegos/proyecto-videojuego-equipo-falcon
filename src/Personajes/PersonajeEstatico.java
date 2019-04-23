@@ -20,7 +20,7 @@ public class PersonajeEstatico extends PersonajeGeneral {
 
     String dir;
 
-    public PersonajeEstatico(String dir, float x, float y) {
+    public PersonajeEstatico(String dir, float x, float y, String texto) {
         try {
             
             //Colocacion personaje
@@ -43,12 +43,16 @@ public class PersonajeEstatico extends PersonajeGeneral {
 
             if (dir.equals("left")) {
                 actual = sleft;
-            } else {
+            } else if(dir.equals("right")){
                 actual = sright;
+            } else if(dir.equals("up")){
+                actual = sup;
+            } else {
+                actual = sdown;
             }
             
             //Bocadillo
-            bocadillo = new Bocadillo("bocadilloMarinero");
+            bocadillo = new Bocadillo(texto);
             
             //No SBG
             sgb=-1;
@@ -78,6 +82,10 @@ public class PersonajeEstatico extends PersonajeGeneral {
             setDir("sleft");
         } else if ((dir).equals("right")) {
             setDir("sright");
+        }  else if ((dir).equals("up")) {
+            setDir("sup");
+        } else if ((dir).equals("down")) {
+            setDir("sdown");
         }
     }
 

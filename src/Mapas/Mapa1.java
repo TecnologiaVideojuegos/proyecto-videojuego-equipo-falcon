@@ -41,11 +41,11 @@ public class Mapa1 extends MapaT {
     private final float coordenadas_aparicion[] = new float[]{0, 720, 0, 0, 1438, 0, 0, 0};
 
     private final ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
-    PersonajeUpDown marinero1 = new PersonajeUpDown(1160, 480);
-    PersonajeEstatico marinero2 = new PersonajeEstatico("left", 920, 150);
-    PersonajeEstatico marinero3 = new PersonajeEstatico("right", 880, 150);
-    PersonajeCirculoR bully4 = new PersonajeCirculoR(580, 350);
-    PersonajeCirculoL bully5 = new PersonajeCirculoL(200, 300);
+    PersonajeUpDown marinero1 = new PersonajeUpDown(1160, 480,"bocadilloMarinero");
+    PersonajeEstatico marinero2 = new PersonajeEstatico("left", 920, 150,"bocadilloMarinero");
+    PersonajeEstatico marinero3 = new PersonajeEstatico("right", 880, 150,"bocadilloMarinero");
+    PersonajeCirculoR bully4 = new PersonajeCirculoR(580, 350,"bocadilloMaton");
+    PersonajeCirculoL bully5 = new PersonajeCirculoL(200, 300,"bocadilloMaton");
     
     
 

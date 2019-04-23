@@ -20,7 +20,7 @@ public class PersonajeUpDown extends PersonajeGeneral {
 
     Animation up, down;
     
-    public PersonajeUpDown(float x, float y) {
+    public PersonajeUpDown(float x, float y,String texto) {
         try {
             
             //Colocacion personaje
@@ -50,7 +50,7 @@ public class PersonajeUpDown extends PersonajeGeneral {
             actual = up;
             
             //Bocadillo
-            bocadillo = new Bocadillo("bocadilloMarinero");
+            bocadillo = new Bocadillo(texto);
             
             //No SBG
             sgb=-1;

@@ -18,7 +18,7 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajeRightLeft extends PersonajeGeneral {
 
-    public PersonajeRightLeft(float x, float y) {
+    public PersonajeRightLeft(float x, float y,String texto) {
         try {
             
             //Colocacion personaje
@@ -48,7 +48,7 @@ public class PersonajeRightLeft extends PersonajeGeneral {
             actual = right;
             
             //Bocadillo
-            bocadillo = new Bocadillo("bocadilloMadre");
+            bocadillo = new Bocadillo(texto);
             
             //No enterSBG
             sgb=-1;

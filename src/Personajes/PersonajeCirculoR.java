@@ -20,7 +20,7 @@ public class PersonajeCirculoR extends PersonajeGeneral {
 
     Animation  up, down;
 
-    public PersonajeCirculoR(float x, float y) {
+    public PersonajeCirculoR(float x, float y, String texto) {
         try {
             
             //Colocacion personaje
@@ -53,7 +53,7 @@ public class PersonajeCirculoR extends PersonajeGeneral {
             actual = up;
             
             //Bocadillo
-            bocadillo = new Bocadillo("bocadilloMaton");
+            bocadillo = new Bocadillo(texto);
             //No SBG
             sgb=-1;
         } catch (SlickException e) {

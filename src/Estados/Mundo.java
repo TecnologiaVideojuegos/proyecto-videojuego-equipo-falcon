@@ -39,16 +39,16 @@ public class Mundo extends BasicGameState {
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
-    Mapa1 mapa1  = new Mapa1();
-    Mapa2 mapa2  = new Mapa2();
-    Mapa3 mapa3  = new Mapa3(mapa2);
-    Mapa4 mapa4  = new Mapa4();
-    Mapa5 mapa5  = new Mapa5();
-    Mapa6 mapa6  = new Mapa6();
-    Mapa7 mapa7  = new Mapa7();
-    Mapa8 mapa8  = new Mapa8();
-    Mapa9 mapa9  = new Mapa9();
-    Mapa10 mapa10= new Mapa10();
+    Mapa1 mapa1 = new Mapa1();
+    Mapa2 mapa2 = new Mapa2();
+    Mapa3 mapa3 = new Mapa3(mapa2);
+    Mapa4 mapa4 = new Mapa4();
+    Mapa5 mapa5 = new Mapa5();
+    Mapa6 mapa6 = new Mapa6();
+    Mapa7 mapa7 = new Mapa7();
+    Mapa8 mapa8 = new Mapa8();
+    Mapa9 mapa9 = new Mapa9();
+    Mapa10 mapa10 = new Mapa10();
     MapaT mapa_actual = new MapaT();
     PersonajePrincipal personaje;
 
@@ -75,7 +75,7 @@ public class Mundo extends BasicGameState {
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(461);
         personaje.setCoordenadaY(125);
-        
+
     }
 
     @Override
@@ -83,12 +83,12 @@ public class Mundo extends BasicGameState {
         int velocidad = 2;
         float nuevo_mapa;
         Input input = gc.getInput();
-        
+
         ArrayList<Polygon> colisiones_salidas = mapa_actual.getSalidas();
-        ArrayList<Polygon> colisiones_bordes  = mapa_actual.getBordes();
+        ArrayList<Polygon> colisiones_bordes = mapa_actual.getBordes();
         ArrayList<PersonajeGeneral> NPCs = mapa_actual.getPersonajes();
         ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
-            
+
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             colisionNPCs.add(NPCs.get(j).getHitbox());
         }
@@ -113,17 +113,21 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH1())) {
-                    if(NPCs.get(j).isSGB())
-                    {
-                        int state= NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
+                    if (NPCs.get(j).isSGB()) {
+                    int state = NPCs.get(j).getSGB();
+                    NPCs.get(j).notSGB();
+                    if (state == 13) {
+                        mapa_actual.chMod();
+                        NPCs.remove(NPCs.get(j));
+                        colisionNPCs.remove(colisionNPCs.get(j));
+                    }
+                    sbg.enterState(state);
                     }
                     choqueArriba = true;
                     break;
                 }
             }
-            if (!choqueArriba  || choqueAbajo ) {
+            if (!choqueArriba || choqueAbajo) {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH1().intersects(colisiones_salidas.get(n))) {
@@ -151,12 +155,10 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH4())) {
-                    if(NPCs.get(j).isSGB())
-                    {
-                        int state= NPCs.get(j).getSGB();
+                    if (NPCs.get(j).isSGB()) {
+                        int state = NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
-                        if(state==10)
-                        {
+                        if (state == 10) {
                             mapa_actual.chMod();
                             NPCs.remove(NPCs.get(j));
                             colisionNPCs.remove(colisionNPCs.get(j));
@@ -167,7 +169,7 @@ public class Mundo extends BasicGameState {
                     break;
                 }
             }
-            if (!choqueAbajo  || choqueArriba ) {
+            if (!choqueAbajo || choqueArriba) {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH4().intersects(colisiones_salidas.get(n))) {
@@ -196,9 +198,8 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH2())) {
-                    if(NPCs.get(j).isSGB())
-                    {
-                        int state= NPCs.get(j).getSGB();
+                    if (NPCs.get(j).isSGB()) {
+                        int state = NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
                         sbg.enterState(state);
                     }
@@ -206,7 +207,7 @@ public class Mundo extends BasicGameState {
                     break;
                 }
             }
-            if (!choqueIzquierda  || choqueDerecha ) {
+            if (!choqueIzquierda || choqueDerecha) {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH2().intersects(colisiones_salidas.get(n))) {
@@ -235,9 +236,8 @@ public class Mundo extends BasicGameState {
             }
             for (int j = 0; j < NPCs.size(); j++) {
                 if (colisionNPCs.get(j).intersects(personaje.getH3())) {
-                    if(NPCs.get(j).isSGB())
-                    {
-                        int state= NPCs.get(j).getSGB();
+                    if (NPCs.get(j).isSGB()) {
+                        int state = NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
                         sbg.enterState(state);
                     }
@@ -245,7 +245,7 @@ public class Mundo extends BasicGameState {
                     break;
                 }
             }
-            if (!choqueDerecha   || choqueIzquierda ) {
+            if (!choqueDerecha || choqueIzquierda) {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH3().intersects(colisiones_salidas.get(n))) {
@@ -323,21 +323,20 @@ public class Mundo extends BasicGameState {
         mapa.render(0, 0, 4);
 
         /*g.draw(personaje.getH1());
-        g.draw(personaje.getH2());
-        g.draw(personaje.getH3());
-        g.draw(personaje.getH4());
+         g.draw(personaje.getH2());
+         g.draw(personaje.getH3());
+         g.draw(personaje.getH4());
 
-        for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
-            g.draw(mapa_actual.getBordes().get(i));
-        }*/
+         for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
+         g.draw(mapa_actual.getBordes().get(i));
+         }*/
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-            
+
             mapa_actual.getPersonajes().get(j).getTalk().getImagen().draw(mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaY());
-            mapa_actual.getPersonajes().get(j).getAlerta().getImagen().draw(mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaX(),mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaY());
+            mapa_actual.getPersonajes().get(j).getAlerta().getImagen().draw(mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaY());
 
         }
-        if(input.isKeyDown(Input.KEY_T))
-        {
+        if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
     }

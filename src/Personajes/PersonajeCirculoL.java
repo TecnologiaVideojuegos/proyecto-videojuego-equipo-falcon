@@ -20,7 +20,7 @@ public class PersonajeCirculoL extends PersonajeGeneral {
 
     Animation  up, down;
 
-    public PersonajeCirculoL(float x, float y) {
+    public PersonajeCirculoL(float x, float y, String texto) {
         try {
             sgb=-1;
             this.coordenadaX=x;
@@ -49,7 +49,7 @@ public class PersonajeCirculoL extends PersonajeGeneral {
             actual = up;
             
             //Bocadillo
-            bocadillo = new Bocadillo("bocadilloMaton");
+            bocadillo = new Bocadillo(texto);
             
             //No SBG
             sgb=-1;

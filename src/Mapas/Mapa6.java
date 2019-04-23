@@ -5,8 +5,12 @@
  */
 package Mapas;
 
+import Personajes.PersonajeCirculoL;
+import Personajes.PersonajeCirculoR;
+import Personajes.PersonajeEstatico;
 import Personajes.PersonajeProfesor;
 import Personajes.PersonajeGeneral;
+import Personajes.PersonajeUpDown;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
 
@@ -35,7 +39,22 @@ public class Mapa6 extends MapaT {
     private float mapas[] = new float[]{4};
     private float coord[] = new float[]{0, 720};
     
-    private ArrayList<PersonajeGeneral> personajes = new ArrayList<>(); 
+    private ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
+   
+    PersonajeEstatico niño1 = new PersonajeEstatico("up", 970, 680,"bocadilloNiño1");
+    PersonajeEstatico niño2 = new PersonajeEstatico("up", 930, 680,"bocadilloNiño2");
+    PersonajeEstatico niño3 = new PersonajeEstatico("up", 890, 680,"bocadilloNiño3");
+    PersonajeEstatico niño4 = new PersonajeEstatico("left", 850, 680,"bocadilloNiño4");
+    PersonajeEstatico niño5 = new PersonajeEstatico("left", 810, 680,"bocadilloNiño5");
+    PersonajeEstatico niño6 = new PersonajeEstatico("up", 770, 680,"bocadilloNiño6");
+    PersonajeEstatico niño7 = new PersonajeEstatico("right", 730, 680,"bocadilloNiño7");
+    PersonajeEstatico niño8 = new PersonajeEstatico("left", 690, 680,"bocadilloNiño8");
+    PersonajeEstatico niño9 = new PersonajeEstatico("left", 650, 680,"bocadilloNiño9");
+    PersonajeEstatico niño10 = new PersonajeEstatico("up", 610, 680,"bocadilloNiño10");
+    PersonajeEstatico niño11 = new PersonajeEstatico("right", 570, 680,"bocadilloNiño11");
+    PersonajeEstatico niño12 = new PersonajeEstatico("left", 530, 680,"bocadilloNiño12");
+    PersonajeEstatico niño13 = new PersonajeEstatico("right", 490, 680,"bocadilloNiño13");
+    PersonajeEstatico niño14 = new PersonajeEstatico("left", 450, 680,"bocadilloNiño14");
     
     
     public Mapa6() {
@@ -61,6 +80,20 @@ public class Mapa6 extends MapaT {
         }
         profesor.noLanza();
         personajes.add(profesor);
+        personajes.add(niño1);
+        personajes.add(niño2);
+        personajes.add(niño3);
+        personajes.add(niño4);
+        personajes.add(niño5);
+        personajes.add(niño6);
+        personajes.add(niño7);
+        personajes.add(niño8);
+        personajes.add(niño9);
+        personajes.add(niño10);
+        personajes.add(niño11);
+        personajes.add(niño12);
+        personajes.add(niño13);
+        personajes.add(niño14);
     }
 
     public void setCoordX(int x, int y) {

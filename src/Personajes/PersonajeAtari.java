@@ -22,11 +22,12 @@ public class PersonajeAtari extends PersonajeGeneral {
     Image[] light,dark;
     Animation luce, noluce;
     int[] duration = {100, 100};
-    Bocadillo bocadillo = new Bocadillo("bocadilloAtari");
     int modo=0;
 
     public PersonajeAtari(float x, float y) {
         try {
+            
+            bocadillo = new Bocadillo("bocadilloAtari");
             
             //Colocacion personaje
             this.coordenadaX = x;

@@ -7,6 +7,7 @@ package Estados;
 
 import Elementos.Bocadillo;
 import EstadoBoss1.Pelota;
+import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeProfesor;
 import Personajes.PersonajeGeneral;
@@ -39,7 +40,22 @@ public class PlayaInicial extends BasicGameState {
     private ArrayList<Polygon> colisiones_salidas;
 
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
+    PersonajeEstatico niño1 = new PersonajeEstatico("up", 970, 680,"bocadilloNiño1");
+    PersonajeEstatico niño2 = new PersonajeEstatico("up", 930, 680,"bocadilloNiño2");
+    PersonajeEstatico niño3 = new PersonajeEstatico("up", 890, 680,"bocadilloNiño3");
+    PersonajeEstatico niño4 = new PersonajeEstatico("left", 850, 680,"bocadilloNiño4");
+    PersonajeEstatico niño5 = new PersonajeEstatico("left", 810, 680,"bocadilloNiño5");
+    PersonajeEstatico niño6 = new PersonajeEstatico("up", 770, 680,"bocadilloNiño6");
+    PersonajeEstatico niño7 = new PersonajeEstatico("right", 730, 680,"bocadilloNiño7");
+    PersonajeEstatico niño8 = new PersonajeEstatico("left", 690, 680,"bocadilloNiño8");
+    PersonajeEstatico niño9 = new PersonajeEstatico("left", 650, 680,"bocadilloNiño9");
+    PersonajeEstatico niño10 = new PersonajeEstatico("up", 610, 680,"bocadilloNiño10");
+    PersonajeEstatico niño11 = new PersonajeEstatico("right", 570, 680,"bocadilloNiño11");
+    PersonajeEstatico niño12 = new PersonajeEstatico("left", 530, 680,"bocadilloNiño12");
+    PersonajeEstatico niño13 = new PersonajeEstatico("right", 490, 680,"bocadilloNiño13");
+    PersonajeEstatico niño14 = new PersonajeEstatico("left", 450, 680,"bocadilloNiño14");
     private PersonajeProfesor profesor;
+    
     Pelota ball = new Pelota();
 
     boolean historia = false;
@@ -62,6 +78,21 @@ public class PlayaInicial extends BasicGameState {
         profesor.noLanza();
         profesor.setSGB();
         NPCs.add(profesor);
+        
+        NPCs.add(niño1);
+        NPCs.add(niño2);
+        NPCs.add(niño3);
+        NPCs.add(niño4);
+        NPCs.add(niño5);
+        NPCs.add(niño6);
+        NPCs.add(niño7);
+        NPCs.add(niño8);
+        NPCs.add(niño9);
+        NPCs.add(niño10);
+        NPCs.add(niño11);
+        NPCs.add(niño12);
+        NPCs.add(niño13);
+        NPCs.add(niño14);
 
     }
 
@@ -369,7 +400,7 @@ public class PlayaInicial extends BasicGameState {
 
             }
         } else if (fase2 > 6300) {
-            sbg.enterState(12);
+            sbg.enterState(11);
         }
     }
 
