@@ -5,7 +5,6 @@
  */
 package Personajes;
 
-import Elementos.Alerta;
 import Elementos.Bocadillo;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;

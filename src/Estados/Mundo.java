@@ -314,8 +314,8 @@ public class Mundo extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        /*
-         for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
+        
+        /*for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
          g.draw(mapa_actual.getBordes().get(i));
          }*/
         

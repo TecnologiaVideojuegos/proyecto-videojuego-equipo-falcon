@@ -81,7 +81,7 @@ public class BuhardillaInicial extends BasicGameState {
         int velocidad = 2;
         Input input = gc.getInput();
         
-        if(contadorTemporal<1800)
+        if(contadorTemporal<2500)
             contadorTemporal++;
         
         if (input.isKeyDown(Input.KEY_W)) {
@@ -240,7 +240,7 @@ public class BuhardillaInicial extends BasicGameState {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
         
-        if(contadorTemporal>200 && contadorTemporal<1500)
+        if(contadorTemporal>200 && contadorTemporal<2500)
         {
             bocadillo.dentro();
             bocadillo.getImagen().draw(bocadillo.getCoordenadaX(), bocadillo.getCoordenadaY());

@@ -13,12 +13,12 @@
  <tileset firstgid="3617" source="../Construccion Mapas/tileset_town_multi_v002.tsx"/>
  <layer id="1" name="Capa de Patrones 1" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3WOw6CQBCA4SERrIxGO2q9ho2P2jOYyAG4lL2FrWdQaysrS2PtYzawYUJ4DAxZ3ITijwSQ/Yrdzc5GADNBOxdgAwBHN8r3AN4OwIf0daL7+h0a4LOgD7DHpqnuGfdoErdOal+jY4Gt4t8l87pt+029A/Vq2y6ps/+H/TFM6uzm7fqa7uO0gFxXsc89eZz5Tu3KV1QVuy+Ia0/PizJ3FTs1cMr6n9SeHsMWe9YYJu163em1l7c2OW7T9rI1yDW3YW963+3s9tm3gyQb7aeenfYwtocW2KtWZD/jHnjAroy9UGpv4jyjv6ncF2Kv6zd5jlTfVG7d2Ensdfwmz+/U/sQmOM6LYc+bXybtP9Rn2VZcEgAA
+   H4sIAAAAAAAACu3WPQ6CMBTA8UciOJkY3Zg9h4sfK57BRA7ApdwdXD2DOjt5AuPsx2ug4QULtjxS0qTDPxBA+kuwTZMxQMJoFwJsAOAY5sURwCsAeJM+QX5dPkMDvJcOAfbYrNJdcY3Gccu49jU6FtiqOC41z/u238Qz0K6+7Zy83du9/TexjtNScm5in0f8TO3C15SJPWbUtZ1+R107Neik+h3XXh3DFbtqDJt2Oe/k3Kubmzpu2/Z/c1DX3Ie963XX292zb0dlLtpPAzftWWHPHLCb1mQ/4xp4wK4aayHX3sV+Rr5TuC/E3tZvcx8p3incsklQ2tv4be7fqf2BTXGcp4a97v9l0/4FTL0ycFwSAAA=
   </data>
  </layer>
  <layer id="2" name="Capa de patrones 2" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACtWWu07cQBSGp8AWNloWETZQcWnYTZeIhgcAxBMAIhUkhEuKCCIiKgKvsAK0FfAEkAYBDfASZHkGLikDNIH/YI/m7ODLDjE2/NInj2f28s3xzMhCCLFsi4d0WkJc5oW4yqu+YosQpRY1LtjnKV1oL4Jp1+Mj+twAeM4ao+9NUrbD+6qOdz2H9wXNzVJjcg6L7Pth7nvwOwW/QVVrPzU3jqp1VP7B+Y7qzjzLBu7SlUPe/1PzDvxwF9ZENyig/ZY94DNHtVvh9wa0gXFL9f/J17qLEPfnCl/TlDFX+Un/XvgVQYl5krfuXs96Typ8X/YH/Ml7f05LrhrXn0+W7mV2znBffp5UXDXe06yey18rO/cpf4/KtbHE/ojmRPuY72Vqv2tWn2mys607d6uwtUH1p36a37zt8c1WbUlW7pQqO0/kPK60c5P85rA+vlqPv88z1hDsTv3PkWvHO+cp45qbnBe5L2PsJxiJ8E+z7rfwaHe9c54i3fmZc+Pvx1Fcr2NETNw/5BQDYBAM+9ch0McISpNdu05WcL+q9en7MWl36a0zFONOe22BsQbWY/Zjku5h3rp/XApOcNskJu5x3tw/jZicM9NwmqmD2ZTcTer+GU5TdfAlxD3pc9fEfQJOk4xNsAW2tf5PL7DuuvsO2AW/XoH7PJwWGEfgGJxo/d9foPturpZ9cAAOc4/H4vIjAfe032dkNrR7x8ckab7PxNXD1D/td+CoOCLYP2x9pel+D2GDOxJcEgAA
+   H4sIAAAAAAAACtWWyzIDQRSGZyFTZlKxQLCibFyWysYDkPIEpFi5xmWhREVlFbxCCpUVnkBsFDZ4CeIZsCY2+FvS+uj0XJpkJv6qr6ane1LzTU/3yRiGYeRM4yu9EeM7vI+Gj9OxPrQzIGVXmEWfrYDmodX9XCd5hSfvK1mV4yO8n8BzRIzxZ8iQ3zu5n8PvDtyDktT+bcqWv+ve4fzB5p145jXcuSuFef9lznvIC42j3UXOH8hztcOvA3SCGbK2ZHfDwT2oJG3hx/0H4DcIhhTry8+8Nyp83Y653CRri3H5/YTpnlfUGRZaTwq2GO9vE+/lJRKuOwtfG1lyI1X9YRluE+2oGb47T8FWr51Ns8KGKdqcMN1LPuok81vD+liPuF+XbFG7s/5G5NUSdV6uf/y5mHsOYztgysU/yHl/g0e3Leo8d6frplzdj9M4vnqI6LiPxATjYAJMVo8JMEpQJSrtx12c75m118j/P/V0594yCQ93ttfShH1w4LEf6+nu5C37eyVuqds60XH38qb+QUSnzqTgtOKD1YDcdeZ9EU5LPlh2cK933dVxn4PTPOEIHIMTqX+hCedddj8FRXD2D9w34ZQmXIMbcCv1bzWhezH2kwtwCa5itWNe2a6De9DfMzyH0rlVRSdBfs94zYeuf5jf73IsQ+3vtL6CdP8EVmhb9FwSAAA=
   </data>
  </layer>
  <layer id="3" name="Capa de patrones 3" width="47" height="25">
@@ -28,7 +28,7 @@
  </layer>
  <layer id="4" name="Capa de patrones 4" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3UsQ0AIAwDwbSwHxV7MArzZRRWQIrAQfz1kV1ENtNpRRienFd1g3u6usDDfvoTIIKdAXAaOwNgxwjcqndmivOR2wKOGwMsXBIAAA==
+   H4sIAAAAAAAACu3UMQ0AIBQD0b+CPyZ8IAV9SMECCYEj5N7etFMjOCWB5Y8bmV5wT6UHSPqePyPpNH9G0oq2kaV/psP9etsE87A/6lwSAAA=
   </data>
  </layer>
  <layer id="5" name="Capa de patrones 5" width="47" height="25">

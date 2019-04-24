@@ -46,12 +46,17 @@ public class Mapa4 extends MapaT {
     
     private ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
     
+    PersonajeEstatico tendero1 = new PersonajeEstatico("right", 380,180,"bocadilloMarinero");
+    PersonajeEstatico tendero2 = new PersonajeEstatico("left", 420,180,"bocadilloMarinero");
+    
     PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750,280,"bocadilloMarinero");
     PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750,320,"bocadilloMarinero");
     PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470,"bocadilloMarinero");
     PersonajeEstatico adulto4 = new PersonajeEstatico("up", 210,576,"bocadilloMarinero");
     PersonajeEstatico adulto5 = new PersonajeEstatico("right",50, 510,"bocadilloMarinero");
     PersonajeEstatico adulto6 = new PersonajeEstatico("down", 1000, 500,"bocadilloMarinero");
+    PersonajeEstatico adulto7 = new PersonajeEstatico("right",625, 500,"bocadilloMarinero");
+    PersonajeEstatico adulto8 = new PersonajeEstatico("left", 750, 500,"bocadilloMarinero");
     PersonajeCirculoRapido niño1 = new PersonajeCirculoRapido(930, 335,"bocadilloMaton");
     
     
@@ -93,6 +98,10 @@ public class Mapa4 extends MapaT {
         personajes.add(adulto4);
         personajes.add(adulto5);
         personajes.add(adulto6);
+        personajes.add(adulto7);
+        personajes.add(adulto8);
+        personajes.add(tendero1);
+        personajes.add(tendero2);
         personajes.add(niño1);
     }
 

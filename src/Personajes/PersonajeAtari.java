@@ -5,9 +5,7 @@
  */
 package Personajes;
 
-import Elementos.Alerta;
 import Elementos.Bocadillo;
-import Mapas.Mapa2;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;

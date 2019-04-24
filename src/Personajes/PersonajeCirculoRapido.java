@@ -5,7 +5,6 @@
  */
 package Personajes;
 
-import Elementos.Alerta;
 import Elementos.Bocadillo;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
@@ -31,20 +30,20 @@ public class PersonajeCirculoRapido extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones movimiento
-            Image[] movementUp = {new Image("ImagenesSprite\\Maton1\\up1.png"), new Image("ImagenesSprite\\Maton1\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\Maton1\\down1.png"), new Image("ImagenesSprite\\Maton1\\down2.png")};
-            Image[] movementLeft = {new Image("ImagenesSprite\\Maton1\\izq1.png"), new Image("ImagenesSprite\\Maton1\\izq2.png"), new Image("ImagenesSprite\\Maton1\\izq3.png"), new Image("ImagenesSprite\\Maton1\\izq4.png"), new Image("ImagenesSprite\\Maton1\\izq5.png"), new Image("ImagenesSprite\\Maton1\\izq6.png"), new Image("ImagenesSprite\\Maton1\\izq7.png"), new Image("ImagenesSprite\\Maton1\\izq8.png")};
-            Image[] movementRight = {new Image("ImagenesSprite\\Maton1\\der1.png"), new Image("ImagenesSprite\\Maton1\\der2.png"), new Image("ImagenesSprite\\Maton1\\der3.png"), new Image("ImagenesSprite\\Maton1\\der4.png"), new Image("ImagenesSprite\\Maton1\\der5.png"), new Image("ImagenesSprite\\Maton1\\der6.png"), new Image("ImagenesSprite\\Maton1\\der7.png"), new Image("ImagenesSprite\\Maton1\\der8.png")};
+            Image[] movementUp = {new Image("ImagenesSprite\\Niño\\up1.png"), new Image("ImagenesSprite\\Niño\\up2.png")};
+            Image[] movementDown = {new Image("ImagenesSprite\\Niño\\down1.png"), new Image("ImagenesSprite\\Niño\\down2.png")};
+            Image[] movementLeft = {new Image("ImagenesSprite\\Niño\\izq1.png"), new Image("ImagenesSprite\\Niño\\izq2.png"), new Image("ImagenesSprite\\Niño\\izq3.png"), new Image("ImagenesSprite\\Niño\\izq4.png"), new Image("ImagenesSprite\\Niño\\izq5.png"), new Image("ImagenesSprite\\Niño\\izq6.png"), new Image("ImagenesSprite\\Niño\\izq7.png"), new Image("ImagenesSprite\\Niño\\izq8.png")};
+            Image[] movementRight = {new Image("ImagenesSprite\\Niño\\der1.png"), new Image("ImagenesSprite\\Niño\\der2.png"), new Image("ImagenesSprite\\Niño\\der3.png"), new Image("ImagenesSprite\\Niño\\der4.png"), new Image("ImagenesSprite\\Niño\\der5.png"), new Image("ImagenesSprite\\Niño\\der6.png"), new Image("ImagenesSprite\\Niño\\der7.png"), new Image("ImagenesSprite\\Niño\\der8.png")};
             up = new Animation(movementUp, duration, false);
             down = new Animation(movementDown, duration, false);
             left = new Animation(movementLeft, duration2, false);
             right = new Animation(movementRight, duration2, false);
             
             //Animaciones parado
-            Image[] stanceDown = {new Image("ImagenesSprite\\Maton1\\down0.png"), new Image("ImagenesSprite\\Maton1\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\Maton1\\up0.png"), new Image("ImagenesSprite\\Maton1\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\Maton1\\izq0.png"), new Image("ImagenesSprite\\Maton1\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\Maton1\\der0.png"), new Image("ImagenesSprite\\Maton1\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\Niño\\down0.png"), new Image("ImagenesSprite\\Niño\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\Niño\\up0.png"), new Image("ImagenesSprite\\Niño\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\Niño\\izq0.png"), new Image("ImagenesSprite\\Niño\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\Niño\\der0.png"), new Image("ImagenesSprite\\Niño\\der0.png")};
             sup = new Animation(stanceUp, duration, false);
             sdown = new Animation(stanceDown, duration, false);
             sleft = new Animation(stanceLeft, duration, false);
@@ -60,6 +59,7 @@ public class PersonajeCirculoRapido extends PersonajeGeneral {
         }
     }
 
+    @Override
     public void setDir(String string) {
         switch (string) {
             case "up":
@@ -89,18 +89,7 @@ public class PersonajeCirculoRapido extends PersonajeGeneral {
         }
     }
 
-    public Animation getDir() {
-        return actual;
-    }
-
-    public float getCoordenadaY() {
-        return this.coordenadaY;
-    }
-
-    public float getCoordenadaX() {
-        return this.coordenadaX;
-    }
-
+    @Override
     public void move() {
         if (desplazamiento < 100) {
             coordenadaY = coordenadaY + (float) (0.8);
@@ -122,34 +111,5 @@ public class PersonajeCirculoRapido extends PersonajeGeneral {
             desplazamiento = 0;
         }
         hitbox.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
-    }
-
-    public Rectangle getHitbox() {
-        return hitbox;
-    }
-
-    public void talk() {
-        bocadillo.dentro();
-    }
-
-    public Bocadillo getTalk(){
-        return bocadillo;
-    }
-
-    public void noTalk() {
-        bocadillo.fuera();
-    }
-    
-    public Alerta getAlerta(){
-        return alerta;
-    }
-    
-    public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
-    }
-    
-    public void noAlerta() {
-        alerta.fuera();
-    }
-    
+    }  
 }

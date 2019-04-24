@@ -5,7 +5,6 @@
  */
 package Personajes;
 
-import Elementos.Alerta;
 import Elementos.Bocadillo;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
@@ -57,6 +56,7 @@ public class PersonajeCirculoL extends PersonajeGeneral {
         }
     }
 
+    @Override
     public void setDir(String string) {
 
         switch (string) {
@@ -88,18 +88,7 @@ public class PersonajeCirculoL extends PersonajeGeneral {
         }
     }
 
-    public Animation getDir() {
-        return actual;
-    }
-
-    public float getCoordenadaY() {
-        return this.coordenadaY;
-    }
-
-    public float getCoordenadaX() {
-        return this.coordenadaX;
-    }
-
+    @Override
     public void move() {
         if (desplazamiento < 800) {
             coordenadaX = coordenadaX + (float) (0.2);
@@ -122,33 +111,4 @@ public class PersonajeCirculoL extends PersonajeGeneral {
         }
         hitbox.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
-
-    public Rectangle getHitbox() {
-        return hitbox;
-    }
-
-    public void talk() {
-        bocadillo.dentro();
-    }
-
-    public Bocadillo getTalk() {
-        return bocadillo;
-    }
-
-    public void noTalk() {
-        bocadillo.fuera();
-    }
-
-    public Alerta getAlerta(){
-        return alerta;
-    }
-    
-    public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
-    }
-    
-    public void noAlerta() {
-        alerta.fuera();
-    }
-    
 }
