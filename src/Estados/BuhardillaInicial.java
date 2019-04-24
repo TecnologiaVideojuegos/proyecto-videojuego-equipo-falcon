@@ -6,10 +6,8 @@
 package Estados;
 
 import Elementos.Bocadillo;
-import Mapas.Mapa2;
 import Personajes.PersonajeAtari;
 import Personajes.PersonajePrincipal;
-import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -17,7 +15,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.*;
@@ -28,8 +25,15 @@ import org.newdawn.slick.tiled.*;
  */
 public class BuhardillaInicial extends BasicGameState {
 
+    @Override
+    public int getID() {
+        return 9; //To change body of generated methods, choose Tools | Templates.
+    }
+    
     private static TiledMap mapa;
+    
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
+    
     PersonajePrincipal personaje;
     
     private float borde1[] = new float[]{705, 192, 838, 192, 838, 220, 865, 220, 865, 255, 935, 255, 935, 277, 963, 277, 963, 321, 991, 321, 991, 377, 961, 377, 961, 446, 931, 446, 931, 471, 957, 471, 957, 480, 989, 480, 989, 512, 902, 512, 902, 564, 867, 564, 867, 572, 512, 572, 512, 289, 540, 289, 540, 250, 700, 250, 700, 388, 737, 388, 737, 413, 767, 413, 767, 388, 799, 388, 799, 366, 771, 366, 771, 257, 768, 257, 768, 381, 705, 381};
@@ -42,13 +46,14 @@ public class BuhardillaInicial extends BasicGameState {
     private float salida1[] = new float[]{707, 355, 763, 355, 763, 354, 707, 354};
     private ArrayList<Polygon> colisiones_salidas;
 
-    private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private PersonajeAtari atari;
 
-    int fase=0;
+    int contadorTemporal=0;
+    
     Bocadillo bocadillo = new Bocadillo("Historia00");
     
     public BuhardillaInicial() {
+        
         colisiones_bordes = new ArrayList<>();
         colisiones_bordes.add(new Polygon(borde1));
         colisiones_bordes.add(new Polygon(borde2));
@@ -69,20 +74,16 @@ public class BuhardillaInicial extends BasicGameState {
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(710);
         personaje.setCoordenadaY(192);
-        
-        NPCs.add(atari);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        fase++;
         int velocidad = 2;
         Input input = gc.getInput();
-        ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
-        for (int j = 0; j < NPCs.size(); j++) {
-            colisionNPCs.add(NPCs.get(j).getHitbox());
-        }
-
+        
+        if(contadorTemporal<1800)
+            contadorTemporal++;
+        
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
@@ -94,16 +95,8 @@ public class BuhardillaInicial extends BasicGameState {
                     choqueArriba = false;
                 }
             }
-            for (int j = 0; j < NPCs.size(); j++) {
-                if (colisionNPCs.get(j).intersects(personaje.getH1())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
-                    choqueArriba = true;
-                    break;
-                }
+            if (atari.getHitbox().intersects(personaje.getH1())) {
+                sbg.enterState(atari.getSGB());
             }
             if (!choqueArriba || choqueAbajo) {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * velocidad);
@@ -126,22 +119,14 @@ public class BuhardillaInicial extends BasicGameState {
                     choqueAbajo = false;
                 }
             }
-            for (int j = 0; j < NPCs.size(); j++) {
-                if (colisionNPCs.get(j).intersects(personaje.getH4())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
-                    choqueAbajo = true;
-                    break;
-                }
+            if (atari.getHitbox().intersects(personaje.getH4())) {
+                sbg.enterState(atari.getSGB());
             }
             if (!choqueAbajo || choqueArriba) {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH4().intersects(colisiones_salidas.get(n))) {
-                        sbg.enterState(8);
+                        sbg.enterState(8); // --> CASAINICIAL
                     }
                 }
                 choqueArriba = false;
@@ -159,23 +144,13 @@ public class BuhardillaInicial extends BasicGameState {
                     choqueIzquierda = false;
                 }
             }
-            for (int j = 0; j < NPCs.size(); j++) {
-                if (colisionNPCs.get(j).intersects(personaje.getH2())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
-                    choqueIzquierda = true;
-                    break;
-                }
+            if (atari.getHitbox().intersects(personaje.getH2())) {
+                sbg.enterState(atari.getSGB());
             }
             if (!choqueIzquierda || choqueDerecha) {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
-
                 choqueDerecha = false;
             }
-
         } else if (input.isKeyDown(Input.KEY_D)) {
             personaje.setDir("right");
             personaje.getDir().update(i);
@@ -187,113 +162,88 @@ public class BuhardillaInicial extends BasicGameState {
                     choqueDerecha = false;
                 }
             }
-            for (int j = 0; j < NPCs.size(); j++) {
-                if (colisionNPCs.get(j).intersects(personaje.getH3())) {
-                    if (NPCs.get(j).isSGB()) {
-                        int state = NPCs.get(j).getSGB();
-                        NPCs.get(j).notSGB();
-                        sbg.enterState(state);
-                    }
-                    choqueDerecha = true;
-                    break;
-                }
+            if (atari.getHitbox().intersects(personaje.getH3())) {
+                sbg.enterState(atari.getSGB());
             }
             if (!choqueDerecha || choqueIzquierda) {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-
                 choqueIzquierda = false;
-
             }
-
         } else {
             personaje.setDir("stance");
             personaje.getDir().update(i);
         }
 
-        for (int j = 0; j < NPCs.size(); j++) {
-            if (colisionNPCs.get(j).intersects(personaje.getH4())) {
-                NPCs.get(j).setDir("sup");
-                NPCs.get(j).alerta();
-                personaje.setDir("stance");
-                if (input.isKeyDown(Input.KEY_E)) {
-                    NPCs.get(j).talk();
-                }
-            } else if (colisionNPCs.get(j).intersects(personaje.getH3())) {
-                NPCs.get(j).setDir("sleft");
-                NPCs.get(j).alerta();
-                personaje.setDir("stance");
-                if (input.isKeyDown(Input.KEY_E)) {
-                    NPCs.get(j).talk();
-                }
-            } else if (colisionNPCs.get(j).intersects(personaje.getH2())) {
-                NPCs.get(j).setDir("sright");
-                NPCs.get(j).alerta();
-                personaje.setDir("stance");
-                if (input.isKeyDown(Input.KEY_E)) {
-                    NPCs.get(j).talk();
-                }
-            } else if (colisionNPCs.get(j).intersects(personaje.getH1())) {
-                NPCs.get(j).setDir("sdown");
-                NPCs.get(j).alerta();
-                personaje.setDir("stance");
-                if (input.isKeyDown(Input.KEY_E)) {
-                    NPCs.get(j).talk();
-                }
-            } else {
-                NPCs.get(j).noAlerta();
-                NPCs.get(j).noTalk();
-                NPCs.get(j).move();
-                NPCs.get(j).getDir().update(i);
-            }
-        }
 
+        if (atari.getHitbox().intersects(personaje.getH4())) {
+            atari.setDir("sup");
+            atari.alerta();
+            personaje.setDir("stance");
+            if (input.isKeyDown(Input.KEY_E)) {
+                atari.talk();
+            }
+        } else if (atari.getHitbox().intersects(personaje.getH3())) {
+            atari.setDir("sleft");
+            atari.alerta();
+            personaje.setDir("stance");
+            if (input.isKeyDown(Input.KEY_E)) {
+                atari.talk();
+            }
+        } else if (atari.getHitbox().intersects(personaje.getH2())) {
+            atari.setDir("sright");
+            atari.alerta();
+            personaje.setDir("stance");
+            if (input.isKeyDown(Input.KEY_E)) {
+                atari.talk();
+            }
+        } else if (atari.getHitbox().intersects(personaje.getH1())) {
+            atari.setDir("sdown");
+            atari.alerta();
+            personaje.setDir("stance");
+            if (input.isKeyDown(Input.KEY_E)) {
+                atari.talk();
+            }
+        } else {
+            atari.noAlerta();
+            atari.noTalk();
+            atari.move();
+            atari.getDir().update(i);
+        }
+      
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         Input input = gc.getInput();
-        Graphics g = new Graphics();
+        
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
-        for (int j = 0; j < NPCs.size(); j++) {
-            NPCs.get(j).getDir().draw(NPCs.get(j).getCoordenadaX(), NPCs.get(j).getCoordenadaY());
-            g.draw(NPCs.get(j).getHitbox());
-        }
+        
+        atari.getDir().draw(atari.getCoordenadaX(), atari.getCoordenadaY());
+        g.draw(atari.getHitbox());
+        
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        /*g.draw(personaje.getH1());
-         g.draw(personaje.getH2());
-         g.draw(personaje.getH3());
-         g.draw(personaje.getH4());
-*/
+        /*
          for (int i = 0; i < colisiones_bordes.size(); i++) {
          g.draw(colisiones_bordes.get(i));
-         }
+         }*/
          
-        for (int j = 0; j < NPCs.size(); j++) {
+        atari.getTalk().getImagen().draw(atari.getTalk().getCoordenadaX(), atari.getTalk().getCoordenadaY());
+        atari.getAlerta().getImagen().draw(atari.getAlerta().getCoordenadaX(), atari.getAlerta().getCoordenadaY());
 
-            NPCs.get(j).getTalk().getImagen().draw(NPCs.get(j).getTalk().getCoordenadaX(), NPCs.get(j).getTalk().getCoordenadaY());
-            NPCs.get(j).getAlerta().getImagen().draw(NPCs.get(j).getAlerta().getCoordenadaX(), NPCs.get(j).getAlerta().getCoordenadaY());
-
-        }
         if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
-        if(fase>500 && fase<2500)
+        
+        if(contadorTemporal>200 && contadorTemporal<1500)
         {
             bocadillo.dentro();
             bocadillo.getImagen().draw(bocadillo.getCoordenadaX(), bocadillo.getCoordenadaY());
         }
-        else
-            bocadillo.fuera();
-    }
-
-    @Override
-    public int getID() {
-        return 9; //To change body of generated methods, choose Tools | Templates.
     }
 }

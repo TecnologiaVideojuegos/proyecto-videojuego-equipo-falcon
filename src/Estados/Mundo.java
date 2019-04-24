@@ -41,7 +41,7 @@ public class Mundo extends BasicGameState {
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
     Mapa1 mapa1 = new Mapa1();
     Mapa2 mapa2 = new Mapa2();
-    Mapa3 mapa3 = new Mapa3(mapa2);
+    Mapa3 mapa3 = new Mapa3();
     Mapa4 mapa4 = new Mapa4();
     Mapa5 mapa5 = new Mapa5();
     Mapa6 mapa6 = new Mapa6();
@@ -51,6 +51,11 @@ public class Mundo extends BasicGameState {
     Mapa10 mapa10 = new Mapa10();
     MapaT mapa_actual = new MapaT();
     PersonajePrincipal personaje;
+    
+    ArrayList<Polygon> colisiones_salidas;
+    ArrayList<Polygon> colisiones_bordes;
+    ArrayList<Rectangle> colisionNPCs;
+    ArrayList<PersonajeGeneral> NPCs;
 
     public Mundo(int num) {
 
@@ -84,22 +89,15 @@ public class Mundo extends BasicGameState {
         float nuevo_mapa;
         Input input = gc.getInput();
 
-        ArrayList<Polygon> colisiones_salidas = mapa_actual.getSalidas();
-        ArrayList<Polygon> colisiones_bordes = mapa_actual.getBordes();
-        ArrayList<PersonajeGeneral> NPCs = mapa_actual.getPersonajes();
-        ArrayList<Rectangle> colisionNPCs = new ArrayList<>();
-
+        colisiones_salidas = mapa_actual.getSalidas();
+        colisiones_bordes = mapa_actual.getBordes();
+        NPCs = mapa_actual.getPersonajes();
+        
+        colisionNPCs = new ArrayList<>();
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             colisionNPCs.add(NPCs.get(j).getHitbox());
         }
 
-        if (input.isKeyDown(Input.KEY_ENTER)) {
-            gc.exit();
-        }
-
-        if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
-            System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
-        }
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
@@ -131,11 +129,10 @@ public class Mundo extends BasicGameState {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH1().intersects(colisiones_salidas.get(n))) {
-                        nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
-                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa_actual = mapas.get((int)mapa_actual.getMapas(n));
                         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
                     }
                 }
@@ -173,11 +170,10 @@ public class Mundo extends BasicGameState {
                 personaje.setCoordenadaY(personaje.getCoordenadaY() + i * 0.14f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH4().intersects(colisiones_salidas.get(n))) {
-                        nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordX(n, (int) personaje.getCoordenadaX());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
-                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa_actual = mapas.get((int)mapa_actual.getMapas(n));
                         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
                     }
                 }
@@ -211,12 +207,10 @@ public class Mundo extends BasicGameState {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH2().intersects(colisiones_salidas.get(n))) {
-
-                        nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordY(n, (int) personaje.getCoordenadaY());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
-                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa_actual = mapas.get((int)mapa_actual.getMapas(n));
                         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
                     }
                 }
@@ -249,24 +243,21 @@ public class Mundo extends BasicGameState {
                 personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
                 for (int n = 0; n < colisiones_salidas.size(); n++) {
                     if (personaje.getH3().intersects(colisiones_salidas.get(n))) {
-                        nuevo_mapa = mapa_actual.getMapas(n);
                         mapa_actual.setCoordY(n, (int) personaje.getCoordenadaY());
                         personaje.setCoordenadaX(mapa_actual.getCoord()[n * 2]);
                         personaje.setCoordenadaY(mapa_actual.getCoord()[n * 2 + 1]);
-                        mapa_actual = mapas.get((int) nuevo_mapa);
+                        mapa_actual = mapas.get((int)mapa_actual.getMapas(n));
                         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
-
                     }
                 }
                 choqueIzquierda = false;
-
             }
-
         } else {
             personaje.setDir("stance");
             personaje.getDir().update(i);
         }
 
+        
         for (int j = 0; j < NPCs.size(); j++) {
             if (colisionNPCs.get(j).intersects(personaje.getH4())) {
                 NPCs.get(j).setDir("sup");
@@ -303,38 +294,35 @@ public class Mundo extends BasicGameState {
                 NPCs.get(j).getDir().update(i);
             }
         }
-
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         Input input = gc.getInput();
-        Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
+        
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-            mapa_actual.getPersonajes().get(j).getDir().draw(mapa_actual.getPersonajes().get(j).getCoordenadaX(), mapa_actual.getPersonajes().get(j).getCoordenadaY());
-            g.draw(mapa_actual.getPersonajes().get(j).getHitbox());
+            PersonajeGeneral npc_actual = mapa_actual.getPersonajes().get(j);
+            npc_actual.getDir().draw(npc_actual.getCoordenadaX(),npc_actual.getCoordenadaY());
+            g.draw(npc_actual.getHitbox());
         }
+        
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        /*g.draw(personaje.getH1());
-         g.draw(personaje.getH2());
-         g.draw(personaje.getH3());
-         g.draw(personaje.getH4());
-
+        /*
          for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
          g.draw(mapa_actual.getBordes().get(i));
          }*/
+        
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
-
-            mapa_actual.getPersonajes().get(j).getTalk().getImagen().draw(mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getTalk().getCoordenadaY());
-            mapa_actual.getPersonajes().get(j).getAlerta().getImagen().draw(mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaX(), mapa_actual.getPersonajes().get(j).getAlerta().getCoordenadaY());
-
+            PersonajeGeneral npc_actual = mapa_actual.getPersonajes().get(j);
+            npc_actual.getTalk().getImagen().draw(npc_actual.getTalk().getCoordenadaX(), npc_actual.getTalk().getCoordenadaY());
+            npc_actual.getAlerta().getImagen().draw(npc_actual.getAlerta().getCoordenadaX(), npc_actual.getAlerta().getCoordenadaY());
         }
         if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);

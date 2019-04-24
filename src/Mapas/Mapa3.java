@@ -41,7 +41,7 @@ public class Mapa3 extends MapaT {
     
     int modo=0;
 
-    public Mapa3(Mapa2 mapa2) {
+    public Mapa3() {
         super();
         
         atari=new PersonajeAtari(608,384);
