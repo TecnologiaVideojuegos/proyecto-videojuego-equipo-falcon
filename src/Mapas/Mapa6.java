@@ -5,12 +5,9 @@
  */
 package Mapas;
 
-import Personajes.PersonajeCirculoL;
-import Personajes.PersonajeCirculoR;
 import Personajes.PersonajeEstatico;
 import Personajes.PersonajeProfesor;
 import Personajes.PersonajeGeneral;
-import Personajes.PersonajeUpDown;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
 

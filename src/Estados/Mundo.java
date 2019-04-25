@@ -16,6 +16,7 @@ import Mapas.Mapa8;
 import Mapas.Mapa7;
 import Mapas.Mapa9;
 import Mapas.MapaT;
+import Personajes.EscalerasColegio;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
@@ -56,6 +57,9 @@ public class Mundo extends BasicGameState {
     ArrayList<Polygon> colisiones_bordes;
     ArrayList<Rectangle> colisionNPCs;
     ArrayList<PersonajeGeneral> NPCs;
+    
+    //Elementos historia
+    private EscalerasColegio escaleras2 = new EscalerasColegio();
 
     public Mundo(int num) {
 
@@ -85,10 +89,13 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int velocidad = 2;
-        float nuevo_mapa;
+        System.out.println("estoy en mundo"+i);
+        int velocidad = 1;
         Input input = gc.getInput();
-
+        if(input.isKeyDown(Input.MOUSE_LEFT_BUTTON))
+        {
+            System.out.println(input.getMouseX()+","+input.getMouseX());
+        }
         colisiones_salidas = mapa_actual.getSalidas();
         colisiones_bordes = mapa_actual.getBordes();
         NPCs = mapa_actual.getPersonajes();
@@ -115,9 +122,9 @@ public class Mundo extends BasicGameState {
                     int state = NPCs.get(j).getSGB();
                     NPCs.get(j).notSGB();
                     if (state == 13) {
-                        mapa_actual.chMod();
-                        NPCs.remove(NPCs.get(j));
-                        colisionNPCs.remove(colisionNPCs.get(j));
+                            mapa_actual.chMod();
+                            NPCs.remove(NPCs.get(j));
+                            colisionNPCs.remove(colisionNPCs.get(j));
                     }
                     sbg.enterState(state);
                     }
@@ -156,9 +163,10 @@ public class Mundo extends BasicGameState {
                         int state = NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
                         if (state == 10) {
-                            mapa_actual.chMod();
                             NPCs.remove(NPCs.get(j));
                             colisionNPCs.remove(colisionNPCs.get(j));
+                            NPCs.add(escaleras2);
+                            colisionNPCs.add(escaleras2.getHitbox());
                         }
                         sbg.enterState(state);
                     }
@@ -262,28 +270,24 @@ public class Mundo extends BasicGameState {
             if (colisionNPCs.get(j).intersects(personaje.getH4())) {
                 NPCs.get(j).setDir("sup");
                 NPCs.get(j).alerta();
-                personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH3())) {
                 NPCs.get(j).setDir("sleft");
                 NPCs.get(j).alerta();
-                personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH2())) {
                 NPCs.get(j).setDir("sright");
                 NPCs.get(j).alerta();
-                personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }
             } else if (colisionNPCs.get(j).intersects(personaje.getH1())) {
                 NPCs.get(j).setDir("sdown");
                 NPCs.get(j).alerta();
-                personaje.setDir("stance");
                 if (input.isKeyDown(Input.KEY_E)) {
                     NPCs.get(j).talk();
                 }

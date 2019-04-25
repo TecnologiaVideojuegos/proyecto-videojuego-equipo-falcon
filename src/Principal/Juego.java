@@ -12,6 +12,7 @@ import Estados.Mundo;
 import Estados.BuhardillaInicial;
 import Estados.CasaInicial;
 import Estados.Cinematica1;
+import Estados.ColegioInicial;
 import Estados.PlayaFinal;
 import Estados.PlayaInicial;
 import java.util.logging.Level;
@@ -42,8 +43,9 @@ public class Juego extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-         this.addState(new CasaInicial());
-        this.addState(new Mundo(1));
+        this.addState(new ColegioInicial());this.addState(new Mundo(0));
+        this.addState(new CasaInicial());
+        
         this.addState(new Boss2());
         this.addState(new Boss1());
         
@@ -51,11 +53,8 @@ public class Juego extends StateBasedGame {
         this.addState(new Cinematica0());
         this.addState(new PlayaInicial());
         
-       
         this.addState(new Cinematica1());
-        
         this.addState(new PlayaFinal());
-        
     }
 
     /**

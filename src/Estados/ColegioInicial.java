@@ -6,10 +6,8 @@
 package Estados;
 
 import Elementos.Bocadillo;
-import EstadoBoss1.Pelota;
 import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
-import Personajes.PersonajeProfesor;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
@@ -27,64 +25,57 @@ import org.newdawn.slick.tiled.*;
  *
  * @author lucas
  */
-public class PlayaInicial extends BasicGameState {
+public class ColegioInicial extends BasicGameState {
 
     @Override
     public int getID() {
-        return 10; //To change body of generated methods, choose Tools | Templates.
+        return 13; //To change body of generated methods, choose Tools | Templates.
     }
     
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
     PersonajePrincipal personaje;
 
-    private float borde1[] = new float[]{63, 0, 256, 0, 256, 33, 985, 33, 985, 65, 1027, 65, 1027, 36, 1180, 36, 1180, 68, 1218, 68, 1218, 141, 1242, 164, 1242, 200, 1282, 200, 1282, 186, 1402, 186, 1433, 223, 1469, 223, 1469, 778, 1091, 778, 1091, 741, 1184, 738, 1184, 671, 1153, 671, 1153, 700, 1058, 700, 1058, 733, 1020, 733, 1020, 785, 35, 785, 35, 32, 65, 32};
+    private float borde1[] = new float[]{477, 768, 477, 730, 417, 730, 417, 514, 405, 514, 405, 732, 287, 732, 287, 686, 193, 686, 193, 732, 126, 732, 126, 493, 40, 493, 40, 429, 153, 429, 153, 388, 102, 388, 102,
+        353, 192, 353, 192, 363, 288, 363, 288, 353, 349, 353, 349, 373, 408, 373, 408, 448, 417, 448, 417, 352, 478, 352, 478, 321, 417, 321, 417, 225, 357, 225, 357, 288, 319, 288, 319, 225, 259, 225, 259, 288, 223, 288, 223, 226, 163, 226, 161, 288, 127,
+        288, 127, 225, 69, 225, 69, 289, 40, 289, 40, 96, 70, 96, 70, 163, 100, 163, 100, 181, 127, 181, 127, 97, 165, 97, 165, 162, 197, 162, 197, 181, 224, 181, 224, 97, 260, 97, 260, 163, 292, 163, 292, 181, 319, 181, 319, 98, 357, 98, 357, 163, 389, 163, 389,
+        181, 416, 181, 416, 97, 486, 97, 486, 171, 536, 171, 536, 132, 600, 132, 600, 318, 547, 318, 547, 350, 608, 350, 608, 256, 638, 256, 638, 225, 608, 225, 608, 98, 640, 98, 640, 125, 799, 125, 799, 97, 831, 97, 831, 117, 928, 117, 928, 97, 982, 97, 982,
+        226, 706, 226, 706, 255, 992, 255, 992, 223, 1118, 223, 1118, 255, 1183, 255, 1183, 223, 1127, 223, 1127, 98, 1152, 98, 1152, 117, 1247, 117, 1247, 96, 1279, 96, 1279, 126, 1438, 126, 1438, 99, 1463, 99, 1463, 225, 1250, 225, 1250, 257, 1464, 257,
+        1464, 449, 1090, 449, 1090, 480, 1146, 480, 1146, 739, 617, 739, 617, 697, 990, 697, 990, 508, 617, 508, 617, 474, 1020, 474, 1020, 449, 607, 449, 607, 733, 547, 733, 547, 768};
+    private float borde2[] = new float[]{255,552,255,516,288,516,288,493,191,493,191,640,288,640,288,588,255,588};    
     private ArrayList<Polygon> colisiones_bordes;
 
-    private float salida1[] = new float[]{66, 2, 252, 2, 252, 0, 66, 0};
+    private float salida1[] = new float[]{477, 767, 545, 767, 445, 768, 577, 768};
     private ArrayList<Polygon> colisiones_salidas;
 
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
-    PersonajeEstatico niño1  = new PersonajeEstatico("up"   , 970, 680, "bocadilloNiño1");
-    PersonajeEstatico niño2  = new PersonajeEstatico("up"   , 930, 680, "bocadilloNiño2");
-    PersonajeEstatico niño3  = new PersonajeEstatico("up"   , 890, 680, "bocadilloNiño3");
-    PersonajeEstatico niño4  = new PersonajeEstatico("left" , 850, 680, "bocadilloNiño4");
-    PersonajeEstatico niño5  = new PersonajeEstatico("left" , 810, 680, "bocadilloNiño5");
-    PersonajeEstatico niño6  = new PersonajeEstatico("up"   , 770, 680, "bocadilloNiño6");
-    PersonajeEstatico niño7  = new PersonajeEstatico("right", 730, 680, "bocadilloNiño7");
-    PersonajeEstatico niño8  = new PersonajeEstatico("left" , 690, 680, "bocadilloNiño8");
-    PersonajeEstatico niño9  = new PersonajeEstatico("left" , 650, 680, "bocadilloNiño9");
-    PersonajeEstatico niño10 = new PersonajeEstatico("up"   , 610, 680, "bocadilloNiño10");
-    PersonajeEstatico niño11 = new PersonajeEstatico("right", 570, 680, "bocadilloNiño11");
-    PersonajeEstatico niño12 = new PersonajeEstatico("left" , 530, 680, "bocadilloNiño12");
-    PersonajeEstatico niño13 = new PersonajeEstatico("right", 490, 680, "bocadilloNiño13");
-    PersonajeEstatico niño14 = new PersonajeEstatico("left" , 450, 680, "bocadilloNiño14");
-    
-    private PersonajeProfesor profesor;
-    
-    
-    Pelota ball = new Pelota();
+    PersonajeEstatico niño1  = new PersonajeEstatico("up", 970, 380, "bocadilloNiño1");
+    PersonajeEstatico niño2  = new PersonajeEstatico("up", 930, 380, "bocadilloNiño2");
+    PersonajeEstatico niño3  = new PersonajeEstatico("up", 890, 380, "bocadilloNiño3");
+    PersonajeEstatico niño4  = new PersonajeEstatico("up", 850, 380, "bocadilloNiño4");
+    PersonajeEstatico niño5  = new PersonajeEstatico("up", 810, 380, "bocadilloNiño5");
+    PersonajeEstatico niño6  = new PersonajeEstatico("up", 770, 380, "bocadilloNiño6");
+    PersonajeEstatico niño7  = new PersonajeEstatico("up", 730, 380, "bocadilloNiño7");
+    PersonajeEstatico niño8  = new PersonajeEstatico("up", 690, 380, "bocadilloNiño8");
+    PersonajeEstatico niño9  = new PersonajeEstatico("up", 80,680, "bocadilloNiño9");
+    PersonajeEstatico niño10 = new PersonajeEstatico("up", 18,680, "bocadilloNiño10");
+    PersonajeEstatico niño11 = new PersonajeEstatico("up", 80,580, "bocadilloNiño11");
+    PersonajeEstatico niño12 = new PersonajeEstatico("up", 18,580, "bocadilloNiño12");
+    PersonajeEstatico niño13 = new PersonajeEstatico("up", 80,480, "bocadilloNiño13");
+    PersonajeEstatico niño14 = new PersonajeEstatico("up", 18,480, "bocadilloNiño14");
 
     boolean historia = false;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
     Bocadillo introduccionHistoria = new Bocadillo("Historia10");
-    Bocadillo bocadilloProf1 = new Bocadillo("Historia11");
-    Bocadillo bocadilloAlex1 = new Bocadillo("Historia12");
-    Bocadillo bocadilloProf2 = new Bocadillo("Historia13");
     Bocadillo bocadilloSalida = new Bocadillo("Historia15");
 
-    public PlayaInicial() {
+    public ColegioInicial() {
         colisiones_bordes = new ArrayList<>();
         colisiones_bordes.add(new Polygon(borde1));
 
         colisiones_salidas = new ArrayList<>();
         colisiones_salidas.add(new Polygon(salida1));
-
-        profesor = new PersonajeProfesor();
-        profesor.noLanza();
-        profesor.setSGB();
-        NPCs.add(profesor);
         
         NPCs.add(niño1);
         NPCs.add(niño2);
@@ -105,15 +96,21 @@ public class PlayaInicial extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        mapa = new TiledMap("\\Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
+        mapa = new TiledMap("\\Mapas\\mapa7.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
-        personaje.setCoordenadaX(110);
-        personaje.setCoordenadaY(30);
+        personaje.setCoordenadaX(482);
+        personaje.setCoordenadaY(703);
 
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        Input input = gc.getInput();
+        if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON))
+        {
+            System.out.println(input.getMouseX()+","+input.getMouseY());
+        }
+        
         if (historia) {
             contadorTemporal2++;
             personaje.getDir().update(i);
@@ -123,7 +120,6 @@ public class PlayaInicial extends BasicGameState {
                 contadorTemporal1++;
             
             int velocidad = 1;
-            Input input = gc.getInput();
             
             colisionNPCs = new ArrayList<>();
             for (int j = 0; j < NPCs.size(); j++) {
@@ -343,7 +339,7 @@ public class PlayaInicial extends BasicGameState {
 
         bocadilloSalida.getImagen().draw(bocadilloSalida.getCoordenadaX(), bocadilloSalida.getCoordenadaY());
 
-        if (contadorTemporal2 > 0) {
+        /*if (contadorTemporal2 > 0) {
             personaje.setDir("stance");
         if (contadorTemporal2 < 1600) {
             bocadilloProf1.dentro();
@@ -388,11 +384,6 @@ public class PlayaInicial extends BasicGameState {
             } 
         } else{
             sbg.enterState(11); // --> CINEMATICA1
-        } 
-        
-        
-        }
+        } */ 
     }
-
-
 }

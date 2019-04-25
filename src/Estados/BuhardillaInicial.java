@@ -78,7 +78,7 @@ public class BuhardillaInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int velocidad = 2;
+        int velocidad = 1;
         Input input = gc.getInput();
         
         if(contadorTemporal<2500)

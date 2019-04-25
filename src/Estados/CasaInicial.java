@@ -7,7 +7,6 @@ package Estados;
 
 import Personajes.PersonajeMadre;
 import Personajes.PersonajePrincipal;
-import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -15,7 +14,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.*;
@@ -71,7 +69,7 @@ public class CasaInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-      int velocidad = 2;
+      int velocidad = 1;
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_W)) {
@@ -160,7 +158,7 @@ public class CasaInicial extends BasicGameState {
         if (madre.getHitbox().intersects(personaje.getH4())) {
             madre.setDir("sup");
             madre.alerta();
-            personaje.setDir("stance");
+            ;
             if (input.isKeyDown(Input.KEY_E)) {
                 colisiones_salidas=colisiones_salidas2;
                 madre.talk();
@@ -168,7 +166,7 @@ public class CasaInicial extends BasicGameState {
         } else if (madre.getHitbox().intersects(personaje.getH3())) {
             madre.setDir("sleft");
             madre.alerta();
-            personaje.setDir("stance");
+            ;
             if (input.isKeyDown(Input.KEY_E)) {
                 colisiones_salidas=colisiones_salidas2;
                 madre.talk();
@@ -176,7 +174,7 @@ public class CasaInicial extends BasicGameState {
         } else if (madre.getHitbox().intersects(personaje.getH2())) {
             madre.setDir("sright");
             madre.alerta();
-            personaje.setDir("stance");
+            ;
             if (input.isKeyDown(Input.KEY_E)) {
                 colisiones_salidas=colisiones_salidas2;
                 madre.talk();
@@ -184,7 +182,7 @@ public class CasaInicial extends BasicGameState {
         } else if (madre.getHitbox().intersects(personaje.getH1())) {
             madre.setDir("sdown");
             madre.alerta();
-            personaje.setDir("stance");
+            ;
             if (input.isKeyDown(Input.KEY_E)) {
                 colisiones_salidas=colisiones_salidas2;
                 madre.talk();

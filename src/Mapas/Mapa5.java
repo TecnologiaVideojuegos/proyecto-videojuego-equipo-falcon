@@ -5,6 +5,7 @@
  */
 package Mapas;
 
+import Personajes.EscalerasColegio;
 import Personajes.EscalerasPlaya;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class Mapa5 extends MapaT {
 
     private ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
     private EscalerasPlaya escaleras = new EscalerasPlaya();
+    
     public Mapa5() {
         super();
 

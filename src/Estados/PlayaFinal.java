@@ -8,7 +8,6 @@ package Estados;
 import Elementos.Bocadillo;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeProfesor;
-import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -16,7 +15,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.*;
@@ -78,7 +76,7 @@ public class PlayaFinal extends BasicGameState {
             contadorTemporal++;
         } else {
 
-            int velocidad = 2;
+            int velocidad = 1;
             Input input = gc.getInput();
             
 
@@ -174,28 +172,28 @@ public class PlayaFinal extends BasicGameState {
             if (profesor.getHitbox().intersects(personaje.getH4())) {
                 profesor.setDir("sup");
                 profesor.alerta();
-                personaje.setDir("stance");
+                ;
                 if (input.isKeyDown(Input.KEY_E)) {
                     profesor.talk();
                 }
             } else if (profesor.getHitbox().intersects(personaje.getH3())) {
                 profesor.setDir("sleft");
                 profesor.alerta();
-                personaje.setDir("stance");
+                ;
                 if (input.isKeyDown(Input.KEY_E)) {
                     profesor.talk();
                 }
             } else if (profesor.getHitbox().intersects(personaje.getH2())) {
                 profesor.setDir("sright");
                 profesor.alerta();
-                personaje.setDir("stance");
+                ;
                 if (input.isKeyDown(Input.KEY_E)) {
                     profesor.talk();
                 }
             } else if (profesor.getHitbox().intersects(personaje.getH1())) {
                 profesor.setDir("sdown");
                 profesor.alerta();
-                personaje.setDir("stance");
+                ;
                 if (input.isKeyDown(Input.KEY_E)) {
                     profesor.talk();
                 }
