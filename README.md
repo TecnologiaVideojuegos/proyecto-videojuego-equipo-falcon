@@ -2,7 +2,10 @@
 proyecto-videojuego-equipo-falcon created by GitHub Classroom
 
 
-Sergio: Matones, Adultos, Boss Final
+Sergio: 
+  -Historia
+  -Sprites: Matones, Adultos, Boss Final, Boss Final Derrotado, Menús Inicio y Pausa, Botones para los menús
+  
 Miguel: 
   -Historia 
   -Personajes 
