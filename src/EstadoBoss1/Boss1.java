@@ -94,10 +94,14 @@ public class Boss1 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-
+        
         Input input = gc.getInput();
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
+        }
+        if(input.isKeyPressed(Input.KEY_1))
+        {
+            sbg.enterState(12);
         }
         if (contador_parpadeo > 0) {
             if (contador_parpadeo % 2 == 0) {
@@ -157,7 +161,7 @@ public class Boss1 extends BasicGameState {
                     }
                 }
                 if (!choqueArriba || choqueAbajo) {
-                    personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f);
+                    personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f*2);
                     choqueAbajo = false;
                 }
 

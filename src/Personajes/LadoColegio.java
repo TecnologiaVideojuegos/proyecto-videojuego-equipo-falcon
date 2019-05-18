@@ -11,22 +11,22 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class EscalerasColegio extends PersonajeGeneral {
+public class LadoColegio extends PersonajeGeneral {
 
 
-    public EscalerasColegio() {
+    public LadoColegio() {
         
-            sgb=13;
+            sgb=17;
             //Colocacion personaje
             this.coordenadaX =-1000;
             this.coordenadaY =-1000;
             
             //Creacion hitbox
-            hitbox = new Rectangle(420, 618, 55, 1);   
+            hitbox = new Rectangle(5, 0, 2, 800);   
     }
     @Override
     public void move() {
-        hitbox.setBounds(420, 618, 55, 1);  
+        hitbox.setBounds(5, 0, 2, 800);  
     }
     
     @Override

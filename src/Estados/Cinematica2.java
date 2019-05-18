@@ -20,11 +20,11 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author lucas
  */
-public class Cinematica0 extends BasicGameState {
+public class Cinematica2 extends BasicGameState {
 
     @Override
     public int getID() {
-        return 5;
+        return 18;
     }
     
     private String mapa1 = "Mapas\\MOVIE.tmx";
@@ -39,10 +39,10 @@ public class Cinematica0 extends BasicGameState {
     int contadorParpadeo = 20;
     int contadorTemporal = 0;
     
-    Bocadillo bocadilloB1 = new Bocadillo("Historia01");
-    Bocadillo bocadilloB2 = new Bocadillo("Historia02");
-    Bocadillo bocadilloB3 = new Bocadillo("Historia03");
-    Bocadillo bocadilloB4 = new Bocadillo("Historia04");
+    Bocadillo bocadilloB1 = new Bocadillo("Historia20");
+    Bocadillo bocadilloB2 = new Bocadillo("Historia21");
+    Bocadillo bocadilloB3 = new Bocadillo("Historia22");
+    Bocadillo bocadilloB4 = new Bocadillo("Historia23");
     Bocadillo bocadilloN1 = new Bocadillo("Historia05");
     Bocadillo bocadilloN2 = new Bocadillo("Historia06");
     Bocadillo bocadilloN3 = new Bocadillo("Historia07");
@@ -52,11 +52,10 @@ public class Cinematica0 extends BasicGameState {
     
     PersonajePrincipal personaje = new PersonajePrincipal();
 
-    public Cinematica0() {
+    public Cinematica2() {
         borde  = new Polygon(bordes1);
         salida = new Polygon(bordes2);
     }
-
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
@@ -79,8 +78,8 @@ public class Cinematica0 extends BasicGameState {
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
-
-        if(contadorTemporal > 1000) {
+        
+        if (contadorTemporal > 1000) {
         
         if (contadorTemporal < 2600) {
             bocadilloB1.dentroXY(100, 0);
@@ -119,7 +118,6 @@ public class Cinematica0 extends BasicGameState {
         
         }
     }
-
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
@@ -161,7 +159,8 @@ public class Cinematica0 extends BasicGameState {
                     if (!choqueDerecha || choqueIzquierda) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
                         if (personaje.getH3().intersects(salida)) {
-                            sbg.enterState(14);// --> MUNDO
+                            sbg.getState(2).init(gc, sbg);
+                            sbg.enterState(2);// --> BOSS2
                         }
                     }
                     choqueIzquierda = false;
@@ -174,3 +173,4 @@ public class Cinematica0 extends BasicGameState {
         }
     }
 }
+

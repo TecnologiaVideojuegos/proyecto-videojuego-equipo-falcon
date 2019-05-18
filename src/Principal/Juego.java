@@ -12,7 +12,12 @@ import Estados.Mundo;
 import Estados.BuhardillaInicial;
 import Estados.CasaInicial;
 import Estados.Cinematica1;
+import Estados.Cinematica2;
+import Estados.CinematicaPostBuhardilla;
+import Estados.CinematicaPostColegio;
+import Estados.CinematicaPostPlaya;
 import Estados.ColegioInicial;
+import Estados.PatioInicial;
 import Estados.PlayaFinal;
 import Estados.PlayaInicial;
 import java.util.logging.Level;
@@ -34,6 +39,7 @@ public class Juego extends StateBasedGame {
         super(name);
         try {
             contenedor = new AppGameContainer(this);
+            contenedor.setTargetFrameRate(400);
             contenedor.setDisplayMode(1504, 800, false);
             contenedor.start();
         } catch (SlickException ex) {
@@ -43,18 +49,23 @@ public class Juego extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        this.addState(new ColegioInicial());this.addState(new Mundo(0));
+        this.addState(new Cinematica2());
         this.addState(new CasaInicial());
+        this.addState(new PatioInicial());
+        this.addState(new PlayaFinal());
+        this.addState(new ColegioInicial());
+        this.addState(new Mundo(1));
         
-        this.addState(new Boss2());
+        this.addState(new CinematicaPostPlaya());
         this.addState(new Boss1());
-        
+        this.addState(new CinematicaPostBuhardilla());
+        this.addState(new CinematicaPostColegio());
+        this.addState(new Boss2());
         this.addState(new BuhardillaInicial());
         this.addState(new Cinematica0());
         this.addState(new PlayaInicial());
-        
         this.addState(new Cinematica1());
-        this.addState(new PlayaFinal());
+
     }
 
     /**

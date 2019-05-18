@@ -69,7 +69,7 @@ public class CasaInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-      int velocidad = 1;
+      int velocidad = 2;
         Input input = gc.getInput();
 
         if (input.isKeyDown(Input.KEY_W)) {

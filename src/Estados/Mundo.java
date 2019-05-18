@@ -17,6 +17,8 @@ import Mapas.Mapa7;
 import Mapas.Mapa9;
 import Mapas.MapaT;
 import Personajes.EscalerasColegio;
+import Personajes.LadoColegio;
+import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
@@ -58,9 +60,18 @@ public class Mundo extends BasicGameState {
     ArrayList<Rectangle> colisionNPCs;
     ArrayList<PersonajeGeneral> NPCs;
     
+    
+    PersonajeEstatico tendero1 = new PersonajeEstatico("right", 380,150,"bocadilloMarinero");
+    PersonajeEstatico tendero2 = new PersonajeEstatico("left", 420,150,"bocadilloMarinero");
+    
     //Elementos historia
-    private EscalerasColegio escaleras2 = new EscalerasColegio();
-
+    EscalerasColegio escaleras2 = new EscalerasColegio();
+    LadoColegio bordeH = new LadoColegio();
+    
+    public void setMundo(int num)
+    {
+        mapa_actual = mapas.get(num);
+    }
     public Mundo(int num) {
 
         mapas = new ArrayList<>();
@@ -89,8 +100,7 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        System.out.println("estoy en mundo"+i);
-        int velocidad = 1;
+        int velocidad = 3;
         Input input = gc.getInput();
         if(input.isKeyDown(Input.MOUSE_LEFT_BUTTON))
         {
@@ -125,6 +135,12 @@ public class Mundo extends BasicGameState {
                             mapa_actual.chMod();
                             NPCs.remove(NPCs.get(j));
                             colisionNPCs.remove(colisionNPCs.get(j));
+                            NPCs.add(bordeH);
+                            NPCs.add(tendero1);
+                            NPCs.add(tendero2);
+                            colisionNPCs.add(bordeH.getHitbox());
+                            colisionNPCs.add(tendero1.getHitbox());
+                            colisionNPCs.add(tendero2.getHitbox());
                     }
                     sbg.enterState(state);
                     }
@@ -163,10 +179,17 @@ public class Mundo extends BasicGameState {
                         int state = NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
                         if (state == 10) {
+                            
                             NPCs.remove(NPCs.get(j));
                             colisionNPCs.remove(colisionNPCs.get(j));
+                            personaje.setCoordenadaX(461);
+                            personaje.setCoordenadaY(125);
+                            mapa_actual.chMod();
                             NPCs.add(escaleras2);
                             colisionNPCs.add(escaleras2.getHitbox());
+                            mapa_actual = mapa2;
+                            mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
+                            
                         }
                         sbg.enterState(state);
                     }

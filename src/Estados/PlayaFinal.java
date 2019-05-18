@@ -76,7 +76,7 @@ public class PlayaFinal extends BasicGameState {
             contadorTemporal++;
         } else {
 
-            int velocidad = 1;
+            int velocidad = 2;
             Input input = gc.getInput();
             
 
@@ -98,7 +98,7 @@ public class PlayaFinal extends BasicGameState {
                     personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f * velocidad);
                     for (int n = 0; n < colisiones_salidas.size(); n++) {
                         if (personaje.getH1().intersects(colisiones_salidas.get(n))) {
-                            sbg.enterState(0); // --> MUNDO
+                            sbg.enterState(15); // --> MUNDO
                         }
                     }
                     choqueAbajo = false;
