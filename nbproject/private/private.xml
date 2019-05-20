@@ -8,46 +8,57 @@
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa10.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeCirculoL.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/ColegioInicial.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CinematicaPostPlaya.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa2.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeRightLeft.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa5.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CasaInicial.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/PatioFinal.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CinematicaPostCasa.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/Cinematica1.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa8.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeUpDown.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Corazones.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss1/Boss1.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa1.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Elementos/Bocadillo.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/MapaT.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/PatioInicial.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Principal/Juego.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa7.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/PlayaFinal.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Nave.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeMadre.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss1/Pelota.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa4.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PasoCompra.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa9.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CinematicaPostBuhardilla.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeEstatico.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/Mundo.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa3.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/Cinematica0.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa6.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Boss2.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajePrincipal.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeCirculoRapido.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CinematicaPostColegio.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Arresto.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeAtari.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss3/Defensa.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Elementos/Alerta.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/Cinematica2.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeGeneral.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss3/BbyMaton.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeProfesor.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss3/Boss3.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CinematicaPostPlaya.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CompraInicial.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/EscalerasCasa.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa5.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/CasaInicial.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeUpDown.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Corazones.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/PatioInicial.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/PlayaFinal.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Nave.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Mapas/Mapa4.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeEstatico.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/Cinematica0.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajePrincipal.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/Cinematica3.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/Menu.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss2/Arresto.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeAtari.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeAcosador.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/EscalerasPlaya.java</file>
-            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/PersonajeProfesor.java</file>
+            <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/EstadoBoss3/Ball.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Estados/PlayaInicial.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/EscalerasColegio.java</file>
             <file>file:/C:/Users/lucas/Documents/NetBeansProjects/VideoGame/src/Personajes/LadoColegio.java</file>

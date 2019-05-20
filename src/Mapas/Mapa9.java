@@ -12,7 +12,7 @@ import org.newdawn.slick.geom.Polygon;
 /**
  *
  * @author lucas
- * @mapa carretera central
+ * @mapa carretera arriba
  *
  */
 public class Mapa9 extends MapaT {

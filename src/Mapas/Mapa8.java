@@ -5,6 +5,7 @@
  */
 package Mapas;
 
+import Personajes.EscalerasCasa;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
@@ -42,7 +43,6 @@ public class Mapa8 extends MapaT {
     private float coord[] = new float[]{825, 640, 0, 720, 0, 0, 0 ,0};
     
     private ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
-    
     
     public Mapa8() {
         super();
@@ -110,4 +110,5 @@ public class Mapa8 extends MapaT {
     public float getMapas(int salida) {
         return mapas[salida];
     }
+    
 }

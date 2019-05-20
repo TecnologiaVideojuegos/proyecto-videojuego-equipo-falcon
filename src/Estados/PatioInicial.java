@@ -361,7 +361,9 @@ public class PatioInicial extends BasicGameState {
             historia=false;
         }
         else if(contadorTemporal1 > 1500 && contadorTemporal1 < 2500)
-        {   personaje.setDir("stance");
+        {   
+            personaje.setDir("left");
+            personaje.setDir("stance");
             if(niño1.getCoordenadaX()+32<personaje.getCoordenadaX())
             {   niño1.setDir("right");
                 
@@ -396,7 +398,9 @@ public class PatioInicial extends BasicGameState {
         }
         else if (contadorTemporal1 > 8900)
         {
-            sbg.enterState(18);
+            sbg.addState(new PatioFinal(personaje.getCoordenadaX(),personaje.getCoordenadaY()));
+            sbg.getState(19).init(gc, sbg);
+            sbg.enterState(19);
         }
     }
 

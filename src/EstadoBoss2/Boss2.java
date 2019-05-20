@@ -5,6 +5,7 @@
  */
 package EstadoBoss2;
 
+import Estados.PatioFinal;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -23,7 +24,7 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Boss2 extends BasicGameState {
 
     private String mapa1 = "Mapas\\boos3.tmx";
-    private float puntos1[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0};
+    private float puntos1[] = new float[]{50, 30, 800,30, 800, 780, 50, 780};
     private Polygon bordes;
     int mapaMov = 0;
     int a = 0, b = 0, c = 0, d = 0;
@@ -56,6 +57,7 @@ public class Boss2 extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         puntos = 0;
+        contadorMundo=0;
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje = new Nave();
         personaje.setCoordenadaX(150);
@@ -117,7 +119,7 @@ public class Boss2 extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         if (puntos > 80) {
-            sbg.enterState(0);
+            sbg.enterState(19);
         }
         Input input = gc.getInput();
         fase++;

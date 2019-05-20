@@ -16,8 +16,10 @@ import Mapas.Mapa8;
 import Mapas.Mapa7;
 import Mapas.Mapa9;
 import Mapas.MapaT;
+import Personajes.EscalerasCasa;
 import Personajes.EscalerasColegio;
 import Personajes.LadoColegio;
+import Personajes.PasoCompra;
 import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
@@ -67,6 +69,8 @@ public class Mundo extends BasicGameState {
     //Elementos historia
     EscalerasColegio escaleras2 = new EscalerasColegio();
     LadoColegio bordeH = new LadoColegio();
+    EscalerasCasa escaleras3 = new EscalerasCasa();
+    PasoCompra paso = new PasoCompra();
     
     public void setMundo(int num)
     {
@@ -102,9 +106,10 @@ public class Mundo extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 3;
         Input input = gc.getInput();
-        if(input.isKeyDown(Input.MOUSE_LEFT_BUTTON))
+        if(input.isKeyDown(Input.KEY_0))
         {
-            System.out.println(input.getMouseX()+","+input.getMouseX());
+            System.out.println("e");
+            mapa8.chMod();
         }
         colisiones_salidas = mapa_actual.getSalidas();
         colisiones_bordes = mapa_actual.getBordes();
@@ -141,6 +146,20 @@ public class Mundo extends BasicGameState {
                             colisionNPCs.add(bordeH.getHitbox());
                             colisionNPCs.add(tendero1.getHitbox());
                             colisionNPCs.add(tendero2.getHitbox());
+                            personaje.setDir("down");
+                    }
+                    if(state==22)
+                    {
+                         personaje.setDir("down");
+                         NPCs.remove(0);
+                         colisionNPCs.remove(0);
+                         PersonajeEstatico o1 = new PersonajeEstatico("down", 1390,340,"bocadilloMarinero");
+                         PersonajeEstatico o2 = new PersonajeEstatico("up",1390,380,"bocadilloMarinero");
+                         NPCs.add(o1);
+                         NPCs.add(o2);
+                         colisionNPCs.add(o1.getHitbox());
+                         colisionNPCs.add(o2.getHitbox());
+                         mapa9.getPersonajes().add(paso);
                     }
                     sbg.enterState(state);
                     }
@@ -228,6 +247,21 @@ public class Mundo extends BasicGameState {
                     if (NPCs.get(j).isSGB()) {
                         int state = NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
+                        if (state == 17) {
+                            
+                            NPCs.remove(NPCs.get(j));
+                            NPCs.remove(NPCs.get(j));
+                            NPCs.remove(NPCs.get(j));
+                            colisionNPCs.remove(colisionNPCs.get(j));
+                            colisionNPCs.remove(colisionNPCs.get(j));
+                            colisionNPCs.remove(colisionNPCs.get(j));
+                            personaje.setCoordenadaX(300);
+                            personaje.setCoordenadaY(690);
+                            mapa_actual = mapa8;
+                            mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
+                            mapa8.getPersonajes().add(escaleras3);
+                                    
+                        }
                         sbg.enterState(state);
                     }
                     choqueIzquierda = true;
@@ -264,6 +298,13 @@ public class Mundo extends BasicGameState {
                     if (NPCs.get(j).isSGB()) {
                         int state = NPCs.get(j).getSGB();
                         NPCs.get(j).notSGB();
+                        if(state==23)
+                        {
+                            NPCs.remove(0);
+                            colisionNPCs.remove(0);
+                            mapa8.getPersonajes().remove(0);
+                            mapa8.getPersonajes().remove(0);
+                        }
                         sbg.enterState(state);
                     }
                     choqueDerecha = true;

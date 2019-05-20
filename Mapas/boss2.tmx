@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" source="../Construccion Mapas/muros.tsx"/>
+ <tileset firstgid="5" source="../Construccion Mapas/muro2.tsx"/>
+ <tileset firstgid="9" source="../Construccion Mapas/oubliette_dungeon_big.tsx"/>
+ <tileset firstgid="589" source="../Construccion Mapas/zzD0-1.png.tsx"/>
+ <tileset firstgid="625" source="../Construccion Mapas/zzD0-4.png.tsx"/>
+ <tileset firstgid="661" source="../Construccion Mapas/zzD0-2.png.tsx"/>
+ <tileset firstgid="697" source="../Construccion Mapas/zzD0-3.png.tsx"/>
+ <tileset firstgid="733" source="../Construccion Mapas/Presentación1.tsx"/>
+ <tileset firstgid="1613" source="../Construccion Mapas/Presentación2.tsx"/>
+ <tileset firstgid="2493" source="../Construccion Mapas/oubliette_dungeon_big (1).tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3SSwqAMAwA0fhp7LndeAgv2woKrgoNtRg6i1kGHkkmEQmVbbmjYWowzLdjr8wyU0qNM9ixY8eOHTt27NjHsJ/O7U/e7G+/R7vXn8E+rn3JxYatHe1/SD/YYa+uWyUiv93KXBIAAA==
+  </data>
+ </layer>
+ <layer id="2" name="Capa de patrones 2" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtWVzUtUURiHX68zuXFc1c7+gySore5sU2ktNEEL+vArKBSzUtM+oAxSd0XhN1aQH2hC7Qo0QQvMIMeN5k7/g9z7XOZc5m2YO86o52o/ePDMOfec3zNzZ7wi/3fKHJFyuAQVTmxuPktkISt+zdFskWPZdj0SO7RDP14DMAhDTvyaSsZVcBmumPlV9qwp90LOLLLsntihHUbwegvv4L1yv8r4GlyHG2b+pBPDSzVn1lh2T+zQDh/4OwpjMK68ahnXQT3cdCRpujmzx7J7qo5JvKbgI0z7OOr8DYlshWLjT5z52bK77tDdqdLC+2iFNnig3lN+WOR4ODb+w5nrlt11h+52M4PXLHyDOeX4kPEjeAxP1Hwxe8+Y/SE+g3Aan8Neojt0t5t5vBbgO/xQjk8ZP4NOeK7mb7H3ttl/gjMLLLvrDt3tZhGvn7AEv5TjC8Zd0A09av4le1+Z/WWcWW7ZXXfobje/8VqGKKyk8Vv9wt6vZn87Z3ZYdtcdujuTjB8RmYAN9m6G/50LKl53pr3LXBuFXIiYfUG46w6ve7fu+rkatLsbt99z2c9zbcRWx2F3P5sjcg7OQwmUwgW4mBOseyoPvzSxdgea4S7cg/vQErC7n4f7vV/xcehlvQ/6YQAGYQiGA3b380jmfioicjoSf92QK9Jo0Ou23dP10KnkdZWae821bwyur7du2z2VR7J1v3j3z/M9kP8zeYYM4t2bqHou7MczYqckdiT7juyUdO+N7RwWDxvZBr0m1ABcEgAA
+  </data>
+ </layer>
+</map>

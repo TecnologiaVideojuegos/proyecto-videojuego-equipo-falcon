@@ -10,6 +10,7 @@ import Personajes.PersonajePrincipal;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
@@ -26,6 +27,8 @@ public class Cinematica0 extends BasicGameState {
     public int getID() {
         return 5;
     }
+    
+    Music cancion;
     
     private String mapa1 = "Mapas\\MOVIE.tmx";
     TiledMap mapa;
@@ -60,20 +63,20 @@ public class Cinematica0 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
+        cancion = new Music("\\MusicaDefinitiva\\1.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
         personaje.setDir("up");
         personaje.setDir("stance");
+        
+        
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
-        
         personaje.getDir().draw(personaje.getCoordenadaX(), personaje.getCoordenadaY());
         
         mapa.render(0, 0, 2);
@@ -125,7 +128,10 @@ public class Cinematica0 extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 1;
         Input input = gc.getInput();
-        
+        if(!cancion.playing())
+        {
+            cancion.play();
+        }
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
                 mapa = new TiledMap("Mapas\\mapa6.tmx", "\\Construccion Mapas\\");

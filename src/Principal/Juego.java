@@ -7,16 +7,21 @@ package Principal;
 
 import EstadoBoss1.Boss1;
 import EstadoBoss2.Boss2;
+import EstadoBoss3.Boss3;
 import Estados.Cinematica0;
 import Estados.Mundo;
 import Estados.BuhardillaInicial;
 import Estados.CasaInicial;
 import Estados.Cinematica1;
 import Estados.Cinematica2;
+import Estados.Cinematica3;
 import Estados.CinematicaPostBuhardilla;
+import Estados.CinematicaPostCasa;
 import Estados.CinematicaPostColegio;
 import Estados.CinematicaPostPlaya;
 import Estados.ColegioInicial;
+import Estados.CompraInicial;
+import Estados.Menu;
 import Estados.PatioInicial;
 import Estados.PlayaFinal;
 import Estados.PlayaInicial;
@@ -49,20 +54,25 @@ public class Juego extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        this.addState(new Cinematica2());
-        this.addState(new CasaInicial());
+        this.addState(new Boss2());this.addState(new Boss3());this.addState(new CasaInicial());
+        
+        this.addState(new CompraInicial());
+        this.addState(new Menu());
+        
+        this.addState(new Cinematica0());
         this.addState(new PatioInicial());
+        this.addState(new Cinematica2());
+        this.addState(new Cinematica3());
+        this.addState(new Mundo(1));
         this.addState(new PlayaFinal());
         this.addState(new ColegioInicial());
-        this.addState(new Mundo(1));
-        
+        this.addState(new CinematicaPostCasa());
         this.addState(new CinematicaPostPlaya());
         this.addState(new Boss1());
         this.addState(new CinematicaPostBuhardilla());
         this.addState(new CinematicaPostColegio());
-        this.addState(new Boss2());
+        
         this.addState(new BuhardillaInicial());
-        this.addState(new Cinematica0());
         this.addState(new PlayaInicial());
         this.addState(new Cinematica1());
 
