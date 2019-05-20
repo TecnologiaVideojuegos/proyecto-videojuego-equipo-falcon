@@ -18,3 +18,7 @@ Lucas
   -Sprites: niña, marinero, acosador
   -Bosses y adiccionales: pelota Boss1, corazones Boss3, nave Boss3, proyectiles Boss3
   -Animaciones de historia
+ 
+Alvaro:
+  -Musica : Toda
+  -Encargado de la realización de la memoria.
