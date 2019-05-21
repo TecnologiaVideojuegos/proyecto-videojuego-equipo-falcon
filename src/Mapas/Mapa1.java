@@ -6,9 +6,10 @@
 package Mapas;
 
 import Personajes.PersonajeUpDown;
-import Personajes.PersonajeEstatico;
 import Personajes.PersonajeCirculoR;
 import Personajes.PersonajeCirculoL;
+import Personajes.PersonajeEstatico;
+import Personajes.PersonajeEstaticoA;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;
@@ -42,12 +43,12 @@ public class Mapa1 extends MapaT {
     private final float coordenadas_aparicion[] = new float[]{0, 720, 0, 0, 1438, 0, 0, 0};
 
     private final ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
-    PersonajeUpDown marinero1 = new PersonajeUpDown(1160, 480,"bocadilloMarinero");
-    PersonajeEstatico marinero2 = new PersonajeEstatico("left", 920, 150,"bocadilloMarinero");
-    PersonajeEstatico marinero3 = new PersonajeEstatico("right", 880, 150,"bocadilloMarinero");
-    PersonajeEstatico marinero4 = new PersonajeEstatico("up", 1050, 130,"bocadilloMarinero");
-    PersonajeCirculoR bully4 = new PersonajeCirculoR(580, 350,"bocadilloMaton");
-    PersonajeCirculoL bully5 = new PersonajeCirculoL(200, 300,"bocadilloMaton");
+    PersonajeUpDown marinero1 = new PersonajeUpDown(1160, 480,"M1","Marinero");
+    PersonajeEstaticoA marinero2 = new PersonajeEstaticoA("left", 920, 150,"T0","Tendero3");
+    PersonajeEstaticoA marinero3 = new PersonajeEstaticoA("right", 880, 150,"T3","Tendero4");
+    PersonajeEstatico marinero4 = new PersonajeEstatico("up", 1050, 130,"M3","Marinero");
+    PersonajeCirculoR anciano1 = new PersonajeCirculoR(580, 350,"V0","Anciano2");
+    PersonajeCirculoL anciano2 = new PersonajeCirculoL(200, 300,"V1","Anciano1");
     
     
 
@@ -58,8 +59,8 @@ public class Mapa1 extends MapaT {
         personajes.add(marinero2);
         personajes.add(marinero3);
         personajes.add(marinero4);
-        personajes.add(bully4);
-        personajes.add(bully5);
+        personajes.add(anciano1);
+        personajes.add(anciano2);
         
         puntos_bordes     = new ArrayList<>();
         colisiones_bordes = new ArrayList<>();

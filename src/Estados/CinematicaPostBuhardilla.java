@@ -5,8 +5,11 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
+import EstadoBoss1.Boss1;
 import Personajes.PersonajePrincipal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -14,6 +17,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -27,13 +32,13 @@ public class CinematicaPostBuhardilla extends BasicGameState {
         return 14;
     }
 
-    Bocadillo bocadilloB1 = new Bocadillo("ini0");
-    Bocadillo bocadilloB2 = new Bocadillo("ini1");
-    Bocadillo bocadilloB3 = new Bocadillo("ini2");
-    Bocadillo bocadilloB4 = new Bocadillo("ini3");
-    Bocadillo bocadilloB5 = new Bocadillo("ini4");
-    Bocadillo bocadilloB6 = new Bocadillo("ini5");
-    Bocadillo bocadilloB7 = new Bocadillo("ini6");
+    Historia bocadilloB1 = new Historia("ini0");
+    Historia bocadilloB2 = new Historia("ini1");
+    Historia bocadilloB3 = new Historia("ini2");
+    Historia bocadilloB4 = new Historia("ini3");
+    Historia bocadilloB5 = new Historia("ini4");
+    Historia bocadilloB6 = new Historia("ini5");
+    Historia bocadilloB7 = new Historia("ini6");
 
     int contadorTemporal = 0;
 
@@ -70,14 +75,20 @@ public class CinematicaPostBuhardilla extends BasicGameState {
             bocadilloB7.dentroXY(100, 0);
             bocadilloB7.getImagen().draw(bocadilloB7.getCoordenadaX(), bocadilloB7.getCoordenadaY());
         } else {
-            sbg.enterState(0);
+            try {
+                sbg.enterState(0, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if (contadorTemporal < 19000) {
+        if (contadorTemporal < 19001) {
             contadorTemporal++;
         }
     }

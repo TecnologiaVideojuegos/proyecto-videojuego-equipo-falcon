@@ -19,7 +19,7 @@ public class Bocadillo {
 
     public Bocadillo(String nombre) {
         try {
-            foto = new Image("\\Elementos Aparte\\"+nombre+".png");
+            foto = new Image("\\Elementos Aparte\\Bocadillos\\"+nombre+".png");
         } catch (SlickException ex) {
         }
     }

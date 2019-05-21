@@ -5,9 +5,9 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
 import Personajes.PersonajeAcosador;
-import Personajes.PersonajeCirculoRapido;
+import Personajes.PersonajeEstaticoA;
 import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
@@ -56,27 +56,33 @@ public class CompraInicial extends BasicGameState {
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
 
-    PersonajeEstatico tendero1 = new PersonajeEstatico("right", 380,180,"bocadilloMarinero");
-    PersonajeEstatico tendero2 = new PersonajeEstatico("left", 420,180,"bocadilloMarinero");
+   
+    PersonajeEstaticoA tendero1 = new PersonajeEstaticoA("right", 380,180,"T1","Tendero1");
+    PersonajeEstaticoA tendero2 = new PersonajeEstaticoA("left", 420,180,"T2","Tendero2");
     
-    PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750,280,"bocadilloMarinero");
-    PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750,320,"bocadilloMarinero");
-    PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470,"bocadilloMarinero");
-    PersonajeEstatico adulto5 = new PersonajeEstatico("right",50, 510,"bocadilloMarinero");
-    PersonajeEstatico adulto6 = new PersonajeEstatico("right",625, 500,"bocadilloMarinero");
+    PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750,280,"A0","Adulto5");
+    PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750,320,"A1","Adulto3");
+    PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470,"A2","Adulto1");
+    PersonajeEstatico adulto5 = new PersonajeEstatico("right",50, 510,"Af0","Adulto2");
     
-    PersonajeAcosador bully1 = new PersonajeAcosador("down", 1000, 550,"bocadilloMarinero");
-    PersonajeAcosador bully2 = new PersonajeAcosador("up", 1000, 610,"bocadilloMarinero");
-    PersonajeAcosador bully3 = new PersonajeAcosador("right", 960, 580,"bocadilloMarinero");
-    PersonajeAcosador bully4 = new PersonajeAcosador("left", 1040, 580,"bocadilloMarinero");
+    PersonajeAcosador bully1 = new PersonajeAcosador("down", 1000, 550,"B0","Maton1");
+    PersonajeAcosador bully2 = new PersonajeAcosador("up", 1000, 610,"B0","Maton2");
+    PersonajeAcosador bully3 = new PersonajeAcosador("right", 960, 580,"B0","Maton3");
+    PersonajeAcosador bully4 = new PersonajeAcosador("left", 1040, 580,"B0","Maton4");
+    
+    PersonajeEstatico adulto7 = new PersonajeEstatico("right",625, 500,"M2","Marinero");
+    PersonajeEstatico adulto8 = new PersonajeEstatico("left", 750, 500,"M0","Marinero");
 
     boolean historia = false;
-    int contadorTemporal1 = -1500, contadorTemporal2 = 0;
-    Bocadillo b0 = new Bocadillo("Historia10");
-    Bocadillo b1 = new Bocadillo("Historia11");
-    Bocadillo b2 = new Bocadillo("Historia12");
-    Bocadillo b3 = new Bocadillo("Historia13");
-    Bocadillo b4 = new Bocadillo("Historia15");
+    int contadorTemporal1 = -5700, contadorTemporal2 = 0;
+    Historia b0 = new Historia("Historia70");
+    Historia b1 = new Historia("Historia71");
+    Historia b2 = new Historia("Historia72");
+    Historia b3 = new Historia("Historia73");
+    Historia b4 = new Historia("Historia74");
+    Historia b5 = new Historia("Historia75");
+    Historia b6 = new Historia("Historia76");
+    Historia b7 = new Historia("Historia77");
 
     public CompraInicial() {
         colisiones_bordes = new ArrayList<>();
@@ -98,7 +104,6 @@ public class CompraInicial extends BasicGameState {
         NPCs.add(adulto2);
         NPCs.add(adulto3);
         NPCs.add(adulto5);
-        NPCs.add(adulto6);
         NPCs.add(bully1);
         NPCs.add(bully2);
         NPCs.add(bully3);
@@ -154,9 +159,21 @@ public class CompraInicial extends BasicGameState {
         }
 
         //HISTORIA
-        if (contadorTemporal1 > -1400 && contadorTemporal1 < 0) {
+        if (contadorTemporal1 > -5600 && contadorTemporal1 < -4200) {
             b0.dentro();
             b0.getImagen().draw(b0.getCoordenadaX(), b0.getCoordenadaY());
+            personaje.setDir("stance");
+        } else if (contadorTemporal1 > -4200 && contadorTemporal1 < -2800) {
+            b1.dentro();
+            b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
+            personaje.setDir("stance");
+        } else if (contadorTemporal1 > -2800 && contadorTemporal1 < -1400) {
+            b2.dentro();
+            b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
+            personaje.setDir("stance");
+        } else if (contadorTemporal1 > -1400 && contadorTemporal1 < 0) {
+            b3.dentro();
+            b3.getImagen().draw(b3.getCoordenadaX(), b3.getCoordenadaY());
             personaje.setDir("stance");
         } else if(contadorTemporal1 > 0 && contadorTemporal1 < 2500)
         {   
@@ -187,20 +204,20 @@ public class CompraInicial extends BasicGameState {
             bully4.getDir().update(contadorTemporal1%7);
         }else if(contadorTemporal1 > 2500 && contadorTemporal1 < 4100)
         {   
-            b1.dentro();
-            b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
-        }else if(contadorTemporal1 > 4100 && contadorTemporal1 < 5700)
-        {   
-            b2.dentro();
-            b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
-        }else if(contadorTemporal1 > 5700 && contadorTemporal1 < 7300)
-        {   
-            b3.dentro();
-            b3.getImagen().draw(b3.getCoordenadaX(), b3.getCoordenadaY());
-        }else if(contadorTemporal1 > 7300 && contadorTemporal1 < 8900)
-        {   
             b4.dentro();
             b4.getImagen().draw(b4.getCoordenadaX(), b4.getCoordenadaY());
+        }else if(contadorTemporal1 > 4100 && contadorTemporal1 < 5700)
+        {   
+            b5.dentro();
+            b5.getImagen().draw(b5.getCoordenadaX(), b5.getCoordenadaY());
+        }else if(contadorTemporal1 > 5700 && contadorTemporal1 < 7300)
+        {   
+            b6.dentro();
+            b6.getImagen().draw(b6.getCoordenadaX(), b6.getCoordenadaY());
+        }else if(contadorTemporal1 > 7300 && contadorTemporal1 < 8900)
+        {   
+            b7.dentro();
+            b7.getImagen().draw(b7.getCoordenadaX(), b7.getCoordenadaY());
         }
         else if (contadorTemporal1 > 8900)
         {

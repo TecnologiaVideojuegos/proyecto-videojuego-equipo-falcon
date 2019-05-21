@@ -19,7 +19,7 @@ public class PersonajeUpDown extends PersonajeGeneral {
 
     Animation up, down;
     
-    public PersonajeUpDown(float x, float y,String texto) {
+    public PersonajeUpDown(float x, float y,String texto,String personaje) {
         try {
             
             //Colocacion personaje
@@ -30,16 +30,16 @@ public class PersonajeUpDown extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones movimiento
-            Image[] movementUp = {new Image("ImagenesSprite\\Marinero\\up1.png"), new Image("ImagenesSprite\\Marinero\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\Marinero\\down1.png"), new Image("ImagenesSprite\\Marinero\\down2.png")};
+            Image[] movementUp = {new Image("ImagenesSprite\\"+personaje+"\\up1.png"), new Image("ImagenesSprite\\"+personaje+"\\up2.png")};
+            Image[] movementDown = {new Image("ImagenesSprite\\"+personaje+"\\down1.png"), new Image("ImagenesSprite\\"+personaje+"\\down2.png")};
             up = new Animation(movementUp, duration, false);
             down = new Animation(movementDown, duration, false);
 
             //Animaciones parado
-            Image[] stanceDown = {new Image("ImagenesSprite\\Marinero\\down0.png"), new Image("ImagenesSprite\\Marinero\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\Marinero\\up0.png"), new Image("ImagenesSprite\\Marinero\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\Marinero\\izq0.png"), new Image("ImagenesSprite\\Marinero\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\Marinero\\der0.png"), new Image("ImagenesSprite\\Marinero\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\"+personaje+"\\up0.png"), new Image("ImagenesSprite\\"+personaje+"\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
             sup = new Animation(stanceUp, duration, false);
             sdown = new Animation(stanceDown, duration, false);
             sleft = new Animation(stanceLeft, duration, false);

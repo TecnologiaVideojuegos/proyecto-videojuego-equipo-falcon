@@ -5,7 +5,7 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
 import Personajes.PersonajePrincipal;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -27,9 +27,7 @@ public class Cinematica0 extends BasicGameState {
     public int getID() {
         return 5;
     }
-    
-    Music cancion;
-    
+        
     private String mapa1 = "Mapas\\MOVIE.tmx";
     TiledMap mapa;
     
@@ -42,18 +40,20 @@ public class Cinematica0 extends BasicGameState {
     int contadorParpadeo = 20;
     int contadorTemporal = 0;
     
-    Bocadillo bocadilloB1 = new Bocadillo("Historia01");
-    Bocadillo bocadilloB2 = new Bocadillo("Historia02");
-    Bocadillo bocadilloB3 = new Bocadillo("Historia03");
-    Bocadillo bocadilloB4 = new Bocadillo("Historia04");
-    Bocadillo bocadilloN1 = new Bocadillo("Historia05");
-    Bocadillo bocadilloN2 = new Bocadillo("Historia06");
-    Bocadillo bocadilloN3 = new Bocadillo("Historia07");
-    Bocadillo bocadilloN4 = new Bocadillo("Historia08");
+    Historia bocadilloB1 = new Historia("Historia01");
+    Historia bocadilloB2 = new Historia("Historia02");
+    Historia bocadilloB3 = new Historia("Historia03");
+    Historia bocadilloB4 = new Historia("Historia04");
+    Historia bocadilloN1 = new Historia("Historia05");
+    Historia bocadilloN2 = new Historia("Historia06");
+    Historia bocadilloN3 = new Historia("Historia07");
+    Historia bocadilloN4 = new Historia("Historia08");
     
     Boolean choqueIzquierda = false, choqueDerecha = false;
     
     PersonajePrincipal personaje = new PersonajePrincipal();
+
+    Music musica;
 
     public Cinematica0() {
         borde  = new Polygon(bordes1);
@@ -63,13 +63,12 @@ public class Cinematica0 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        cancion = new Music("\\MusicaDefinitiva\\1.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
         personaje.setDir("up");
         personaje.setDir("stance");
-        
+        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\boss0.wav");
         
     }
 
@@ -128,13 +127,15 @@ public class Cinematica0 extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 1;
         Input input = gc.getInput();
-        if(!cancion.playing())
+        if(!musica.playing())
         {
-            cancion.play();
+        musica.setVolume((float)0.1);
+            musica.setPosition(15);
+            musica.play();
         }
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
-                mapa = new TiledMap("Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
+                mapa = new TiledMap("Mapas\\mapa3.tmx", "\\Construccion Mapas\\");
             } else {
                 mapa = new TiledMap("Mapas\\boss0.tmx", "\\Construccion Mapas\\");
             }

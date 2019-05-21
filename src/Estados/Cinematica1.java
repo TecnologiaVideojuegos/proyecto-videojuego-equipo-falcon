@@ -5,15 +5,21 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
+import EstadoBoss1.Boss1;
 import Personajes.PersonajePrincipal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -26,40 +32,40 @@ public class Cinematica1 extends BasicGameState {
     public int getID() {
         return 11;
     }
-    
+
     private String mapa1 = "Mapas\\MOVIE.tmx";
     TiledMap mapa;
-    
+
     private float bordes1[] = new float[]{512, 410, 512, 700, 510, 700, 510, 410};
     Polygon borde;
-    
+
     private float bordes2[] = new float[]{896, 110, 896, 700, 898, 700, 898, 110};
     Polygon salida;
-    
+
     int contadorParpadeo = 20;
     int contadorTemporal = 0;
-    
-    Bocadillo bocadilloB1 = new Bocadillo("Historia20");
-    Bocadillo bocadilloB2 = new Bocadillo("Historia21");
-    Bocadillo bocadilloB3 = new Bocadillo("Historia22");
-    Bocadillo bocadilloB4 = new Bocadillo("Historia23");
-    Bocadillo bocadilloN1 = new Bocadillo("Historia05");
-    Bocadillo bocadilloN2 = new Bocadillo("Historia06");
-    Bocadillo bocadilloN3 = new Bocadillo("Historia07");
-    Bocadillo bocadilloN4 = new Bocadillo("Historia08");
-    
+
+    Historia bocadilloB1 = new Historia("Historia20");
+    Historia bocadilloB2 = new Historia("Historia21");
+    Historia bocadilloB3 = new Historia("Historia22");
+    Historia bocadilloB4 = new Historia("Historia23");
+    Historia bocadilloN1 = new Historia("Historia24");
+    Historia bocadilloN2 = new Historia("Historia25");
+    Historia bocadilloN3 = new Historia("Historia26");
+    Historia bocadilloN4 = new Historia("Historia27");
+
     Boolean choqueIzquierda = false, choqueDerecha = false;
-    
+    Music musica;
     PersonajePrincipal personaje = new PersonajePrincipal();
 
     public Cinematica1() {
-        borde  = new Polygon(bordes1);
+        borde = new Polygon(bordes1);
         salida = new Polygon(bordes2);
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
+        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\boss0.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
@@ -72,50 +78,43 @@ public class Cinematica1 extends BasicGameState {
 
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
-        
+
         personaje.getDir().draw(personaje.getCoordenadaX(), personaje.getCoordenadaY());
-        
+
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
-        
+
         if (contadorTemporal > 1000) {
-        
-        if (contadorTemporal < 2600) {
-            bocadilloB1.dentroXY(100, 0);
-            bocadilloB1.getImagen().draw(bocadilloB1.getCoordenadaX(), bocadilloB1.getCoordenadaY());
-        }
-        else if (contadorTemporal < 4200) {
-            bocadilloN1.dentro();
-            bocadilloN1.getImagen().draw(bocadilloN1.getCoordenadaX(), bocadilloN1.getCoordenadaY());
-        }  
-        else if (contadorTemporal < 5800) {
-            bocadilloB2.dentroXY(100, 0);
-            bocadilloB2.getImagen().draw(bocadilloB2.getCoordenadaX(), bocadilloB2.getCoordenadaY());
-        }  
-        else if (contadorTemporal < 7400) {
-            bocadilloN2.dentro();
-            bocadilloN2.getImagen().draw(bocadilloN2.getCoordenadaX(), bocadilloN2.getCoordenadaY());
-        }
-        else if (contadorTemporal < 9000) {
-            bocadilloB3.dentroXY(100, 0);
-            bocadilloB3.getImagen().draw(bocadilloB3.getCoordenadaX(), bocadilloB3.getCoordenadaY());
-        } 
-         else if (contadorTemporal < 10600) {
-            bocadilloN3.dentro();
-            bocadilloN3.getImagen().draw(bocadilloN3.getCoordenadaX(), bocadilloN3.getCoordenadaY());
-        } 
-        else if (contadorTemporal < 12200) {
-           bocadilloB4.dentroXY(100, 0);
-           bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
-        }
-        else if (contadorTemporal < 13800) {
-            bocadilloN4.dentro();
-            bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
-        } else {
-            mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");
-        }
-        
+
+            if (contadorTemporal < 2600) {
+                bocadilloB1.dentroXY(100, 0);
+                bocadilloB1.getImagen().draw(bocadilloB1.getCoordenadaX(), bocadilloB1.getCoordenadaY());
+            } else if (contadorTemporal < 4200) {
+                bocadilloN1.dentro();
+                bocadilloN1.getImagen().draw(bocadilloN1.getCoordenadaX(), bocadilloN1.getCoordenadaY());
+            } else if (contadorTemporal < 5800) {
+                bocadilloB2.dentroXY(100, 0);
+                bocadilloB2.getImagen().draw(bocadilloB2.getCoordenadaX(), bocadilloB2.getCoordenadaY());
+            } else if (contadorTemporal < 7400) {
+                bocadilloN2.dentro();
+                bocadilloN2.getImagen().draw(bocadilloN2.getCoordenadaX(), bocadilloN2.getCoordenadaY());
+            } else if (contadorTemporal < 9000) {
+                bocadilloB3.dentroXY(100, 0);
+                bocadilloB3.getImagen().draw(bocadilloB3.getCoordenadaX(), bocadilloB3.getCoordenadaY());
+            } else if (contadorTemporal < 10600) {
+                bocadilloN3.dentro();
+                bocadilloN3.getImagen().draw(bocadilloN3.getCoordenadaX(), bocadilloN3.getCoordenadaY());
+            } else if (contadorTemporal < 12200) {
+                bocadilloB4.dentroXY(100, 0);
+                bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
+            } else if (contadorTemporal < 13800) {
+                bocadilloN4.dentro();
+                bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
+            } else {
+                mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");
+            }
+
         }
     }
 
@@ -123,7 +122,11 @@ public class Cinematica1 extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 1;
         Input input = gc.getInput();
-        
+        if (!musica.playing()) {
+        musica.setVolume((float) 0.1);
+            musica.setPosition(15);
+            musica.play();
+        }
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
                 mapa = new TiledMap("Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
@@ -132,10 +135,9 @@ public class Cinematica1 extends BasicGameState {
             }
             contadorParpadeo--;
         } else {
-            if(contadorTemporal<13850)
+            if (contadorTemporal < 13850) {
                 contadorTemporal++;
-            else
-            {
+            } else {
                 if (input.isKeyDown(Input.KEY_A)) {
                     personaje.setDir("left");
                     personaje.getDir().update(i);
@@ -159,12 +161,17 @@ public class Cinematica1 extends BasicGameState {
                     if (!choqueDerecha || choqueIzquierda) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
                         if (personaje.getH3().intersects(salida)) {
-                            sbg.enterState(1);// --> BOSS1
+                            try {
+                                sbg.enterState(1, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                            } catch (InstantiationException ex) {
+                                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                            }// --> BOSS1
                         }
                     }
                     choqueIzquierda = false;
-                }
-                else {
+                } else {
                     personaje.setDir("stance");
                     personaje.getDir().update(i);
                 }
@@ -172,4 +179,3 @@ public class Cinematica1 extends BasicGameState {
         }
     }
 }
-

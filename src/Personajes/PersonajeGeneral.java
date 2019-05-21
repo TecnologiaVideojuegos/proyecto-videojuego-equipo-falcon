@@ -23,7 +23,7 @@ public class PersonajeGeneral {
     int[] duration = {200, 200};
     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
     Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo("bocadilloAnciano");
+    Bocadillo bocadillo = new Bocadillo("V0");
     int desplazamiento = 0;
     Alerta alerta = new Alerta();
     int sgb;

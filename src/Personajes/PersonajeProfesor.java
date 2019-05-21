@@ -5,6 +5,7 @@
  */
 package Personajes;
 
+import Elementos.Bocadillo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.Animation;
@@ -20,7 +21,7 @@ public class PersonajeProfesor extends PersonajeGeneral{
     int[] duration = {1500, 100, 100, 100, 100, 1100};
     public PersonajeProfesor() {
         try {
-            
+            bocadillo =  new Bocadillo("Profesor");
             sgb=-1;
             coordenadaX=900;
             coordenadaY=20;

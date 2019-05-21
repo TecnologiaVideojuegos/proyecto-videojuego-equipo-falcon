@@ -5,15 +5,21 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
+import EstadoBoss1.Boss1;
 import Personajes.PersonajePrincipal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -39,17 +45,17 @@ public class Cinematica3 extends BasicGameState {
     int contadorParpadeo = 20;
     int contadorTemporal = 0;
 
-    Bocadillo bocadilloB1 = new Bocadillo("Historia20");
-    Bocadillo bocadilloB2 = new Bocadillo("Historia21");
-    Bocadillo bocadilloB3 = new Bocadillo("Historia22");
-    Bocadillo bocadilloB4 = new Bocadillo("Historia23");
-    Bocadillo bocadilloN1 = new Bocadillo("Historia05");
-    Bocadillo bocadilloN2 = new Bocadillo("Historia06");
-    Bocadillo bocadilloN3 = new Bocadillo("Historia07");
-    Bocadillo bocadilloN4 = new Bocadillo("Historia08");
+    Historia bocadilloB1 = new Historia("Historia20");
+    Historia bocadilloB2 = new Historia("Historia21");
+    Historia bocadilloB3 = new Historia("Historia22");
+    Historia bocadilloB4 = new Historia("Historia23");
+    Historia bocadilloN1 = new Historia("Historia05");
+    Historia bocadilloN2 = new Historia("Historia06");
+    Historia bocadilloN3 = new Historia("Historia07");
+    Historia bocadilloN4 = new Historia("Historia08");
 
     Boolean choqueIzquierda = false, choqueDerecha = false;
-
+Music musica;
     PersonajePrincipal personaje = new PersonajePrincipal();
 
     public Cinematica3() {
@@ -59,7 +65,7 @@ public class Cinematica3 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
+        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\boss0.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
@@ -116,10 +122,16 @@ public class Cinematica3 extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 1;
         Input input = gc.getInput();
-
+if(!musica.playing())
+        {
+            musica.setPosition(15);
+            musica.setVolume((float)0.1);
+            musica.play();
+        }
+        
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
-                mapa = new TiledMap("Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
+                mapa = new TiledMap("Mapas\\mapa4.tmx", "\\Construccion Mapas\\");
             } else {
                 mapa = new TiledMap("Mapas\\boss0.tmx", "\\Construccion Mapas\\");
             }
@@ -156,7 +168,13 @@ public class Cinematica3 extends BasicGameState {
                             personaje.setDir("up");
                             personaje.setDir("stance");
                             sbg.getState(20).init(gc, sbg);
-                            sbg.enterState(20);// --> BOSS3
+                            try {
+                                sbg.enterState(20, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                            } catch (InstantiationException ex) {
+                                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                            }// --> BOSS3
                         }
                     }
                     choqueIzquierda = false;

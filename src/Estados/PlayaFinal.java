@@ -5,7 +5,7 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeProfesor;
 import java.util.ArrayList;
@@ -42,11 +42,11 @@ public class PlayaFinal extends BasicGameState {
     private PersonajeProfesor profesor;
 
     int contadorTemporal = 0;
-    Bocadillo bocadillo10 = new Bocadillo("Historia30");
-    Bocadillo bocadillo11 = new Bocadillo("Historia31");
-    Bocadillo bocadillo12 = new Bocadillo("Historia32");
-    Bocadillo bocadillo13 = new Bocadillo("Historia33");
-    Bocadillo bocadillo14 = new Bocadillo("Historia34");
+    Historia bocadillo10 = new Historia("Historia30");
+    Historia bocadillo11 = new Historia("Historia31");
+    Historia bocadillo12 = new Historia("Historia32");
+    Historia bocadillo13 = new Historia("Historia33");
+    Historia bocadillo14 = new Historia("Historia34");
 
     public PlayaFinal() {
         colisiones_bordes = new ArrayList<>();

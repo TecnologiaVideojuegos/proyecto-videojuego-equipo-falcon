@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" source="../Construccion Mapas/oubliette_dungeon_big.tsx"/>
+ <tileset firstgid="581" source="../Construccion Mapas/muro2.tsx"/>
+ <tileset firstgid="585" source="../Construccion Mapas/muros.tsx"/>
+ <tileset firstgid="589" source="../Construccion Mapas/BossHola-3.png-1.png.tsx"/>
+ <tileset firstgid="607" source="../Construccion Mapas/BossHola-1.png.tsx"/>
+ <tileset firstgid="1782" source="../Construccion Mapas/Presentación4.tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3RSwqAMAwA0SB4By9kf3poj2YLddNVCqYQmMUQuntJ8yZyOqzUYu1RtsuaNJYwac99Z8tZlJZZe+y3/3Mewzs4so8TO3bs2LFjx44dO3bs2D3br1oynreRvd1mRVr7t7O32v+87a3GY1wSAAA=
+  </data>
+ </layer>
+ <layer id="2" name="Capa de patrones 2" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtXXSU4CQRTG8QpRoWWr4nAFxQuIKO5FE4fEYYcja0/gFuerOHsVcbyIf2P1hsCrSsfuenzJb0clj+6vK3nG9HdGCsaMYgwljGMCk5jCaZT9TMs5Y+pYwWqu9+/mmK+CeVSxgEXUsBRo9jXmXccGNoXZG8y3h30c4BBHOEbTyjpbzLuNHewKs7eY7QznuMAlrnCNGytkpP7cMtsd7vGARzzhGS9WyEj9eWW2Nt7wjg984gvfVshI/RngWxzEEPIoIMIwilbW8b1nTvJ/4tl9z6UZ33tmmnlnUMZs5H8uzfjeM/91Lq1o6EHSSD3Q/r+kHmjod2d8n6e2fv8m6fPU0KGkz1Njh3yjoUOunUJzXDtFHA397oxrp4ijsd+unSJOt36HfheunUJK6Hfh2imkhL5rXDtFv+cHm2PVClwSAAA=
+  </data>
+ </layer>
+</map>

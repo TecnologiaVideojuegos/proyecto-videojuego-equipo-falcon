@@ -38,20 +38,20 @@ public class Mapa6 extends MapaT {
     
     private ArrayList<PersonajeGeneral> personajes = new ArrayList<>();
    
-    PersonajeEstatico niño1  = new PersonajeEstatico("up"   , 970, 680, "bocadilloNiño1");
-    PersonajeEstatico niño2  = new PersonajeEstatico("up"   , 930, 680, "bocadilloNiño2");
-    PersonajeEstatico niño3  = new PersonajeEstatico("up"   , 890, 680, "bocadilloNiño3");
-    PersonajeEstatico niño4  = new PersonajeEstatico("left" , 850, 680, "bocadilloNiño4");
-    PersonajeEstatico niño5  = new PersonajeEstatico("left" , 810, 680, "bocadilloNiño5");
-    PersonajeEstatico niño6  = new PersonajeEstatico("up"   , 770, 680, "bocadilloNiño6");
-    PersonajeEstatico niño7  = new PersonajeEstatico("right", 730, 680, "bocadilloNiño7");
-    PersonajeEstatico niño8  = new PersonajeEstatico("left" , 690, 680, "bocadilloNiño8");
-    PersonajeEstatico niño9  = new PersonajeEstatico("left" , 650, 680, "bocadilloNiño9");
-    PersonajeEstatico niño10 = new PersonajeEstatico("up"   , 610, 680, "bocadilloNiño10");
-    PersonajeEstatico niño11 = new PersonajeEstatico("right", 570, 680, "bocadilloNiño11");
-    PersonajeEstatico niño12 = new PersonajeEstatico("left" , 530, 680, "bocadilloNiño12");
-    PersonajeEstatico niño13 = new PersonajeEstatico("right", 490, 680, "bocadilloNiño13");
-    PersonajeEstatico niño14 = new PersonajeEstatico("left" , 450, 680, "bocadilloNiño14");
+    PersonajeEstatico niño1  = new PersonajeEstatico("up"   , 970, 680, "N1","Niño1");
+    PersonajeEstatico niño2  = new PersonajeEstatico("up"   , 930, 680, "N2","Niño2");
+    PersonajeEstatico niño3  = new PersonajeEstatico("up"   , 890, 680, "N3","Niño3");
+    PersonajeEstatico niño4  = new PersonajeEstatico("left" , 850, 680, "N4","Niño4");
+    PersonajeEstatico niño5  = new PersonajeEstatico("left" , 810, 680, "N5","Niño5");
+    PersonajeEstatico niño6  = new PersonajeEstatico("up"   , 770, 680, "N6","Niño6");
+    PersonajeEstatico niño7  = new PersonajeEstatico("right", 730, 680, "N7","Niño7");
+    PersonajeEstatico niño8  = new PersonajeEstatico("left" , 690, 680, "N8","Niño8");
+    PersonajeEstatico niño9  = new PersonajeEstatico("left" , 650, 680, "N9","Niño9");
+    PersonajeEstatico niño10 = new PersonajeEstatico("up"   , 610, 680, "N10","Niño10");
+    PersonajeEstatico niño11 = new PersonajeEstatico("right", 570, 680, "N11","Niño11");
+    PersonajeEstatico niño12 = new PersonajeEstatico("left" , 530, 680, "N12","Niño4");
+    PersonajeEstatico niño13 = new PersonajeEstatico("right", 490, 680, "N13","Niño1");
+    PersonajeEstatico niño14 = new PersonajeEstatico("left" , 450, 680, "N2","Niño8");
     
     
     public Mapa6() {

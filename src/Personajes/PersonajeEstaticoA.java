@@ -16,11 +16,11 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class PersonajeEstatico extends PersonajeGeneral {
+public class PersonajeEstaticoA extends PersonajeGeneral {
 
     String dir;
 
-    public PersonajeEstatico(String dir, float x, float y, String texto) {
+    public PersonajeEstaticoA(String dir, float x, float y, String texto,String personaje) {
         try {
             
             //Colocacion personaje
@@ -32,21 +32,18 @@ public class PersonajeEstatico extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones parado
-            Image[] stanceDown = {new Image("ImagenesSprite\\Marinero\\down0.png"), new Image("ImagenesSprite\\Marinero\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\Marinero\\up0.png"), new Image("ImagenesSprite\\Marinero\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\Marinero\\izq0.png"), new Image("ImagenesSprite\\Marinero\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\Marinero\\der0.png"), new Image("ImagenesSprite\\Marinero\\der0.png")};
-            sup = new Animation(stanceUp, duration, false);
+            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
+            
             sdown = new Animation(stanceDown, duration, false);
-            sleft = new Animation(stanceLeft, duration, false);
             sright = new Animation(stanceRight, duration, false);
+            sleft = new Animation(stanceLeft, duration, false);
 
             if (dir.equals("left")) {
                 actual = sleft;
             } else if(dir.equals("right")){
                 actual = sright;
-            } else if(dir.equals("up")){
-                actual = sup;
             } else {
                 actual = sdown;
             }
@@ -62,9 +59,6 @@ public class PersonajeEstatico extends PersonajeGeneral {
 
     public void setDir(String string) {
         switch (string) {
-            case "sup":
-                actual = sup;
-                break;
             case "sdown":
                 actual = sdown;
                 break;

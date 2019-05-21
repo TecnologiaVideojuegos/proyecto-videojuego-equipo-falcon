@@ -5,8 +5,11 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
+import EstadoBoss1.Boss1;
 import Personajes.PersonajePrincipal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -14,6 +17,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -27,12 +32,12 @@ public class CinematicaPostColegio extends BasicGameState {
         return 16;
     }
 
-    Bocadillo bocadilloB1 = new Bocadillo("ini20");
-    Bocadillo bocadilloB2 = new Bocadillo("ini21");
-    Bocadillo bocadilloB3 = new Bocadillo("ini22");
-    Bocadillo bocadilloB4 = new Bocadillo("ini23");
-    Bocadillo bocadilloB5 = new Bocadillo("ini24");
-    Bocadillo bocadilloB6 = new Bocadillo("ini25");
+    Historia bocadilloB1 = new Historia("ini20");
+    Historia bocadilloB2 = new Historia("ini21");
+    Historia bocadilloB3 = new Historia("ini22");
+    Historia bocadilloB4 = new Historia("ini23");
+    Historia bocadilloB5 = new Historia("ini24");
+    Historia bocadilloB6 = new Historia("ini25");
     int contadorTemporal = 0;
 
     public CinematicaPostColegio() {
@@ -58,14 +63,20 @@ public class CinematicaPostColegio extends BasicGameState {
         } else if (contadorTemporal < 8400) {
             bocadilloB4.dentroXY(100, 0);
             bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
-        }else if (contadorTemporal < 12400) {
+        } else if (contadorTemporal < 12400) {
             bocadilloB5.dentroXY(100, 0);
             bocadilloB5.getImagen().draw(bocadilloB5.getCoordenadaX(), bocadilloB5.getCoordenadaY());
         } else if (contadorTemporal < 14400) {
             bocadilloB6.dentroXY(100, 0);
             bocadilloB6.getImagen().draw(bocadilloB6.getCoordenadaX(), bocadilloB6.getCoordenadaY());
         } else {
-            sbg.enterState(0);
+            try {
+                sbg.enterState(0, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }

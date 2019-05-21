@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="1">
+ <tileset firstgid="1" name="interior6" tilewidth="32" tileheight="32" tilecount="400" columns="20">
+  <image source="../Construccion Mapas/tileset01.png" width="640" height="640"/>
+ </tileset>
+ <tileset firstgid="401" source="../Construccion Mapas/Outside_B.tsx"/>
+ <tileset firstgid="657" source="../Construccion Mapas/tileset_town_multi_v002.tsx"/>
+ <tileset firstgid="1217" source="../Construccion Mapas/interior4.tsx"/>
+ <tileset firstgid="2241" source="../Construccion Mapas/TileE2-byLunarea.tsx"/>
+ <tileset firstgid="2497" source="../Construccion Mapas/interior7.tsx"/>
+ <tileset firstgid="3521" source="../Construccion Mapas/Window1.tsx"/>
+ <tileset firstgid="3537" source="../Construccion Mapas/city_inside.tsx"/>
+ <tileset firstgid="3921" source="../Construccion Mapas/BlueTownv2_byLunarea.tsx"/>
+ <layer id="2" name="Capa de Patrones 1" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3WSQrCMBSA4ddqC8ZdD+IV3HgFPYDTPVRw5yFEcOdwg4IuvJYvtMFHJ5O+khJI4aeldPigTUg6BEgZzQG3COAKWSIAuMUAd9Ijzs6ra2hPvPcoAD7YrNBgXD5H47hVXPsWHStsk+/Xmsd920/ymqhdfds5ebu3e3s5OY/TFuTYxD4J+Jnapa8pE7tg1LWdfkddOzXoVHUf1158hyv2qnfYtKtxp8Ze3djUcdu2/xuDuuY+7F3Pu97unj0c/XLRPg3dtCe5PXHAblqTfYdz4BI7aMyFXHsX6xn1TOneE3tbv811pHymdKtexN7Gb3P9Tu1n7I1dNOx1/5dN+xff1ymLXBIAAA==
+  </data>
+ </layer>
+ <layer id="3" name="Capa de patrones 2" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtWWTS8DQRyHZ/uCTTsVJPgEfILihBOJg7p5SxRJr3V1boizG9/EV+AmImlwpKkLLlTi4je2k/mb7nZ2tN2tX/JkZme23WdmZybLGGNlh/0kx1RkG03Op28Y9RI44R6ZNGNXvBWaz0z7a5tUfDxlWyPrlXfgHjyQPjmGEvl9kPst/N7BB2ho9b9mkpvvEXkBr+CNtFUs3KUrRXh3MudzxD2P+gy5/syqegJ+SZACK9p/lLT3ZlozvcwhV37Sfxx+E2DSZ32FmfdeRa7bjTbPOOOqX38/cbpXfM4ZEXqeXHDVf5pQ76XG4nUXkWvjjDzH7/wROU+o+heL313mgvuvnT3Ho+iouiRO90bWfI/w20K5bbiv6vi7VwPeYaeZ4Oqc188/OS7hXkZ5AJZAPmC8Uc77M5jl6pyX7nTd1Jvuyyin9Q2txcb9ekjxCJ5AvVnWwA3BL18hxqfvx267S2+dmsFd7LV9whE4NuxHkW6smXbeur8p1CfIzRQbd5M39Y8iNufMoMvYUAhcNxp3m3lPwSkdgoEA926fuzbuDpwShHmwABa19mQfzrvuvgoKYO0fuI/AaZSwA4pgV2sf60P3gvubdbABNt3WPlOm0p27R/09I7OkuV9yD5tE+T1jmg9b/zi/3/VId90/aH1F6f4NhuM9AFwSAAA=
+  </data>
+ </layer>
+ <layer id="4" name="Capa de patrones 3" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACuWXS2oCQRBAS0E0jCZuTO7iKmtvYSR7sxJX/s4Q9+IlsvVDyNaIn4skurQap6Ftup3+1LSKD4qSnqF8VBcFAxCGfQSwwlhjbKTfFPwVAf6LNLVUrKPTYN5bIvdKCeC5lPxeO+dW/xP7MmT9Qd8W5g7W6TrWciXt+0kT0/u5F+YFgF8hvguXNjJjgp4LyX2JMQvs/5WxO+feKncq/3fNf8v8aN5TnYveOvc0+l8h2DMLQ/clkfvTI00dRmj3a6aJc/lhMNsUMyOyy6izKaKPq5vtnqmWjzmfVWf+PAQ2e4ZRi91esupcO+Ou68ctoOtHKHTz7Tr3IZHnm/H6oD6/NuT5Tjo/x8TzW8B2z1BRR+83jIaHv+2e8YH3g3n3YveBp38oWD+4N3fvG/r7zhcFPcF9Gnvz0EExXxRw7xHGDGOc4E41X773dgDT+d1zXBIAAA==
+  </data>
+ </layer>
+ <layer id="5" name="Capa de patrones 4" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3UwQkAIBADwfv48hCrsBQ7sv/rQATRiOw0kLzWTGe4cPxxtagf3JOT+gGA39EZAKfRGQAr2kYr1J3pdA4TAfXlE8RcEgAA
+  </data>
+ </layer>
+ <layer id="6" name="Capa de patrones 5" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2TwQkAIAwDu4D7z+RWfkXUWtDalATuU0RSOWsRqYQQQp7T52QehVl28wg9M3SP7ky0N8zSffTX2v2XM6to57S9Tu706m71yaP77f09nSG4oDqD/FeRuyM7Q2w09LHZzlwSAAA=
+  </data>
+ </layer>
+</map>

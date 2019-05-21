@@ -22,7 +22,7 @@ public class PersonajeAcosador extends PersonajeGeneral {
     Animation up,down;
     
     
-    public PersonajeAcosador(String dir, float x, float y, String texto) {
+    public PersonajeAcosador(String dir, float x, float y, String texto,String personaje) {
         try {
             
             //Colocacion personaje
@@ -34,15 +34,15 @@ public class PersonajeAcosador extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones parado
-             Image[] movementUp = {new Image("ImagenesSprite\\Maton1\\up1.png"), new Image("ImagenesSprite\\Maton1\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\Maton1\\down1.png"), new Image("ImagenesSprite\\Maton1\\down2.png")};
-            Image[] movementLeft = {new Image("ImagenesSprite\\Maton1\\izq1.png"), new Image("ImagenesSprite\\Maton1\\izq2.png"), new Image("ImagenesSprite\\Maton1\\izq3.png"), new Image("ImagenesSprite\\Maton1\\izq4.png"), new Image("ImagenesSprite\\Maton1\\izq5.png"), new Image("ImagenesSprite\\Maton1\\izq6.png"), new Image("ImagenesSprite\\Maton1\\izq7.png"), new Image("ImagenesSprite\\Maton1\\izq8.png")};
-            Image[] movementRight = {new Image("ImagenesSprite\\Maton1\\der1.png"), new Image("ImagenesSprite\\Maton1\\der2.png"), new Image("ImagenesSprite\\Maton1\\der3.png"), new Image("ImagenesSprite\\Maton1\\der4.png"), new Image("ImagenesSprite\\Maton1\\der5.png"), new Image("ImagenesSprite\\Maton1\\der6.png"), new Image("ImagenesSprite\\Maton1\\der7.png"), new Image("ImagenesSprite\\Maton1\\der8.png")};
+             Image[] movementUp = {new Image("ImagenesSprite\\"+personaje+"\\up1.png"), new Image("ImagenesSprite\\"+personaje+"\\up2.png")};
+            Image[] movementDown = {new Image("ImagenesSprite\\"+personaje+"\\down1.png"), new Image("ImagenesSprite\\"+personaje+"\\down2.png")};
+            Image[] movementLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq1.png"), new Image("ImagenesSprite\\"+personaje+"\\izq2.png"), new Image("ImagenesSprite\\"+personaje+"\\izq3.png"), new Image("ImagenesSprite\\"+personaje+"\\izq4.png"), new Image("ImagenesSprite\\"+personaje+"\\izq5.png"), new Image("ImagenesSprite\\"+personaje+"\\izq6.png"), new Image("ImagenesSprite\\"+personaje+"\\izq7.png"), new Image("ImagenesSprite\\"+personaje+"\\izq8.png")};
+            Image[] movementRight = {new Image("ImagenesSprite\\"+personaje+"\\der1.png"), new Image("ImagenesSprite\\"+personaje+"\\der2.png"), new Image("ImagenesSprite\\"+personaje+"\\der3.png"), new Image("ImagenesSprite\\"+personaje+"\\der4.png"), new Image("ImagenesSprite\\"+personaje+"\\der5.png"), new Image("ImagenesSprite\\"+personaje+"\\der6.png"), new Image("ImagenesSprite\\"+personaje+"\\der7.png"), new Image("ImagenesSprite\\"+personaje+"\\der8.png")};
 
-            Image[] stanceDown = {new Image("ImagenesSprite\\Maton1\\down0.png"), new Image("ImagenesSprite\\Maton1\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\Maton1\\up0.png"), new Image("ImagenesSprite\\Maton1\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\Maton1\\izq0.png"), new Image("ImagenesSprite\\Maton1\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\Maton1\\der0.png"), new Image("ImagenesSprite\\Maton1\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\"+personaje+"\\up0.png"), new Image("ImagenesSprite\\"+personaje+"\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
 
             up = new Animation(movementUp, duration, false);
             down = new Animation(movementDown, duration, false);

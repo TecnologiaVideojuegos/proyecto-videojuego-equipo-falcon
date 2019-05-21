@@ -5,7 +5,7 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
 import Personajes.PersonajeAtari;
 import Personajes.PersonajePrincipal;
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
@@ -49,8 +50,7 @@ public class BuhardillaInicial extends BasicGameState {
     private PersonajeAtari atari;
 
     int contadorTemporal=0;
-    
-    Bocadillo bocadillo = new Bocadillo("Historia00");
+    Historia bocadillo = new Historia("Historia00");
     
     public BuhardillaInicial() {
         
@@ -78,6 +78,7 @@ public class BuhardillaInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
         int velocidad = 1;
         Input input = gc.getInput();
         

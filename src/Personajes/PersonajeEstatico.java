@@ -20,7 +20,7 @@ public class PersonajeEstatico extends PersonajeGeneral {
 
     String dir;
 
-    public PersonajeEstatico(String dir, float x, float y, String texto) {
+    public PersonajeEstatico(String dir, float x, float y, String texto,String personaje) {
         try {
             
             //Colocacion personaje
@@ -32,10 +32,10 @@ public class PersonajeEstatico extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones parado
-            Image[] stanceDown = {new Image("ImagenesSprite\\Marinero\\down0.png"), new Image("ImagenesSprite\\Marinero\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\Marinero\\up0.png"), new Image("ImagenesSprite\\Marinero\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\Marinero\\izq0.png"), new Image("ImagenesSprite\\Marinero\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\Marinero\\der0.png"), new Image("ImagenesSprite\\Marinero\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\"+personaje+"\\up0.png"), new Image("ImagenesSprite\\"+personaje+"\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
             sup = new Animation(stanceUp, duration, false);
             sdown = new Animation(stanceDown, duration, false);
             sleft = new Animation(stanceLeft, duration, false);

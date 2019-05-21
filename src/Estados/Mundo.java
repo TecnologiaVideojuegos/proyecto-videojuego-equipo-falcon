@@ -20,7 +20,7 @@ import Personajes.EscalerasCasa;
 import Personajes.EscalerasColegio;
 import Personajes.LadoColegio;
 import Personajes.PasoCompra;
-import Personajes.PersonajeEstatico;
+import Personajes.PersonajeEstaticoA;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
@@ -28,6 +28,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Rectangle;
@@ -41,6 +42,7 @@ import org.newdawn.slick.tiled.*;
  */
 public class Mundo extends BasicGameState {
 
+    Music musica;
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
@@ -63,8 +65,8 @@ public class Mundo extends BasicGameState {
     ArrayList<PersonajeGeneral> NPCs;
     
     
-    PersonajeEstatico tendero1 = new PersonajeEstatico("right", 380,150,"bocadilloMarinero");
-    PersonajeEstatico tendero2 = new PersonajeEstatico("left", 420,150,"bocadilloMarinero");
+    PersonajeEstaticoA tendero1 = new PersonajeEstaticoA("right", 380,150,"MP1","Marinero");
+    PersonajeEstaticoA tendero2 = new PersonajeEstaticoA("left", 420,150,"MP0","Marinero");
     
     //Elementos historia
     EscalerasColegio escaleras2 = new EscalerasColegio();
@@ -100,12 +102,21 @@ public class Mundo extends BasicGameState {
         personaje.setCoordenadaX(461);
         personaje.setCoordenadaY(125);
 
+        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 3;
         Input input = gc.getInput();
+        
+        if(!musica.playing())
+        {
+            musica.setVolume((float)0.1);
+            musica.setPosition(15);
+            musica.play();
+        }
+        
         if(input.isKeyDown(Input.KEY_0))
         {
             System.out.println("e");
@@ -153,8 +164,8 @@ public class Mundo extends BasicGameState {
                          personaje.setDir("down");
                          NPCs.remove(0);
                          colisionNPCs.remove(0);
-                         PersonajeEstatico o1 = new PersonajeEstatico("down", 1390,340,"bocadilloMarinero");
-                         PersonajeEstatico o2 = new PersonajeEstatico("up",1390,380,"bocadilloMarinero");
+                         PersonajeEstaticoA o1 = new PersonajeEstaticoA("down", 1390,340,"MP0","Marinero");
+                         PersonajeEstaticoA o2 = new PersonajeEstaticoA("up",1390,380,"MP1","Marinero");
                          NPCs.add(o1);
                          NPCs.add(o2);
                          colisionNPCs.add(o1.getHitbox());

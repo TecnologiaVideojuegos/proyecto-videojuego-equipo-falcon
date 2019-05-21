@@ -8,13 +8,18 @@ package EstadoBoss1;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeProfesor;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -36,7 +41,7 @@ public class Boss1 extends BasicGameState {
     private ArrayList<Pelota> pelotas = new ArrayList<>();
     private Pelota ball;
     private int contadorPelotas = 0;
-
+    Music musica;
     public Boss1() {
         bordes = new Polygon(puntos1);
         salidas = new Polygon(puntos2);
@@ -49,6 +54,8 @@ public class Boss1 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        
+        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         boss1 = new PersonajeProfesor();
@@ -94,7 +101,11 @@ public class Boss1 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+        if (!musica.playing()) {
+            musica.setPosition(15);
+            musica.play();
+        }
+        musica.setVolume((float) 0.1);
         Input input = gc.getInput();
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
@@ -210,7 +221,13 @@ public class Boss1 extends BasicGameState {
                 if (!choqueDerecha || choqueIzquierda) {
                     personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f);
                     if (personaje.getH3().intersects(salidas)) {
-                        sbg.enterState(12);
+                        try {
+                            sbg.enterState(12,FadeOutTransition.class.newInstance(),FadeInTransition.class.newInstance());
+                        } catch (InstantiationException ex) {
+                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IllegalAccessException ex) {
+                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                     choqueIzquierda = false;
                 }

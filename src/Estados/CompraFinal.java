@@ -5,9 +5,9 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
 import Personajes.PersonajeAcosador;
-import Personajes.PersonajeCirculoRapido;
+import Personajes.PersonajeEstaticoA;
 import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
@@ -27,11 +27,11 @@ import org.newdawn.slick.tiled.*;
  *
  * @author lucas
  */
-public class CompraInicial extends BasicGameState {
+public class CompraFinal extends BasicGameState {
 
     @Override
     public int getID() {
-        return 23; //To change body of generated methods, choose Tools | Templates.
+        return 27; //To change body of generated methods, choose Tools | Templates.
     }
 
     private static TiledMap mapa;
@@ -56,29 +56,28 @@ public class CompraInicial extends BasicGameState {
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
 
-    PersonajeEstatico tendero1 = new PersonajeEstatico("right", 380,180,"bocadilloMarinero");
-    PersonajeEstatico tendero2 = new PersonajeEstatico("left", 420,180,"bocadilloMarinero");
+   
+    PersonajeEstaticoA tendero1 = new PersonajeEstaticoA("right", 380,180,"T1","Tendero1");
+    PersonajeEstaticoA tendero2 = new PersonajeEstaticoA("left", 420,180,"T2","Tendero2");
     
-    PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750,280,"bocadilloMarinero");
-    PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750,320,"bocadilloMarinero");
-    PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470,"bocadilloMarinero");
-    PersonajeEstatico adulto5 = new PersonajeEstatico("right",50, 510,"bocadilloMarinero");
-    PersonajeEstatico adulto6 = new PersonajeEstatico("right",625, 500,"bocadilloMarinero");
+    PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750,280,"A0","Adulto5");
+    PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750,320,"A1","Adulto3");
+    PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470,"A2","Adulto1");
+    PersonajeEstatico adulto5 = new PersonajeEstatico("right",50, 510,"Af0","Adulto2");
     
-    PersonajeAcosador bully1 = new PersonajeAcosador("down", 1000, 550,"bocadilloMarinero");
-    PersonajeAcosador bully2 = new PersonajeAcosador("up", 1000, 610,"bocadilloMarinero");
-    PersonajeAcosador bully3 = new PersonajeAcosador("right", 960, 580,"bocadilloMarinero");
-    PersonajeAcosador bully4 = new PersonajeAcosador("left", 1040, 580,"bocadilloMarinero");
+    PersonajeAcosador bully1 = new PersonajeAcosador("down", 1000, 550,"B0","Maton1");
+    PersonajeAcosador bully2 = new PersonajeAcosador("up", 1000, 610,"B0","Maton2");
+    PersonajeAcosador bully3 = new PersonajeAcosador("right", 960, 580,"B0","Maton3");
+    PersonajeAcosador bully4 = new PersonajeAcosador("left", 1040, 580,"B0","Maton4");
 
     boolean historia = false;
     int contadorTemporal1 = -1500, contadorTemporal2 = 0;
-    Bocadillo b0 = new Bocadillo("Historia10");
-    Bocadillo b1 = new Bocadillo("Historia11");
-    Bocadillo b2 = new Bocadillo("Historia12");
-    Bocadillo b3 = new Bocadillo("Historia13");
-    Bocadillo b4 = new Bocadillo("Historia15");
+    Historia b0 = new Historia("Historia110");
+    Historia b1 = new Historia("Historia111");
+    Historia b2 = new Historia("Historia112");
+    Historia b3 = new Historia("Historia113");
 
-    public CompraInicial() {
+    public CompraFinal() {
         colisiones_bordes = new ArrayList<>();
         colisiones_bordes.add(new Polygon(borde1));
         colisiones_bordes.add(new Polygon(borde2));
@@ -98,7 +97,6 @@ public class CompraInicial extends BasicGameState {
         NPCs.add(adulto2);
         NPCs.add(adulto3);
         NPCs.add(adulto5);
-        NPCs.add(adulto6);
         NPCs.add(bully1);
         NPCs.add(bully2);
         NPCs.add(bully3);
@@ -115,15 +113,20 @@ public class CompraInicial extends BasicGameState {
         personaje.setCoordenadaX(0);
         personaje.setCoordenadaY(570);
         personaje.setDir("right");
+        personaje.setDir("stance");
+        bully1.setCoordenadas(72,550);
+        bully2.setCoordenadas(72,610);
+        bully3.setCoordenadas(32,580);
+        bully4.setCoordenadas(112,580);
 
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-    
-            contadorTemporal1++;
-            personaje.getDir().update(i);
-    
+
+        contadorTemporal1++;
+        personaje.getDir().update(i);
+
     }
 
     @Override
@@ -148,7 +151,6 @@ public class CompraInicial extends BasicGameState {
             g.draw(colisiones_bordes.get(i));
         }
 
-
         if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
@@ -158,53 +160,49 @@ public class CompraInicial extends BasicGameState {
             b0.dentro();
             b0.getImagen().draw(b0.getCoordenadaX(), b0.getCoordenadaY());
             personaje.setDir("stance");
-        } else if(contadorTemporal1 > 0 && contadorTemporal1 < 2500)
-        {   
-            personaje.setDir("right");
-            personaje.setDir("stance");
-            if(bully3.getCoordenadaX()-32>personaje.getCoordenadaX())
-            {   
+        } else if (contadorTemporal1 > 0 && contadorTemporal1 < 2500) {
+            b1.dentro();
+            b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
+            
+        } else if (contadorTemporal1 > 2500 && contadorTemporal1 < 4100) {
+            b2.dentro();
+            b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
+        } else if (contadorTemporal1 > 4100 && contadorTemporal1 < 5700) {
+            
+            if (bully1.getCoordenadaY() < 615) {
+                bully1.setDir("down");
+                bully2.setDir("down");
+                bully3.setDir("down");
+                bully4.setDir("down");
+                bully1.setCoordenadas(bully1.getCoordenadaX(), bully1.getCoordenadaY() + (float) 0.5);
+                bully2.setCoordenadas(bully2.getCoordenadaX(), bully2.getCoordenadaY() + (float) 0.5);
+                bully3.setCoordenadas(bully3.getCoordenadaX(), bully3.getCoordenadaY() + (float) 0.5);
+                bully4.setCoordenadas(bully4.getCoordenadaX(), bully4.getCoordenadaY() + (float) 0.5);
+
+            } else {
                 bully1.setDir("left");
                 bully2.setDir("left");
                 bully3.setDir("left");
                 bully4.setDir("left");
-                bully1.setCoordenadas(bully1.getCoordenadaX()-(float)0.5, bully1.getCoordenadaY());
-                bully2.setCoordenadas(bully2.getCoordenadaX()-(float)0.5, bully2.getCoordenadaY());
-                bully3.setCoordenadas(bully3.getCoordenadaX()-(float)0.5, bully3.getCoordenadaY());
-                bully4.setCoordenadas(bully4.getCoordenadaX()-(float)0.5, bully4.getCoordenadaY());
-                
+                bully1.setCoordenadas(bully1.getCoordenadaX()- (float) 0.5, bully1.getCoordenadaY());
+                bully2.setCoordenadas(bully2.getCoordenadaX()- (float) 0.5, bully2.getCoordenadaY());
+                bully3.setCoordenadas(bully3.getCoordenadaX()- (float) 0.5, bully3.getCoordenadaY());
+                bully4.setCoordenadas(bully4.getCoordenadaX()- (float) 0.5, bully4.getCoordenadaY());
             }
-            else
-            {
-                bully1.setDir("sleft");
-                bully2.setDir("sleft");
-                bully3.setDir("sleft");
-                bully4.setDir("sleft");
-            }
-            bully1.getDir().update(contadorTemporal1%7);
-            bully2.getDir().update(contadorTemporal1%7);
-            bully3.getDir().update(contadorTemporal1%7);
-            bully4.getDir().update(contadorTemporal1%7);
-        }else if(contadorTemporal1 > 2500 && contadorTemporal1 < 4100)
-        {   
-            b1.dentro();
-            b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
-        }else if(contadorTemporal1 > 4100 && contadorTemporal1 < 5700)
-        {   
-            b2.dentro();
-            b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
-        }else if(contadorTemporal1 > 5700 && contadorTemporal1 < 7300)
-        {   
+            bully1.getDir().update(contadorTemporal1 % 7);
+            bully2.getDir().update(contadorTemporal1 % 7);
+            bully3.getDir().update(contadorTemporal1 % 7);
+            bully4.getDir().update(contadorTemporal1 % 7);
+        } else if (contadorTemporal1 > 5700 && contadorTemporal1 < 7300) {
             b3.dentro();
             b3.getImagen().draw(b3.getCoordenadaX(), b3.getCoordenadaY());
-        }else if(contadorTemporal1 > 7300 && contadorTemporal1 < 8900)
-        {   
-            b4.dentro();
-            b4.getImagen().draw(b4.getCoordenadaX(), b4.getCoordenadaY());
-        }
-        else if (contadorTemporal1 > 8900)
-        {
-            sbg.enterState(21);
+        } else if (contadorTemporal1 > 7300) {
+            personaje.setDir("left");
+            personaje.setCoordenadaX(personaje.getCoordenadaX()-(float)0.5);
+            if(personaje.getCoordenadaX()<-20)
+            {
+                sbg.enterState(28);
+            }
         }
     }
 

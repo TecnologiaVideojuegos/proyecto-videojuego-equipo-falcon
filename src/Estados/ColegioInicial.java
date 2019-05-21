@@ -5,11 +5,14 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
+import EstadoBoss1.Boss1;
 import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -19,6 +22,8 @@ import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.*;
 
 /**
@@ -50,25 +55,24 @@ public class ColegioInicial extends BasicGameState {
 
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
-    PersonajeEstatico niño1 = new PersonajeEstatico("up", 970, 380, "bocadilloNiño1");
-    PersonajeEstatico niño2 = new PersonajeEstatico("up", 930, 380, "bocadilloNiño2");
-    PersonajeEstatico niño3 = new PersonajeEstatico("up", 890, 380, "bocadilloNiño3");
-    PersonajeEstatico niño4 = new PersonajeEstatico("up", 850, 380, "bocadilloNiño4");
-    PersonajeEstatico niño5 = new PersonajeEstatico("up", 810, 380, "bocadilloNiño5");
-    PersonajeEstatico niño6 = new PersonajeEstatico("up", 770, 380, "bocadilloNiño6");
-    PersonajeEstatico niño7 = new PersonajeEstatico("up", 730, 380, "bocadilloNiño7");
-    PersonajeEstatico niño8 = new PersonajeEstatico("up", 690, 380, "bocadilloNiño8");
-    PersonajeEstatico niño9 = new PersonajeEstatico("up", 80, 680, "bocadilloNiño9");
-    PersonajeEstatico niño10 = new PersonajeEstatico("up", 18, 680, "bocadilloNiño10");
-    PersonajeEstatico niño11 = new PersonajeEstatico("up", 80, 580, "bocadilloNiño11");
-    PersonajeEstatico niño12 = new PersonajeEstatico("up", 18, 580, "bocadilloNiño12");
-    PersonajeEstatico niño13 = new PersonajeEstatico("up", 80, 480, "bocadilloNiño13");
-    PersonajeEstatico niño14 = new PersonajeEstatico("up", 18, 480, "bocadilloNiño14");
+    PersonajeEstatico niño1 = new PersonajeEstatico("up", 970, 380, "N1", "Niño4");
+    PersonajeEstatico niño2 = new PersonajeEstatico("up", 930, 380, "N2", "Niño2");
+    PersonajeEstatico niño3 = new PersonajeEstatico("up", 890, 380, "N3", "Niño2");
+    PersonajeEstatico niño4 = new PersonajeEstatico("up", 850, 380, "N4", "Niño7");
+    PersonajeEstatico niño5 = new PersonajeEstatico("up", 810, 380, "N5", "Niño5");
+    PersonajeEstatico niño6 = new PersonajeEstatico("up", 770, 380, "N6", "Niño9");
+    PersonajeEstatico niño7 = new PersonajeEstatico("up", 730, 380, "N7", "Niño11");
+    PersonajeEstatico niño8 = new PersonajeEstatico("up", 690, 380, "N8", "Niño10");
+    PersonajeEstatico niño9 = new PersonajeEstatico("up", 80, 680, "N9", "Niño1");
+    PersonajeEstatico niño10 = new PersonajeEstatico("up", 18, 680, "N10", "Niño6");
+    PersonajeEstatico niño11 = new PersonajeEstatico("up", 80, 580, "N11", "Niño4");
+    PersonajeEstatico niño12 = new PersonajeEstatico("up", 18, 580, "N12", "Niño8");
+    PersonajeEstatico niño13 = new PersonajeEstatico("up", 80, 480, "N13", "Niño3");
+    PersonajeEstatico niño14 = new PersonajeEstatico("up", 18, 480, "N5", "Niño7");
 
     boolean historia = false;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
-    Bocadillo introduccionHistoria = new Bocadillo("Historia10");
-    Bocadillo bocadilloSalida = new Bocadillo("Historia15");
+    Historia introduccionHistoria = new Historia("Añadido");
 
     public ColegioInicial() {
         colisiones_bordes = new ArrayList<>();
@@ -160,20 +164,25 @@ public class ColegioInicial extends BasicGameState {
                 personaje.setDir("left");
                 personaje.setCoordenadaX(personaje.getCoordenadaX() - (float) 0.3);
             }
-        } else if ( contadorTemporal1 > 2500 && contadorTemporal1 < 3800) {
+        } else if (contadorTemporal1 > 2500 && contadorTemporal1 < 3800) {
             if (personaje.getCoordenadaY() < 480) {
                 personaje.setDir("down");
                 personaje.setCoordenadaY(personaje.getCoordenadaY() + (float) 0.5);
             } else if (personaje.getCoordenadaX() > 240) {
                 personaje.setDir("left");
                 personaje.setCoordenadaX(personaje.getCoordenadaX() - (float) 0.3);
-            }else {
+            } else {
                 personaje.setDir("up");
                 personaje.setDir("stance");
             }
-        } else if(contadorTemporal1 > 3800)
-        {
-            sbg.enterState(16);
+        } else if (contadorTemporal1 > 3800) {
+            try {
+                sbg.enterState(16, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }

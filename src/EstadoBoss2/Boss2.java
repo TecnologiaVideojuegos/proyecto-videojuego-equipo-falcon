@@ -5,16 +5,22 @@
  */
 package EstadoBoss2;
 
+import EstadoBoss1.Boss1;
 import Estados.PatioFinal;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -22,9 +28,9 @@ import org.newdawn.slick.tiled.TiledMap;
  * @author lucas
  */
 public class Boss2 extends BasicGameState {
-
+Music musica;
     private String mapa1 = "Mapas\\boos3.tmx";
-    private float puntos1[] = new float[]{50, 30, 800,30, 800, 780, 50, 780};
+    private float puntos1[] = new float[]{50, 30, 800, 30, 800, 780, 50, 780};
     private Polygon bordes;
     int mapaMov = 0;
     int a = 0, b = 0, c = 0, d = 0;
@@ -56,8 +62,10 @@ public class Boss2 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        
+        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
         puntos = 0;
-        contadorMundo=0;
+        contadorMundo = 0;
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje = new Nave();
         personaje.setCoordenadaX(150);
@@ -118,8 +126,19 @@ public class Boss2 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        if (!musica.playing()) {
+            musica.setPosition(15);
+            musica.play();
+        }
+        musica.setVolume((float) 0.1);
         if (puntos > 80) {
-            sbg.enterState(19);
+            try {
+                sbg.enterState(19, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         Input input = gc.getInput();
         fase++;
@@ -150,7 +169,13 @@ public class Boss2 extends BasicGameState {
             float x1 = c1.getCoordenadaX();
             if (x1 <= 70) {
                 if (contadorMundo == 3) {
-                    sbg.enterState(18);
+                    try {
+                        sbg.enterState(18, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                    } catch (InstantiationException ex) {
+                        Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IllegalAccessException ex) {
+                        Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 contadorMundo++;
                 poum.add(c1);

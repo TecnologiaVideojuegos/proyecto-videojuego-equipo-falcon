@@ -16,13 +16,13 @@ import org.newdawn.slick.geom.Rectangle;
  *
  * @author lucas
  */
-public class PersonajeAcosador extends PersonajeGeneral {
+public class BossFinal extends PersonajeGeneral {
 
     String dir;
     Animation up,down;
     
     
-    public PersonajeAcosador(String dir, float x, float y, String texto) {
+    public BossFinal(String dir, float x, float y, int a) {
         try {
             
             //Colocacion personaje
@@ -32,39 +32,17 @@ public class PersonajeAcosador extends PersonajeGeneral {
 
             //Creacion hitbox
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
-
+            Image[] movementUp = {new Image("ImagenesSprite\\BossFinal\\b1.png"), new Image("ImagenesSprite\\BossFinal\\b2.png")};
+            Image[] movementDown = {new Image("ImagenesSprite\\BossFinal\\0.png"), new Image("ImagenesSprite\\BossFinal\\1.png"), new Image("ImagenesSprite\\BossFinal\\2.png"), new Image("ImagenesSprite\\BossFinal\\3.png"), new Image("ImagenesSprite\\BossFinal\\4.png"), new Image("ImagenesSprite\\BossFinal\\5.png"), new Image("ImagenesSprite\\BossFinal\\6.png"), new Image("ImagenesSprite\\BossFinal\\7.png")};
+            Image[] movementOut = {new Image("ImagenesSprite\\BossFinalDerrotado\\0.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\1.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\2.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\3.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\4.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\5.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\6.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\7.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\8.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\9.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\10.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\11.png")};
             //Animaciones parado
-             Image[] movementUp = {new Image("ImagenesSprite\\Maton1\\up1.png"), new Image("ImagenesSprite\\Maton1\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\Maton1\\down1.png"), new Image("ImagenesSprite\\Maton1\\down2.png")};
-            Image[] movementLeft = {new Image("ImagenesSprite\\Maton1\\izq1.png"), new Image("ImagenesSprite\\Maton1\\izq2.png"), new Image("ImagenesSprite\\Maton1\\izq3.png"), new Image("ImagenesSprite\\Maton1\\izq4.png"), new Image("ImagenesSprite\\Maton1\\izq5.png"), new Image("ImagenesSprite\\Maton1\\izq6.png"), new Image("ImagenesSprite\\Maton1\\izq7.png"), new Image("ImagenesSprite\\Maton1\\izq8.png")};
-            Image[] movementRight = {new Image("ImagenesSprite\\Maton1\\der1.png"), new Image("ImagenesSprite\\Maton1\\der2.png"), new Image("ImagenesSprite\\Maton1\\der3.png"), new Image("ImagenesSprite\\Maton1\\der4.png"), new Image("ImagenesSprite\\Maton1\\der5.png"), new Image("ImagenesSprite\\Maton1\\der6.png"), new Image("ImagenesSprite\\Maton1\\der7.png"), new Image("ImagenesSprite\\Maton1\\der8.png")};
-
-            Image[] stanceDown = {new Image("ImagenesSprite\\Maton1\\down0.png"), new Image("ImagenesSprite\\Maton1\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\Maton1\\up0.png"), new Image("ImagenesSprite\\Maton1\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\Maton1\\izq0.png"), new Image("ImagenesSprite\\Maton1\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\Maton1\\der0.png"), new Image("ImagenesSprite\\Maton1\\der0.png")};
-
-            up = new Animation(movementUp, duration, false);
-            down = new Animation(movementDown, duration, false);
-            left = new Animation(movementLeft, duration2, false);
-            right = new Animation(movementRight, duration2, false);
-            sup = new Animation(stanceUp, duration, false);
-            sdown = new Animation(stanceDown, duration, false);
-            sleft = new Animation(stanceLeft, duration, false);
-            sright = new Animation(stanceRight, duration, false);
-
-            if (dir.equals("left")) {
-                actual = sleft;
-            } else if(dir.equals("right")){
-                actual = sright;
-            } else if(dir.equals("up")){
-                actual = sup;
-            } else {
-                actual = sdown;
-            }
+            if(a==0)
+                actual = new Animation(movementUp, duration, false);
+            else if(a==1)
+                actual = new Animation(movementDown, new int[]{200,200,200,200,200,200,200,200}, false);
+            else
+                actual = new Animation(movementOut, new int[]{400,400,400,400,400,400,400,400,400,400,400,400}, false);
             
-            //Bocadillo
-            bocadillo = new Bocadillo(texto);
             
             //No SBG
             sgb=-1;

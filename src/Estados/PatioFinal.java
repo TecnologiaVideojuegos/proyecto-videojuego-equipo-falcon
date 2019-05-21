@@ -5,9 +5,9 @@
  */
 package Estados;
 
-import Elementos.Bocadillo;
+import Elementos.Historia;
 import Personajes.PersonajeAcosador;
-import Personajes.PersonajeEstatico;
+import Personajes.PersonajeEstaticoA;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
@@ -62,31 +62,31 @@ public class PatioFinal extends BasicGameState {
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
 
-    PersonajeAcosador niño1 = new PersonajeAcosador("left", 20, 400, "bocadilloNiño1");
-    PersonajeAcosador niño2 = new PersonajeAcosador("down", 930, 680, "bocadilloNiño2");
-    PersonajeAcosador niño3 = new PersonajeAcosador("down", 890, 680, "bocadilloNiño3");
-    PersonajeEstatico niño4 = new PersonajeEstatico("left", 850, 680, "bocadilloNiño4");
-    PersonajeEstatico niño5 = new PersonajeEstatico("left", 810, 680, "bocadilloNiño5");
-    PersonajeEstatico niño6 = new PersonajeEstatico("up", 770, 680, "bocadilloNiño6");
-    PersonajeEstatico niño7 = new PersonajeEstatico("right", 730, 680, "bocadilloNiño7");
-    PersonajeEstatico niño8 = new PersonajeEstatico("left", 690, 680, "bocadilloNiño8");
-    PersonajeEstatico niño9 = new PersonajeEstatico("left", 650, 680, "bocadilloNiño9");
-    PersonajeEstatico niño10 = new PersonajeEstatico("up", 610, 680, "bocadilloNiño10");
-    PersonajeEstatico niño11 = new PersonajeEstatico("right", 570, 680, "bocadilloNiño11");
-    PersonajeEstatico niño12 = new PersonajeEstatico("left", 530, 680, "bocadilloNiño12");
-    PersonajeEstatico niño13 = new PersonajeEstatico("right", 490, 680, "bocadilloNiño13");
-    PersonajeEstatico niño14 = new PersonajeEstatico("left", 450, 680, "bocadilloNiño14");
+    PersonajeAcosador niño1 = new PersonajeAcosador("left", 20, 400, "N1","Stalker");
+    PersonajeAcosador niño2 = new PersonajeAcosador("down", 930, 680, "N2","Marinero");
+    PersonajeAcosador niño3 = new PersonajeAcosador("down", 890, 680, "N3","Marinero");
+    PersonajeEstaticoA niño4 = new PersonajeEstaticoA("left", 850, 680, "N4","Marinero");
+    PersonajeEstaticoA niño5 = new PersonajeEstaticoA("left", 810, 680, "N5","Marinero");
+    PersonajeEstaticoA niño6 = new PersonajeEstaticoA("up", 770, 680, "N6","Marinero");
+    PersonajeEstaticoA niño7 = new PersonajeEstaticoA("right", 730, 680, "N7","Marinero");
+    PersonajeEstaticoA niño8 = new PersonajeEstaticoA("left", 690, 680, "N8","Marinero");
+    PersonajeEstaticoA niño9 = new PersonajeEstaticoA("left", 650, 680, "N9","Marinero");
+    PersonajeEstaticoA niño10 = new PersonajeEstaticoA("up", 610, 680, "N10","Marinero");
+    PersonajeEstaticoA niño11 = new PersonajeEstaticoA("right", 570, 680, "N11","Marinero");
+    PersonajeEstaticoA niño12 = new PersonajeEstaticoA("left", 530, 680, "N12","Marinero");
+    PersonajeEstaticoA niño13 = new PersonajeEstaticoA("right", 490, 680, "N13","Marinero");
+    PersonajeEstaticoA niño14 = new PersonajeEstaticoA("left", 450, 680, "N11","Marinero");
 
     boolean historia = true;
-    int contadorTemporal1 = -1300, contadorTemporal2 = 0;
+    int contadorTemporal1 = 0, contadorTemporal2 = 0;
     float cordX,cordY;
-    Bocadillo b0 = new Bocadillo("Historia10");
-    Bocadillo b1 = new Bocadillo("Historia11");
-    Bocadillo b2 = new Bocadillo("Historia12");
-    Bocadillo b3 = new Bocadillo("Historia13");
-    Bocadillo b4 = new Bocadillo("Historia15");
-    Bocadillo b5 = new Bocadillo("Historia15");
-    Bocadillo b6 = new Bocadillo("Historia15");
+    Historia b0 = new Historia("Historia60");
+    Historia b1 = new Historia("Historia61");
+    Historia b2 = new Historia("Historia62");
+    Historia b3 = new Historia("Historia63");
+    Historia b4 = new Historia("Historia64");
+    Historia b5 = new Historia("Historia65");
+    Historia b6 = new Historia("Historia66");
 
     public PatioFinal(float X, float Y) {
         this.cordX=X;
@@ -359,11 +359,8 @@ public class PatioFinal extends BasicGameState {
         }
 
         //HISTORIA
-        if (contadorTemporal1 > -1400 && contadorTemporal1 < 100) {
-            b6.dentro();
-            b6.getImagen().draw(b6.getCoordenadaX(), b6.getCoordenadaY());
-        }
-        else if (contadorTemporal1 > 100 && contadorTemporal1 < 1500) {
+        
+        if (contadorTemporal1 > 100 && contadorTemporal1 < 1500) {
             b0.dentro();
             b0.getImagen().draw(b0.getCoordenadaX(), b0.getCoordenadaY());
         }
@@ -403,8 +400,11 @@ public class PatioFinal extends BasicGameState {
         {   
             b5.dentro();
             b5.getImagen().draw(b5.getCoordenadaX(), b5.getCoordenadaY());
+        }if (contadorTemporal1 > 10500 && contadorTemporal1 < 11800) {
+            b6.dentro();
+            b6.getImagen().draw(b6.getCoordenadaX(), b6.getCoordenadaY());
         }
-        else if (contadorTemporal1 > 10500 && contadorTemporal1 < 11500)
+        else if (contadorTemporal1 > 11800 && contadorTemporal1 < 12800)
         {
             if(niño1.getCoordenadaY()>-64)
             {   niño2.setDir("up");
@@ -418,7 +418,7 @@ public class PatioFinal extends BasicGameState {
             niño2.getDir().update(contadorTemporal1%7);
             niño3.getDir().update(contadorTemporal1%7);
         }
-        else if(contadorTemporal1==11500)
+        else if(contadorTemporal1==12800)
         {   
             contadorTemporal1++;
             NPCs.remove(0);
