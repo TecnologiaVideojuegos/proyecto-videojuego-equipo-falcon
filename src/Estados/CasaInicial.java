@@ -74,14 +74,14 @@ public class CasaInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int velocidad = 2;
+        int velocidad = 1;
         Input input = gc.getInput();
-        if(!musica.playing())
+        /*if(!musica.playing())
         {
             musica.setPosition(15);
             musica.play();
         }
-        musica.setVolume((float)0.1);
+        musica.setVolume((float)0.1);*/
         
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");

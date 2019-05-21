@@ -172,7 +172,7 @@ public class Boss1 extends BasicGameState {
                     }
                 }
                 if (!choqueArriba || choqueAbajo) {
-                    personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f*2);
+                    personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f);
                     choqueAbajo = false;
                 }
 
@@ -222,6 +222,7 @@ public class Boss1 extends BasicGameState {
                     personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f);
                     if (personaje.getH3().intersects(salidas)) {
                         try {
+                            musica.stop();
                             sbg.enterState(12,FadeOutTransition.class.newInstance(),FadeInTransition.class.newInstance());
                         } catch (InstantiationException ex) {
                             Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);

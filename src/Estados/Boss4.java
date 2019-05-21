@@ -740,8 +740,8 @@ public class Boss4 extends BasicGameState {
         if (!musica.playing()) {
             musica.setPosition(15);
             musica.play();
-        }
         musica.setVolume((float) 0.1);
+        }
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             int x = input.getMouseX();
             int y = input.getMouseY();
@@ -751,6 +751,7 @@ public class Boss4 extends BasicGameState {
                     if (listaBotones.get(j).getNum() == -1) {
 
                         try {
+                            musica.stop();
                             sbg.enterState(32, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                         } catch (InstantiationException ex) {
                             Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -764,6 +765,7 @@ public class Boss4 extends BasicGameState {
         }
         if (total == 102) {
             try {
+                musica.stop();
                 sbg.enterState(30, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);

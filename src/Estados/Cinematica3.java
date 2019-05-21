@@ -121,13 +121,13 @@ Music musica;
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 1;
-        Input input = gc.getInput();
+        Input input = gc.getInput();/*
 if(!musica.playing())
         {
             musica.setPosition(15);
             musica.setVolume((float)0.1);
             musica.play();
-        }
+        }*/
         
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {

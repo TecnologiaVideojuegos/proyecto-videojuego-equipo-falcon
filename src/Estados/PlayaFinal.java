@@ -76,7 +76,7 @@ public class PlayaFinal extends BasicGameState {
             contadorTemporal++;
         } else {
 
-            int velocidad = 2;
+            int velocidad = 1;
             Input input = gc.getInput();
             
 

@@ -129,10 +129,11 @@ Music musica;
         if (!musica.playing()) {
             musica.setPosition(15);
             musica.play();
-        }
         musica.setVolume((float) 0.1);
+        }
         if (puntos > 80) {
             try {
+                musica.stop();
                 sbg.enterState(19, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -170,6 +171,7 @@ Music musica;
             if (x1 <= 70) {
                 if (contadorMundo == 3) {
                     try {
+                        musica.stop();
                         sbg.enterState(18, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                     } catch (InstantiationException ex) {
                         Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);

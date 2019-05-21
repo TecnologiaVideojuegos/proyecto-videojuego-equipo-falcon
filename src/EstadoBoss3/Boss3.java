@@ -125,9 +125,9 @@ public class Boss3 extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         if (!musica.playing()) {
             musica.setPosition(15);
-            musica.play();
+            musica.play();musica.setVolume((float) 0.1);
         }
-        musica.setVolume((float) 0.1);
+        
         if (game) {
             Input input = gc.getInput();
             if ((toque % 7 == 0 && ball.getCoordenadaY() > 600 && ball.getCoordenadaY() < 700) || toque == 1) {
@@ -136,6 +136,7 @@ public class Boss3 extends BasicGameState {
                     all.get(s).move();
                     if (all.get(s).getCoordenadaY() > 600) {
                         try {
+                            musica.stop();
                             sbg.enterState(21, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                         } catch (InstantiationException ex) {
                             Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -254,6 +255,7 @@ public class Boss3 extends BasicGameState {
                 ball.techo();
             } else if (tres.intersects(bordes)) {
                 try {
+                    musica.stop();
                     sbg.enterState(21, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                 } catch (InstantiationException ex) {
                     Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -285,6 +287,7 @@ public class Boss3 extends BasicGameState {
                         }
                         if (all.isEmpty()) {
                             try {
+                                musica.stop();
                                 sbg.enterState(26, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                             } catch (InstantiationException ex) {
                                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -315,6 +318,7 @@ public class Boss3 extends BasicGameState {
                         }
                         if (all.isEmpty()) {
                             try {
+                                musica.stop();
                                 sbg.enterState(26, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                             } catch (InstantiationException ex) {
                                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);

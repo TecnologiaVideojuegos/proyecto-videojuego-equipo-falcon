@@ -107,7 +107,7 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int velocidad = 3;
+        int velocidad = 1;
         Input input = gc.getInput();
         
         if(!musica.playing())

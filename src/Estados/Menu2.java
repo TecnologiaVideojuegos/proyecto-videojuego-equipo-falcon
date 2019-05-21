@@ -5,7 +5,7 @@
  */
 package Estados;
 
-import Elementos.Marcador;
+import Elementos.Marcador1;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -26,7 +26,7 @@ public class Menu2 extends BasicGameState {
         return 51; //To change body of generated methods, choose Tools | Templates.
     }
 
-    Marcador marcador = new Marcador(4);
+    Marcador1 marcador = new Marcador1(4);
     public Menu2() {
 
     }
@@ -55,19 +55,15 @@ public class Menu2 extends BasicGameState {
                 sbg.enterState(53);
             }else if(marcador.getMarcador()==3)
             {
-                
                 sbg.enterState(61);sbg.getState(61).init(gc, sbg);
             }else if(marcador.getMarcador()==2)
             {
-                
                 sbg.enterState(63);sbg.getState(63).init(gc, sbg);
             }else if(marcador.getMarcador()==1)
             {
-                
                 sbg.enterState(62);sbg.getState(62).init(gc, sbg);
             }else
             {
-                
                 sbg.enterState(64);sbg.getState(64).init(gc, sbg);
             }
         }

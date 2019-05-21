@@ -122,7 +122,7 @@ public class PlayaInicial extends BasicGameState {
             if(contadorTemporal1<1500)
                 contadorTemporal1++;
             
-            int velocidad = 2;
+            int velocidad = 1;
             Input input = gc.getInput();
             
             colisionNPCs = new ArrayList<>();

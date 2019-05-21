@@ -118,11 +118,11 @@ public class Cinematica2 extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 1;
         Input input = gc.getInput();
-        if (!musica.playing()) {
+        /*if (!musica.playing()) {
         musica.setVolume((float) 0.1);
             musica.setPosition(15);
             musica.play();
-        }
+        }*/
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
                 mapa = new TiledMap("Mapas\\mapa10.tmx", "\\Construccion Mapas\\");

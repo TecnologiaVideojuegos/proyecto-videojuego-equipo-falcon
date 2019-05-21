@@ -145,12 +145,12 @@ public class Cinematica4 extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         int velocidad = 1;
-        Input input = gc.getInput();
+        Input input = gc.getInput();/*
         if (!musica.playing()) {
         musica.setVolume((float) 0.1);
             musica.setPosition(15);
             musica.play();
-        }
+        }*/
         boss.getDir().update(i);
         fuego.getDir().update(i);
         if (contadorTemporal < 13850) {

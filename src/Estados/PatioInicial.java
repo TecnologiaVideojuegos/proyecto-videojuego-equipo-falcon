@@ -139,6 +139,7 @@ public class PatioInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+
         if (historia) {
             contadorTemporal1++;
             personaje.getDir().update(i);
@@ -151,7 +152,7 @@ public class PatioInicial extends BasicGameState {
                 contadorTemporal1++;
                 historia=true;
             }
-            int velocidad = 2;
+            int velocidad = 1;
             Input input = gc.getInput();
 
             colisionNPCs = new ArrayList<>();

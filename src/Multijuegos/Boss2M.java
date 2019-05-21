@@ -86,6 +86,7 @@ public class Boss2M extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
+        System.out.println("e");
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
@@ -124,6 +125,7 @@ public class Boss2M extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        System.out.println("e");
         if (puntos > 80) {
             try {
                 sbg.enterState(51, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
@@ -238,6 +240,5 @@ public class Boss2M extends BasicGameState {
         } else {
             personaje.getDir().update(i);
         }
-
     }
 }
