@@ -7,7 +7,6 @@ package Multijuegos;
 
 import EstadoBoss2.*;
 import EstadoBoss1.Boss1;
-import Estados.PatioFinal;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,7 +85,6 @@ public class Boss2M extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
-        System.out.println("e");
         Graphics g = new Graphics();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
@@ -94,7 +92,14 @@ public class Boss2M extends BasicGameState {
         if (contadorMundo < 4) {
             g.drawImage(mundoImg[contadorMundo], 0, 0);
         } else {
-            sbg.enterState(18);
+            try {
+                sbg.getState(51).init(gc, sbg);
+                sbg.enterState(51, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
@@ -125,9 +130,9 @@ public class Boss2M extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        System.out.println("e");
         if (puntos > 80) {
             try {
+                sbg.getState(51).init(gc, sbg);
                 sbg.enterState(51, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,7 +142,7 @@ public class Boss2M extends BasicGameState {
         }
         Input input = gc.getInput();
         fase++;
-        if (fase % 100 == 0) {
+        if (fase % 80 == 0) {
             corazonIn.add(corazonOut.get(0));
             corazonOut.remove(0);
             corazonIn.get(corazonIn.size() - 1).init();
@@ -203,10 +208,6 @@ public class Boss2M extends BasicGameState {
             }
         }
 
-        if (input.isKeyDown(Input.KEY_ENTER)) {
-            gc.exit();
-        }
-
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.getDir().update(i);
             for (int n = 0; n < 20; n++) {
@@ -240,5 +241,6 @@ public class Boss2M extends BasicGameState {
         } else {
             personaje.getDir().update(i);
         }
+
     }
 }

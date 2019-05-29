@@ -6,6 +6,7 @@
 package Estados;
 
 import Elementos.Marcador1;
+import Multijuegos.Boss2M;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -61,7 +62,8 @@ public class Menu2 extends BasicGameState {
                 sbg.enterState(63);sbg.getState(63).init(gc, sbg);
             }else if(marcador.getMarcador()==1)
             {
-                sbg.enterState(62);sbg.getState(62).init(gc, sbg);
+                sbg.getState(62).init(gc, sbg);
+                sbg.enterState(62);
             }else
             {
                 sbg.enterState(64);sbg.getState(64).init(gc, sbg);
@@ -81,6 +83,6 @@ public class Menu2 extends BasicGameState {
      else if(marcador.getMarcador()==3)
          g.drawImage(new Image("\\Elementos Aparte\\marcador.png"),585,505);
      else 
-         g.drawImage(new Image("\\Elementos Aparte\\marcador.png"),585,550);
+         g.drawImage(new Image("\\Elementos Aparte\\marcador.png"),585,555);
     }
 }

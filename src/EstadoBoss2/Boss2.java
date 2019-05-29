@@ -28,7 +28,6 @@ import org.newdawn.slick.tiled.TiledMap;
  * @author lucas
  */
 public class Boss2 extends BasicGameState {
-Music musica;
     private String mapa1 = "Mapas\\boos3.tmx";
     private float puntos1[] = new float[]{50, 30, 800, 30, 800, 780, 50, 780};
     private Polygon bordes;
@@ -44,7 +43,7 @@ Music musica;
     Image[] mundoImg;
     int contadorMundo = 0;
     int puntos = 0;
-
+    private Music song;
     public Boss2() {
         try {
             bordes = new Polygon(puntos1);
@@ -62,8 +61,7 @@ Music musica;
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
         puntos = 0;
         contadorMundo = 0;
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
@@ -126,14 +124,15 @@ Music musica;
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if (!musica.playing()) {
-            musica.setPosition(15);
-            musica.play();
-        musica.setVolume((float) 0.1);
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
         }
+        
         if (puntos > 80) {
             try {
-                musica.stop();
                 sbg.enterState(19, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,7 +170,6 @@ Music musica;
             if (x1 <= 70) {
                 if (contadorMundo == 3) {
                     try {
-                        musica.stop();
                         sbg.enterState(18, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                     } catch (InstantiationException ex) {
                         Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,10 +205,6 @@ Music musica;
                 corazonOut.add(h1);
                 poum.remove(h1);
             }
-        }
-
-        if (input.isKeyDown(Input.KEY_ENTER)) {
-            gc.exit();
         }
 
         if (input.isKeyDown(Input.KEY_W)) {

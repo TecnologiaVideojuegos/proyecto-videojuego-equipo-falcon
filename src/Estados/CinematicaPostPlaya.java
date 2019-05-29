@@ -37,7 +37,7 @@ public class CinematicaPostPlaya extends BasicGameState {
     Historia bocadilloB3 = new Historia("ini12");
     Historia bocadilloB4 = new Historia("ini13");
     Historia bocadilloB5 = new Historia("ini14");
-
+    boolean stop=true;
     int contadorTemporal = 0;
 
     public CinematicaPostPlaya() {
@@ -66,7 +66,8 @@ public class CinematicaPostPlaya extends BasicGameState {
         } else if (contadorTemporal < 15800) {
             bocadilloB5.dentroXY(100, 0);
             bocadilloB5.getImagen().draw(bocadilloB5.getCoordenadaX(), bocadilloB5.getCoordenadaY());
-        } else {
+        }  else if (stop) {
+            stop = false;
             try {
                 sbg.enterState(0, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {

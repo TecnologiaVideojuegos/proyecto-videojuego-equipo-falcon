@@ -37,16 +37,15 @@ public class Boss3 extends BasicGameState {
     private Polygon bordes;
     int mapaMov = 0;
     int a = 0, b = 0, c = 0, d = 0;
-    Music musica;
     TiledMap mapa;
     Defensa personaje;
     ArrayList<BbyMaton> red, blue, yellow, orange, all;
     Ball ball;
-    int toque = 1, num = 0;
+    int toque = 0, num = 0;
     Image[] mundoImg;
     int puntos = 0;
     boolean game = true;
-
+    private Music song;
     public Boss3() {
         bordes = new Polygon(puntos1);
 
@@ -59,8 +58,8 @@ public class Boss3 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
         
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
         ball = new Ball();
         ball.setCoordenadaX(750);
         ball.setCoordenadaY(200);
@@ -99,44 +98,34 @@ public class Boss3 extends BasicGameState {
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
         ball.getDir().draw(ball.getCoordenadaX(), ball.getCoordenadaY());
-        g.draw(personaje.getH1());
-        g.draw(personaje.getH2());
-        g.draw(personaje.getH3());
-        g.draw(personaje.getH4());
-        g.draw(personaje.getH5());
-
-        g.draw(ball.getH1());
-        g.draw(ball.getH2());
-        g.draw(ball.getH3());
-        g.draw(ball.getH4());
+        
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         for (int i = 0; i < all.size(); i++) {
             System.out.println(all.get(i).getH1().getLocation());
 
             all.get(i).getDir().draw(all.get(i).getCoordenadaX(), all.get(i).getCoordenadaY());
-            g.draw(all.get(i).getH1());
         }
-        g.draw(bordes);
 
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if (!musica.playing()) {
-            musica.setPosition(15);
-            musica.play();musica.setVolume((float) 0.1);
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
         }
         
         if (game) {
             Input input = gc.getInput();
-            if ((toque % 7 == 0 && ball.getCoordenadaY() > 600 && ball.getCoordenadaY() < 700) || toque == 1) {
+            if ((toque % 8 == 0 && ball.getCoordenadaY() > 600 && ball.getCoordenadaY() < 700) || toque == 1) {
                 toque++;
                 for (int s = 0; s < all.size(); s++) {
                     all.get(s).move();
                     if (all.get(s).getCoordenadaY() > 600) {
                         try {
-                            musica.stop();
                             sbg.enterState(21, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                         } catch (InstantiationException ex) {
                             Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -189,10 +178,6 @@ public class Boss3 extends BasicGameState {
                         yellow.remove(x);
                     }
                 }
-            }
-
-            if (input.isKeyDown(Input.KEY_ENTER)) {
-                gc.exit();
             }
 
             if (input.isKeyDown(Input.KEY_A)) {
@@ -255,7 +240,6 @@ public class Boss3 extends BasicGameState {
                 ball.techo();
             } else if (tres.intersects(bordes)) {
                 try {
-                    musica.stop();
                     sbg.enterState(21, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                 } catch (InstantiationException ex) {
                     Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -287,7 +271,6 @@ public class Boss3 extends BasicGameState {
                         }
                         if (all.isEmpty()) {
                             try {
-                                musica.stop();
                                 sbg.enterState(26, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                             } catch (InstantiationException ex) {
                                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -318,7 +301,6 @@ public class Boss3 extends BasicGameState {
                         }
                         if (all.isEmpty()) {
                             try {
-                                musica.stop();
                                 sbg.enterState(26, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                             } catch (InstantiationException ex) {
                                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);

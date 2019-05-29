@@ -15,6 +15,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Rectangle;
@@ -77,7 +78,7 @@ public class PatioFinal extends BasicGameState {
     PersonajeEstaticoA niño13 = new PersonajeEstaticoA("right", 490, 680, "N13","Marinero");
     PersonajeEstaticoA niño14 = new PersonajeEstaticoA("left", 450, 680, "N11","Marinero");
 
-    boolean historia = true;
+    boolean historia = true; Music song;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
     float cordX,cordY;
     Historia b0 = new Historia("Historia60");
@@ -133,6 +134,7 @@ public class PatioFinal extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
         mapa = new TiledMap("\\Mapas\\mapa10.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(cordX);
@@ -149,6 +151,13 @@ public class PatioFinal extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         if (historia) {
             contadorTemporal1++;
             personaje.getDir().update(i);
@@ -157,7 +166,7 @@ public class PatioFinal extends BasicGameState {
             {
                 sbg.enterState(0);
             }
-            int velocidad = 2;
+            int velocidad = 1;
             Input input = gc.getInput();
 
             colisionNPCs = new ArrayList<>();
@@ -336,7 +345,7 @@ public class PatioFinal extends BasicGameState {
 
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getDir().draw(NPCs.get(j).getCoordenadaX(), NPCs.get(j).getCoordenadaY());
-            g.draw(NPCs.get(j).getHitbox());
+            //g.draw(NPCs.get(j).getHitbox());
         }
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
@@ -345,9 +354,9 @@ public class PatioFinal extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        for (int i = 0; i < colisiones_bordes.size(); i++) {
+        /*for (int i = 0; i < colisiones_bordes.size(); i++) {
             g.draw(colisiones_bordes.get(i));
-        }
+        }*/
 
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getTalk().getImagen().draw(NPCs.get(j).getTalk().getCoordenadaX(), NPCs.get(j).getTalk().getCoordenadaY());

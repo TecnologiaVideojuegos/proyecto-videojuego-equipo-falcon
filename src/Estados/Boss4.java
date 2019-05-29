@@ -155,25 +155,23 @@ public class Boss4 extends BasicGameState {
     Boton b117;
     Boton b118;
     Boton b119;
-    Music musica;
     int total = 0;
     ArrayList<Boton> listaBotones;
     TiledMap mapa;
-
+    private Music song;
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
+        total = 0;
+        
         listaBotones = new ArrayList<>();
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
 
         int[][] matriz = new int[10][12];
         for (int i = 0; i < 120; i++) {
-            System.out.println(i % 10 + "+" + i / 10);
             matriz[i % 10][i / 10] = 0;
         }
 
-        System.out.println("fin vaciado");
         for (int i = 0; i < 18; i++) {
             int minax = (int) (random() * 10);
             int minay = (int) (random() * 12);
@@ -184,7 +182,6 @@ public class Boss4 extends BasicGameState {
             matriz[minax][minay] = -1;
         }
 
-        System.out.println("por aqui");
         for (int i = 0; i < 120; i++) {
             int x1 = i % 10;
             int y = i / 10;
@@ -240,7 +237,6 @@ public class Boss4 extends BasicGameState {
                 }
             }
         }
-        System.out.println("por aqui");
         b0 = new Boton(matriz[0][0]);
         b1 = new Boton(matriz[1][0]);
         b2 = new Boton(matriz[2][0]);
@@ -735,13 +731,15 @@ public class Boss4 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         Input input = gc.getInput();
         input.disableKeyRepeat();
-        if (!musica.playing()) {
-            musica.setPosition(15);
-            musica.play();
-        musica.setVolume((float) 0.1);
-        }
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             int x = input.getMouseX();
             int y = input.getMouseY();
@@ -751,7 +749,6 @@ public class Boss4 extends BasicGameState {
                     if (listaBotones.get(j).getNum() == -1) {
 
                         try {
-                            musica.stop();
                             sbg.enterState(32, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                         } catch (InstantiationException ex) {
                             Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
@@ -765,7 +762,6 @@ public class Boss4 extends BasicGameState {
         }
         if (total == 102) {
             try {
-                musica.stop();
                 sbg.enterState(30, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);

@@ -16,6 +16,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Rectangle;
@@ -70,7 +71,7 @@ public class CompraFinal extends BasicGameState {
     PersonajeAcosador bully3 = new PersonajeAcosador("right", 960, 580,"B0","Maton3");
     PersonajeAcosador bully4 = new PersonajeAcosador("left", 1040, 580,"B0","Maton4");
 
-    boolean historia = false;
+    boolean historia = false; 
     int contadorTemporal1 = -1500, contadorTemporal2 = 0;
     Historia b0 = new Historia("Historia110");
     Historia b1 = new Historia("Historia111");
@@ -138,7 +139,7 @@ public class CompraFinal extends BasicGameState {
 
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getDir().draw(NPCs.get(j).getCoordenadaX(), NPCs.get(j).getCoordenadaY());
-            g.draw(NPCs.get(j).getHitbox());
+            //g.draw(NPCs.get(j).getHitbox());
         }
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
@@ -147,9 +148,9 @@ public class CompraFinal extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        for (int i = 0; i < colisiones_bordes.size(); i++) {
+        /*for (int i = 0; i < colisiones_bordes.size(); i++) {
             g.draw(colisiones_bordes.get(i));
-        }
+        }*/
 
         if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);

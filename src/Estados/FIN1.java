@@ -12,6 +12,7 @@ import Personajes.PersonajePrincipal;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -37,7 +38,7 @@ public class FIN1 extends BasicGameState {
 
     boolean historia = false;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
-    
+    Music song;
     Historia b1 = new Historia("Historia120");
     Historia b2 = new Historia("Historia121");
     Historia b3 = new Historia("Historia122");
@@ -53,6 +54,7 @@ public class FIN1 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss0eew.wav");
         mapa = new TiledMap("\\Mapas\\mapa9Noche.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(368);
@@ -64,6 +66,13 @@ public class FIN1 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         Input input = gc.getInput();
         contadorTemporal1++;
         personaje.getDir().update(i);

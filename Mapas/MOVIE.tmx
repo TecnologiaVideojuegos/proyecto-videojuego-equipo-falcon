@@ -3,14 +3,16 @@
  <tileset firstgid="1" source="../Construccion Mapas/oubliette_dungeon_big.tsx"/>
  <tileset firstgid="581" source="../Construccion Mapas/city_inside.tsx"/>
  <tileset firstgid="965" source="../Construccion Mapas/interior.tsx"/>
+ <tileset firstgid="1221" source="../Construccion Mapas/instrucciones0.tsx"/>
+ <tileset firstgid="1230" source="../Construccion Mapas/instrucciones2.tsx"/>
  <layer id="1" name="Capa de Patrones 1" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACrvBzMBwYxSP4lE8fDATFEP5WxkYGLZRiKcy0tntUCwJtPc70P5TZGKQXpMBdDs3EH8iE4P0Dla3n0TCo24fdTs2t58kgIeK2z/hcO9QcftQKmeIdXssEMcNUbcXAnHRIHM7sbgViNsGidvJbRMMpNsdgfY6AbEbBdhjgNxONTzq9oFzPz38MpTdPoqphgFtDtmyXBIAAA==
+   H4sIAAAAAAAACrvBzMBwYxSPYijWZ2VgMABiQyA2AmJj1oF30ygmETNBMZS/lYGBYRuFeCojnd0OxZJAe78D7T9FJgbpNRlAt3MD8ScyMUjvYHX7SSQ86vZRt2Nz+0kCeKi4/RMO9w4Vtw+lcoZYt8cCcdwQdXshEBcNMrcTi1uBuG2QuJ3cNsFAut0RaK8TELtRgD0GyO1Uw6NuHzj308MvQ9nto5hqGAAB9I+AXBIAAA==
   </data>
  </layer>
  <layer id="2" name="Capa de patrones 2" width="47" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+   H4sIAAAAAAAACu3OuQ0AIBDEwA3ovyt+6IltgQR0kkdybgkv5CQVV9Pvk3vNz92NgO/Tz8vtgO8AAAAAAERwACF/DphcEgAA
   </data>
  </layer>
  <layer id="3" name="Capa de patrones 3" width="47" height="25">

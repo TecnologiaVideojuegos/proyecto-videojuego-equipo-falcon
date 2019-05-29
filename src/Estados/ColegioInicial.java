@@ -17,6 +17,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Rectangle;
@@ -70,7 +71,7 @@ public class ColegioInicial extends BasicGameState {
     PersonajeEstatico niño13 = new PersonajeEstatico("up", 80, 480, "N13", "Niño3");
     PersonajeEstatico niño14 = new PersonajeEstatico("up", 18, 480, "N5", "Niño7");
 
-    boolean historia = false;
+    boolean historia = false,stop=true; Music song;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
     Historia introduccionHistoria = new Historia("Añadido");
 
@@ -100,6 +101,8 @@ public class ColegioInicial extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\cole.wav");
         mapa = new TiledMap("\\Mapas\\mapa7.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(482);
@@ -110,8 +113,15 @@ public class ColegioInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         Input input = gc.getInput();
-        contadorTemporal1++;
+        if(stop)
+            contadorTemporal1++;
         personaje.getDir().update(i);
 
     }
@@ -133,10 +143,10 @@ public class ColegioInicial extends BasicGameState {
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
-
+        /*
         for (int i = 0; i < colisiones_bordes.size(); i++) {
             g.draw(colisiones_bordes.get(i));
-        }
+        }*/
 
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getTalk().getImagen().draw(NPCs.get(j).getTalk().getCoordenadaX(), NPCs.get(j).getTalk().getCoordenadaY());
@@ -175,7 +185,8 @@ public class ColegioInicial extends BasicGameState {
                 personaje.setDir("up");
                 personaje.setDir("stance");
             }
-        } else if (contadorTemporal1 > 3800) {
+        } else if (contadorTemporal1 > 3800 && stop) {
+            stop=false;
             try {
                 sbg.enterState(16, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {

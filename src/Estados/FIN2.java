@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -40,9 +41,10 @@ public class FIN2 extends BasicGameState {
     BossFinal boss = new BossFinal("up", 20, 400,2);
     PersonajeAcosador padre = new PersonajeAcosador("down", 930, 380, "N2","Padre");
 
-    boolean historia = false;
+    boolean historia = false,stop=true;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
     
+    Music song;
     Historia b1 = new Historia("Historia132");
     Historia b2 = new Historia("Historia133");
     Historia b3 = new Historia("Historia134");
@@ -57,6 +59,7 @@ public class FIN2 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fin.wav");
         mapa = new TiledMap("\\Mapas\\mapa9Noche.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(140);
@@ -69,6 +72,13 @@ public class FIN2 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         Input input = gc.getInput();
         contadorTemporal1++;
         personaje.getDir().update(i);
@@ -121,8 +131,9 @@ public class FIN2 extends BasicGameState {
         }
         else if ( contadorTemporal1 > 10600 && contadorTemporal1 < 11900) {
             padre.setCoordenadas(padre.getCoordenadaX(),padre.getCoordenadaY()-(float)0.3);
-        }else if(contadorTemporal1 >11900)
+        }else if(contadorTemporal1 > 11900 && stop)
         {
+            stop=false;
             try {
                 sbg.enterState(50, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {

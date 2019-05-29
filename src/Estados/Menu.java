@@ -10,6 +10,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -25,7 +26,7 @@ public class Menu extends BasicGameState {
     public int getID() {
         return 53; //To change body of generated methods, choose Tools | Templates.
     }
-
+    Music song;
     Marcador marcador = new Marcador(2);
     public Menu() {
 
@@ -33,12 +34,19 @@ public class Menu extends BasicGameState {
     TiledMap mapa;
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\chun.wav");
         
         mapa = new TiledMap("\\Mapas\\menu.tmx", "\\Construccion Mapas\\");
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         Input input = gc.getInput();
         input.disableKeyRepeat();
         if(input.isKeyPressed(Input.KEY_S))

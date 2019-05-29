@@ -32,14 +32,11 @@ public class CinematicaPostCompra extends BasicGameState {
         return 28;
     }
 
-    Historia bocadilloB1 = new Historia("ini20");
-    Historia bocadilloB2 = new Historia("ini21");
-    Historia bocadilloB3 = new Historia("ini22");
-    Historia bocadilloB4 = new Historia("ini23");
-    Historia bocadilloB5 = new Historia("ini24");
-    Historia bocadilloB6 = new Historia("ini25");
+    Historia bocadilloB1 = new Historia("ini40");
+    Historia bocadilloB2 = new Historia("ini41");
+    Historia bocadilloB3 = new Historia("ini42");
     int contadorTemporal = 0;
-
+    boolean stop=true;
     public CinematicaPostCompra() {
     }
 
@@ -60,16 +57,8 @@ public class CinematicaPostCompra extends BasicGameState {
         } else if (contadorTemporal < 5800) {
             bocadilloB3.dentroXY(100, 0);
             bocadilloB3.getImagen().draw(bocadilloB3.getCoordenadaX(), bocadilloB3.getCoordenadaY());
-        } else if (contadorTemporal < 8400) {
-            bocadilloB4.dentroXY(100, 0);
-            bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
-        } else if (contadorTemporal < 12400) {
-            bocadilloB5.dentroXY(100, 0);
-            bocadilloB5.getImagen().draw(bocadilloB5.getCoordenadaX(), bocadilloB5.getCoordenadaY());
-        } else if (contadorTemporal < 14400) {
-            bocadilloB6.dentroXY(100, 0);
-            bocadilloB6.getImagen().draw(bocadilloB6.getCoordenadaX(), bocadilloB6.getCoordenadaY());
-        } else {
+        }  else if (stop) {
+            stop = false;
             try {
                 sbg.enterState(29, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
@@ -77,6 +66,7 @@ public class CinematicaPostCompra extends BasicGameState {
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
 
     }

@@ -39,7 +39,7 @@ public class CinematicaPostColegio extends BasicGameState {
     Historia bocadilloB5 = new Historia("ini24");
     Historia bocadilloB6 = new Historia("ini25");
     int contadorTemporal = 0;
-
+    boolean stop=true;
     public CinematicaPostColegio() {
     }
 
@@ -69,7 +69,8 @@ public class CinematicaPostColegio extends BasicGameState {
         } else if (contadorTemporal < 14400) {
             bocadilloB6.dentroXY(100, 0);
             bocadilloB6.getImagen().draw(bocadilloB6.getCoordenadaX(), bocadilloB6.getCoordenadaY());
-        } else {
+        } else if (stop) {
+            stop = false;
             try {
                 sbg.enterState(0, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
@@ -77,6 +78,7 @@ public class CinematicaPostColegio extends BasicGameState {
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
 
     }

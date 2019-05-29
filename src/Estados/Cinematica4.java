@@ -63,10 +63,11 @@ public class Cinematica4 extends BasicGameState {
     Historia bocadilloB6 = new Historia("Historia100");
     Historia bocadilloN6 = new Historia("Historia101");
 
+    Music song;
     Boolean choqueIzquierda = false, choqueDerecha = false;
-    Music musica;
     PersonajePrincipal personaje = new PersonajePrincipal();
-
+    boolean stop=true;
+    
     public Cinematica4() {
         borde = new Polygon(bordes1);
         salida = new Polygon(bordes2);
@@ -75,7 +76,7 @@ public class Cinematica4 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\boss0.wav");
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss0.wav");
 
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(662);
@@ -121,15 +122,16 @@ public class Cinematica4 extends BasicGameState {
                     bocadilloB5.dentro();
                     bocadilloB5.getImagen().draw(bocadilloB5.getCoordenadaX(), bocadilloB5.getCoordenadaY());
                 } else if (contadorTemporal < 17000) {
-                    bocadilloN4.dentroXY(100, 0);
+                    bocadilloN5.dentroXY(100, 0);
                     bocadilloN5.getImagen().draw(bocadilloN5.getCoordenadaX(), bocadilloN5.getCoordenadaY());
                 } else if (contadorTemporal < 18600) {
-                    bocadilloN4.dentroXY(100, 0);
+                    bocadilloB6.dentroXY(100, 0);
                     bocadilloB6.getImagen().draw(bocadilloB6.getCoordenadaX(), bocadilloB6.getCoordenadaY());
                 } else if (contadorTemporal < 20200) {
-                    bocadilloN4.dentroXY(100, 0);
+                    bocadilloN6.dentroXY(100, 0);
                     bocadilloN6.getImagen().draw(bocadilloN6.getCoordenadaX(), bocadilloN6.getCoordenadaY());
-                } else {
+                } else if(stop){
+                    stop=false;
                     try {
                         sbg.enterState(27, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                     } catch (InstantiationException ex) {
@@ -144,16 +146,18 @@ public class Cinematica4 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         int velocidad = 1;
-        Input input = gc.getInput();/*
-        if (!musica.playing()) {
-        musica.setVolume((float) 0.1);
-            musica.setPosition(15);
-            musica.play();
-        }*/
+        Input input = gc.getInput();
         boss.getDir().update(i);
         fuego.getDir().update(i);
-        if (contadorTemporal < 13850) {
+        if (contadorTemporal < 20200) {
             contadorTemporal++;
         } else {
             if (input.isKeyDown(Input.KEY_A)) {

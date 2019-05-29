@@ -38,7 +38,7 @@ public class CinematicaPostFin extends BasicGameState {
     Historia bocadilloB4 = new Historia("ini53");
 
     int contadorTemporal = 0;
-
+    boolean stop=true;
     public CinematicaPostFin() {
     }
 
@@ -62,14 +62,16 @@ public class CinematicaPostFin extends BasicGameState {
         } else if (contadorTemporal < 10800) {
             bocadilloB4.dentroXY(100, 0);
             bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
-        }  else {
+        } else if (stop) {
+            stop = false;
             try {
-                sbg.enterState(100, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                sbg.enterState(53, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
 
     }

@@ -13,6 +13,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
@@ -41,7 +42,7 @@ public class PlayaFinal extends BasicGameState {
 
     private PersonajeProfesor profesor;
 
-    int contadorTemporal = 0;
+    int contadorTemporal = 0; Music song;
     Historia bocadillo10 = new Historia("Historia30");
     Historia bocadillo11 = new Historia("Historia31");
     Historia bocadillo12 = new Historia("Historia32");
@@ -63,6 +64,7 @@ public class PlayaFinal extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
         mapa = new TiledMap("\\Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(1007);
@@ -72,6 +74,13 @@ public class PlayaFinal extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+       
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         if (contadorTemporal<8200) {
             contadorTemporal++;
         } else {
@@ -220,9 +229,9 @@ public class PlayaFinal extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        for (int i = 0; i < colisiones_bordes.size(); i++) {
+        /*for (int i = 0; i < colisiones_bordes.size(); i++) {
             g.draw(colisiones_bordes.get(i));
-        }
+        }*/
         
         profesor.getTalk().getImagen().draw(profesor.getTalk().getCoordenadaX(), profesor.getTalk().getCoordenadaY());
         profesor.getAlerta().getImagen().draw(profesor.getAlerta().getCoordenadaX(), profesor.getAlerta().getCoordenadaY());

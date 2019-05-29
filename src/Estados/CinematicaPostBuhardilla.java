@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
@@ -39,15 +40,15 @@ public class CinematicaPostBuhardilla extends BasicGameState {
     Historia bocadilloB5 = new Historia("ini4");
     Historia bocadilloB6 = new Historia("ini5");
     Historia bocadilloB7 = new Historia("ini6");
-
+    
     int contadorTemporal = 0;
-
+    boolean stop=true;
     public CinematicaPostBuhardilla() {
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
+        
     }
 
     @Override
@@ -74,22 +75,24 @@ public class CinematicaPostBuhardilla extends BasicGameState {
         } else if (contadorTemporal < 19000) {
             bocadilloB7.dentroXY(100, 0);
             bocadilloB7.getImagen().draw(bocadilloB7.getCoordenadaX(), bocadilloB7.getCoordenadaY());
-        } else {
+        } else if (stop) {
+            stop = false;
             try {
+                
                 sbg.enterState(0, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
                 Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
 
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if (contadorTemporal < 19001) {
-            contadorTemporal++;
-        }
+        contadorTemporal++;
+        
     }
 }

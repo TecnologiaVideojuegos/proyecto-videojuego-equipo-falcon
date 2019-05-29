@@ -140,7 +140,7 @@ public class CompraInicial extends BasicGameState {
 
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getDir().draw(NPCs.get(j).getCoordenadaX(), NPCs.get(j).getCoordenadaY());
-            g.draw(NPCs.get(j).getHitbox());
+            //g.draw(NPCs.get(j).getHitbox());
         }
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
@@ -149,9 +149,9 @@ public class CompraInicial extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        for (int i = 0; i < colisiones_bordes.size(); i++) {
+        /*for (int i = 0; i < colisiones_bordes.size(); i++) {
             g.draw(colisiones_bordes.get(i));
-        }
+        }*/
 
 
         if (input.isKeyDown(Input.KEY_T)) {

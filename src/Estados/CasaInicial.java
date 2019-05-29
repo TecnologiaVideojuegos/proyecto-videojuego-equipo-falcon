@@ -30,6 +30,7 @@ public class CasaInicial extends BasicGameState {
         return 8; //To change body of generated methods, choose Tools | Templates.
     }
 
+    Music song;
     private static TiledMap mapa;
 
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
@@ -45,8 +46,6 @@ public class CasaInicial extends BasicGameState {
     private ArrayList<Polygon> colisiones_salidas2;
 
     private PersonajeMadre madre;
-
-    Music musica;
 
     public CasaInicial() {
         colisiones_bordes = new ArrayList<>();
@@ -64,8 +63,7 @@ public class CasaInicial extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
-        
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
         mapa = new TiledMap("\\Mapas\\mapa2.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(461);
@@ -74,15 +72,16 @@ public class CasaInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         int velocidad = 1;
         Input input = gc.getInput();
-        /*if(!musica.playing())
-        {
-            musica.setPosition(15);
-            musica.play();
-        }
-        musica.setVolume((float)0.1);*/
-        
+
         if (input.isKeyDown(Input.KEY_W)) {
             personaje.setDir("up");
             personaje.getDir().update(i);
@@ -213,7 +212,6 @@ public class CasaInicial extends BasicGameState {
         mapa.render(0, 0, 1);
 
         madre.getDir().draw(madre.getCoordenadaX(), madre.getCoordenadaY());
-        g.draw(madre.getHitbox());
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 

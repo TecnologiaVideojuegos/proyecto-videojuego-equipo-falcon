@@ -221,7 +221,6 @@ public class BuhardillaInicial extends BasicGameState {
         mapa.render(0, 0, 1);
         
         atari.getDir().draw(atari.getCoordenadaX(), atari.getCoordenadaY());
-        g.draw(atari.getHitbox());
         
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 

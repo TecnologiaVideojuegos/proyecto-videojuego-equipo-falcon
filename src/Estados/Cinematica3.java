@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
@@ -45,17 +46,17 @@ public class Cinematica3 extends BasicGameState {
     int contadorParpadeo = 20;
     int contadorTemporal = 0;
 
-    Historia bocadilloB1 = new Historia("Historia20");
-    Historia bocadilloB2 = new Historia("Historia21");
-    Historia bocadilloB3 = new Historia("Historia22");
-    Historia bocadilloB4 = new Historia("Historia23");
-    Historia bocadilloN1 = new Historia("Historia05");
-    Historia bocadilloN2 = new Historia("Historia06");
-    Historia bocadilloN3 = new Historia("Historia07");
-    Historia bocadilloN4 = new Historia("Historia08");
-
+    Historia bocadilloB1 = new Historia("Historia80");
+    Historia bocadilloB2 = new Historia("Historia82");
+    Historia bocadilloB3 = new Historia("Historia84");
+    Historia bocadilloB4 = new Historia("Historia86");
+    Historia bocadilloN1 = new Historia("Historia81");
+    Historia bocadilloN2 = new Historia("Historia83");
+    Historia bocadilloN3 = new Historia("Historia85");
+    Historia bocadilloN4 = new Historia("Historia87");
+    
+    Music song;
     Boolean choqueIzquierda = false, choqueDerecha = false;
-Music musica;
     PersonajePrincipal personaje = new PersonajePrincipal();
 
     public Cinematica3() {
@@ -65,7 +66,7 @@ Music musica;
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\boss0.wav");
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss0.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
@@ -75,6 +76,7 @@ Music musica;
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        Input input = gc.getInput();
 
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
@@ -109,10 +111,13 @@ Music musica;
                 bocadilloB4.dentroXY(100, 0);
                 bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
             } else if (contadorTemporal < 13800) {
-                bocadilloN4.dentro();
+                bocadilloN4.dentroXY(100, 0);
                 bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
             } else {
                 mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");
+                if (input.isKeyDown(Input.KEY_T)) {
+                    g.drawImage(new Image("\\Elementos aparte\\Instrucciones\\3.png"), 150, 130);
+                }
             }
 
         }
@@ -120,15 +125,15 @@ Music musica;
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        int velocidad = 1;
-        Input input = gc.getInput();/*
-if(!musica.playing())
-        {
-            musica.setPosition(15);
-            musica.setVolume((float)0.1);
-            musica.play();
-        }*/
         
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
+        int velocidad = 1;
+        Input input = gc.getInput();
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
                 mapa = new TiledMap("Mapas\\mapa4.tmx", "\\Construccion Mapas\\");

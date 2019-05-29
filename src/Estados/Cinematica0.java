@@ -50,10 +50,9 @@ public class Cinematica0 extends BasicGameState {
     Historia bocadilloN4 = new Historia("Historia08");
     
     Boolean choqueIzquierda = false, choqueDerecha = false;
-    
+    Music song;
     PersonajePrincipal personaje = new PersonajePrincipal();
 
-    Music musica;
 
     public Cinematica0() {
         borde  = new Polygon(bordes1);
@@ -63,12 +62,13 @@ public class Cinematica0 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss0.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
         personaje.setDir("up");
         personaje.setDir("stance");
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\boss0.wav");
         
     }
 
@@ -116,7 +116,7 @@ public class Cinematica0 extends BasicGameState {
             bocadilloN4.dentro();
             bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
         } else {
-            mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");
+            mapa = new TiledMap("Mapas\\MOVIE0.tmx", "\\Construccion Mapas\\");
         }
         
         }
@@ -125,14 +125,15 @@ public class Cinematica0 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         int velocidad = 1;
         Input input = gc.getInput();
-        /*if(!musica.playing())
-        {
-        musica.setVolume((float)0.1);
-            musica.setPosition(15);
-            musica.play();
-        }*/
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
                 mapa = new TiledMap("Mapas\\mapa3.tmx", "\\Construccion Mapas\\");

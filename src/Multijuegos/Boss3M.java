@@ -183,10 +183,6 @@ public class Boss3M extends BasicGameState {
                 }
             }
 
-            if (input.isKeyDown(Input.KEY_ENTER)) {
-                gc.exit();
-            }
-
             if (input.isKeyDown(Input.KEY_A)) {
                 personaje.getDir().update(i);
                 for (int n = 0; n < 20; n++) {

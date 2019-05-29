@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
@@ -48,8 +49,8 @@ public class Cinematica5 extends BasicGameState {
     Historia bocadilloB1 = new Historia("Historia130");
     Historia bocadilloB2 = new Historia("Historia131");
 
+    Music song;
     Boolean choqueIzquierda = false, choqueDerecha = false;
-    Music musica;
     PersonajePrincipal personaje = new PersonajePrincipal();
 
     public Cinematica5() {
@@ -59,7 +60,6 @@ public class Cinematica5 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\boss0.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
@@ -69,6 +69,8 @@ public class Cinematica5 extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss0.wav");
+        Input input = gc.getInput();
 
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
@@ -82,13 +84,16 @@ public class Cinematica5 extends BasicGameState {
         if (contadorTemporal > 1000) {
 
             if (contadorTemporal < 2600) {
-                bocadilloB1.dentroXY(100, 0);
+                bocadilloB1.dentroXY(100, -18);
                 bocadilloB1.getImagen().draw(bocadilloB1.getCoordenadaX(), bocadilloB1.getCoordenadaY());
             } else if (contadorTemporal < 5800) {
                 bocadilloB2.dentroXY(100, 0);
                 bocadilloB2.getImagen().draw(bocadilloB2.getCoordenadaX(), bocadilloB2.getCoordenadaY());
             } else {
                 mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");
+                if (input.isKeyDown(Input.KEY_T)) {
+                    g.drawImage(new Image("\\Elementos aparte\\Instrucciones\\4.png"), 150, 130);
+                }
             }
 
         }
@@ -96,13 +101,15 @@ public class Cinematica5 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         int velocidad = 1;
-        Input input = gc.getInput();/*
-        if (!musica.playing()) {
-        musica.setVolume((float) 0.1);
-            musica.setPosition(15);
-            musica.play();
-        }*/
+        Input input = gc.getInput();
         if (contadorParpadeo > 0) {
             if (contadorParpadeo % 2 == 0) {
                 mapa = new TiledMap("Mapas\\mapa9Noche.tmx", "\\Construccion Mapas\\");
@@ -111,7 +118,7 @@ public class Cinematica5 extends BasicGameState {
             }
             contadorParpadeo--;
         } else {
-            if (contadorTemporal < 13850) {
+            if (contadorTemporal < 5800) {
                 contadorTemporal++;
             } else {
                 if (input.isKeyDown(Input.KEY_A)) {

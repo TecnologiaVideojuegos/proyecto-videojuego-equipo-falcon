@@ -42,7 +42,6 @@ import org.newdawn.slick.tiled.*;
  */
 public class Mundo extends BasicGameState {
 
-    Music musica;
     ArrayList<MapaT> mapas;
     private static TiledMap mapa;
     boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
@@ -64,6 +63,7 @@ public class Mundo extends BasicGameState {
     ArrayList<Rectangle> colisionNPCs;
     ArrayList<PersonajeGeneral> NPCs;
     
+    Music song;
     
     PersonajeEstaticoA tendero1 = new PersonajeEstaticoA("right", 380,150,"MP1","Marinero");
     PersonajeEstaticoA tendero2 = new PersonajeEstaticoA("left", 420,150,"MP0","Marinero");
@@ -97,31 +97,26 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         personaje.setCoordenadaX(461);
         personaje.setCoordenadaY(125);
 
-        musica = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         int velocidad = 1;
         Input input = gc.getInput();
         
-        if(!musica.playing())
-        {
-            musica.setVolume((float)0.1);
-            musica.setPosition(15);
-            musica.play();
-        }
-        
-        if(input.isKeyDown(Input.KEY_0))
-        {
-            System.out.println("e");
-            mapa8.chMod();
-        }
         colisiones_salidas = mapa_actual.getSalidas();
         colisiones_bordes = mapa_actual.getBordes();
         NPCs = mapa_actual.getPersonajes();
@@ -384,7 +379,7 @@ public class Mundo extends BasicGameState {
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             PersonajeGeneral npc_actual = mapa_actual.getPersonajes().get(j);
             npc_actual.getDir().draw(npc_actual.getCoordenadaX(),npc_actual.getCoordenadaY());
-            g.draw(npc_actual.getHitbox());
+            //g.draw(npc_actual.getHitbox());
         }
         
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());

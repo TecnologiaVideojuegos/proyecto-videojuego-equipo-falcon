@@ -88,7 +88,7 @@ public class Corazones {
     }
 
     public void move() {
-        coordenadaX = coordenadaX - (float)0.5;
+        coordenadaX = coordenadaX - (float)1;
         h1.setCenterX(coordenadaX+32);
         h1.setCenterY(coordenadaY+32);
         
