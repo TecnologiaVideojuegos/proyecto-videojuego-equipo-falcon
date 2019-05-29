@@ -86,16 +86,22 @@ public class PersonajeRightLeft extends PersonajeGeneral {
             coordenadaX = coordenadaX + (float) (0.5);
             desplazamiento ++;
             setDir("right");
-        } else if (desplazamiento >= 200 && desplazamiento < 1200) {
+        } else if (desplazamiento >= 200 && desplazamiento < 700) {
             desplazamiento ++;
             setDir("sup");
+        }  else if (desplazamiento >= 700 && desplazamiento < 1200) {
+            desplazamiento ++;
+            setDir("sdown");
         } else if (desplazamiento >= 1200 && desplazamiento < 1400) {
             desplazamiento ++;
             coordenadaX = coordenadaX - (float) (0.5);
             setDir("left");
-        } else if (desplazamiento >= 1400 && desplazamiento < 2400) {
+        } else if (desplazamiento >= 1400 && desplazamiento < 1900) {
             desplazamiento ++;
             setDir("sup");
+        } else if (desplazamiento >= 1900 && desplazamiento < 2400) {
+            desplazamiento ++;
+            setDir("sdown");
         } else {
             desplazamiento = 0;
         }

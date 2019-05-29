@@ -10,6 +10,7 @@ import EstadoBoss1.Boss1;
 import Personajes.PersonajeEstatico;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
+import Personajes.PersonajeRightLeft;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,20 +57,31 @@ public class ColegioInicial extends BasicGameState {
 
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
-    PersonajeEstatico niño1 = new PersonajeEstatico("up", 970, 380, "N1", "Niño4");
-    PersonajeEstatico niño2 = new PersonajeEstatico("up", 930, 380, "N2", "Niño2");
-    PersonajeEstatico niño3 = new PersonajeEstatico("up", 890, 380, "N3", "Niño2");
-    PersonajeEstatico niño4 = new PersonajeEstatico("up", 850, 380, "N4", "Niño7");
-    PersonajeEstatico niño5 = new PersonajeEstatico("up", 810, 380, "N5", "Niño5");
-    PersonajeEstatico niño6 = new PersonajeEstatico("up", 770, 380, "N6", "Niño9");
-    PersonajeEstatico niño7 = new PersonajeEstatico("up", 730, 380, "N7", "Niño11");
-    PersonajeEstatico niño8 = new PersonajeEstatico("up", 690, 380, "N8", "Niño10");
+    PersonajeEstatico niño1 = new PersonajeEstatico("up", 897, 225, "N1", "Niño4");
+    PersonajeEstatico niño2 = new PersonajeEstatico("up", 833, 225, "N2", "Niño2");
+    PersonajeEstatico niño3 = new PersonajeEstatico("up", 237, 680, "N3", "Niño2");
+    PersonajeEstatico niño4 = new PersonajeEstatico("up", 175, 680, "N4", "Niño7");
+    PersonajeEstatico niño5 = new PersonajeEstatico("up", 237, 580, "N5", "Niño5");
+    PersonajeEstatico niño6 = new PersonajeEstatico("up", 175, 580, "N6", "Niño9");
+    PersonajeEstatico niño7 = new PersonajeEstatico("up", 175, 480, "N7", "Niño11");
+    PersonajeEstatico niño8 = new PersonajeEstatico("up", 770, 980, "N8", "Niño10");
     PersonajeEstatico niño9 = new PersonajeEstatico("up", 80, 680, "N9", "Niño1");
     PersonajeEstatico niño10 = new PersonajeEstatico("up", 18, 680, "N10", "Niño6");
     PersonajeEstatico niño11 = new PersonajeEstatico("up", 80, 580, "N11", "Niño4");
     PersonajeEstatico niño12 = new PersonajeEstatico("up", 18, 580, "N12", "Niño8");
     PersonajeEstatico niño13 = new PersonajeEstatico("up", 80, 480, "N13", "Niño3");
-    PersonajeEstatico niño14 = new PersonajeEstatico("up", 18, 480, "N5", "Niño7");
+    PersonajeEstatico niño14 = new PersonajeEstatico("up", 18, 480, "N5", "Niño1");
+    PersonajeEstatico niño15 = new PersonajeEstatico("up", 753, 60, "N13", "Niño6");
+    PersonajeEstatico niño16 = new PersonajeEstatico("up", 1148, 65, "N5", "Niño3");
+    PersonajeEstatico niño17 = new PersonajeEstatico("up", 1185, 65, "N13", "Niño9");
+    PersonajeEstatico niño18 = new PersonajeEstatico("left", 1340, 350, "N5", "Niño5");
+    PersonajeEstatico niño19 = new PersonajeEstatico("right", 1300, 350, "N5", "Niño7");
+    
+    PersonajeEstatico niño20 = new PersonajeEstatico("right", 490, 165, "N13", "Niño9");
+    PersonajeEstatico niño21 = new PersonajeEstatico("right", 490, 190, "N5", "Niño5");
+    PersonajeEstatico niño22 = new PersonajeEstatico("up", 515, 210, "N5", "Niño7");
+    PersonajeRightLeft profe1 = new PersonajeRightLeft( 28, 310, "N5", "Profesora1");
+    PersonajeEstatico profe2 = new PersonajeEstatico("left", 530, 180, "N5", "Profesora3");
 
     boolean historia = false,stop=true; Music song;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
@@ -96,7 +108,18 @@ public class ColegioInicial extends BasicGameState {
         NPCs.add(niño12);
         NPCs.add(niño13);
         NPCs.add(niño14);
-
+        NPCs.add(niño15);
+        NPCs.add(niño16);
+        NPCs.add(niño17);
+        NPCs.add(niño18);
+        NPCs.add(niño19);
+        NPCs.add(profe1);
+        NPCs.add(profe2);
+        NPCs.add(niño20);
+        NPCs.add(niño21);
+        NPCs.add(niño22);
+        
+        
     }
 
     @Override
@@ -124,6 +147,11 @@ public class ColegioInicial extends BasicGameState {
             contadorTemporal1++;
         personaje.getDir().update(i);
 
+        profe1.move();
+        profe1.getDir().update(i);
+        profe2.move();
+        profe2.getDir().update(i);
+        
     }
 
     @Override

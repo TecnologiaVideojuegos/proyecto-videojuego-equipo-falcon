@@ -60,6 +60,7 @@ public class Cinematica5 extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss0.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje.setCoordenadaX(700);
         personaje.setCoordenadaY(470);
@@ -69,7 +70,6 @@ public class Cinematica5 extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss0.wav");
         Input input = gc.getInput();
 
         mapa.render(0, 0, 0);
