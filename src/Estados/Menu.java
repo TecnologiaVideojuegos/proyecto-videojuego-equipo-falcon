@@ -62,7 +62,7 @@ public class Menu extends BasicGameState {
                 gc.exit();
             }else if(marcador.getMarcador()==0)
             {
-                sbg.enterState(8);
+                sbg.enterState(-2);
             }else
             {
                 sbg.enterState(51);

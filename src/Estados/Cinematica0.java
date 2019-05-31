@@ -92,27 +92,27 @@ public class Cinematica0 extends BasicGameState {
             bocadilloN1.dentro();
             bocadilloN1.getImagen().draw(bocadilloN1.getCoordenadaX(), bocadilloN1.getCoordenadaY());
         }  
-        else if (contadorTemporal < 5800) {
+        else if (contadorTemporal < 6900) {
             bocadilloB2.dentroXY(100, 0);
             bocadilloB2.getImagen().draw(bocadilloB2.getCoordenadaX(), bocadilloB2.getCoordenadaY());
         }  
-        else if (contadorTemporal < 7400) {
+        else if (contadorTemporal < 9500) {
             bocadilloN2.dentro();
             bocadilloN2.getImagen().draw(bocadilloN2.getCoordenadaX(), bocadilloN2.getCoordenadaY());
         }
-        else if (contadorTemporal < 9000) {
+        else if (contadorTemporal < 12500) {
             bocadilloB3.dentroXY(100, 0);
             bocadilloB3.getImagen().draw(bocadilloB3.getCoordenadaX(), bocadilloB3.getCoordenadaY());
         } 
-         else if (contadorTemporal < 10600) {
+         else if (contadorTemporal < 15200) {
             bocadilloN3.dentro();
             bocadilloN3.getImagen().draw(bocadilloN3.getCoordenadaX(), bocadilloN3.getCoordenadaY());
         } 
-        else if (contadorTemporal < 12200) {
+        else if (contadorTemporal < 16800) {
            bocadilloB4.dentroXY(100, 0);
            bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
         }
-        else if (contadorTemporal < 13800) {
+        else if (contadorTemporal < 18400) {
             bocadilloN4.dentro();
             bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
         } else {
@@ -142,7 +142,7 @@ public class Cinematica0 extends BasicGameState {
             }
             contadorParpadeo--;
         } else {
-            if(contadorTemporal<13850)
+            if(contadorTemporal<18400)
                 contadorTemporal++;
             else
             {

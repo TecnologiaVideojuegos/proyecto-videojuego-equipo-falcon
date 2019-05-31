@@ -53,6 +53,9 @@ public class FIN2 extends BasicGameState {
     Historia b6 = new Historia("Historia137");
     Historia b7 = new Historia("Historia138");
     Historia b8 = new Historia("Historia139");
+    Historia b9 = new Historia("Historia140");
+    Historia b10 = new Historia("Historia141");
+    Historia b11 = new Historia("Historia142");
 
     public FIN2() {
     }
@@ -128,10 +131,19 @@ public class FIN2 extends BasicGameState {
         }else if ( contadorTemporal1 > 9300 && contadorTemporal1 < 10600) {
             b8.dentro();
             b8.getImagen().draw(b8.getCoordenadaX(), b8.getCoordenadaY());
+        }else if ( contadorTemporal1 > 9300 && contadorTemporal1 < 10600) {
+            b9.dentro();
+            b9.getImagen().draw(b9.getCoordenadaX(), b9.getCoordenadaY());
+        }else if ( contadorTemporal1 > 10600 && contadorTemporal1 < 11900) {
+            b10.dentro();
+            b10.getImagen().draw(b10.getCoordenadaX(), b10.getCoordenadaY());
+        }else if ( contadorTemporal1 > 11900 && contadorTemporal1 < 13200) {
+            b11.dentro();
+            b11.getImagen().draw(b11.getCoordenadaX(), b11.getCoordenadaY());
         }
-        else if ( contadorTemporal1 > 10600 && contadorTemporal1 < 11900) {
+        else if ( contadorTemporal1 > 13200 && contadorTemporal1 < 14500) {
             padre.setCoordenadas(padre.getCoordenadaX(),padre.getCoordenadaY()-(float)0.3);
-        }else if(contadorTemporal1 > 11900 && stop)
+        }else if(contadorTemporal1 > 14500 && stop)
         {
             stop=false;
             try {

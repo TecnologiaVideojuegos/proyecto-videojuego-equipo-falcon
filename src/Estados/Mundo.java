@@ -57,7 +57,7 @@ public class Mundo extends BasicGameState {
     Mapa10 mapa10 = new Mapa10();
     MapaT mapa_actual = new MapaT();
     PersonajePrincipal personaje;
-    
+    Image mapaHistoria;
     ArrayList<Polygon> colisiones_salidas;
     ArrayList<Polygon> colisiones_bordes;
     ArrayList<Rectangle> colisionNPCs;
@@ -97,6 +97,7 @@ public class Mundo extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        mapaHistoria = new Image("\\Elementos aparte\\mapa1.png");
         song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\fondo1.wav");
         mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
@@ -153,6 +154,8 @@ public class Mundo extends BasicGameState {
                             colisionNPCs.add(tendero1.getHitbox());
                             colisionNPCs.add(tendero2.getHitbox());
                             personaje.setDir("down");
+                            
+                            mapaHistoria = new Image("\\Elementos aparte\\mapa3.png");
                     }
                     if(state==22)
                     {
@@ -166,6 +169,8 @@ public class Mundo extends BasicGameState {
                          colisionNPCs.add(o1.getHitbox());
                          colisionNPCs.add(o2.getHitbox());
                          mapa9.getPersonajes().add(paso);
+                         
+                         mapaHistoria = new Image("\\Elementos aparte\\mapa4.png");
                     }
                     sbg.enterState(state);
                     }
@@ -214,6 +219,7 @@ public class Mundo extends BasicGameState {
                             colisionNPCs.add(escaleras2.getHitbox());
                             mapa_actual = mapa2;
                             mapa = new TiledMap(mapa_actual.getMapa(), "\\Construccion Mapas\\");
+                            mapaHistoria = new Image("\\Elementos aparte\\mapa2.png");
                             
                         }
                         sbg.enterState(state);
@@ -391,7 +397,7 @@ public class Mundo extends BasicGameState {
         
         /*for (int i = 0; i < mapa_actual.getBordes().size(); i++) {
          g.draw(mapa_actual.getBordes().get(i));
-         }*/
+        }*/
         
         for (int j = 0; j < mapa_actual.getPersonajes().size(); j++) {
             PersonajeGeneral npc_actual = mapa_actual.getPersonajes().get(j);
@@ -399,7 +405,7 @@ public class Mundo extends BasicGameState {
             npc_actual.getAlerta().getImagen().draw(npc_actual.getAlerta().getCoordenadaX(), npc_actual.getAlerta().getCoordenadaY());
         }
         if (input.isKeyDown(Input.KEY_T)) {
-            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
+            g.drawImage(mapaHistoria, 550, 200);
         }
     }
 

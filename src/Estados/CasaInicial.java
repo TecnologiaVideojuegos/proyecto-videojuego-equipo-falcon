@@ -226,8 +226,6 @@ public class CasaInicial extends BasicGameState {
         madre.getTalk().getImagen().draw(madre.getTalk().getCoordenadaX(), madre.getTalk().getCoordenadaY());
         madre.getAlerta().getImagen().draw(madre.getAlerta().getCoordenadaX(), madre.getAlerta().getCoordenadaY());
 
-        if (input.isKeyDown(Input.KEY_T)) {
-            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
-        }
+        
     }
 }

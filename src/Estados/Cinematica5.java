@@ -83,11 +83,11 @@ public class Cinematica5 extends BasicGameState {
 
         if (contadorTemporal > 1000) {
 
-            if (contadorTemporal < 2600) {
+            if (contadorTemporal < 3100) {
                 bocadilloB1.dentroXY(100, -18);
                 bocadilloB1.getImagen().draw(bocadilloB1.getCoordenadaX(), bocadilloB1.getCoordenadaY());
             } else if (contadorTemporal < 5800) {
-                bocadilloB2.dentroXY(100, 0);
+                bocadilloB2.dentroXY(100, -10);
                 bocadilloB2.getImagen().draw(bocadilloB2.getCoordenadaX(), bocadilloB2.getCoordenadaY());
             } else {
                 mapa = new TiledMap("Mapas\\MOVIE.tmx", "\\Construccion Mapas\\");

@@ -7,6 +7,7 @@ package Estados;
 
 import Elementos.Historia;
 import Personajes.PersonajeAcosador;
+import Personajes.PersonajeEstatico;
 import Personajes.PersonajeEstaticoA;
 import Personajes.PersonajePrincipal;
 import Personajes.PersonajeGeneral;
@@ -63,19 +64,14 @@ public class PatioInicial extends BasicGameState {
     private ArrayList<Rectangle> colisionNPCs;
 
     PersonajeAcosador niño1 = new PersonajeAcosador("up", 20, 400, "N1","Stalker");
-    PersonajeEstaticoA niño2 = new PersonajeEstaticoA("up", 930, 680, "N2","Marinero");
-    PersonajeEstaticoA niño3 = new PersonajeEstaticoA("up", 890, 680, "N3","Marinero");
-    PersonajeEstaticoA niño4 = new PersonajeEstaticoA("left", 850, 680, "N4","Marinero");
-    PersonajeEstaticoA niño5 = new PersonajeEstaticoA("left", 810, 680, "N5","Marinero");
-    PersonajeEstaticoA niño6 = new PersonajeEstaticoA("up", 770, 680, "N6","Marinero");
-    PersonajeEstaticoA niño7 = new PersonajeEstaticoA("right", 730, 680, "N7","Marinero");
-    PersonajeEstaticoA niño8 = new PersonajeEstaticoA("left", 690, 680, "N8","Marinero");
-    PersonajeEstaticoA niño9 = new PersonajeEstaticoA("left", 650, 680, "N9","Marinero");
-    PersonajeEstaticoA niño10 = new PersonajeEstaticoA("up", 610, 680, "N10","Marinero");
-    PersonajeEstaticoA niño11 = new PersonajeEstaticoA("right", 570, 680, "N11","Marinero");
-    PersonajeEstaticoA niño12 = new PersonajeEstaticoA("left", 530, 680, "N12","Marinero");
-    PersonajeEstaticoA niño13 = new PersonajeEstaticoA("right", 490, 680, "N13","Marinero");
-    PersonajeEstaticoA niño14 = new PersonajeEstaticoA("left", 450, 680, "N5","Marinero");
+    PersonajeEstatico niño4  = new PersonajeEstatico("left" , 850, 380, "N4","Niño4");
+    PersonajeEstatico niño5  = new PersonajeEstatico("up" , 810, 480, "N14","Niño5");
+    PersonajeEstatico niño6  = new PersonajeEstatico("up"   , 770, 480, "N16","Niño6");
+    PersonajeEstatico niño7  = new PersonajeEstatico("right", 730, 380, "N7","Niño7");
+    
+    PersonajeEstatico niño8  = new PersonajeEstatico("left" , 1110, 140, "N15","Niño8");
+    PersonajeEstatico niño9  = new PersonajeEstatico("left" , 1110, 180, "N15","Niño9");
+    PersonajeEstatico niño10 = new PersonajeEstatico("up"   , 1110, 220, "N17","Niño10");
 
     boolean historia = false;
     int contadorTemporal1 = 0, contadorTemporal2 = 0;
@@ -111,8 +107,6 @@ public class PatioInicial extends BasicGameState {
         colisiones_salidas.add(new Polygon(salida2));
 
         NPCs.add(niño1);
-        NPCs.add(niño2);
-        NPCs.add(niño3);
         NPCs.add(niño4);
         NPCs.add(niño5);
         NPCs.add(niño6);
@@ -120,10 +114,6 @@ public class PatioInicial extends BasicGameState {
         NPCs.add(niño8);
         NPCs.add(niño9);
         NPCs.add(niño10);
-        NPCs.add(niño11);
-        NPCs.add(niño12);
-        NPCs.add(niño13);
-        NPCs.add(niño14);
 
     }
 

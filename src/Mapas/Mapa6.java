@@ -23,6 +23,7 @@ public class Mapa6 extends MapaT {
     private Polygon bordes = new Polygon();
     
     private float borde1[] = new float[]{63, 0, 256, 0, 256, 33, 985, 33, 985, 65, 1027, 65, 1027, 36, 1180, 36, 1180, 68, 1218, 68, 1218, 141, 1242, 164, 1242, 200, 1282, 200, 1282, 186, 1402, 186, 1433, 223, 1469, 223, 1469, 778, 1091, 778, 1091, 741, 1184, 738, 1184, 671, 1153, 671, 1153, 700, 1058, 700, 1058, 733, 1020, 733, 1020, 785, 35, 785, 35, 32, 65, 32};
+    private float borde2[] = new float[]{125,225,1000,225,1000,630,1020,630,1020,670,105,670,105,630,125,630};
     private ArrayList<float[]> colisiones_bordes;
     private ArrayList<Polygon> colisiones;
 
@@ -60,6 +61,7 @@ public class Mapa6 extends MapaT {
         colisiones        = new ArrayList<>();
 
         colisiones_bordes.add(borde1);
+        colisiones_bordes.add(borde2);
 
         for (int i = 0; i < colisiones_bordes.size(); i++) {
             bordes = new Polygon(colisiones_bordes.get(i));

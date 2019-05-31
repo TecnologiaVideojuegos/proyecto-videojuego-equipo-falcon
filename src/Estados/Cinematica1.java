@@ -92,25 +92,25 @@ public class Cinematica1 extends BasicGameState {
             if (contadorTemporal < 2600) {
                 bocadilloB1.dentroXY(100, 0);
                 bocadilloB1.getImagen().draw(bocadilloB1.getCoordenadaX(), bocadilloB1.getCoordenadaY());
-            } else if (contadorTemporal < 4200) {
+            } else if (contadorTemporal < 4400) {
                 bocadilloN1.dentro();
                 bocadilloN1.getImagen().draw(bocadilloN1.getCoordenadaX(), bocadilloN1.getCoordenadaY());
-            } else if (contadorTemporal < 5800) {
+            } else if (contadorTemporal < 6200) {
                 bocadilloB2.dentroXY(100, 0);
                 bocadilloB2.getImagen().draw(bocadilloB2.getCoordenadaX(), bocadilloB2.getCoordenadaY());
-            } else if (contadorTemporal < 7400) {
+            } else if (contadorTemporal < 8200) {
                 bocadilloN2.dentro();
                 bocadilloN2.getImagen().draw(bocadilloN2.getCoordenadaX(), bocadilloN2.getCoordenadaY());
-            } else if (contadorTemporal < 9000) {
+            } else if (contadorTemporal < 10200) {
                 bocadilloB3.dentroXY(100, 0);
                 bocadilloB3.getImagen().draw(bocadilloB3.getCoordenadaX(), bocadilloB3.getCoordenadaY());
-            } else if (contadorTemporal < 10600) {
+            } else if (contadorTemporal < 12200) {
                 bocadilloN3.dentro();
                 bocadilloN3.getImagen().draw(bocadilloN3.getCoordenadaX(), bocadilloN3.getCoordenadaY());
-            } else if (contadorTemporal < 12200) {
+            } else if (contadorTemporal < 14200) {
                 bocadilloB4.dentroXY(100, 0);
                 bocadilloB4.getImagen().draw(bocadilloB4.getCoordenadaX(), bocadilloB4.getCoordenadaY());
-            } else if (contadorTemporal < 13800) {
+            } else if (contadorTemporal < 17200) {
                 bocadilloN4.dentro();
                 bocadilloN4.getImagen().draw(bocadilloN4.getCoordenadaX(), bocadilloN4.getCoordenadaY());
             } else {
@@ -142,7 +142,7 @@ public class Cinematica1 extends BasicGameState {
             }
             contadorParpadeo--;
         } else {
-            if (contadorTemporal < 13850) {
+            if (contadorTemporal < 17200) {
                 contadorTemporal++;
             } else {
                 if (input.isKeyDown(Input.KEY_A)) {

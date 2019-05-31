@@ -35,6 +35,7 @@ public class PlayaFinal extends BasicGameState {
     PersonajePrincipal personaje;
 
     private float borde1[] = new float[]{63, 0, 256, 0, 256, 33, 985, 33, 985, 65, 1027, 65, 1027, 36, 1180, 36, 1180, 68, 1218, 68, 1218, 141, 1242, 164, 1242, 200, 1282, 200, 1282, 186, 1402, 186, 1433, 223, 1469, 223, 1469, 778, 1091, 778, 1091, 741, 1184, 738, 1184, 671, 1153, 671, 1153, 700, 1058, 700, 1058, 733, 1020, 733, 1020, 785, 35, 785, 35, 32, 65, 32};
+    private float borde2[] = new float[]{125,225,1000,225,1000,630,1020,630,1020,670,105,670,105,630,125,630};
     private ArrayList<Polygon> colisiones_bordes;
 
     private float salida1[] = new float[]{66, 2, 252, 2, 252, 0, 66, 0};
@@ -52,6 +53,7 @@ public class PlayaFinal extends BasicGameState {
     public PlayaFinal() {
         colisiones_bordes = new ArrayList<>();
         colisiones_bordes.add(new Polygon(borde1));
+        colisiones_bordes.add(new Polygon(borde2));
 
         colisiones_salidas = new ArrayList<>();
         colisiones_salidas.add(new Polygon(salida1));

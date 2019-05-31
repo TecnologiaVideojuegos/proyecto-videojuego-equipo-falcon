@@ -17,6 +17,7 @@ import Estados.Cinematica2;
 import Estados.Cinematica3;
 import Estados.Cinematica4;
 import Estados.Cinematica5;
+import Estados.CinematicaInicial;
 import Estados.CinematicaPostBuhardilla;
 import Estados.CinematicaPostCasa;
 import Estados.CinematicaPostColegio;
@@ -28,6 +29,7 @@ import Estados.CompraFinal;
 import Estados.CompraInicial;
 import Estados.FIN1;
 import Estados.FIN2;
+import Estados.Instrucciones0;
 import Estados.Menu;
 import Estados.Menu2;
 import Estados.Mundo;
@@ -72,6 +74,9 @@ public class Juego extends StateBasedGame {
         this.addState(new Menu());
         this.addState(new Menu2());
         
+        this.addState(new Instrucciones0());
+        this.addState(new CinematicaInicial());
+        
         this.addState(new Boss1M());
         this.addState(new Boss2M());
         this.addState(new Boss3M());
@@ -108,14 +113,7 @@ public class Juego extends StateBasedGame {
         this.addState(new FIN2());
         this.addState(new CinematicaPostFin());
         
-        this.addState(new Mundo(1));
-        
-        
-        
-        
-        
-        
-
+        this.addState(new Mundo(5));
     }
 
     /**

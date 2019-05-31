@@ -236,9 +236,7 @@ public class BuhardillaInicial extends BasicGameState {
         atari.getTalk().getImagen().draw(atari.getTalk().getCoordenadaX(), atari.getTalk().getCoordenadaY());
         atari.getAlerta().getImagen().draw(atari.getAlerta().getCoordenadaX(), atari.getAlerta().getCoordenadaY());
 
-        if (input.isKeyDown(Input.KEY_T)) {
-            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
-        }
+        
         
         if(contadorTemporal>200 && contadorTemporal<2500)
         {
