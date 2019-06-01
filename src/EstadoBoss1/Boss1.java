@@ -89,10 +89,10 @@ public class Boss1 extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        g.draw(personaje.getH1());
+        /*g.draw(personaje.getH1());
         g.draw(personaje.getH2());
         g.draw(personaje.getH3());
-        g.draw(personaje.getH4());
+        g.draw(personaje.getH4());*/
 
     }
 
@@ -106,13 +106,10 @@ public class Boss1 extends BasicGameState {
         }
         
         Input input = gc.getInput();
-        if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+        /*if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
-        }
-        if (input.isKeyPressed(Input.KEY_1)) {
-            sbg.enterState(12);
-        }
-
+        }*/
+        
         boss1.getDir().update(i);
 
         if (boss1.getDir().getFrame() == 5) {

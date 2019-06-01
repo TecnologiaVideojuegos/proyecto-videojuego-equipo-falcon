@@ -6,6 +6,9 @@
 package Estados;
 
 import Elementos.Marcador;
+import EstadoBoss1.Boss1;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -14,6 +17,8 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -59,9 +64,23 @@ public class Menu extends BasicGameState {
             if (marcador.getMarcador() == 2) {
                 gc.exit();
             } else if (marcador.getMarcador() == 0) {
-                sbg.enterState(-2);
+                
+                try {
+                    sbg.enterState(-2, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                            
             } else {
-                sbg.enterState(51);
+                try {
+                    sbg.enterState(51, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

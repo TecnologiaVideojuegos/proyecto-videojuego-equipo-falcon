@@ -99,7 +99,6 @@ public class Boss3 extends BasicGameState {
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         for (int i = 0; i < all.size(); i++) {
-            System.out.println(all.get(i).getH1().getLocation());
 
             all.get(i).getDir().draw(all.get(i).getCoordenadaX(), all.get(i).getCoordenadaY());
         }
@@ -133,11 +132,9 @@ public class Boss3 extends BasicGameState {
                 }
                 num++;
                 num = num % 4;
-                System.out.println(num);
                 if (num == 0) {
                     int crdx = 433;
                     for (int j = 0; j < 5; j++) {
-                        System.out.println("red");
                         BbyMaton x = red.get(0);
                         all.add(x);
                         x.setCoordenadas(crdx, 0);
@@ -147,7 +144,6 @@ public class Boss3 extends BasicGameState {
                 } else if (num == 1) {
                     int crdx = 433;
                     for (int j = 0; j < 5; j++) {
-                        System.out.println("blue");
                         BbyMaton x = blue.get(0);
                         all.add(x);
                         x.setCoordenadas(crdx, 0);
@@ -157,7 +153,6 @@ public class Boss3 extends BasicGameState {
                 } else if (num == 2) {
                     int crdx = 433;
                     for (int j = 0; j < 5; j++) {
-                        System.out.println("orange");
                         BbyMaton x = orange.get(0);
                         all.add(x);
                         x.setCoordenadas(crdx, 0);
@@ -167,7 +162,6 @@ public class Boss3 extends BasicGameState {
                 } else if (num == 3) {
                     int crdx = 433;
                     for (int j = 0; j < 5; j++) {
-                        System.out.println("yellow");
                         BbyMaton x = yellow.get(0);
                         all.add(x);
                         x.setCoordenadas(crdx, 0);

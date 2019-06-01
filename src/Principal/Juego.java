@@ -40,6 +40,10 @@ import Multijuegos.Boss1M;
 import Multijuegos.Boss2M;
 import Multijuegos.Boss3M;
 import Multijuegos.Boss4M;
+import Multijuegos.InstruccionesMinis0;
+import Multijuegos.InstruccionesMinis1;
+import Multijuegos.InstruccionesMinis2;
+import Multijuegos.InstruccionesMinis3;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,9 +82,13 @@ public class Juego extends StateBasedGame {
         this.addState(new CinematicaInicial());
 
         this.addState(new Boss1M());
+        this.addState(new InstruccionesMinis0());
         this.addState(new Boss2M());
+        this.addState(new InstruccionesMinis1());
         this.addState(new Boss3M());
+        this.addState(new InstruccionesMinis2());
         this.addState(new Boss4M());
+        this.addState(new InstruccionesMinis3());
 
         this.addState(new CasaInicial());
         this.addState(new BuhardillaInicial());

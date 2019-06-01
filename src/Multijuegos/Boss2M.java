@@ -14,6 +14,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
@@ -43,7 +44,8 @@ public class Boss2M extends BasicGameState {
     private Image[] mundoImg;
     private int contadorMundo = 0;
     private int puntos = 0;
-
+    private Music song;
+    
     public Boss2M() {
         try {
             bordes = new Polygon(puntos1);
@@ -61,6 +63,7 @@ public class Boss2M extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
         puntos = 0;
         contadorMundo = 0;
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
@@ -92,14 +95,8 @@ public class Boss2M extends BasicGameState {
         if (contadorMundo < 4) {
             g.drawImage(mundoImg[contadorMundo], 0, 0);
         } else {
-            try {
                 sbg.getState(51).init(gc, sbg);
-                sbg.enterState(51, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                sbg.enterState(51);
         }
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
@@ -130,6 +127,13 @@ public class Boss2M extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         if (puntos > 80) {
             try {
                 sbg.getState(51).init(gc, sbg);

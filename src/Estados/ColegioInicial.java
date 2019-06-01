@@ -193,7 +193,6 @@ public class ColegioInicial extends BasicGameState {
             personaje.setDir("up");
         }
 
-        System.out.println(contadorTemporal1);
         if (contadorTemporal1 > 1500 && contadorTemporal1 < 2500) {
             if (personaje.getCoordenadaY() > 450) {
                 personaje.setDir("up");

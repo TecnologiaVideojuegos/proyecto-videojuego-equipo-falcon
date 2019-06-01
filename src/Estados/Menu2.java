@@ -7,13 +7,18 @@ package Estados;
 
 import Elementos.Marcador;
 import Multijuegos.Boss2M;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
@@ -33,15 +38,22 @@ public class Menu2 extends BasicGameState {
 
     }
     private TiledMap mapa;
-
+    private Music song;
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\chun.wav");
 
         mapa = new TiledMap("\\Mapas\\menu2.tmx", "\\Construccion Mapas\\");
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         Input input = gc.getInput();
         input.disableKeyRepeat();
         if (input.isKeyPressed(Input.KEY_S)) {
@@ -50,20 +62,49 @@ public class Menu2 extends BasicGameState {
             marcador.setMarcador(-1);
         } else if (input.isKeyPressed(Input.KEY_ENTER)) {
             if (marcador.getMarcador() == 4) {
-                sbg.getState(53).init(gc, sbg);
-                sbg.enterState(53);
+                try {
+                    sbg.getState(53).init(gc, sbg);
+                    sbg.enterState(53, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             } else if (marcador.getMarcador() == 3) {
-                sbg.enterState(61);
-                sbg.getState(61).init(gc, sbg);
+                try {
+                    sbg.enterState(-3, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             } else if (marcador.getMarcador() == 2) {
-                sbg.enterState(63);
-                sbg.getState(63).init(gc, sbg);
+                try {
+                    sbg.enterState(-5, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             } else if (marcador.getMarcador() == 1) {
-                sbg.getState(62).init(gc, sbg);
-                sbg.enterState(62);
+                try {
+                    sbg.enterState(-4, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } else {
-                sbg.enterState(64);
-                sbg.getState(64).init(gc, sbg);
+                try {
+                    sbg.enterState(-6, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

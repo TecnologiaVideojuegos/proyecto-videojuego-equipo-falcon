@@ -92,7 +92,6 @@ public class FIN1 extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        System.out.println(contadorTemporal1);
         if (contadorTemporal1 > 0 && contadorTemporal1 < 1500) {
             if (personaje.getCoordenadaY() > 500) {
                 personaje.setDir("up");

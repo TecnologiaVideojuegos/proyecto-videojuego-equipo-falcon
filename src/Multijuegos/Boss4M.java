@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -159,20 +160,20 @@ public class Boss4M extends BasicGameState {
     private int total = 0;
     private ArrayList<Boton> listaBotones;
     private TiledMap mapa;
-
+    private Music song;
+    
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
 
         listaBotones = new ArrayList<>();
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
 
         int[][] matriz = new int[10][12];
         for (int i = 0; i < 120; i++) {
-            System.out.println(i % 10 + "+" + i / 10);
             matriz[i % 10][i / 10] = 0;
         }
 
-        System.out.println("fin vaciado");
         for (int i = 0; i < 18; i++) {
             int minax = (int) (random() * 10);
             int minay = (int) (random() * 12);
@@ -183,7 +184,6 @@ public class Boss4M extends BasicGameState {
             matriz[minax][minay] = -1;
         }
 
-        System.out.println("por aqui");
         for (int i = 0; i < 120; i++) {
             int x1 = i % 10;
             int y = i / 10;
@@ -734,6 +734,13 @@ public class Boss4M extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
+        
         Input input = gc.getInput();
         input.disableKeyRepeat();
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {

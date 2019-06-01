@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
@@ -41,7 +42,8 @@ public class Boss1M extends BasicGameState {
     private ArrayList<Pelota> pelotas = new ArrayList<>();
     private Pelota ball;
     private int contadorPelotas = 0;
-
+    private Music song;
+    
     public Boss1M() {
         bordes = new Polygon(puntos1);
         salidas = new Polygon(puntos2);
@@ -54,6 +56,7 @@ public class Boss1M extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
         mapa = new TiledMap(mapa1, "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
         boss1 = new PersonajeProfesor();
@@ -86,33 +89,31 @@ public class Boss1M extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        g.draw(personaje.getH1());
+        /*g.draw(personaje.getH1());
         g.draw(personaje.getH2());
         g.draw(personaje.getH3());
         g.draw(personaje.getH4());
 
         for (int i = 0; i < 20; i++) {
             g.draw(bordes);
-        }
+        }*/
 
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         
+        
+        if (!song.playing()) {
+            song.setPosition((float) 12.55);
+            song.play();
+            song.setVolume((float) 0.2);
+        }
         Input input = gc.getInput();
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             System.out.println(input.getMouseX() + "," + input.getMouseY() + ",");
         }
-        if (contador_parpadeo > 0) {
-            if (contador_parpadeo % 2 == 0) {
-                mapa = new TiledMap("Mapas\\mapa6.tmx", "\\Construccion Mapas\\");
-            } else {
-                mapa = new TiledMap("Mapas\\boss1.tmx", "\\Construccion Mapas\\");
-            }
-            contador_parpadeo--;
-
-        } else {
+        
 
             boss1.getDir().update(i);
 
@@ -162,7 +163,7 @@ public class Boss1M extends BasicGameState {
                     }
                 }
                 if (!choqueArriba || choqueAbajo) {
-                    personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f*2);
+                    personaje.setCoordenadaY(personaje.getCoordenadaY() - i * 0.14f);
                     choqueAbajo = false;
                 }
 
@@ -228,4 +229,4 @@ public class Boss1M extends BasicGameState {
             }
         }
     }
-}
+
