@@ -16,15 +16,16 @@ import org.newdawn.slick.SlickException;
  *
  * @author lucas
  */
-public class PersonajeProfesor extends PersonajeGeneral{
+public class PersonajeProfesor extends PersonajeGeneral {
 
-    int[] duration = {1500, 100, 100, 100, 100, 1100};
+    private int[] duration = {1500, 100, 100, 100, 100, 1100};
+
     public PersonajeProfesor() {
         try {
-            bocadillo =  new Bocadillo("Profesor");
-            sgb=-1;
-            coordenadaX=900;
-            coordenadaY=20;
+            bocadillo = new Bocadillo("Profesor");
+            sgb = -1;
+            coordenadaX = 900;
+            coordenadaY = 20;
             hitbox.setBounds(coordenadaX, coordenadaY, 85, 70);
             Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\2.png"), new Image("SpriteBoss1\\3.png"), new Image("SpriteBoss1\\4.png"), new Image("SpriteBoss1\\5.png"), new Image("SpriteBoss1\\6.png")};
             actual = new Animation(lanzaPelotas, duration, false);
@@ -33,15 +34,15 @@ public class PersonajeProfesor extends PersonajeGeneral{
         }
     }
 
-    public void noLanza(){
+    public void noLanza() {
         try {
             Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\1.png")};
-            actual = new Animation(lanzaPelotas, new int[]{duration[0],duration[1]}, false);
+            actual = new Animation(lanzaPelotas, new int[]{duration[0], duration[1]}, false);
         } catch (SlickException ex) {
         }
     }
-    
-    public void lanza(){
+
+    public void lanza() {
         try {
             Image[] lanzaPelotas = {new Image("SpriteBoss1\\1.png"), new Image("SpriteBoss1\\2.png"), new Image("SpriteBoss1\\3.png"), new Image("SpriteBoss1\\4.png"), new Image("SpriteBoss1\\5.png"), new Image("SpriteBoss1\\6.png")};
             actual = new Animation(lanzaPelotas, duration, false);
@@ -49,25 +50,24 @@ public class PersonajeProfesor extends PersonajeGeneral{
             Logger.getLogger(PersonajeProfesor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
-    public void setDir(String string){
+    public void setDir(String string) {
     }
-    
+
     public void setCoord(int x, int y) {
-        coordenadaX=x;
-        coordenadaY=y;
+        coordenadaX = x;
+        coordenadaY = y;
         hitbox.setBounds(x, y, 85, 70);
     }
-    
-    public void setSGB()
-    {
-        sgb=20;
+
+    public void setSGB() {
+        sgb = 20;
     }
-    
+
     @Override
     public void move() {
-        hitbox.setBounds(coordenadaX, coordenadaY+15, 90, 75);
+        hitbox.setBounds(coordenadaX, coordenadaY + 15, 90, 75);
     }
-    
+
 }

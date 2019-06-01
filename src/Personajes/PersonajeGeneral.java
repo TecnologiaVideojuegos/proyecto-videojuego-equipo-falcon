@@ -18,15 +18,16 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajeGeneral {
 
-    float coordenadaX = 500, coordenadaY = 450;
-    Animation actual, sup, sdown, left, right, sright, sleft;
-    int[] duration = {200, 200};
-    int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
-    Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo("V0");
-    int desplazamiento = 0;
-    Alerta alerta = new Alerta();
-    int sgb;
+     float coordenadaX = 500, coordenadaY = 450;
+     Animation actual, sup, sdown, left, right, sright, sleft;
+     int[] duration = {200, 200};
+     int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
+     Rectangle hitbox;
+     Bocadillo bocadillo = new Bocadillo("V0");
+     int desplazamiento = 0;
+     Alerta alerta = new Alerta();
+     int sgb;
+
     public PersonajeGeneral() {
         try {
 
@@ -48,9 +49,9 @@ public class PersonajeGeneral {
             sright = new Animation(stanceRight, duration, false);
 
             actual = right;
-            
+
             //No SBG
-            sgb=-1;
+            sgb = -1;
         } catch (SlickException e) {
         }
     }
@@ -93,10 +94,9 @@ public class PersonajeGeneral {
     }
 
     public void move() {
-        
+
         hitbox.setBounds(coordenadaX + 17, coordenadaY + 10, 30, 50);
     }
-
 
     public Rectangle getHitbox() {
         return hitbox;
@@ -106,43 +106,39 @@ public class PersonajeGeneral {
         bocadillo.dentro();
     }
 
-    public Bocadillo getTalk(){
+    public Bocadillo getTalk() {
         return bocadillo;
     }
-    
+
     public void noTalk() {
         bocadillo.fuera();
     }
-    
-    public Alerta getAlerta(){
+
+    public Alerta getAlerta() {
         return alerta;
     }
-    
+
     public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+        alerta.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
     }
-    
+
     public void noAlerta() {
         alerta.fuera();
     }
-    
-    public boolean isSGB()
-    {
-        return sgb!=-1;
+
+    public boolean isSGB() {
+        return sgb != -1;
     }
-    
-    public int getSGB()
-    {
+
+    public int getSGB() {
         return sgb;
     }
-    
-    public void notSGB()
-    {
-        sgb=-1;
+
+    public void notSGB() {
+        sgb = -1;
     }
-    
-    public void hide()
-    {
+
+    public void hide() {
         hitbox.setBounds(0, 0, 0, 0);
     }
 }

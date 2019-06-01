@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
@@ -35,17 +34,16 @@ public class Boss3 extends BasicGameState {
     private String mapa1 = "Mapas\\boss2.tmx";
     private float puntos1[] = new float[]{425, 2, 1080, 2, 1080, 730, 425, 730};
     private Polygon bordes;
-    int mapaMov = 0;
-    int a = 0, b = 0, c = 0, d = 0;
-    TiledMap mapa;
-    Defensa personaje;
-    ArrayList<BbyMaton> red, blue, yellow, orange, all;
-    Ball ball;
-    int toque = 0, num = 0;
-    Image[] mundoImg;
-    int puntos = 0;
-    boolean game = true;
+    private int mapaMov = 0;
+    private int a = 0, b = 0, c = 0, d = 0;
+    private TiledMap mapa;
+    private Defensa personaje;
+    private ArrayList<BbyMaton> red, blue, yellow, orange, all;
+    private Ball ball;
+    private int toque = 0, num = 0;
+    private boolean game = true;
     private Music song;
+
     public Boss3() {
         bordes = new Polygon(puntos1);
 
@@ -59,7 +57,7 @@ public class Boss3 extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\Boss1.wav");
-        
+
         ball = new Ball();
         ball.setCoordenadaX(750);
         ball.setCoordenadaY(200);
@@ -98,7 +96,6 @@ public class Boss3 extends BasicGameState {
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
         ball.getDir().draw(ball.getCoordenadaX(), ball.getCoordenadaY());
-        
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
         for (int i = 0; i < all.size(); i++) {
@@ -111,13 +108,13 @@ public class Boss3 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.setPosition((float) 12.55);
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         if (game) {
             Input input = gc.getInput();
             if ((toque % 8 == 0 && ball.getCoordenadaY() > 600 && ball.getCoordenadaY() < 700) || toque == 1) {

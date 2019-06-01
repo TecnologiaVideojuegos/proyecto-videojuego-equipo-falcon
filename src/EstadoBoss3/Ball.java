@@ -8,7 +8,6 @@ package EstadoBoss3;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Rectangle;
 
 /**
@@ -17,11 +16,11 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class Ball {
 
-    float coordenadaX, coordenadaY;
-    Animation mover;
-    int[] duration = {100, 100};
-    Rectangle h1, h2, h3, h4;
-    float origen, movx = 0, movy = 1;
+    private float coordenadaX, coordenadaY;
+    private Animation mover;
+    private int[] duration = {100, 100};
+    private Rectangle h1, h2, h3, h4;
+    private float  movx = 0, movy = 1;
 
     public Ball() {
         try {
@@ -69,11 +68,11 @@ public class Ball {
     }
 
     public void pared() {
-            movx = -movx;
+        movx = -movx;
     }
-    
+
     public void techo() {
-            movy = -movy;
+        movy = -movy;
     }
 
     public void setDest(float x, float y) {
@@ -82,8 +81,8 @@ public class Ball {
     }
 
     public void move() {
-        coordenadaX = coordenadaX + (float)1.1*movx;
-        coordenadaY = coordenadaY + (float)1.1*movy;
+        coordenadaX = coordenadaX + (float) 1.1 * movx;
+        coordenadaY = coordenadaY + (float) 1.1 * movy;
         h1.setBounds(coordenadaX + 56, coordenadaY + 56, 14, 1);
         h2.setBounds(coordenadaX + 55, coordenadaY + 57, 1, 16);
         h3.setBounds(coordenadaX + 56, coordenadaY + 74, 14, 1);

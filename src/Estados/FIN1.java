@@ -30,24 +30,22 @@ public class FIN1 extends BasicGameState {
     }
 
     private static TiledMap mapa;
-    PersonajePrincipal personaje;
+    private PersonajePrincipal personaje;
 
-    
-    BossFinal boss = new BossFinal("up", 20, 400,1);
-    PersonajeAcosador padre = new PersonajeAcosador("down", 930, 380, "N2","Padre");
+    private BossFinal boss = new BossFinal("up", 20, 400, 1);
+    private PersonajeAcosador padre = new PersonajeAcosador("down", 930, 380, "N2", "Padre");
 
-    boolean historia = false;
-    int contadorTemporal1 = 0, contadorTemporal2 = 0;
-    Music song;
-    Historia b1 = new Historia("Historia120");
-    Historia b2 = new Historia("Historia121");
-    Historia b3 = new Historia("Historia122");
-    Historia b4 = new Historia("Historia123");
-    Historia b5 = new Historia("Historia124");
-    Historia b6 = new Historia("Historia125");
-    Historia b7 = new Historia("Historia126");
-    Historia b8 = new Historia("Historia127");
-    
+    private boolean historia = false;
+    private int contadorTemporal1 = 0, contadorTemporal2 = 0;
+    private Music song;
+    private Historia b1 = new Historia("Historia120");
+    private Historia b2 = new Historia("Historia121");
+    private Historia b3 = new Historia("Historia122");
+    private Historia b4 = new Historia("Historia123");
+    private Historia b5 = new Historia("Historia124");
+    private Historia b6 = new Historia("Historia125");
+    private Historia b7 = new Historia("Historia126");
+    private Historia b8 = new Historia("Historia127");
 
     public FIN1() {
     }
@@ -61,18 +59,17 @@ public class FIN1 extends BasicGameState {
         personaje.setCoordenadaY(703);
         personaje.setDir("up");
 
-
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.setPosition((float) 12.55);
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         Input input = gc.getInput();
         contadorTemporal1++;
         personaje.getDir().update(i);
@@ -87,15 +84,14 @@ public class FIN1 extends BasicGameState {
 
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
-        padre.getDir().draw(140,350);
-        boss.getDir().draw(368,350);
+        padre.getDir().draw(140, 350);
+        boss.getDir().draw(368, 350);
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
 
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
 
-        
         System.out.println(contadorTemporal1);
         if (contadorTemporal1 > 0 && contadorTemporal1 < 1500) {
             if (personaje.getCoordenadaY() > 500) {
@@ -104,40 +100,40 @@ public class FIN1 extends BasicGameState {
             } else if (personaje.getCoordenadaX() > 140) {
                 personaje.setDir("left");
                 personaje.setCoordenadaX(personaje.getCoordenadaX() - (float) 0.5);
-            }else if (personaje.getCoordenadaY() > 410) {
+            } else if (personaje.getCoordenadaY() > 410) {
                 personaje.setDir("up");
                 personaje.setCoordenadaY(personaje.getCoordenadaY() - (float) 0.5);
-            }else
+            } else {
                 personaje.setDir("stance");
-        } else if ( contadorTemporal1 > 1500 && contadorTemporal1 < 2800) {
+            }
+        } else if (contadorTemporal1 > 1500 && contadorTemporal1 < 2800) {
             b1.dentro();
             b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
-        }else if ( contadorTemporal1 > 2800 && contadorTemporal1 < 4100) {
+        } else if (contadorTemporal1 > 2800 && contadorTemporal1 < 4100) {
             b2.dentro();
             b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
-        }else if ( contadorTemporal1 > 4100 && contadorTemporal1 < 5400) {
+        } else if (contadorTemporal1 > 4100 && contadorTemporal1 < 5400) {
             personaje.setDir("right");
             personaje.setDir("stance");
             padre.setDir("sright");
             b3.dentro();
             b3.getImagen().draw(b3.getCoordenadaX(), b3.getCoordenadaY());
-        }else if ( contadorTemporal1 > 5400 && contadorTemporal1 < 6700) {
+        } else if (contadorTemporal1 > 5400 && contadorTemporal1 < 6700) {
             b4.dentro();
             b4.getImagen().draw(b4.getCoordenadaX(), b4.getCoordenadaY());
-        }else if ( contadorTemporal1 > 6700 && contadorTemporal1 < 8000) {
+        } else if (contadorTemporal1 > 6700 && contadorTemporal1 < 8000) {
             b5.dentro();
             b5.getImagen().draw(b5.getCoordenadaX(), b5.getCoordenadaY());
-        }else if ( contadorTemporal1 > 8000 && contadorTemporal1 < 9300) {
+        } else if (contadorTemporal1 > 8000 && contadorTemporal1 < 9300) {
             b6.dentro();
             b6.getImagen().draw(b6.getCoordenadaX(), b6.getCoordenadaY());
-        }else if ( contadorTemporal1 > 9300 && contadorTemporal1 < 10600) {
+        } else if (contadorTemporal1 > 9300 && contadorTemporal1 < 10600) {
             b7.dentro();
             b7.getImagen().draw(b7.getCoordenadaX(), b7.getCoordenadaY());
-        }else if ( contadorTemporal1 > 10600 && contadorTemporal1 < 11900) {
+        } else if (contadorTemporal1 > 10600 && contadorTemporal1 < 11900) {
             b8.dentro();
             b8.getImagen().draw(b8.getCoordenadaX(), b8.getCoordenadaY());
-        }else if(contadorTemporal1 >11900)
-        {
+        } else if (contadorTemporal1 > 11900) {
             sbg.enterState(32);
         }
 

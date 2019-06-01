@@ -6,12 +6,9 @@
 package EstadoBoss3;
 
 import static java.lang.Math.random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Rectangle;
 
 /**
@@ -20,16 +17,15 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class BbyMaton {
 
-    float coordenadaX = -100, coordenadaY = -100;
-    float coordenadaXi = 1010, coordenadaYi = 273;
-    Animation actual;
-    int[] duration2 = {500, 500};
-    Rectangle h1;
-    private float estado = 0;
-    int tipo;
+    private float coordenadaX = -100, coordenadaY = -100;
+    private Animation actual;
+    private int[] duration2 = {500, 500};
+    private Rectangle h1;
+    private int tipo;
+
     public BbyMaton(int a) {
         try {
-            tipo=a;
+            tipo = a;
             h1 = new Rectangle(coordenadaX, coordenadaY, 128, 45);
             if (a == 0) {
                 Image[] movement = {new Image("SpriteBoss3\\1.png"), new Image("SpriteBoss3\\1.png")};
@@ -44,16 +40,15 @@ public class BbyMaton {
                 Image[] movement = {new Image("SpriteBoss3\\4.png"), new Image("SpriteBoss3\\4.png")};
                 actual = new Animation(movement, duration2, false);
             }
-            
+
         } catch (SlickException e) {
         }
     }
 
-    public int getTipo()
-    {
+    public int getTipo() {
         return tipo;
     }
-    
+
     public void init() {
 
         coordenadaX = -100;

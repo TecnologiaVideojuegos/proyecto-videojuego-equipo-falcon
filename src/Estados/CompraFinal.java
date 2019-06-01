@@ -16,7 +16,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Rectangle;
@@ -36,8 +35,8 @@ public class CompraFinal extends BasicGameState {
     }
 
     private static TiledMap mapa;
-    boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
-    PersonajePrincipal personaje;
+    private boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
+    private PersonajePrincipal personaje;
 
     private float borde1[] = new float[]{384, 735, 64, 736, 63, 767, 31, 769, 31, 799, 0, 799, 0, 201, 842, 201, 840, 287, 1182, 287, 1183, 158, 1244, 159, 1245, 165, 1403, 165, 1407, 254, 1249, 257, 1247, 350, 1121, 351, 1121, 449, 1246, 450, 1247, 544, 1404, 546, 1408, 639, 1248, 640, 1247, 767, 551, 767, 550, 737, 480, 737, 480, 798, 384, 798, 384, 737};
     private float borde2[] = new float[]{95, 397, 192, 397, 192, 266, 95, 266};
@@ -57,26 +56,25 @@ public class CompraFinal extends BasicGameState {
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
 
-   
-    PersonajeEstaticoA tendero1 = new PersonajeEstaticoA("right", 380,180,"T1","Tendero1");
-    PersonajeEstaticoA tendero2 = new PersonajeEstaticoA("left", 420,180,"T2","Tendero2");
-    
-    PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750,280,"A0","Adulto5");
-    PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750,320,"A1","Adulto3");
-    PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470,"A2","Adulto1");
-    PersonajeEstatico adulto5 = new PersonajeEstatico("right",50, 510,"Af0","Adulto2");
-    
-    PersonajeAcosador bully1 = new PersonajeAcosador("down", 1000, 550,"B0","Maton1");
-    PersonajeAcosador bully2 = new PersonajeAcosador("up", 1000, 610,"B0","Maton2");
-    PersonajeAcosador bully3 = new PersonajeAcosador("right", 960, 580,"B0","Maton3");
-    PersonajeAcosador bully4 = new PersonajeAcosador("left", 1040, 580,"B0","Maton4");
+    private PersonajeEstaticoA tendero1 = new PersonajeEstaticoA("right", 380, 180, "T1", "Tendero1");
+    private PersonajeEstaticoA tendero2 = new PersonajeEstaticoA("left", 420, 180, "T2", "Tendero2");
 
-    boolean historia = false; 
-    int contadorTemporal1 = -1500, contadorTemporal2 = 0;
-    Historia b0 = new Historia("Historia110");
-    Historia b1 = new Historia("Historia111");
-    Historia b2 = new Historia("Historia112");
-    Historia b3 = new Historia("Historia113");
+    private PersonajeEstatico adulto1 = new PersonajeEstatico("left", 750, 280, "A0", "Adulto5");
+    private PersonajeEstatico adulto2 = new PersonajeEstatico("left", 750, 320, "A1", "Adulto3");
+    private PersonajeEstatico adulto3 = new PersonajeEstatico("right", 50, 470, "A2", "Adulto1");
+    private PersonajeEstatico adulto5 = new PersonajeEstatico("right", 50, 510, "Af0", "Adulto2");
+
+    private PersonajeAcosador bully1 = new PersonajeAcosador("down", 1000, 550, "B0", "Maton1");
+    private PersonajeAcosador bully2 = new PersonajeAcosador("up", 1000, 610, "B0", "Maton2");
+    private PersonajeAcosador bully3 = new PersonajeAcosador("right", 960, 580, "B0", "Maton3");
+    private PersonajeAcosador bully4 = new PersonajeAcosador("left", 1040, 580, "B0", "Maton4");
+
+    private boolean historia = false;
+    private int contadorTemporal1 = -1500, contadorTemporal2 = 0;
+    private Historia b0 = new Historia("Historia110");
+    private Historia b1 = new Historia("Historia111");
+    private Historia b2 = new Historia("Historia112");
+    private Historia b3 = new Historia("Historia113");
 
     public CompraFinal() {
         colisiones_bordes = new ArrayList<>();
@@ -115,10 +113,10 @@ public class CompraFinal extends BasicGameState {
         personaje.setCoordenadaY(570);
         personaje.setDir("right");
         personaje.setDir("stance");
-        bully1.setCoordenadas(72,550);
-        bully2.setCoordenadas(72,610);
-        bully3.setCoordenadas(32,580);
-        bully4.setCoordenadas(112,580);
+        bully1.setCoordenadas(72, 550);
+        bully2.setCoordenadas(72, 610);
+        bully3.setCoordenadas(32, 580);
+        bully4.setCoordenadas(112, 580);
 
     }
 
@@ -149,9 +147,8 @@ public class CompraFinal extends BasicGameState {
         mapa.render(0, 0, 4);
 
         /*for (int i = 0; i < colisiones_bordes.size(); i++) {
-            g.draw(colisiones_bordes.get(i));
-        }*/
-
+         g.draw(colisiones_bordes.get(i));
+         }*/
         if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
         }
@@ -161,15 +158,15 @@ public class CompraFinal extends BasicGameState {
             b0.dentro();
             b0.getImagen().draw(b0.getCoordenadaX(), b0.getCoordenadaY());
             personaje.setDir("stance");
-        } else if (contadorTemporal1 > 0 && contadorTemporal1 < 2500) {
+        } else if (contadorTemporal1 > 0 && contadorTemporal1 < 1800) {
             b1.dentro();
             b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
-            
-        } else if (contadorTemporal1 > 2500 && contadorTemporal1 < 4100) {
+
+        } else if (contadorTemporal1 > 1800 && contadorTemporal1 < 3400) {
             b2.dentro();
             b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
-        } else if (contadorTemporal1 > 4100 && contadorTemporal1 < 5700) {
-            
+        } else if (contadorTemporal1 > 3400 && contadorTemporal1 < 5000) {
+
             if (bully1.getCoordenadaY() < 615) {
                 bully1.setDir("down");
                 bully2.setDir("down");
@@ -185,23 +182,22 @@ public class CompraFinal extends BasicGameState {
                 bully2.setDir("left");
                 bully3.setDir("left");
                 bully4.setDir("left");
-                bully1.setCoordenadas(bully1.getCoordenadaX()- (float) 0.5, bully1.getCoordenadaY());
-                bully2.setCoordenadas(bully2.getCoordenadaX()- (float) 0.5, bully2.getCoordenadaY());
-                bully3.setCoordenadas(bully3.getCoordenadaX()- (float) 0.5, bully3.getCoordenadaY());
-                bully4.setCoordenadas(bully4.getCoordenadaX()- (float) 0.5, bully4.getCoordenadaY());
+                bully1.setCoordenadas(bully1.getCoordenadaX() - (float) 0.5, bully1.getCoordenadaY());
+                bully2.setCoordenadas(bully2.getCoordenadaX() - (float) 0.5, bully2.getCoordenadaY());
+                bully3.setCoordenadas(bully3.getCoordenadaX() - (float) 0.5, bully3.getCoordenadaY());
+                bully4.setCoordenadas(bully4.getCoordenadaX() - (float) 0.5, bully4.getCoordenadaY());
             }
             bully1.getDir().update(contadorTemporal1 % 7);
             bully2.getDir().update(contadorTemporal1 % 7);
             bully3.getDir().update(contadorTemporal1 % 7);
             bully4.getDir().update(contadorTemporal1 % 7);
-        } else if (contadorTemporal1 > 5700 && contadorTemporal1 < 7300) {
+        } else if (contadorTemporal1 > 5000 && contadorTemporal1 < 6600) {
             b3.dentro();
             b3.getImagen().draw(b3.getCoordenadaX(), b3.getCoordenadaY());
-        } else if (contadorTemporal1 > 7300) {
+        } else if (contadorTemporal1 > 6600) {
             personaje.setDir("left");
-            personaje.setCoordenadaX(personaje.getCoordenadaX()-(float)0.5);
-            if(personaje.getCoordenadaX()<-20)
-            {
+            personaje.setCoordenadaX(personaje.getCoordenadaX() - (float) 0.5);
+            if (personaje.getCoordenadaX() < -20) {
                 sbg.enterState(28);
             }
         }

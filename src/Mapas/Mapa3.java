@@ -39,7 +39,7 @@ public class Mapa3 extends MapaT {
     private ArrayList<PersonajeGeneral> personajes = new ArrayList<>(); 
     private PersonajeAtari atari;
     
-    int modo=0;
+    private int modo=0;
 
     public Mapa3() {
         super();

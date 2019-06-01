@@ -17,11 +17,11 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajeUpDown extends PersonajeGeneral {
 
-    Animation up, down;
-    
-    public PersonajeUpDown(float x, float y,String texto,String personaje) {
+    private Animation up, down;
+
+    public PersonajeUpDown(float x, float y, String texto, String personaje) {
         try {
-            
+
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -30,16 +30,16 @@ public class PersonajeUpDown extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones movimiento
-            Image[] movementUp = {new Image("ImagenesSprite\\"+personaje+"\\up1.png"), new Image("ImagenesSprite\\"+personaje+"\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\"+personaje+"\\down1.png"), new Image("ImagenesSprite\\"+personaje+"\\down2.png")};
+            Image[] movementUp = {new Image("ImagenesSprite\\" + personaje + "\\up1.png"), new Image("ImagenesSprite\\" + personaje + "\\up2.png")};
+            Image[] movementDown = {new Image("ImagenesSprite\\" + personaje + "\\down1.png"), new Image("ImagenesSprite\\" + personaje + "\\down2.png")};
             up = new Animation(movementUp, duration, false);
             down = new Animation(movementDown, duration, false);
 
             //Animaciones parado
-            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\"+personaje+"\\up0.png"), new Image("ImagenesSprite\\"+personaje+"\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\" + personaje + "\\down0.png"), new Image("ImagenesSprite\\" + personaje + "\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\" + personaje + "\\up0.png"), new Image("ImagenesSprite\\" + personaje + "\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\" + personaje + "\\izq0.png"), new Image("ImagenesSprite\\" + personaje + "\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\" + personaje + "\\der0.png"), new Image("ImagenesSprite\\" + personaje + "\\der0.png")};
             sup = new Animation(stanceUp, duration, false);
             sdown = new Animation(stanceDown, duration, false);
             sleft = new Animation(stanceLeft, duration, false);
@@ -47,12 +47,12 @@ public class PersonajeUpDown extends PersonajeGeneral {
 
             //Animacion inicial
             actual = up;
-            
+
             //Bocadillo
             bocadillo = new Bocadillo(texto);
-            
+
             //No SBG
-            sgb=-1;
+            sgb = -1;
         } catch (SlickException e) {
         }
     }
@@ -85,17 +85,17 @@ public class PersonajeUpDown extends PersonajeGeneral {
     public void move() {
         if (desplazamiento < 500) {
             coordenadaY = coordenadaY + (float) (0.5);
-            desplazamiento ++;
+            desplazamiento++;
             setDir("down");
         } else if (desplazamiento >= 500 && desplazamiento < 900) {
-            desplazamiento ++;
+            desplazamiento++;
             setDir("sdown");
         } else if (desplazamiento >= 900 && desplazamiento < 1400) {
-            desplazamiento ++;
+            desplazamiento++;
             coordenadaY = coordenadaY - (float) (0.5);
             setDir("up");
         } else if (desplazamiento >= 1400 && desplazamiento < 1800) {
-            desplazamiento ++;
+            desplazamiento++;
             setDir("sup");
         } else {
             desplazamiento = 0;

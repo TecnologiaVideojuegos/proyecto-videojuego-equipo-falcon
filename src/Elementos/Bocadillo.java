@@ -14,8 +14,8 @@ import org.newdawn.slick.SlickException;
  */
 public class Bocadillo {
 
-    float coordenadaX = -1000, coordenadaY = -1000;
-    Image foto;
+    private float coordenadaX = -1000, coordenadaY = -1000;
+    private Image foto;
 
     public Bocadillo(String nombre) {
         try {

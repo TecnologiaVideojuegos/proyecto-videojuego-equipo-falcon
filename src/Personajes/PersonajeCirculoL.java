@@ -17,24 +17,24 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajeCirculoL extends PersonajeGeneral {
 
-    Animation  up, down;
+    private Animation up, down;
 
-    public PersonajeCirculoL(float x, float y, String texto,String personaje) {
+    public PersonajeCirculoL(float x, float y, String texto, String personaje) {
         try {
-            sgb=-1;
-            this.coordenadaX=x;
-            this.coordenadaY=y;
+            sgb = -1;
+            this.coordenadaX = x;
+            this.coordenadaY = y;
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
-            Image[] movementUp = {new Image("ImagenesSprite\\"+personaje+"\\up1.png"), new Image("ImagenesSprite\\"+personaje+"\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\"+personaje+"\\down1.png"), new Image("ImagenesSprite\\"+personaje+"\\down2.png")};
-            Image[] movementLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq1.png"), new Image("ImagenesSprite\\"+personaje+"\\izq2.png"), new Image("ImagenesSprite\\"+personaje+"\\izq3.png"), new Image("ImagenesSprite\\"+personaje+"\\izq4.png"), new Image("ImagenesSprite\\"+personaje+"\\izq5.png"), new Image("ImagenesSprite\\"+personaje+"\\izq6.png"), new Image("ImagenesSprite\\"+personaje+"\\izq7.png"), new Image("ImagenesSprite\\"+personaje+"\\izq8.png")};
-            Image[] movementRight = {new Image("ImagenesSprite\\"+personaje+"\\der1.png"), new Image("ImagenesSprite\\"+personaje+"\\der2.png"), new Image("ImagenesSprite\\"+personaje+"\\der3.png"), new Image("ImagenesSprite\\"+personaje+"\\der4.png"), new Image("ImagenesSprite\\"+personaje+"\\der5.png"), new Image("ImagenesSprite\\"+personaje+"\\der6.png"), new Image("ImagenesSprite\\"+personaje+"\\der7.png"), new Image("ImagenesSprite\\"+personaje+"\\der8.png")};
+            Image[] movementUp = {new Image("ImagenesSprite\\" + personaje + "\\up1.png"), new Image("ImagenesSprite\\" + personaje + "\\up2.png")};
+            Image[] movementDown = {new Image("ImagenesSprite\\" + personaje + "\\down1.png"), new Image("ImagenesSprite\\" + personaje + "\\down2.png")};
+            Image[] movementLeft = {new Image("ImagenesSprite\\" + personaje + "\\izq1.png"), new Image("ImagenesSprite\\" + personaje + "\\izq2.png"), new Image("ImagenesSprite\\" + personaje + "\\izq3.png"), new Image("ImagenesSprite\\" + personaje + "\\izq4.png"), new Image("ImagenesSprite\\" + personaje + "\\izq5.png"), new Image("ImagenesSprite\\" + personaje + "\\izq6.png"), new Image("ImagenesSprite\\" + personaje + "\\izq7.png"), new Image("ImagenesSprite\\" + personaje + "\\izq8.png")};
+            Image[] movementRight = {new Image("ImagenesSprite\\" + personaje + "\\der1.png"), new Image("ImagenesSprite\\" + personaje + "\\der2.png"), new Image("ImagenesSprite\\" + personaje + "\\der3.png"), new Image("ImagenesSprite\\" + personaje + "\\der4.png"), new Image("ImagenesSprite\\" + personaje + "\\der5.png"), new Image("ImagenesSprite\\" + personaje + "\\der6.png"), new Image("ImagenesSprite\\" + personaje + "\\der7.png"), new Image("ImagenesSprite\\" + personaje + "\\der8.png")};
 
-            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\"+personaje+"\\up0.png"), new Image("ImagenesSprite\\"+personaje+"\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\" + personaje + "\\down0.png"), new Image("ImagenesSprite\\" + personaje + "\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\" + personaje + "\\up0.png"), new Image("ImagenesSprite\\" + personaje + "\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\" + personaje + "\\izq0.png"), new Image("ImagenesSprite\\" + personaje + "\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\" + personaje + "\\der0.png"), new Image("ImagenesSprite\\" + personaje + "\\der0.png")};
 
             up = new Animation(movementUp, duration, false);
             down = new Animation(movementDown, duration, false);
@@ -46,12 +46,12 @@ public class PersonajeCirculoL extends PersonajeGeneral {
             sright = new Animation(stanceRight, duration, false);
 
             actual = up;
-            
+
             //Bocadillo
             bocadillo = new Bocadillo(texto);
-            
+
             //No SBG
-            sgb=-1;
+            sgb = -1;
         } catch (SlickException e) {
         }
     }
@@ -92,19 +92,19 @@ public class PersonajeCirculoL extends PersonajeGeneral {
     public void move() {
         if (desplazamiento < 800) {
             coordenadaX = coordenadaX + (float) (0.2);
-            desplazamiento ++;
+            desplazamiento++;
             setDir("right");
         } else if (desplazamiento >= 800 && desplazamiento < 1000) {
             coordenadaY = coordenadaY - (float) (0.2);
-            desplazamiento ++;
+            desplazamiento++;
             setDir("up");
         } else if (desplazamiento >= 1000 && desplazamiento < 1800) {
-            desplazamiento ++;
+            desplazamiento++;
             coordenadaX = coordenadaX - (float) (0.2);
             setDir("left");
         } else if (desplazamiento >= 1800 && desplazamiento < 2000) {
             coordenadaY = coordenadaY + (float) (0.2);
-            desplazamiento ++;
+            desplazamiento++;
             setDir("down");
         } else {
             desplazamiento = 0;

@@ -16,11 +16,11 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajePrincipal {
 
-    float coordenadaX, coordenadaY;
-    Animation actual, up, down, left, right, stanceright, stanceleft, stanceup, stancedown, getUp;
-    int[] duration = {200, 200};
-    int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
-    Rectangle h1, h2, h3, h4;
+    private float coordenadaX, coordenadaY;
+    private Animation actual, up, down, left, right, stanceright, stanceleft, stanceup, stancedown, getUp;
+    private int[] duration = {200, 200};
+    private int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
+    private Rectangle h1, h2, h3, h4;
 
     public PersonajePrincipal() {
         try {
@@ -38,8 +38,7 @@ public class PersonajePrincipal {
             down = new Animation(movementDown, duration, false);
             left = new Animation(movementLeft, duration2, false);
             right = new Animation(movementRight, duration2, false);
-            
-            
+
             Image[] stanceRight = {new Image("ImagenesSprite\\Niña\\der0.png"), new Image("ImagenesSprite\\Niña\\der0.png")};
             Image[] stanceLeft = {new Image("ImagenesSprite\\Niña\\izq0.png"), new Image("ImagenesSprite\\Niña\\izq0.png")};
             Image[] stanceDown = {new Image("ImagenesSprite\\Niña\\down0.png"), new Image("ImagenesSprite\\Niña\\down0.png")};
@@ -50,7 +49,7 @@ public class PersonajePrincipal {
             stancedown = new Animation(stanceDown, duration, false);
 
             Image[] standUp = {new Image("ImagenesSprite\\Niña\\fall0.png"), new Image("ImagenesSprite\\Niña\\fall1.png"), new Image("ImagenesSprite\\Niña\\fall2.png")};
-            getUp= new Animation(standUp,new int[]{100,100,100},false);
+            getUp = new Animation(standUp, new int[]{100, 100, 100}, false);
             actual = right;
         } catch (SlickException e) {
         }
@@ -89,12 +88,11 @@ public class PersonajePrincipal {
     public Animation getDir() {
         return actual;
     }
-    
-    public void getUp()
-    {
-        actual=getUp;
+
+    public void getUp() {
+        actual = getUp;
     }
-    
+
     public float getCoordenadaX() {
         return coordenadaX;
     }

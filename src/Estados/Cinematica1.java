@@ -35,29 +35,29 @@ public class Cinematica1 extends BasicGameState {
     }
 
     private String mapa1 = "Mapas\\MOVIE.tmx";
-    TiledMap mapa;
+    private TiledMap mapa;
 
     private float bordes1[] = new float[]{512, 410, 512, 700, 510, 700, 510, 410};
-    Polygon borde;
+    private Polygon borde;
 
     private float bordes2[] = new float[]{896, 110, 896, 700, 898, 700, 898, 110};
-    Polygon salida;
+    private Polygon salida;
 
-    int contadorParpadeo = 20;
-    int contadorTemporal = 0;
+    private int contadorParpadeo = 20;
+    private int contadorTemporal = 0;
 
-    Historia bocadilloB1 = new Historia("Historia20");
-    Historia bocadilloB2 = new Historia("Historia21");
-    Historia bocadilloB3 = new Historia("Historia22");
-    Historia bocadilloB4 = new Historia("Historia23");
-    Historia bocadilloN1 = new Historia("Historia24");
-    Historia bocadilloN2 = new Historia("Historia25");
-    Historia bocadilloN3 = new Historia("Historia26");
-    Historia bocadilloN4 = new Historia("Historia27");
-    
-    Music song;
-    Boolean choqueIzquierda = false, choqueDerecha = false;
-    PersonajePrincipal personaje = new PersonajePrincipal();
+    private Historia bocadilloB1 = new Historia("Historia20");
+    private Historia bocadilloB2 = new Historia("Historia21");
+    private Historia bocadilloB3 = new Historia("Historia22");
+    private Historia bocadilloB4 = new Historia("Historia23");
+    private Historia bocadilloN1 = new Historia("Historia24");
+    private Historia bocadilloN2 = new Historia("Historia25");
+    private Historia bocadilloN3 = new Historia("Historia26");
+    private Historia bocadilloN4 = new Historia("Historia27");
+
+    private Music song;
+    private Boolean choqueIzquierda = false, choqueDerecha = false;
+    private PersonajePrincipal personaje = new PersonajePrincipal();
 
     public Cinematica1() {
         borde = new Polygon(bordes1);
@@ -76,7 +76,7 @@ public class Cinematica1 extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        
+
         Input input = gc.getInput();
         mapa.render(0, 0, 0);
         mapa.render(0, 0, 1);
@@ -125,13 +125,13 @@ public class Cinematica1 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.setPosition((float) 12.55);
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         int velocidad = 1;
         Input input = gc.getInput();
         if (contadorParpadeo > 0) {

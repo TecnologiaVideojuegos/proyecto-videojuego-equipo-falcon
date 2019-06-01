@@ -14,8 +14,8 @@ import org.newdawn.slick.SlickException;
  */
 public class Historia {
 
-    float coordenadaX = -1000, coordenadaY = -1000;
-    Image foto;
+    private float coordenadaX = -1000, coordenadaY = -1000;
+    private Image foto;
 
     public Historia(String nombre) {
         try {

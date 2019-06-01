@@ -26,45 +26,41 @@ public class Menu extends BasicGameState {
     public int getID() {
         return 53; //To change body of generated methods, choose Tools | Templates.
     }
-    Music song;
-    Marcador marcador = new Marcador(2);
+    private Music song;
+    private Marcador marcador = new Marcador(2);
+
     public Menu() {
 
     }
-    TiledMap mapa;
+    private TiledMap mapa;
+
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\chun.wav");
-        
+
         mapa = new TiledMap("\\Mapas\\menu.tmx", "\\Construccion Mapas\\");
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         Input input = gc.getInput();
         input.disableKeyRepeat();
-        if(input.isKeyPressed(Input.KEY_S))
-        {
+        if (input.isKeyPressed(Input.KEY_S)) {
             marcador.setMarcador(+1);
-        } else if(input.isKeyPressed(Input.KEY_W))
-        {
+        } else if (input.isKeyPressed(Input.KEY_W)) {
             marcador.setMarcador(-1);
-        }else if(input.isKeyPressed(Input.KEY_ENTER))
-        {
-            if(marcador.getMarcador()==2)
-            {
+        } else if (input.isKeyPressed(Input.KEY_ENTER)) {
+            if (marcador.getMarcador() == 2) {
                 gc.exit();
-            }else if(marcador.getMarcador()==0)
-            {
+            } else if (marcador.getMarcador() == 0) {
                 sbg.enterState(-2);
-            }else
-            {
+            } else {
                 sbg.enterState(51);
             }
         }
@@ -72,12 +68,13 @@ public class Menu extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-     mapa.render(0, 0, 0);
-     if(marcador.getMarcador()==0)
-        g.drawImage(new Image("\\Elementos Aparte\\marcador.png"),520,360);
-     else if(marcador.getMarcador()==1)
-         g.drawImage(new Image("\\Elementos Aparte\\marcador.png"),560,430);
-     else
-         g.drawImage(new Image("\\Elementos Aparte\\marcador.png"),630,500);
+        mapa.render(0, 0, 0);
+        if (marcador.getMarcador() == 0) {
+            g.drawImage(new Image("\\Elementos Aparte\\marcador.png"), 520, 360);
+        } else if (marcador.getMarcador() == 1) {
+            g.drawImage(new Image("\\Elementos Aparte\\marcador.png"), 560, 430);
+        } else {
+            g.drawImage(new Image("\\Elementos Aparte\\marcador.png"), 630, 500);
+        }
     }
 }

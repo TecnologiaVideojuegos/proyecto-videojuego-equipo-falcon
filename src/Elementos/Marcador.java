@@ -10,8 +10,8 @@ package Elementos;
  * @author lucas
  */
 public class Marcador {
-    int a=0;
-    int max=0;
+    private int a=0;
+    private int max=0;
     public Marcador(int max) {
         this.max=max;
     }

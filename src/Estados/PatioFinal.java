@@ -35,8 +35,8 @@ public class PatioFinal extends BasicGameState {
     }
 
     private static TiledMap mapa;
-    boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
-    PersonajePrincipal personaje;
+    private boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
+    private PersonajePrincipal personaje;
 
     private float borde1[] = new float[]{32, 1, 1501, 1, 1501, 128, 1263, 128, 1263, 160, 1501, 160, 1501, 736, 1216, 736, 1216, 707, 1190, 707, 1190, 674, 1156, 674, 1156, 702, 1117, 702, 1117, 738, 549, 738, 549, 609, 669, 609, 669, 572, 788, 572, 788, 544, 552, 544, 552, 159, 1099, 159, 1099, 545, 874, 545, 874, 574, 960, 574, 960, 608, 1054, 608, 1054, 573, 1109, 573, 1109, 159, 1202, 159, 1202, 128, 544, 128, 544, 669, 434, 669, 434, 647, 399, 647, 399, 667, 307, 667, 307, 647, 266, 647, 266, 666, 173, 666, 173, 647, 132, 647, 132, 666, 32, 666};
     private float borde2[] = new float[]{615, 223, 615, 313, 730, 313, 730, 223};
@@ -63,36 +63,37 @@ public class PatioFinal extends BasicGameState {
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
     private ArrayList<Rectangle> colisionNPCs;
 
-    PersonajeAcosador niño1 = new PersonajeAcosador("left", 20, 400, "N1","Stalker");
-    PersonajeAcosador niño2 = new PersonajeAcosador("down", 930, 680, "N2","Marinero");
-    PersonajeAcosador niño3 = new PersonajeAcosador("down", 890, 680, "N3","Marinero");
-    PersonajeEstaticoA niño4 = new PersonajeEstaticoA("left", 850, 680, "N4","Marinero");
-    PersonajeEstaticoA niño5 = new PersonajeEstaticoA("left", 810, 680, "N5","Marinero");
-    PersonajeEstaticoA niño6 = new PersonajeEstaticoA("up", 770, 680, "N6","Marinero");
-    PersonajeEstaticoA niño7 = new PersonajeEstaticoA("right", 730, 680, "N7","Marinero");
-    PersonajeEstaticoA niño8 = new PersonajeEstaticoA("left", 690, 680, "N8","Marinero");
-    PersonajeEstaticoA niño9 = new PersonajeEstaticoA("left", 650, 680, "N9","Marinero");
-    PersonajeEstaticoA niño10 = new PersonajeEstaticoA("up", 610, 680, "N10","Marinero");
-    PersonajeEstaticoA niño11 = new PersonajeEstaticoA("right", 570, 680, "N11","Marinero");
-    PersonajeEstaticoA niño12 = new PersonajeEstaticoA("left", 530, 680, "N12","Marinero");
-    PersonajeEstaticoA niño13 = new PersonajeEstaticoA("right", 490, 680, "N13","Marinero");
-    PersonajeEstaticoA niño14 = new PersonajeEstaticoA("left", 450, 680, "N11","Marinero");
+    private PersonajeAcosador niño1 = new PersonajeAcosador("left", 20, 400, "N1", "Stalker");
+    private PersonajeAcosador niño2 = new PersonajeAcosador("down", 930, 680, "N2", "Marinero");
+    private PersonajeAcosador niño3 = new PersonajeAcosador("down", 890, 680, "N3", "Marinero");
+    private PersonajeEstaticoA niño4 = new PersonajeEstaticoA("left", 850, 680, "N4", "Marinero");
+    private PersonajeEstaticoA niño5 = new PersonajeEstaticoA("left", 810, 680, "N5", "Marinero");
+    private PersonajeEstaticoA niño6 = new PersonajeEstaticoA("up", 770, 680, "N6", "Marinero");
+    private PersonajeEstaticoA niño7 = new PersonajeEstaticoA("right", 730, 680, "N7", "Marinero");
+    private PersonajeEstaticoA niño8 = new PersonajeEstaticoA("left", 690, 680, "N8", "Marinero");
+    private PersonajeEstaticoA niño9 = new PersonajeEstaticoA("left", 650, 680, "N9", "Marinero");
+    private PersonajeEstaticoA niño10 = new PersonajeEstaticoA("up", 610, 680, "N10", "Marinero");
+    private PersonajeEstaticoA niño11 = new PersonajeEstaticoA("right", 570, 680, "N11", "Marinero");
+    private PersonajeEstaticoA niño12 = new PersonajeEstaticoA("left", 530, 680, "N12", "Marinero");
+    private PersonajeEstaticoA niño13 = new PersonajeEstaticoA("right", 490, 680, "N13", "Marinero");
+    private PersonajeEstaticoA niño14 = new PersonajeEstaticoA("left", 450, 680, "N11", "Marinero");
 
-    boolean historia = true; Music song;
-    int contadorTemporal1 = 0, contadorTemporal2 = 0;
-    float cordX,cordY;
-    Historia b0 = new Historia("Historia60");
-    Historia b1 = new Historia("Historia61");
-    Historia b2 = new Historia("Historia62");
-    Historia b3 = new Historia("Historia63");
-    Historia b4 = new Historia("Historia64");
-    Historia b5 = new Historia("Historia65");
-    Historia b6 = new Historia("Historia66");
+    private boolean historia = true;
+    Music song;
+    private int contadorTemporal1 = 0, contadorTemporal2 = 0;
+    private float cordX, cordY;
+    private Historia b0 = new Historia("Historia60");
+    private Historia b1 = new Historia("Historia61");
+    private Historia b2 = new Historia("Historia62");
+    private Historia b3 = new Historia("Historia63");
+    private Historia b4 = new Historia("Historia64");
+    private Historia b5 = new Historia("Historia65");
+    private Historia b6 = new Historia("Historia66");
 
     public PatioFinal(float X, float Y) {
-        this.cordX=X;
-        this.cordY=Y;
-        
+        this.cordX = X;
+        this.cordY = Y;
+
         colisiones_bordes = new ArrayList<>();
         colisiones_bordes.add(new Polygon(borde1));
         colisiones_bordes.add(new Polygon(borde2));
@@ -141,29 +142,27 @@ public class PatioFinal extends BasicGameState {
         personaje.setCoordenadaY(cordY);
         personaje.setDir("left");
         personaje.setDir("stance");
-        niño1.setCoordenadas(cordX-32, cordY);
+        niño1.setCoordenadas(cordX - 32, cordY);
         niño1.setDir("sright");
-        niño2.setCoordenadas(personaje.getCoordenadaX()-32,-10);
-        niño3.setCoordenadas(personaje.getCoordenadaX(),-10);
-        
+        niño2.setCoordenadas(personaje.getCoordenadaX() - 32, -10);
+        niño3.setCoordenadas(personaje.getCoordenadaX(), -10);
 
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.setPosition((float) 12.55);
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         if (historia) {
             contadorTemporal1++;
             personaje.getDir().update(i);
         } else {
-            if(personaje.getCoordenadaY()< 2)
-            {
+            if (personaje.getCoordenadaY() < 2) {
                 sbg.enterState(0);
             }
             int velocidad = 1;
@@ -355,85 +354,70 @@ public class PatioFinal extends BasicGameState {
         mapa.render(0, 0, 4);
 
         /*for (int i = 0; i < colisiones_bordes.size(); i++) {
-            g.draw(colisiones_bordes.get(i));
-        }*/
-
+         g.draw(colisiones_bordes.get(i));
+         }*/
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getTalk().getImagen().draw(NPCs.get(j).getTalk().getCoordenadaX(), NPCs.get(j).getTalk().getCoordenadaY());
             NPCs.get(j).getAlerta().getImagen().draw(NPCs.get(j).getAlerta().getCoordenadaX(), NPCs.get(j).getAlerta().getCoordenadaY());
         }
 
         if (input.isKeyDown(Input.KEY_T)) {
-            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
+            g.drawImage(new Image("\\Elementos aparte\\mapa3.png"), 550, 200);
         }
 
         //HISTORIA
-        
         if (contadorTemporal1 > 100 && contadorTemporal1 < 1500) {
             b0.dentro();
             b0.getImagen().draw(b0.getCoordenadaX(), b0.getCoordenadaY());
-        }
-        else if(contadorTemporal1 > 1500 && contadorTemporal1 < 2500)
-        {   
-            if(niño2.getCoordenadaY()+32<personaje.getCoordenadaY())
-            {   niño2.setDir("down");
+        } else if (contadorTemporal1 > 1500 && contadorTemporal1 < 2500) {
+            if (niño2.getCoordenadaY() + 32 < personaje.getCoordenadaY()) {
+                niño2.setDir("down");
                 niño3.setDir("down");
-                niño2.setCoordenadas(niño2.getCoordenadaX(), niño2.getCoordenadaY()+(float)0.6);
-                niño3.setCoordenadas(niño3.getCoordenadaX(), niño3.getCoordenadaY()+(float)0.6);
-            }
-            else
-            {
+                niño2.setCoordenadas(niño2.getCoordenadaX(), niño2.getCoordenadaY() + (float) 0.6);
+                niño3.setCoordenadas(niño3.getCoordenadaX(), niño3.getCoordenadaY() + (float) 0.6);
+            } else {
                 niño2.setDir("sdown");
                 niño3.setDir("sdown");
             }
-            niño2.getDir().update(contadorTemporal1%7);
-            niño3.getDir().update(contadorTemporal1%7);
-        }else if(contadorTemporal1 > 2500 && contadorTemporal1 < 4100)
-        {   
+            niño2.getDir().update(contadorTemporal1 % 7);
+            niño3.getDir().update(contadorTemporal1 % 7);
+        } else if (contadorTemporal1 > 2500 && contadorTemporal1 < 4100) {
             b1.dentro();
             b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
-        }else if(contadorTemporal1 > 4100 && contadorTemporal1 < 5700)
-        {   
+        } else if (contadorTemporal1 > 4100 && contadorTemporal1 < 5700) {
             b2.dentro();
             b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
-        }else if(contadorTemporal1 > 5700 && contadorTemporal1 < 7300)
-        {   
+        } else if (contadorTemporal1 > 5700 && contadorTemporal1 < 7300) {
             b3.dentro();
             b3.getImagen().draw(b3.getCoordenadaX(), b3.getCoordenadaY());
-        }else if(contadorTemporal1 > 7300 && contadorTemporal1 < 8900)
-        {   
+        } else if (contadorTemporal1 > 7300 && contadorTemporal1 < 8900) {
             b4.dentro();
             b4.getImagen().draw(b4.getCoordenadaX(), b4.getCoordenadaY());
-        }
-        else if(contadorTemporal1 > 8900 && contadorTemporal1 < 10500)
-        {   
+        } else if (contadorTemporal1 > 8900 && contadorTemporal1 < 10500) {
             b5.dentro();
             b5.getImagen().draw(b5.getCoordenadaX(), b5.getCoordenadaY());
-        }if (contadorTemporal1 > 10500 && contadorTemporal1 < 11800) {
+        }
+        if (contadorTemporal1 > 10500 && contadorTemporal1 < 11800) {
             b6.dentro();
             b6.getImagen().draw(b6.getCoordenadaX(), b6.getCoordenadaY());
-        }
-        else if (contadorTemporal1 > 11800 && contadorTemporal1 < 12800)
-        {
-            if(niño1.getCoordenadaY()>-64)
-            {   niño2.setDir("up");
+        } else if (contadorTemporal1 > 11800 && contadorTemporal1 < 12800) {
+            if (niño1.getCoordenadaY() > -64) {
+                niño2.setDir("up");
                 niño3.setDir("up");
                 niño1.setDir("up");
-                niño2.setCoordenadas(niño2.getCoordenadaX(), niño2.getCoordenadaY()-(float)0.7);
-                niño3.setCoordenadas(niño3.getCoordenadaX(), niño3.getCoordenadaY()-(float)0.7);
-                niño1.setCoordenadas(niño1.getCoordenadaX(), niño1.getCoordenadaY()-(float)0.7);
+                niño2.setCoordenadas(niño2.getCoordenadaX(), niño2.getCoordenadaY() - (float) 0.7);
+                niño3.setCoordenadas(niño3.getCoordenadaX(), niño3.getCoordenadaY() - (float) 0.7);
+                niño1.setCoordenadas(niño1.getCoordenadaX(), niño1.getCoordenadaY() - (float) 0.7);
             }
-            niño1.getDir().update(contadorTemporal1%7);
-            niño2.getDir().update(contadorTemporal1%7);
-            niño3.getDir().update(contadorTemporal1%7);
-        }
-        else if(contadorTemporal1==12800)
-        {   
+            niño1.getDir().update(contadorTemporal1 % 7);
+            niño2.getDir().update(contadorTemporal1 % 7);
+            niño3.getDir().update(contadorTemporal1 % 7);
+        } else if (contadorTemporal1 == 12800) {
             contadorTemporal1++;
             NPCs.remove(0);
             NPCs.remove(0);
             NPCs.remove(0);
-            historia=false;
+            historia = false;
         }
     }
 

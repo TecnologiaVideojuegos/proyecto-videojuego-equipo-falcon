@@ -5,8 +5,6 @@
  */
 package EstadoBoss2;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
@@ -17,11 +15,10 @@ import org.newdawn.slick.geom.Circle;
  */
 public class Arresto {
 
-    float coordenadaX = -100, coordenadaY = -100;
-    float coordenadaXi = 1010, coordenadaYi = 273;
-    Image arrestoImg; 
-    Circle h1;
-    int estado=0;
+    private float coordenadaX = -100, coordenadaY = -100;
+    private Image arrestoImg; 
+    private Circle h1;
+    private int estado=0;
 
     public Arresto() {
         try {

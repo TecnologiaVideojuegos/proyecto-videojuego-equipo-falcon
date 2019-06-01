@@ -73,32 +73,32 @@ public class Juego extends StateBasedGame {
 
         this.addState(new Menu());
         this.addState(new Menu2());
-        
+
         this.addState(new Instrucciones0());
         this.addState(new CinematicaInicial());
-        
+
         this.addState(new Boss1M());
         this.addState(new Boss2M());
         this.addState(new Boss3M());
         this.addState(new Boss4M());
-        
+
         this.addState(new CasaInicial());
         this.addState(new BuhardillaInicial());
         this.addState(new Cinematica0());
         this.addState(new CinematicaPostBuhardilla());
-        
+
         this.addState(new PlayaInicial());
         this.addState(new Cinematica1());
         this.addState(new Boss1());
         this.addState(new PlayaFinal());
         this.addState(new CinematicaPostPlaya());
-        
+
         this.addState(new ColegioInicial());
         this.addState(new CinematicaPostColegio());
         this.addState(new PatioInicial());
         this.addState(new Cinematica2());
         this.addState(new Boss2());
-        
+
         this.addState(new CinematicaPostCasa());
         this.addState(new CompraInicial());
         this.addState(new Cinematica3());
@@ -106,14 +106,14 @@ public class Juego extends StateBasedGame {
         this.addState(new Cinematica4());
         this.addState(new CompraFinal());
         this.addState(new CinematicaPostCompra());
-        
+
         this.addState(new FIN1());
         this.addState(new Cinematica5());
         this.addState(new Boss4());
         this.addState(new FIN2());
         this.addState(new CinematicaPostFin());
-        
-        this.addState(new Mundo(5));
+
+        this.addState(new Mundo(1));
     }
 
     /**

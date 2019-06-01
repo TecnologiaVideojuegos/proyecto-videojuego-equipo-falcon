@@ -18,23 +18,23 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajeMadre extends PersonajeGeneral {
 
-    float coordenadaX, coordenadaY;
-    Image[] movementUp;
-    Image[] movementDown;
-    Image[] movementLeft;
-    Image[] movementRight;
-    Animation actual, sup, sdown, left, right, sright, sleft;
-    int[] duration = {200, 200};
-    int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
-    Rectangle hitbox;
-    Bocadillo bocadillo = new Bocadillo("bocadilloMadre2");
-    
-    int desplazamiento = 0;
-    Alerta alerta = new Alerta();
+    private float coordenadaX, coordenadaY;
+    private Image[] movementUp;
+    private Image[] movementDown;
+    private Image[] movementLeft;
+    private Image[] movementRight;
+    private Animation actual, sup, sdown, left, right, sright, sleft;
+    private int[] duration = {200, 200};
+    private int[] duration2 = {100, 100, 100, 100, 100, 100, 100, 100};
+    private Rectangle hitbox;
+    private Bocadillo bocadillo = new Bocadillo("bocadilloMadre2");
+
+    private int desplazamiento = 0;
+    private Alerta alerta = new Alerta();
 
     public PersonajeMadre(float x, float y) {
         try {
-            
+
             sgb = -1;
             //Colocacion personaje
             this.coordenadaX = x;
@@ -135,9 +135,10 @@ public class PersonajeMadre extends PersonajeGeneral {
         return bocadillo;
 
     }
+
     public void setTalk() {
 
-        bocadillo= new Bocadillo("bocadilloMadre");
+        bocadillo = new Bocadillo("bocadilloMadre");
 
     }
 

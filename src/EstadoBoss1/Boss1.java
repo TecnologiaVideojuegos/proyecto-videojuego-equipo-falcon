@@ -42,6 +42,7 @@ public class Boss1 extends BasicGameState {
     private Pelota ball;
     private int contadorPelotas = 0;
     private Music song;
+    
     public Boss1() {
         bordes = new Polygon(puntos1);
         salidas = new Polygon(puntos2);

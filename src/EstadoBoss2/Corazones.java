@@ -19,13 +19,12 @@ import org.newdawn.slick.geom.Circle;
  */
 public class Corazones {
 
-    float coordenadaX = -100, coordenadaY = -100;
-    float coordenadaXi = 1010, coordenadaYi = 273;
-    Animation actual, avanza, explota;
-    int[] duration2 = {500, 500};
-    int[] duration = {20, 20, 20, 20};
-    Circle h1;
-    private float estado=0;
+    private float coordenadaX = -100, coordenadaY = -100;
+    private Animation actual, avanza, explota;
+    private int[] duration2 = {500, 500};
+    private int[] duration = {20, 20, 20, 20};
+    private Circle h1;
+    private float estado = 0;
 
     public Corazones() {
         try {
@@ -43,39 +42,36 @@ public class Corazones {
         }
     }
 
-
     public void init() {
         try {
             actual = avanza;
             Image[] poum = {new Image("SpriteBoss2\\move1.png"), new Image("SpriteBoss2\\move2.png"), new Image("SpriteBoss2\\move3.png"), new Image("SpriteBoss2\\move4.png")};
             explota = new Animation(poum, duration, false);
             coordenadaX = 1504;
-            coordenadaY = (int)(random()*600)+100;
-            estado=1;
-            
+            coordenadaY = (int) (random() * 600) + 100;
+            estado = 1;
+
         } catch (SlickException ex) {
             Logger.getLogger(Corazones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void salir()
-    {
+
+    public void salir() {
         coordenadaX = 1504;
         h1.setLocation(coordenadaX + 5, coordenadaY + 5);
-        coordenadaY = (int)(random()*680)+50;
+        coordenadaY = (int) (random() * 680) + 50;
     }
-    
-    public void explota()
-    {
+
+    public void explota() {
         actual = explota;
-        estado=0;
+        estado = 0;
     }
 
     public Animation getDir() {
         return actual;
     }
 
-    public float getEstado(){
+    public float getEstado() {
         return estado;
     }
 
@@ -88,10 +84,10 @@ public class Corazones {
     }
 
     public void move() {
-        coordenadaX = coordenadaX - (float)1;
-        h1.setCenterX(coordenadaX+32);
-        h1.setCenterY(coordenadaY+32);
-        
+        coordenadaX = coordenadaX - (float) 1;
+        h1.setCenterX(coordenadaX + 32);
+        h1.setCenterY(coordenadaY + 32);
+
     }
 
     public Circle getH1() {

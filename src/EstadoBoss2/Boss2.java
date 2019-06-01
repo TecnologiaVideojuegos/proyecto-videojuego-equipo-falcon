@@ -6,7 +6,6 @@
 package EstadoBoss2;
 
 import EstadoBoss1.Boss1;
-import Estados.PatioFinal;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,22 +27,23 @@ import org.newdawn.slick.tiled.TiledMap;
  * @author lucas
  */
 public class Boss2 extends BasicGameState {
+
     private String mapa1 = "Mapas\\boos3.tmx";
     private float puntos1[] = new float[]{50, 30, 800, 30, 800, 780, 50, 780};
     private Polygon bordes;
-    int mapaMov = 0;
-    int a = 0, b = 0, c = 0, d = 0;
-    TiledMap mapa;
-    Nave personaje;
-    ArrayList<Corazones> corazonOut, corazonIn, poum;
-    ArrayList<Arresto> balasOut, balasIn;
-    Corazones heart;
-    Arresto bala;
-    int fase = 0, num = 0;
-    Image[] mundoImg;
-    int contadorMundo = 0;
-    int puntos = 0;
+    private int a = 0, b = 0;
+    private TiledMap mapa;
+    private Nave personaje;
+    private ArrayList<Corazones> corazonOut, corazonIn, poum;
+    private ArrayList<Arresto> balasOut, balasIn;
+    private Corazones heart;
+    private Arresto bala;
+    private int fase = 0;
+    private Image[] mundoImg;
+    private int contadorMundo = 0;
+    private int puntos = 0;
     private Music song;
+
     public Boss2() {
         try {
             bordes = new Polygon(puntos1);
@@ -124,13 +124,13 @@ public class Boss2 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.setPosition((float) 12.55);
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         if (puntos > 80) {
             try {
                 sbg.enterState(19, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());

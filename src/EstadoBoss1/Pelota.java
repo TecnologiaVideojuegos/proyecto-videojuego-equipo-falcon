@@ -18,14 +18,14 @@ import org.newdawn.slick.geom.Circle;
  */
 public class Pelota {
 
-    float coordenadaX = -100, coordenadaY = -100;
-    float coordenadaXi = 1010, coordenadaYi = 273;
-    Image[] aparecer;
-    Image[] giro;
-    Animation actual, aparece, gira;
-    int[] duration2 = {500, 500, 110};
-    int[] duration = {100, 100, 100, 100};
-    Circle h1;
+    private float coordenadaX = -100, coordenadaY = -100;
+    private float coordenadaXi = 1010, coordenadaYi = 273;
+    private Image[] aparecer;
+    private Image[] giro;
+    private Animation actual, aparece, gira;
+    private int[] duration2 = {500, 500, 110};
+    private int[] duration = {100, 100, 100, 100};
+    private Circle h1;
     private float velocidadX, velocidadY;
 
     public Pelota() {

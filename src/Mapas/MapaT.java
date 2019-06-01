@@ -26,7 +26,7 @@ public class MapaT {
     private float coord[] = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     private ArrayList<PersonajeGeneral> personajes = new ArrayList<>(); 
-    int modo=0;
+    private int modo=0;
     
     public MapaT() {
     }

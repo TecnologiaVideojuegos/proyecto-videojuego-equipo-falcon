@@ -18,11 +18,11 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajeEstaticoA extends PersonajeGeneral {
 
-    String dir;
+    private String dir;
 
-    public PersonajeEstaticoA(String dir, float x, float y, String texto,String personaje) {
+    public PersonajeEstaticoA(String dir, float x, float y, String texto, String personaje) {
         try {
-            
+
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -32,27 +32,27 @@ public class PersonajeEstaticoA extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones parado
-            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
-            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
-            
+            Image[] stanceRight = {new Image("ImagenesSprite\\" + personaje + "\\der0.png"), new Image("ImagenesSprite\\" + personaje + "\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\" + personaje + "\\down0.png"), new Image("ImagenesSprite\\" + personaje + "\\down0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\" + personaje + "\\izq0.png"), new Image("ImagenesSprite\\" + personaje + "\\izq0.png")};
+
             sdown = new Animation(stanceDown, duration, false);
             sright = new Animation(stanceRight, duration, false);
             sleft = new Animation(stanceLeft, duration, false);
 
             if (dir.equals("left")) {
                 actual = sleft;
-            } else if(dir.equals("right")){
+            } else if (dir.equals("right")) {
                 actual = sright;
             } else {
                 actual = sdown;
             }
-            
+
             //Bocadillo
             bocadillo = new Bocadillo(texto);
-            
+
             //No SBG
-            sgb=-1;
+            sgb = -1;
         } catch (SlickException e) {
         }
     }
@@ -76,7 +76,7 @@ public class PersonajeEstaticoA extends PersonajeGeneral {
             setDir("sleft");
         } else if ((dir).equals("right")) {
             setDir("sright");
-        }  else if ((dir).equals("up")) {
+        } else if ((dir).equals("up")) {
             setDir("sup");
         } else if ((dir).equals("down")) {
             setDir("sdown");
@@ -98,15 +98,15 @@ public class PersonajeEstaticoA extends PersonajeGeneral {
     public void noTalk() {
         bocadillo.fuera();
     }
-    
-    public Alerta getAlerta(){
+
+    public Alerta getAlerta() {
         return alerta;
     }
-    
+
     public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+        alerta.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
     }
-    
+
     public void noAlerta() {
         alerta.fuera();
     }

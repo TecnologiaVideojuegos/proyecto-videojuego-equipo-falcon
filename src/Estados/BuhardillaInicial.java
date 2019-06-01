@@ -11,9 +11,7 @@ import Personajes.PersonajePrincipal;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
@@ -33,9 +31,9 @@ public class BuhardillaInicial extends BasicGameState {
     
     private static TiledMap mapa;
     
-    boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
+    private boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
     
-    PersonajePrincipal personaje;
+    private PersonajePrincipal personaje;
     
     private float borde1[] = new float[]{705, 192, 838, 192, 838, 220, 865, 220, 865, 255, 935, 255, 935, 277, 963, 277, 963, 321, 991, 321, 991, 377, 961, 377, 961, 446, 931, 446, 931, 471, 957, 471, 957, 480, 989, 480, 989, 512, 902, 512, 902, 564, 867, 564, 867, 572, 512, 572, 512, 289, 540, 289, 540, 250, 700, 250, 700, 388, 737, 388, 737, 413, 767, 413, 767, 388, 799, 388, 799, 366, 771, 366, 771, 257, 768, 257, 768, 381, 705, 381};
     private float borde2[] = new float[]{862, 482, 898, 482, 898, 449, 862, 449};
@@ -49,8 +47,8 @@ public class BuhardillaInicial extends BasicGameState {
 
     private PersonajeAtari atari;
 
-    int contadorTemporal=0;
-    Historia bocadillo = new Historia("Historia00");
+    private int contadorTemporal=0;
+    private Historia bocadillo = new Historia("Historia00");
     
     public BuhardillaInicial() {
         

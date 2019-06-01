@@ -6,7 +6,6 @@
 package Mapas;
 
 import Personajes.PersonajeMadre;
-import Personajes.PersonajeRightLeft;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;

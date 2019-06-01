@@ -18,13 +18,12 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class BossFinal extends PersonajeGeneral {
 
-    String dir;
-    Animation up,down;
-    
-    
+    private String dir;
+    private Animation up, down;
+
     public BossFinal(String dir, float x, float y, int a) {
         try {
-            
+
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -36,16 +35,16 @@ public class BossFinal extends PersonajeGeneral {
             Image[] movementDown = {new Image("ImagenesSprite\\BossFinal\\0.png"), new Image("ImagenesSprite\\BossFinal\\1.png"), new Image("ImagenesSprite\\BossFinal\\2.png"), new Image("ImagenesSprite\\BossFinal\\3.png"), new Image("ImagenesSprite\\BossFinal\\4.png"), new Image("ImagenesSprite\\BossFinal\\5.png"), new Image("ImagenesSprite\\BossFinal\\6.png"), new Image("ImagenesSprite\\BossFinal\\7.png")};
             Image[] movementOut = {new Image("ImagenesSprite\\BossFinalDerrotado\\0.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\1.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\2.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\3.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\4.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\5.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\6.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\7.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\8.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\9.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\10.png"), new Image("ImagenesSprite\\BossFinalDerrotado\\11.png")};
             //Animaciones parado
-            if(a==0)
+            if (a == 0) {
                 actual = new Animation(movementUp, duration, false);
-            else if(a==1)
-                actual = new Animation(movementDown, new int[]{200,200,200,200,200,200,200,200}, false);
-            else
-                actual = new Animation(movementOut, new int[]{400,400,400,400,400,400,400,400,400,400,400,400}, false);
-            
-            
+            } else if (a == 1) {
+                actual = new Animation(movementDown, new int[]{200, 200, 200, 200, 200, 200, 200, 200}, false);
+            } else {
+                actual = new Animation(movementOut, new int[]{400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400}, false);
+            }
+
             //No SBG
-            sgb=-1;
+            sgb = -1;
         } catch (SlickException e) {
         }
     }
@@ -81,20 +80,17 @@ public class BossFinal extends PersonajeGeneral {
 
     public void move() {
     }
-    
-    public void setCoordenadas(float x,float y)
-    {
-        this.coordenadaX=x;
-        this.coordenadaY=y;
+
+    public void setCoordenadas(float x, float y) {
+        this.coordenadaX = x;
+        this.coordenadaY = y;
     }
-    
-    public float getCoordenadaX()
-    {
+
+    public float getCoordenadaX() {
         return this.coordenadaX;
     }
-    
-    public float getCoordenadaY()
-    {
+
+    public float getCoordenadaY() {
         return this.coordenadaY;
     }
 
@@ -113,15 +109,15 @@ public class BossFinal extends PersonajeGeneral {
     public void noTalk() {
         bocadillo.fuera();
     }
-    
-    public Alerta getAlerta(){
+
+    public Alerta getAlerta() {
         return alerta;
     }
-    
+
     public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+        alerta.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
     }
-    
+
     public void noAlerta() {
         alerta.fuera();
     }

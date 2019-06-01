@@ -5,7 +5,6 @@
  */
 package Mapas;
 
-import Personajes.EscalerasCasa;
 import Personajes.PersonajeGeneral;
 import java.util.ArrayList;
 import org.newdawn.slick.geom.Polygon;

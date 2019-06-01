@@ -35,16 +35,15 @@ public class Boss3M extends BasicGameState {
     private String mapa1 = "Mapas\\boss2.tmx";
     private float puntos1[] = new float[]{425, 2, 1080, 2, 1080, 730, 425, 730};
     private Polygon bordes;
-    int mapaMov = 0;
-    int a = 0, b = 0, c = 0, d = 0;
-    TiledMap mapa;
-    Defensa personaje;
-    ArrayList<BbyMaton> red, blue, yellow, orange, all;
-    Ball ball;
-    int toque = 1, num = 0;
-    Image[] mundoImg;
-    int puntos = 0;
-    boolean game = true;
+    private int mapaMov = 0;
+    private int a = 0, b = 0, c = 0, d = 0;
+    private TiledMap mapa;
+    private Defensa personaje;
+    private ArrayList<BbyMaton> red, blue, yellow, orange, all;
+    private Ball ball;
+    private int toque = 1, num = 0;
+    private int puntos = 0;
+    private boolean game = true;
 
     public Boss3M() {
         bordes = new Polygon(puntos1);

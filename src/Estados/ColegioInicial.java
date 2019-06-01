@@ -40,8 +40,8 @@ public class ColegioInicial extends BasicGameState {
     }
 
     private static TiledMap mapa;
-    boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
-    PersonajePrincipal personaje;
+    private boolean choqueArriba = false, choqueAbajo = false, choqueIzquierda = false, choqueDerecha = false;
+    private PersonajePrincipal personaje;
 
     private float borde1[] = new float[]{477, 768, 477, 730, 417, 730, 417, 514, 405, 514, 405, 732, 287, 732, 287, 686, 193, 686, 193, 732, 126, 732, 126, 493, 40, 493, 40, 429, 153, 429, 153, 388, 102, 388, 102,
         353, 192, 353, 192, 363, 288, 363, 288, 353, 349, 353, 349, 373, 408, 373, 408, 448, 417, 448, 417, 352, 478, 352, 478, 321, 417, 321, 417, 225, 357, 225, 357, 288, 319, 288, 319, 225, 259, 225, 259, 288, 223, 288, 223, 226, 163, 226, 161, 288, 127,
@@ -56,36 +56,36 @@ public class ColegioInicial extends BasicGameState {
     private ArrayList<Polygon> colisiones_salidas;
 
     private ArrayList<PersonajeGeneral> NPCs = new ArrayList<>();
-    private ArrayList<Rectangle> colisionNPCs;
-    PersonajeEstatico niño1 = new PersonajeEstatico("up", 897, 225, "N1", "Niño4");
-    PersonajeEstatico niño2 = new PersonajeEstatico("up", 833, 225, "N2", "Niño2");
-    PersonajeEstatico niño3 = new PersonajeEstatico("up", 237, 680, "N3", "Niño2");
-    PersonajeEstatico niño4 = new PersonajeEstatico("up", 175, 680, "N4", "Niño7");
-    PersonajeEstatico niño5 = new PersonajeEstatico("up", 237, 580, "N5", "Niño5");
-    PersonajeEstatico niño6 = new PersonajeEstatico("up", 175, 580, "N6", "Niño9");
-    PersonajeEstatico niño7 = new PersonajeEstatico("up", 175, 480, "N7", "Niño11");
-    PersonajeEstatico niño8 = new PersonajeEstatico("up", 770, 980, "N8", "Niño10");
-    PersonajeEstatico niño9 = new PersonajeEstatico("up", 80, 680, "N9", "Niño1");
-    PersonajeEstatico niño10 = new PersonajeEstatico("up", 18, 680, "N10", "Niño6");
-    PersonajeEstatico niño11 = new PersonajeEstatico("up", 80, 580, "N11", "Niño4");
-    PersonajeEstatico niño12 = new PersonajeEstatico("up", 18, 580, "N12", "Niño8");
-    PersonajeEstatico niño13 = new PersonajeEstatico("up", 80, 480, "N13", "Niño3");
-    PersonajeEstatico niño14 = new PersonajeEstatico("up", 18, 480, "N5", "Niño1");
-    PersonajeEstatico niño15 = new PersonajeEstatico("up", 753, 60, "N13", "Niño6");
-    PersonajeEstatico niño16 = new PersonajeEstatico("up", 1148, 65, "N5", "Niño3");
-    PersonajeEstatico niño17 = new PersonajeEstatico("up", 1185, 65, "N13", "Niño9");
-    PersonajeEstatico niño18 = new PersonajeEstatico("left", 1340, 350, "N5", "Niño5");
-    PersonajeEstatico niño19 = new PersonajeEstatico("right", 1300, 350, "N5", "Niño7");
-    
-    PersonajeEstatico niño20 = new PersonajeEstatico("right", 490, 165, "N13", "Niño9");
-    PersonajeEstatico niño21 = new PersonajeEstatico("right", 490, 190, "N5", "Niño5");
-    PersonajeEstatico niño22 = new PersonajeEstatico("up", 515, 210, "N5", "Niño7");
-    PersonajeRightLeft profe1 = new PersonajeRightLeft( 28, 310, "N5", "Profesora1");
-    PersonajeEstatico profe2 = new PersonajeEstatico("left", 530, 180, "N5", "Profesora3");
+    private PersonajeEstatico niño1 = new PersonajeEstatico("up", 897, 225, "N1", "Niño4");
+    private PersonajeEstatico niño2 = new PersonajeEstatico("up", 833, 225, "N2", "Niño2");
+    private PersonajeEstatico niño3 = new PersonajeEstatico("up", 237, 680, "N3", "Niño2");
+    private PersonajeEstatico niño4 = new PersonajeEstatico("up", 175, 680, "N4", "Niño7");
+    private PersonajeEstatico niño5 = new PersonajeEstatico("up", 237, 580, "N5", "Niño5");
+    private PersonajeEstatico niño6 = new PersonajeEstatico("up", 175, 580, "N6", "Niño9");
+    private PersonajeEstatico niño7 = new PersonajeEstatico("up", 175, 480, "N7", "Niño11");
+    private PersonajeEstatico niño8 = new PersonajeEstatico("up", 770, 980, "N8", "Niño10");
+    private PersonajeEstatico niño9 = new PersonajeEstatico("up", 80, 680, "N9", "Niño1");
+    private PersonajeEstatico niño10 = new PersonajeEstatico("up", 18, 680, "N10", "Niño6");
+    private PersonajeEstatico niño11 = new PersonajeEstatico("up", 80, 580, "N11", "Niño4");
+    private PersonajeEstatico niño12 = new PersonajeEstatico("up", 18, 580, "N12", "Niño8");
+    private PersonajeEstatico niño13 = new PersonajeEstatico("up", 80, 480, "N13", "Niño3");
+    private PersonajeEstatico niño14 = new PersonajeEstatico("up", 18, 480, "N5", "Niño1");
+    private PersonajeEstatico niño15 = new PersonajeEstatico("up", 753, 60, "N13", "Niño6");
+    private PersonajeEstatico niño16 = new PersonajeEstatico("up", 1148, 65, "N5", "Niño3");
+    private PersonajeEstatico niño17 = new PersonajeEstatico("up", 1185, 65, "N13", "Niño9");
+    private PersonajeEstatico niño18 = new PersonajeEstatico("left", 1340, 350, "N5", "Niño5");
+    private PersonajeEstatico niño19 = new PersonajeEstatico("right", 1300, 350, "N5", "Niño7");
 
-    boolean historia = false,stop=true; Music song;
-    int contadorTemporal1 = 0, contadorTemporal2 = 0;
-    Historia introduccionHistoria = new Historia("Añadido");
+    private PersonajeEstatico niño20 = new PersonajeEstatico("right", 490, 165, "N13", "Niño9");
+    private PersonajeEstatico niño21 = new PersonajeEstatico("right", 490, 190, "N5", "Niño5");
+    private PersonajeEstatico niño22 = new PersonajeEstatico("up", 515, 210, "N5", "Niño7");
+    private PersonajeRightLeft profe1 = new PersonajeRightLeft(28, 310, "N5", "Profesora1");
+    private PersonajeEstatico profe2 = new PersonajeEstatico("left", 530, 180, "N5", "Profesora3");
+
+    private boolean historia = false, stop = true;
+    private Music song;
+    private int contadorTemporal1 = 0, contadorTemporal2 = 0;
+    private Historia introduccionHistoria = new Historia("Añadido");
 
     public ColegioInicial() {
         colisiones_bordes = new ArrayList<>();
@@ -118,13 +118,12 @@ public class ColegioInicial extends BasicGameState {
         NPCs.add(niño20);
         NPCs.add(niño21);
         NPCs.add(niño22);
-        
-        
+
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        
+
         song = new Music("\\Elementos Aparte\\MusicaDefinitiva\\cole.wav");
         mapa = new TiledMap("\\Mapas\\mapa7.tmx", "\\Construccion Mapas\\");
         personaje = new PersonajePrincipal();
@@ -136,22 +135,23 @@ public class ColegioInicial extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         Input input = gc.getInput();
-        if(stop)
+        if (stop) {
             contadorTemporal1++;
+        }
         personaje.getDir().update(i);
 
         profe1.move();
         profe1.getDir().update(i);
         profe2.move();
         profe2.getDir().update(i);
-        
+
     }
 
     @Override
@@ -172,9 +172,9 @@ public class ColegioInicial extends BasicGameState {
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
         /*
-        for (int i = 0; i < colisiones_bordes.size(); i++) {
-            g.draw(colisiones_bordes.get(i));
-        }*/
+         for (int i = 0; i < colisiones_bordes.size(); i++) {
+         g.draw(colisiones_bordes.get(i));
+         }*/
 
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getTalk().getImagen().draw(NPCs.get(j).getTalk().getCoordenadaX(), NPCs.get(j).getTalk().getCoordenadaY());
@@ -214,7 +214,7 @@ public class ColegioInicial extends BasicGameState {
                 personaje.setDir("stance");
             }
         } else if (contadorTemporal1 > 3800 && stop) {
-            stop=false;
+            stop = false;
             try {
                 sbg.enterState(16, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
             } catch (InstantiationException ex) {

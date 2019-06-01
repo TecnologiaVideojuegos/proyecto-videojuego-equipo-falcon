@@ -16,16 +16,16 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class Defensa {
 
-    float coordenadaX, coordenadaY;
-    Animation mover;
-    int[] duration = {100, 100};
-    Rectangle h1, h2, h3,h4,h5;
+    private float coordenadaX, coordenadaY;
+    private Animation mover;
+    private int[] duration = {100, 100};
+    private Rectangle h1, h2, h3, h4, h5;
 
     public Defensa() {
         try {
 
-            h1 = new Rectangle(coordenadaX+32, coordenadaY, 1, 60);
-            h2 = new Rectangle(coordenadaX+80, coordenadaY, 1, 60);
+            h1 = new Rectangle(coordenadaX + 32, coordenadaY, 1, 60);
+            h2 = new Rectangle(coordenadaX + 80, coordenadaY, 1, 60);
             h3 = new Rectangle(coordenadaX, coordenadaY, 1, 60);
             h4 = new Rectangle(coordenadaX, coordenadaY, 1, 60);
             h5 = new Rectangle(coordenadaX, coordenadaY, 1, 60);
@@ -47,11 +47,11 @@ public class Defensa {
 
     public void setCoordenadaX(float coordenadaX) {
         this.coordenadaX = coordenadaX;
-        h1.setBounds(coordenadaX+20, coordenadaY+45, 1, 10);
-        h2.setBounds(coordenadaX+105, coordenadaY+45, 1, 10);
-        h3.setBounds(coordenadaX+20,coordenadaY+43,28,1);
-        h4.setBounds(coordenadaX+48,coordenadaY+43,29,1);
-        h5.setBounds(coordenadaX+77,coordenadaY+43,28,1);
+        h1.setBounds(coordenadaX + 20, coordenadaY + 45, 1, 10);
+        h2.setBounds(coordenadaX + 105, coordenadaY + 45, 1, 10);
+        h3.setBounds(coordenadaX + 20, coordenadaY + 43, 28, 1);
+        h4.setBounds(coordenadaX + 48, coordenadaY + 43, 29, 1);
+        h5.setBounds(coordenadaX + 77, coordenadaY + 43, 28, 1);
     }
 
     public float getCoordenadaY() {
@@ -61,11 +61,11 @@ public class Defensa {
     public void setCoordenadaY(float coordenadaY) {
 
         this.coordenadaY = coordenadaY;
-        h1.setBounds(coordenadaX+20, coordenadaY+45, 1, 10);
-        h2.setBounds(coordenadaX+105, coordenadaY+45, 1, 10);
-        h3.setBounds(coordenadaX+20,coordenadaY+43,28,1);
-        h4.setBounds(coordenadaX+48,coordenadaY+43,29,1);
-        h5.setBounds(coordenadaX+77,coordenadaY+43,28,1);
+        h1.setBounds(coordenadaX + 20, coordenadaY + 45, 1, 10);
+        h2.setBounds(coordenadaX + 105, coordenadaY + 45, 1, 10);
+        h3.setBounds(coordenadaX + 20, coordenadaY + 43, 28, 1);
+        h4.setBounds(coordenadaX + 48, coordenadaY + 43, 29, 1);
+        h5.setBounds(coordenadaX + 77, coordenadaY + 43, 28, 1);
 
     }
 
@@ -76,19 +76,17 @@ public class Defensa {
     public Rectangle getH2() {
         return h2;
     }
-    
+
     public Rectangle getH3() {
         return h3;
     }
-    
+
     public Rectangle getH4() {
         return h4;
     }
-    
+
     public Rectangle getH5() {
         return h5;
     }
-
- 
 
 }

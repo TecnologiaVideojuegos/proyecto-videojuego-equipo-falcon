@@ -18,8 +18,8 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class Fuego extends PersonajeGeneral {
 
-    String dir;
-    Animation up,down;
+    private String dir;
+    private Animation up,down;
     
     
     public Fuego(String dir, float x, float y, String texto) {

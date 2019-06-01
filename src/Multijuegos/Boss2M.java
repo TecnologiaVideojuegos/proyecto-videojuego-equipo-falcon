@@ -31,18 +31,18 @@ public class Boss2M extends BasicGameState {
     private String mapa1 = "Mapas\\boos3.tmx";
     private float puntos1[] = new float[]{50, 30, 800, 30, 800, 780, 50, 780};
     private Polygon bordes;
-    int mapaMov = 0;
-    int a = 0, b = 0, c = 0, d = 0;
-    TiledMap mapa;
-    Nave personaje;
-    ArrayList<Corazones> corazonOut, corazonIn, poum;
-    ArrayList<Arresto> balasOut, balasIn;
-    Corazones heart;
-    Arresto bala;
-    int fase = 0, num = 0;
-    Image[] mundoImg;
-    int contadorMundo = 0;
-    int puntos = 0;
+    private int mapaMov = 0;
+    private int a = 0, b = 0, c = 0, d = 0;
+    private TiledMap mapa;
+    private Nave personaje;
+    private ArrayList<Corazones> corazonOut, corazonIn, poum;
+    private ArrayList<Arresto> balasOut, balasIn;
+    private Corazones heart;
+    private Arresto bala;
+    private int fase = 0, num = 0;
+    private Image[] mundoImg;
+    private int contadorMundo = 0;
+    private int puntos = 0;
 
     public Boss2M() {
         try {

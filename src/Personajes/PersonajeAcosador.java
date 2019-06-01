@@ -18,13 +18,12 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class PersonajeAcosador extends PersonajeGeneral {
 
-    String dir;
-    Animation up,down;
-    
-    
-    public PersonajeAcosador(String dir, float x, float y, String texto,String personaje) {
+    private String dir;
+    private Animation up, down;
+
+    public PersonajeAcosador(String dir, float x, float y, String texto, String personaje) {
         try {
-            
+
             //Colocacion personaje
             this.coordenadaX = x;
             this.coordenadaY = y;
@@ -34,15 +33,15 @@ public class PersonajeAcosador extends PersonajeGeneral {
             hitbox = new Rectangle(coordenadaX + 17, coordenadaY + 10, 30, 50);
 
             //Animaciones parado
-             Image[] movementUp = {new Image("ImagenesSprite\\"+personaje+"\\up1.png"), new Image("ImagenesSprite\\"+personaje+"\\up2.png")};
-            Image[] movementDown = {new Image("ImagenesSprite\\"+personaje+"\\down1.png"), new Image("ImagenesSprite\\"+personaje+"\\down2.png")};
-            Image[] movementLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq1.png"), new Image("ImagenesSprite\\"+personaje+"\\izq2.png"), new Image("ImagenesSprite\\"+personaje+"\\izq3.png"), new Image("ImagenesSprite\\"+personaje+"\\izq4.png"), new Image("ImagenesSprite\\"+personaje+"\\izq5.png"), new Image("ImagenesSprite\\"+personaje+"\\izq6.png"), new Image("ImagenesSprite\\"+personaje+"\\izq7.png"), new Image("ImagenesSprite\\"+personaje+"\\izq8.png")};
-            Image[] movementRight = {new Image("ImagenesSprite\\"+personaje+"\\der1.png"), new Image("ImagenesSprite\\"+personaje+"\\der2.png"), new Image("ImagenesSprite\\"+personaje+"\\der3.png"), new Image("ImagenesSprite\\"+personaje+"\\der4.png"), new Image("ImagenesSprite\\"+personaje+"\\der5.png"), new Image("ImagenesSprite\\"+personaje+"\\der6.png"), new Image("ImagenesSprite\\"+personaje+"\\der7.png"), new Image("ImagenesSprite\\"+personaje+"\\der8.png")};
+            Image[] movementUp = {new Image("ImagenesSprite\\" + personaje + "\\up1.png"), new Image("ImagenesSprite\\" + personaje + "\\up2.png")};
+            Image[] movementDown = {new Image("ImagenesSprite\\" + personaje + "\\down1.png"), new Image("ImagenesSprite\\" + personaje + "\\down2.png")};
+            Image[] movementLeft = {new Image("ImagenesSprite\\" + personaje + "\\izq1.png"), new Image("ImagenesSprite\\" + personaje + "\\izq2.png"), new Image("ImagenesSprite\\" + personaje + "\\izq3.png"), new Image("ImagenesSprite\\" + personaje + "\\izq4.png"), new Image("ImagenesSprite\\" + personaje + "\\izq5.png"), new Image("ImagenesSprite\\" + personaje + "\\izq6.png"), new Image("ImagenesSprite\\" + personaje + "\\izq7.png"), new Image("ImagenesSprite\\" + personaje + "\\izq8.png")};
+            Image[] movementRight = {new Image("ImagenesSprite\\" + personaje + "\\der1.png"), new Image("ImagenesSprite\\" + personaje + "\\der2.png"), new Image("ImagenesSprite\\" + personaje + "\\der3.png"), new Image("ImagenesSprite\\" + personaje + "\\der4.png"), new Image("ImagenesSprite\\" + personaje + "\\der5.png"), new Image("ImagenesSprite\\" + personaje + "\\der6.png"), new Image("ImagenesSprite\\" + personaje + "\\der7.png"), new Image("ImagenesSprite\\" + personaje + "\\der8.png")};
 
-            Image[] stanceDown = {new Image("ImagenesSprite\\"+personaje+"\\down0.png"), new Image("ImagenesSprite\\"+personaje+"\\down0.png")};
-            Image[] stanceUp = {new Image("ImagenesSprite\\"+personaje+"\\up0.png"), new Image("ImagenesSprite\\"+personaje+"\\up0.png")};
-            Image[] stanceLeft = {new Image("ImagenesSprite\\"+personaje+"\\izq0.png"), new Image("ImagenesSprite\\"+personaje+"\\izq0.png")};
-            Image[] stanceRight = {new Image("ImagenesSprite\\"+personaje+"\\der0.png"), new Image("ImagenesSprite\\"+personaje+"\\der0.png")};
+            Image[] stanceDown = {new Image("ImagenesSprite\\" + personaje + "\\down0.png"), new Image("ImagenesSprite\\" + personaje + "\\down0.png")};
+            Image[] stanceUp = {new Image("ImagenesSprite\\" + personaje + "\\up0.png"), new Image("ImagenesSprite\\" + personaje + "\\up0.png")};
+            Image[] stanceLeft = {new Image("ImagenesSprite\\" + personaje + "\\izq0.png"), new Image("ImagenesSprite\\" + personaje + "\\izq0.png")};
+            Image[] stanceRight = {new Image("ImagenesSprite\\" + personaje + "\\der0.png"), new Image("ImagenesSprite\\" + personaje + "\\der0.png")};
 
             up = new Animation(movementUp, duration, false);
             down = new Animation(movementDown, duration, false);
@@ -55,19 +54,19 @@ public class PersonajeAcosador extends PersonajeGeneral {
 
             if (dir.equals("left")) {
                 actual = sleft;
-            } else if(dir.equals("right")){
+            } else if (dir.equals("right")) {
                 actual = sright;
-            } else if(dir.equals("up")){
+            } else if (dir.equals("up")) {
                 actual = sup;
             } else {
                 actual = sdown;
             }
-            
+
             //Bocadillo
             bocadillo = new Bocadillo(texto);
-            
+
             //No SBG
-            sgb=-1;
+            sgb = -1;
         } catch (SlickException e) {
         }
     }
@@ -103,20 +102,17 @@ public class PersonajeAcosador extends PersonajeGeneral {
 
     public void move() {
     }
-    
-    public void setCoordenadas(float x,float y)
-    {
-        this.coordenadaX=x;
-        this.coordenadaY=y;
+
+    public void setCoordenadas(float x, float y) {
+        this.coordenadaX = x;
+        this.coordenadaY = y;
     }
-    
-    public float getCoordenadaX()
-    {
+
+    public float getCoordenadaX() {
         return this.coordenadaX;
     }
-    
-    public float getCoordenadaY()
-    {
+
+    public float getCoordenadaY() {
         return this.coordenadaY;
     }
 
@@ -135,15 +131,15 @@ public class PersonajeAcosador extends PersonajeGeneral {
     public void noTalk() {
         bocadillo.fuera();
     }
-    
-    public Alerta getAlerta(){
+
+    public Alerta getAlerta() {
         return alerta;
     }
-    
+
     public void alerta() {
-        alerta.dentro((int) coordenadaX+20, (int) coordenadaY - 20);
+        alerta.dentro((int) coordenadaX + 20, (int) coordenadaY - 20);
     }
-    
+
     public void noAlerta() {
         alerta.fuera();
     }

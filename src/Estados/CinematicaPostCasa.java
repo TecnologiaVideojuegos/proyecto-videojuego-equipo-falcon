@@ -7,19 +7,15 @@ package Estados;
 
 import Elementos.Historia;
 import EstadoBoss1.Boss1;
-import Personajes.PersonajePrincipal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
-import org.newdawn.slick.tiled.TiledMap;
 
 /**
  *
@@ -32,11 +28,12 @@ public class CinematicaPostCasa extends BasicGameState {
         return 22;
     }
 
-    Historia bocadilloB1 = new Historia("ini30");
-    Historia bocadilloB2 = new Historia("ini31");
-    Historia bocadilloB3 = new Historia("ini32");
-    int contadorTemporal = 0;
-boolean stop=true;
+    private Historia bocadilloB1 = new Historia("ini30");
+    private Historia bocadilloB2 = new Historia("ini31");
+    private Historia bocadilloB3 = new Historia("ini32");
+    private int contadorTemporal = 0;
+    private boolean stop = true;
+
     public CinematicaPostCasa() {
     }
 
@@ -48,13 +45,13 @@ boolean stop=true;
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
-        if (contadorTemporal < 2600) {
+        if (contadorTemporal < 2800) {
             bocadilloB1.dentroXY(100, 0);
             bocadilloB1.getImagen().draw(bocadilloB1.getCoordenadaX(), bocadilloB1.getCoordenadaY());
-        } else if (contadorTemporal < 4200) {
+        } else if (contadorTemporal < 5800) {
             bocadilloB2.dentroXY(100, 0);
             bocadilloB2.getImagen().draw(bocadilloB2.getCoordenadaX(), bocadilloB2.getCoordenadaY());
-        } else if (contadorTemporal < 5800) {
+        } else if (contadorTemporal < 9100) {
             bocadilloB3.dentroXY(100, 0);
             bocadilloB3.getImagen().draw(bocadilloB3.getCoordenadaX(), bocadilloB3.getCoordenadaY());
         } else if (stop) {
@@ -73,7 +70,7 @@ boolean stop=true;
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if (contadorTemporal < 19000) {
+        if (contadorTemporal < 9100) {
             contadorTemporal++;
         }
     }

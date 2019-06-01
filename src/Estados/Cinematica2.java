@@ -35,29 +35,29 @@ public class Cinematica2 extends BasicGameState {
     }
 
     private String mapa1 = "Mapas\\MOVIE.tmx";
-    TiledMap mapa;
+    private TiledMap mapa;
 
     private float bordes1[] = new float[]{512, 410, 512, 700, 510, 700, 510, 410};
-    Polygon borde;
+    private Polygon borde;
 
     private float bordes2[] = new float[]{896, 110, 896, 700, 898, 700, 898, 110};
-    Polygon salida;
+    private Polygon salida;
 
-    int contadorParpadeo = 20;
-    int contadorTemporal = 0;
+    private int contadorParpadeo = 20;
+    private int contadorTemporal = 0;
 
-    Historia bocadilloB1 = new Historia("Historia50");
-    Historia bocadilloN1 = new Historia("Historia51");
-    Historia bocadilloB2 = new Historia("Historia52");
-    Historia bocadilloN2 = new Historia("Historia53");
-    Historia bocadilloB3 = new Historia("Historia54");
-    Historia bocadilloN3 = new Historia("Historia55");
-    Historia bocadilloB4 = new Historia("Historia56");
+    private Historia bocadilloB1 = new Historia("Historia50");
+    private Historia bocadilloN1 = new Historia("Historia51");
+    private Historia bocadilloB2 = new Historia("Historia52");
+    private Historia bocadilloN2 = new Historia("Historia53");
+    private Historia bocadilloB3 = new Historia("Historia54");
+    private Historia bocadilloN3 = new Historia("Historia55");
+    private Historia bocadilloB4 = new Historia("Historia56");
 
-    Boolean choqueIzquierda = false, choqueDerecha = false;
-    PersonajePrincipal personaje = new PersonajePrincipal();
-    Music song;
-    
+    private Boolean choqueIzquierda = false, choqueDerecha = false;
+    private PersonajePrincipal personaje = new PersonajePrincipal();
+    private Music song;
+
     public Cinematica2() {
         borde = new Polygon(bordes1);
         salida = new Polygon(bordes2);
@@ -121,13 +121,13 @@ public class Cinematica2 extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        
+
         if (!song.playing()) {
             song.setPosition((float) 12.55);
             song.play();
             song.setVolume((float) 0.2);
         }
-        
+
         int velocidad = 1;
         Input input = gc.getInput();
         if (contadorParpadeo > 0) {

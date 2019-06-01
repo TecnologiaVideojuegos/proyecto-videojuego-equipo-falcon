@@ -16,10 +16,10 @@ import org.newdawn.slick.geom.Rectangle;
  */
 public class Nave {
 
-    float coordenadaX, coordenadaY;
-    Animation mover;
-    int[] duration = {100, 100, 100, 100};
-    Rectangle h1, h2, h3, h4;
+    private float coordenadaX, coordenadaY;
+    private Animation mover;
+    private int[] duration = {100, 100, 100, 100};
+    private Rectangle h1, h2, h3, h4;
 
     public Nave() {
         try {
