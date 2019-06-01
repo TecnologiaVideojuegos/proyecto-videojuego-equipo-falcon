@@ -85,7 +85,7 @@ public class PlayaFinal extends BasicGameState {
             song.setVolume((float) 0.2);
         }
 
-        if (contadorTemporal < 8200) {
+        if (contadorTemporal < 9400) {
             contadorTemporal++;
         } else {
 
@@ -237,7 +237,7 @@ public class PlayaFinal extends BasicGameState {
         profesor.getAlerta().getImagen().draw(profesor.getAlerta().getCoordenadaX(), profesor.getAlerta().getCoordenadaY());
 
         if (input.isKeyDown(Input.KEY_T)) {
-            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
+            g.drawImage(new Image("\\Elementos aparte\\mapa3.png"), 550, 200);
         }
 
         if (contadorTemporal > 0) {

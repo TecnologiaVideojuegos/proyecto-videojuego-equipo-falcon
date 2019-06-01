@@ -163,7 +163,7 @@ public class ColegioInicial extends BasicGameState {
 
         for (int j = 0; j < NPCs.size(); j++) {
             NPCs.get(j).getDir().draw(NPCs.get(j).getCoordenadaX(), NPCs.get(j).getCoordenadaY());
-            g.draw(NPCs.get(j).getHitbox());
+            //g.draw(NPCs.get(j).getHitbox());
         }
 
         personaje.getDir().draw((int) personaje.getCoordenadaX(), (int) personaje.getCoordenadaY());
@@ -181,9 +181,6 @@ public class ColegioInicial extends BasicGameState {
             NPCs.get(j).getAlerta().getImagen().draw(NPCs.get(j).getAlerta().getCoordenadaX(), NPCs.get(j).getAlerta().getCoordenadaY());
         }
 
-        if (input.isKeyDown(Input.KEY_T)) {
-            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
-        }
 
         //HISTORIA
         if (contadorTemporal1 > 100 && contadorTemporal1 < 1500) {

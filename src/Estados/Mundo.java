@@ -161,8 +161,8 @@ public class Mundo extends BasicGameState {
                             personaje.setDir("down");
                             NPCs.remove(0);
                             colisionNPCs.remove(0);
-                            PersonajeEstaticoA o1 = new PersonajeEstaticoA("down", 1390, 340, "MP0", "Marinero");
-                            PersonajeEstaticoA o2 = new PersonajeEstaticoA("up", 1390, 380, "MP1", "Marinero");
+                            PersonajeEstaticoA o1 = new PersonajeEstaticoA("down", 1390, 340, "M4", "Marinero");
+                            PersonajeEstaticoA o2 = new PersonajeEstaticoA("up", 1390, 380, "M4", "Marinero");
                             NPCs.add(o1);
                             NPCs.add(o2);
                             colisionNPCs.add(o1.getHitbox());

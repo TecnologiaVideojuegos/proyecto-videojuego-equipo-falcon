@@ -149,9 +149,6 @@ public class CompraFinal extends BasicGameState {
         /*for (int i = 0; i < colisiones_bordes.size(); i++) {
          g.draw(colisiones_bordes.get(i));
          }*/
-        if (input.isKeyDown(Input.KEY_T)) {
-            g.drawImage(new Image("\\Elementos aparte\\mapa1.png"), 550, 200);
-        }
 
         //HISTORIA
         if (contadorTemporal1 > -1400 && contadorTemporal1 < 0) {

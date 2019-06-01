@@ -108,31 +108,31 @@ public class FIN1 extends BasicGameState {
         } else if (contadorTemporal1 > 1500 && contadorTemporal1 < 2800) {
             b1.dentro();
             b1.getImagen().draw(b1.getCoordenadaX(), b1.getCoordenadaY());
-        } else if (contadorTemporal1 > 2800 && contadorTemporal1 < 4100) {
+        } else if (contadorTemporal1 > 2800 && contadorTemporal1 < 4400) {
             b2.dentro();
             b2.getImagen().draw(b2.getCoordenadaX(), b2.getCoordenadaY());
-        } else if (contadorTemporal1 > 4100 && contadorTemporal1 < 5400) {
+        } else if (contadorTemporal1 > 4400 && contadorTemporal1 < 6000) {
             personaje.setDir("right");
             personaje.setDir("stance");
             padre.setDir("sright");
             b3.dentro();
             b3.getImagen().draw(b3.getCoordenadaX(), b3.getCoordenadaY());
-        } else if (contadorTemporal1 > 5400 && contadorTemporal1 < 6700) {
+        } else if (contadorTemporal1 > 6000 && contadorTemporal1 < 8000) {
             b4.dentro();
             b4.getImagen().draw(b4.getCoordenadaX(), b4.getCoordenadaY());
-        } else if (contadorTemporal1 > 6700 && contadorTemporal1 < 8000) {
+        } else if (contadorTemporal1 > 8000 && contadorTemporal1 < 10500) {
             b5.dentro();
             b5.getImagen().draw(b5.getCoordenadaX(), b5.getCoordenadaY());
-        } else if (contadorTemporal1 > 8000 && contadorTemporal1 < 9300) {
+        } else if (contadorTemporal1 > 10500 && contadorTemporal1 < 12300) {
             b6.dentro();
             b6.getImagen().draw(b6.getCoordenadaX(), b6.getCoordenadaY());
-        } else if (contadorTemporal1 > 9300 && contadorTemporal1 < 10600) {
+        } else if (contadorTemporal1 > 12300 && contadorTemporal1 < 14100) {
             b7.dentro();
             b7.getImagen().draw(b7.getCoordenadaX(), b7.getCoordenadaY());
-        } else if (contadorTemporal1 > 10600 && contadorTemporal1 < 11900) {
+        } else if (contadorTemporal1 > 14100 && contadorTemporal1 < 15700) {
             b8.dentro();
             b8.getImagen().draw(b8.getCoordenadaX(), b8.getCoordenadaY());
-        } else if (contadorTemporal1 > 11900) {
+        } else if (contadorTemporal1 > 15700) {
             sbg.enterState(32);
         }
 
