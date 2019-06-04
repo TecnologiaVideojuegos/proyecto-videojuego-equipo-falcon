@@ -44,7 +44,6 @@ import Multijuegos.InstruccionesMinis0;
 import Multijuegos.InstruccionesMinis1;
 import Multijuegos.InstruccionesMinis2;
 import Multijuegos.InstruccionesMinis3;
-import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.newdawn.slick.AppGameContainer;
@@ -59,7 +58,6 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Juego extends StateBasedGame {
 
     private AppGameContainer contenedor;
-
     public Juego(String name) {
         super(name);
         try {
@@ -128,8 +126,8 @@ public class Juego extends StateBasedGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.setProperty("java.library.path", new File("./slick").getAbsolutePath());
-        new Juego("a");
+        Juego juego = new Juego("Alex's Legacy");
+ 
     }
 
 }
