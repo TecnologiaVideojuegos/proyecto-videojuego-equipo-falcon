@@ -239,7 +239,6 @@ public class Boss4M extends BasicGameState {
                 }
             }
         }
-        System.out.println("por aqui");
         b0 = new Boton(matriz[0][0]);
         b1 = new Boton(matriz[1][0]);
         b2 = new Boton(matriz[2][0]);

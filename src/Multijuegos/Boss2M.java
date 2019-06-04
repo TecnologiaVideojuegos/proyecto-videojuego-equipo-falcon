@@ -150,7 +150,6 @@ public class Boss2M extends BasicGameState {
             corazonIn.add(corazonOut.get(0));
             corazonOut.remove(0);
             corazonIn.get(corazonIn.size() - 1).init();
-            System.out.println(fase / 50);
         }
         if (input.isKeyDown(Input.KEY_SPACE) && fase % 50 == 0) {
             balasIn.add(balasOut.get(0));
