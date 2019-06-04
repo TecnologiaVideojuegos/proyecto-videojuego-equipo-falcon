@@ -1,5 +1,7 @@
 ﻿# El Legado de Alex (Alex's Legacy)
 ## Desarrollado por Team Falcon
+> Link de la Web (incluye Memoria, Descarga de Juego, Documento de Diseño)
+> https://alexslegacy.mobirisesite.com/page2.html
 ### Miembros del equipo
 
 #### Sergio Sastre Arrojo. -->  _Jefe de Proyecto_
