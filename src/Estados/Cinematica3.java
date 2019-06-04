@@ -145,19 +145,7 @@ public class Cinematica3 extends BasicGameState {
             if (contadorTemporal < 17600) {
                 contadorTemporal++;
             } else {
-                if (input.isKeyDown(Input.KEY_A)) {
-                    personaje.setDir("left");
-                    personaje.getDir().update(i);
-                    if (personaje.getH2().intersects(borde)) {
-                        choqueIzquierda = true;
-                    } else {
-                        choqueIzquierda = false;
-                    }
-                    if (!choqueIzquierda || choqueDerecha) {
-                        personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
-                        choqueDerecha = false;
-                    }
-                } else if (input.isKeyDown(Input.KEY_D)) {
+                if (input.isKeyDown(Input.KEY_D)) {
                     personaje.setDir("right");
                     personaje.getDir().update(i);
                     if (personaje.getH3().intersects(borde)) {
