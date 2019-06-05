@@ -51,6 +51,7 @@ public class Cinematica5 extends BasicGameState {
 
     private Music song;
     private Boolean choqueIzquierda = false, choqueDerecha = false;
+    private boolean stop=true;
     private PersonajePrincipal personaje = new PersonajePrincipal();
 
     public Cinematica5() {
@@ -139,7 +140,8 @@ public class Cinematica5 extends BasicGameState {
                     personaje.getDir().update(i);
                     if (personaje.getCoordenadaX()<850) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                    } else {
+                    } else if(stop){
+                        stop=false;
                         personaje.setCoordenadaX(700);
                         personaje.setCoordenadaY(470);
                         personaje.setDir("up");

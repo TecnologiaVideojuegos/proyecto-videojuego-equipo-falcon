@@ -55,7 +55,7 @@ public class Cinematica1 extends BasicGameState {
     private Historia bocadilloN3 = new Historia("Historia26");
     private Historia bocadilloN4 = new Historia("Historia27");
 
-    private Music song;
+    private Music song; private boolean stop=true;
     private Boolean choqueIzquierda = false, choqueDerecha = false;
     private PersonajePrincipal personaje = new PersonajePrincipal();
 
@@ -163,7 +163,8 @@ public class Cinematica1 extends BasicGameState {
                     personaje.getDir().update(i);
                     if (personaje.getCoordenadaX()<860) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                    } else {
+                    } else if(stop){
+                        stop=false;
                         try {
                             sbg.enterState(1, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
                         } catch (InstantiationException ex) {

@@ -63,7 +63,7 @@ public class Juego extends StateBasedGame {
         try {
             contenedor = new AppGameContainer(this);
             contenedor.setTargetFrameRate(400);
-            contenedor.setDisplayMode(1504, 800, false);
+            contenedor.setDisplayMode(1504, 800,false);
             contenedor.start();
         } catch (SlickException ex) {
             Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);

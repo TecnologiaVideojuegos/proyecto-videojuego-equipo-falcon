@@ -55,6 +55,7 @@ public class Cinematica2 extends BasicGameState {
     private Historia bocadilloB4 = new Historia("Historia56");
 
     private Boolean choqueIzquierda = false, choqueDerecha = false;
+    private boolean stop=true;
     private PersonajePrincipal personaje = new PersonajePrincipal();
     private Music song;
 
@@ -159,7 +160,8 @@ public class Cinematica2 extends BasicGameState {
                     personaje.getDir().update(i);
                     if (personaje.getCoordenadaX()<860) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                    } else {
+                    } else if(stop){
+                        stop=false;
                         personaje.setCoordenadaX(700);
                         personaje.setCoordenadaY(470);
                         personaje.setDir("up");
