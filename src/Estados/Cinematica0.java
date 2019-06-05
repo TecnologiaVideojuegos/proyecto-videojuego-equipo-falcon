@@ -31,7 +31,7 @@ public class Cinematica0 extends BasicGameState {
     private String mapa1 = "Mapas\\MOVIE.tmx";
     private TiledMap mapa;
 
-    private float bordes1[] = new float[]{512, 410, 512, 700, 510, 700, 510, 410};
+    private float bordes1[] = new float[]{512, 410, 512, 555, 965, 555, 965, 410};
     private Polygon borde;
 
     private float bordes2[] = new float[]{896, 110, 896, 700, 898, 700, 898, 110};
@@ -79,7 +79,7 @@ public class Cinematica0 extends BasicGameState {
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
-
+        g.draw(borde);
         if (contadorTemporal > 1000) {
 
             if (contadorTemporal < 2600) {
@@ -135,20 +135,27 @@ public class Cinematica0 extends BasicGameState {
             if (contadorTemporal < 18400) {
                 contadorTemporal++;
             } else {
-                if (input.isKeyDown(Input.KEY_D)) {
+                if (input.isKeyDown(Input.KEY_A)) {
+                    personaje.setDir("left");
+                    personaje.getDir().update(i);
+                    if (personaje.getH2().intersects(borde)) {
+                        choqueIzquierda = true;
+                    } else {
+                        choqueIzquierda = false;
+                    }
+
+                    if (personaje.getCoordenadaX()>500) {
+                        personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
+                    }
+                } else if (input.isKeyDown(Input.KEY_D)) {
                     personaje.setDir("right");
                     personaje.getDir().update(i);
-                    if (personaje.getH3().intersects(borde)) {
-                        choqueDerecha = true;
-                    } else {
-                        choqueDerecha = false;
-                    }
-                    if (!choqueDerecha || choqueIzquierda) {
+                    if (personaje.getCoordenadaX()<860) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                        if (personaje.getH3().intersects(salida)) {
-                            sbg.enterState(14);// --> MUNDO
-                        }
+                    } else {
+                        sbg.enterState(14);// --> MUNDO
                     }
+
                     choqueIzquierda = false;
                 } else {
                     personaje.setDir("stance");

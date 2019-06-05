@@ -141,30 +141,38 @@ public class Cinematica2 extends BasicGameState {
             if (contadorTemporal < 16900) {
                 contadorTemporal++;
             } else {
-                if (input.isKeyDown(Input.KEY_D)) {
+                if (input.isKeyDown(Input.KEY_A)) {
+                    personaje.setDir("left");
+                    personaje.getDir().update(i);
+                    if (personaje.getH2().intersects(borde)) {
+                        choqueIzquierda = true;
+                    } else {
+                        choqueIzquierda = false;
+                    }
+
+                    if (personaje.getCoordenadaX()>500) {
+                        personaje.setCoordenadaX(personaje.getCoordenadaX() - i * 0.16f * velocidad);
+                    }
+                    choqueDerecha = false;
+                } else if (input.isKeyDown(Input.KEY_D)) {
                     personaje.setDir("right");
                     personaje.getDir().update(i);
-                    if (personaje.getH3().intersects(borde)) {
-                        choqueDerecha = true;
-                    } else {
-                        choqueDerecha = false;
-                    }
-                    if (!choqueDerecha || choqueIzquierda) {
+                    if (personaje.getCoordenadaX()<860) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                        if (personaje.getH3().intersects(salida)) {
-                            personaje.setCoordenadaX(700);
-                            personaje.setCoordenadaY(470);
-                            personaje.setDir("up");
-                            personaje.setDir("stance");
-                            sbg.getState(2).init(gc, sbg);
-                            try {
-                                sbg.enterState(2, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
-                            } catch (InstantiationException ex) {
-                                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
-                            } catch (IllegalAccessException ex) {
-                                Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
-                            }// --> BOSS2
-                        }
+                    } else {
+                        personaje.setCoordenadaX(700);
+                        personaje.setCoordenadaY(470);
+                        personaje.setDir("up");
+                        personaje.setDir("stance");
+                        sbg.getState(2).init(gc, sbg);
+                        try {
+                            sbg.enterState(2, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                        } catch (InstantiationException ex) {
+                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IllegalAccessException ex) {
+                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                        }// --> BOSS2
+
                     }
                     choqueIzquierda = false;
                 } else {

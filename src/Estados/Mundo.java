@@ -402,6 +402,8 @@ public class Mundo extends BasicGameState {
         if (input.isKeyDown(Input.KEY_T)) {
             g.drawImage(mapaHistoria, 550, 200);
         }
+        
+        
     }
 
     @Override
