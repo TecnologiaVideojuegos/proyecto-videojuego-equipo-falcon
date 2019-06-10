@@ -79,7 +79,6 @@ public class Cinematica0 extends BasicGameState {
         mapa.render(0, 0, 2);
         mapa.render(0, 0, 3);
         mapa.render(0, 0, 4);
-        g.draw(borde);
         if (contadorTemporal > 1000) {
 
             if (contadorTemporal < 2600) {
