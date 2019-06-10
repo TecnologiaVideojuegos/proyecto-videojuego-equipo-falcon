@@ -22,7 +22,8 @@
 
 #### Lucas Garcia de Viedma Perez. --> _Programador_
   - Programacion del juego.
-  - Co-creador de la historia
+  - Co-creador de la historia.
+  - Tester
   - Diseño y desarrollo de cinemáticas y animaciones.
   - Diseño y desarrollo de los niveles (así como todos los elementos y sprites que intervienen en ellos).
   - Diseño de los mapas del juego.
