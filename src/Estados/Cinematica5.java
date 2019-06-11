@@ -140,6 +140,7 @@ public class Cinematica5 extends BasicGameState {
                     personaje.getDir().update(i);
                     if (personaje.getCoordenadaX()<850) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
+                        stop=true;
                     } else if(stop){
                         stop=false;
                         personaje.setCoordenadaX(700);
