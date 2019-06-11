@@ -164,9 +164,7 @@ public class Cinematica3 extends BasicGameState {
                     personaje.getDir().update(i);
                     if (personaje.getCoordenadaX()<860) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                    } else{
-else {
-                        
+                    } else{                        
                         personaje.setCoordenadaX(700);
                         personaje.setCoordenadaY(470);
                         personaje.setDir("up");
