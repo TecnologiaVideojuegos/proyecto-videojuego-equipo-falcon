@@ -160,20 +160,15 @@ public class Cinematica2 extends BasicGameState {
                     personaje.getDir().update(i);
                     if (personaje.getCoordenadaX()<860) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                    } else if(stop){
-                        stop=false;
+                    } else {
+                        
                         personaje.setCoordenadaX(700);
                         personaje.setCoordenadaY(470);
                         personaje.setDir("up");
                         personaje.setDir("stance");
                         sbg.getState(2).init(gc, sbg);
-                        try {
-                            sbg.enterState(2, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
-                        } catch (InstantiationException ex) {
-                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
-                        } catch (IllegalAccessException ex) {
-                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
-                        }// --> BOSS2
+                        sbg.enterState(2);
+                        // --> BOSS2
 
                     }
                     choqueIzquierda = false;
