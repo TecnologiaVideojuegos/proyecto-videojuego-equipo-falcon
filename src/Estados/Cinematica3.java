@@ -164,14 +164,22 @@ public class Cinematica3 extends BasicGameState {
                     personaje.getDir().update(i);
                     if (personaje.getCoordenadaX()<860) {
                         personaje.setCoordenadaX(personaje.getCoordenadaX() + i * 0.16f * velocidad);
-                    } else{                        
+                        stop=true;
+                    } else if(stop){
+                        stop=false;
                         personaje.setCoordenadaX(700);
                         personaje.setCoordenadaY(470);
                         personaje.setDir("up");
                         personaje.setDir("stance");
                         sbg.getState(20).init(gc, sbg);
-                        sbg.enterState(20);
-                        // --> BOSS3
+                        try {
+                            sbg.enterState(20, FadeOutTransition.class.newInstance(), FadeInTransition.class.newInstance());
+                        } catch (InstantiationException ex) {
+                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IllegalAccessException ex) {
+                            Logger.getLogger(Boss1.class.getName()).log(Level.SEVERE, null, ex);
+                        }                        
+                        
 
                     }
                         
