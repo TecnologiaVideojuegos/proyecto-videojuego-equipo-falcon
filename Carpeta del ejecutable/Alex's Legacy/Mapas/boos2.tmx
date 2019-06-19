@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" source="../Construccion Mapas/Inside_A2.tsx"/>
+ <tileset firstgid="193" source="../Construccion Mapas/interior.tsx"/>
+ <tileset firstgid="449" source="../Construccion Mapas/Inside_B.tsx"/>
+ <tileset firstgid="705" source="../Construccion Mapas/interior4.tsx"/>
+ <tileset firstgid="1729" source="../Construccion Mapas/interior3.tsx"/>
+ <tileset firstgid="1817" source="../Construccion Mapas/interior7.tsx"/>
+ <tileset firstgid="2841" source="../Construccion Mapas/Window.tsx"/>
+ <tileset firstgid="2857" source="../Construccion Mapas/oubliette_dungeon_big (1).tsx"/>
+ <tileset firstgid="4017" source="../Construccion Mapas/muros.tsx"/>
+ <tileset firstgid="4021" source="../Construccion Mapas/muro2.tsx"/>
+ <tileset firstgid="4025" source="../Construccion Mapas/oubliette_dungeon_big.tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtWXzW3DMAyFdW9idYKs0DUKtAW6gKdoO1j8I2efZoncaqEm8vxMSnKdQ3N4gC2K5GeZ+js8OHe4Yx29c/0dqfFX9mF8fqmcex31NqreO3fyS8V2tsX3xuhvqTHipPIiXyD2j7Htc9TXxD5MOUTShjZ85v6WguKrxea8yMfsz6Mu1a8sFo3zL+xPj+vixLb36ipmP+/m7Gqd7Zc2tY3y83wqjcM2/H5mT9Un1nR8tvpjXfCYbo2N8ZE9GPzd1C4MAfy5fwc2bBf2VuHAWgmGP/e32GXO4Lil2EvrXNPgdXbML88hwy627911zarBn9nXzNE17Fr+Newyv5rpPcduzcfUPE6xc/4cu9QmrrfB2+OeqmVLXQG7lj/FjuNUwn4L9fQdKXbsf2v2tWcCrfZz7CKN/ZTx5Zrp6Z/z/BI/nnNxX9X8c+y59V18pH47+mf43+IeLLm1/TDatDNqyl/YOX/pOqONH44j1yu381y07Ohv9cE6ybFr64XEjmPIZ5UGbLwGtsCu2dlfbNb+nmLXxlna4zmz9fN9H+u19cs1EMV29NdiW/NcY4/fat1T6mksRNretFboz7G1M4HovFuy470kzqHSPUarMclz9PM1jP07w58VeUrvTVvHU+4ArZ+vgVvipe5N+N/q/ba78KVa/vet8ay9qfQs8l/UAfu96gdiOv6EXBIAAA==
+  </data>
+ </layer>
+ <layer id="2" name="Capa de patrones 2" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+ <layer id="3" name="Capa de patrones 3" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+ <layer id="4" name="Capa de patrones 4" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+ <layer id="5" name="Capa de patrones 5" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+</map>

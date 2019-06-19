@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="47" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" source="../Construccion Mapas/instrucciones0.tsx"/>
+ <tileset firstgid="10" source="../Construccion Mapas/interior.tsx"/>
+ <tileset firstgid="266" source="../Construccion Mapas/instrucciones2.tsx"/>
+ <tileset firstgid="1146" source="../Construccion Mapas/oubliette_dungeon_big.tsx"/>
+ <tileset firstgid="1726" source="../Construccion Mapas/city_inside.tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACpNlYGCQHSS4n4U0PNDuHXX7wONRt2PiQHYIhvH1WBkY9CnEfGz0dTsMTwLaXQDEzmRikN61rAPn9hYgzmYjD7cMYrc7IeFRtw9ut9MKE3K7EwE8VNyejSe8h4LbySlnBrvbrwH1XGcdmm5/BdTzepC5nVj8D6jn/yBxO7ltgoF0+y6gvbuBeD8F+OAAuZ1aeNTtA+d+evhlKLt9FFMPAwBlsVhyXBIAAA==
+  </data>
+ </layer>
+ <layer id="2" name="Capa de patrones 2" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+ <layer id="3" name="Capa de patrones 3" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+ <layer id="4" name="Capa de patrones 4" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+ <layer id="5" name="Capa de patrones 5" width="47" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3BMQEAAADCoPVPbQdvoAAAAADgM24ZPiBcEgAA
+  </data>
+ </layer>
+</map>
